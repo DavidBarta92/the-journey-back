@@ -1,0 +1,26 @@
+{
+  "name": "starslider",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidBarta92/starslider.git"
+  },
+  "author": "DavidBarta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DavidBarta92/starslider/issues"
+  },
+  "homepage": "https://github.com/DavidBarta92/starslider#readme",
+  "devDependencies": {
+    "electron": "^21.1.1"
+  },
+  "scripts": {
+    "start": "electron ."
+  }
+}
+
