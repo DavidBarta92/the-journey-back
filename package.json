@@ -1,26 +1,43 @@
 {
   "name": "starslider",
-  "version": "0.0.1",
-  "description": "",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DavidBarta92/starslider.git"
-  },
-  "author": "DavidBarta",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/DavidBarta92/starslider/issues"
-  },
-  "homepage": "https://github.com/DavidBarta92/starslider#readme",
-  "devDependencies": {
-    "electron": "^21.1.1"
+  "version": "0.1.0",
+  "main": "public/electron.js",
+  "homepage": "./",
+  "private": true,
+  "dependencies": {
+    "@craco/craco": "^6.4.5",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "jquery": "^3.6.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1"
   },
   "scripts": {
+    "build": "craco build",
     "start": "electron ."
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^21.2.0",
+    "webpack-node-externals": "^3.0.0"
   }
 }
-
