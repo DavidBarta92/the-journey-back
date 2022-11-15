@@ -8,16 +8,17 @@ import stateManager from './stateManager';
 var RenderManager = (function(){
     //gameCanvas.clear();
 
-    var state = stateManager.loadState();
+    window.addEventListener('resize', () => {
+        gameCanvas.resize();
+    }, true);
 
-    console.log(state);
+    var state = stateManager.loadState();
 
   switch(state.view){
     case 'menu':
       console.log('menu');
       switch(state.content){
         case 'main':
-          console.log('im here');
           Menu.renderMain(state);
           break;
         case 'credits':

@@ -9,20 +9,20 @@ var gameCanvas = (function(){
 
     //set render params
     var render = {
-        width: 320,
-        height: 240,
+        width: 1280,
+        height: 720,
         depthOfField: 150,
         camera_distance: 30,
         camera_height: 100
     };
 
+    canvas.height = render.height;
+    canvas.width = render.width;
+
     console.log("Canvas is done");
 
     return {
         resize: function(){
-            context.height = render.height;
-            context.width = render.width;
-
             if (window.innerWidth / window.innerHeight > render.width / render.height) {
                 var scale = window.innerHeight / render.height;
             }
@@ -31,10 +31,13 @@ var gameCanvas = (function(){
             }
             
             var transform = "scale(" + scale + ")";
-            // document.getElementById("c").css("MozTransform", transform).css("transform", transform).css("WebkitTransform", transform).css({
-            //     top: (scale - 1) * render.height / 2,
-            //     left: (scale - 1) * render.width / 2 + (window.innerWidth - render.width * scale) / 2
-            // });
+            var c =  document.getElementById("c");
+            
+            c.style.MozTransform = transform;
+            c.style.transform = transform;
+            c.style.webkitTransform = transform;
+            c.style.top = ((scale - 1) * render.height / 2) + "px";
+            c.style.left = ((scale - 1) * render.width / 2 + (window.innerWidth - render.width * scale) / 2) + "px";
         },
 
         clear: function(){

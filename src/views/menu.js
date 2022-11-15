@@ -2,6 +2,7 @@ import inputController from "../controllers/inputController";
 import gameCanvas from "../models/gameCanvas";
 import RenderManager from "../controllers/renderManager";
 import stateManager from "../controllers/stateManager";
+import Dither from "./dither";
 
 var Menu = (function(){
 
@@ -135,11 +136,6 @@ var Menu = (function(){
     return {
         //rendering splash frame
         renderMain: function(state){
-
-            console.log('im here also');
-            console.log(state);
-            console.log(context);
-
             var state = state;
 
             context.fillStyle = "rgb(100,100,0)";
@@ -151,21 +147,18 @@ var Menu = (function(){
             context.fillText("Controlls", 10, 50);
             context.fillText("Credits", 10, 80);
 
+            var ctxForDither = context.getImageData(10,10,50,50);
+            var ctxFromD = Dither.filter(ctxForDither);
+            context.putImageData(ctxFromD, 10, 70);
+
             window.addEventListener('keypress', (event) => {
-                console.log(event.keyCode);
                 if(event.keyCode == 32) {
-                    console.log("key32 is pressed");
                     stateManager.setView('racer');
                     RenderManager();
                 }
               }, { once: true });
         },
         renderCredits: function(state){
-
-            console.log('im here also');
-            console.log(state);
-            console.log(context);
-
             var state = state;
 
             context.fillStyle = "rgb(100,100,0)";
@@ -186,11 +179,6 @@ var Menu = (function(){
               }, { once: true });
         },
         renderControlls: function(state){
-
-            console.log('im here also');
-            console.log(state);
-            console.log(context);
-
             var state = state;
 
             context.fillStyle = "rgb(100,100,0)";
