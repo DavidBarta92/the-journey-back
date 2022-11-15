@@ -7,3 +7,7 @@ html, body {
     Arial, sans-serif;
   max-width: 38rem;
 }
+
+#c {
+  position: absolute;
+}
