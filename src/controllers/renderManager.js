@@ -2,11 +2,14 @@ import gameCanvas from '../models/gameCanvas';
 import Menu from '../views/menu';
 import Racer from '../views/racer';
 import Story from '../views/story';
+import inputController from './inputController';
 import stateManager from './stateManager';
 
 
 var RenderManager = (function(){
     //gameCanvas.clear();
+
+    inputController.init();
 
     window.addEventListener('resize', () => {
         gameCanvas.resize();

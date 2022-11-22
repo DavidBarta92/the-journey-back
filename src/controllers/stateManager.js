@@ -42,6 +42,16 @@ var stateManager = (function(){
   loadState: () => {
       return loadState();
     },
+  setContent: (content) => {
+      state = loadState();
+      var oldContent = state.content; 
+      state.content = content;
+      dataController.saveState(state);
+      gameCanvas.clear();
+      if (oldContent !== state.content){
+        console.log('The old content: ' + oldContent + ' has changed to: ' + state.content);
+      }
+    },
   setView: (view) => {
       state = loadState();
       var oldView = state.view; 
