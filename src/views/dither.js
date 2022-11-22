@@ -20,17 +20,17 @@ var Dither = (function(){
     }
 
     function draw (data) {
-    
+        
         if (data.processing.greyscaleMethod === true) {
             greyscale_luminance(data.image);
         }
-    
+        
         dither_atkinson(data.image, data.image.width, (data.processing.greyscaleMethod === false));
-    
+        
         if (data.processing.replaceColours === true) {
             replace_colours(data.image.data, data.processing.replaceColourMap.black, data.processing.replaceColourMap.white);
         }
-
+        
         return data.image;
     }
     

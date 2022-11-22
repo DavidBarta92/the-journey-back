@@ -12,6 +12,93 @@ var Menu = (function(){
 
     gameCanvas.resize();
 
+    const buttons = {
+        continue : {
+            text: 'Continue',
+            x: 10,
+            y:150,
+            width: 70,
+            height: 20,
+            color: 'white',
+            font: 'Arial',
+            fontSize: 20,
+            border: false,
+            actionType: 'setView',
+            action: 'racer',
+            place: ['main',],
+        },
+        newGame : {
+            text: 'New Game',
+            x: 10,
+            y:180,
+            width: 70,
+            height: 20,
+            color: 'white',
+            font: 'Arial',
+            fontSize: 20,
+            border: false,
+            actionType: 'setView',
+            action: 'racer',
+            place: ['main',],
+        }, 
+        controlls : {
+            text: 'Controlls',
+            x: 10,
+            y:210,
+            width: 70,
+            height: 20,
+            color: 'white',
+            font: 'Arial',
+            fontSize: 20,
+            border: false,
+            actionType: 'setContent',
+            action: 'controlls',
+            place: ['main',],
+        }, 
+        credits : {
+            text: 'Credits',
+            x: 10,
+            y:240,
+            width: 70,
+            height: 20,
+            color: 'white',
+            font: 'Arial',
+            fontSize: 20,
+            border: false,
+            actionType: 'setContent',
+            action: 'credits',
+            place: ['main',],
+        },
+        main_exit : {
+            text: 'Exit',
+            x: 10,
+            y:270,
+            width: 70,
+            height: 20,
+            color: 'white',
+            font: 'Arial',
+            fontSize: 20,
+            border: false,
+            actionType: '',
+            action: '',
+            place: ['main',],
+        },
+        back : {
+            text: 'Back',
+            x: 10,
+            y:270,
+            width: 70,
+            height: 20,
+            color: 'white',
+            font: 'Arial',
+            fontSize: 20,
+            border: false,
+            actionType: 'setContent',
+            action: 'main',
+            place: ['controlls', 'credits',],
+        }, 
+    };
+
     var spritesheet = new Image();
     spritesheet.src = "../media/spritesheet.high.png";
 
@@ -23,180 +110,155 @@ var Menu = (function(){
             cur += 8;
         }
     }
+
+    function offset(el) {
+        var box = el.getBoundingClientRect();
+        var docElem = document.documentElement;
+        return {
+          top: box.top + window.pageYOffset - docElem.clientTop,
+          left: box.left + window.pageXOffset - docElem.clientLeft
+        };
+    }
+
+    function onView(button, stateView) {
+        return button.place.includes(stateView);
+    }
+
+    var drawButtons = function(buttons, state) {
+        var fontString;
+        Object.entries(buttons).forEach(button => {
+            if (!onView(button[1], state.content)) { return; }
+
+            fontString          = button[1].fontSize + "px " + button[1].font;
+            context.font        = fontString;
+            context.fillStyle   = button[1].color;
+            context.fillText(button[1].text, button[1].x, button[1].y);
+
+            if(button[1].border){
+                var width = context.measureText(button[1].text).width + 2 * (button[1].fontSize / 10);
+                var buttonTopLeftX      = button[1].x - button[1].fontSize / 10;
+                var buttonTopLeftY      = button[1].y - button[1].fontSize + button[1].fontSize / 10;
+                var buttonBottomRightX  = button[1].x + context.measureText(button[1].text).width + 2 * (button[1].fontSize / 10);
+                var buttonBottomRightY  = button[1].y + button[1].fontSize;
     
-    //window.resize(resize);
+                context.strokeStyle = button[1].color;
+                context.rect(buttonTopLeftX, buttonTopLeftY, width, button[1].fontSize);
+                context.stroke();
+            }
+        });
+    }
 
-    // var ui = {
-    //     "buttons": [
-    //      {
-    //       "id": "continue_game",
-    //       "x": 0,
-    //       "y": 70,
-    //       "width": 200,
-    //       "height": 50,
-    //       "text": "Continue",
-    //       "font_size": 10,
-    //       "font_family": "sans-serif",
-    //       "border_color_default": "#555",
-    //       "background_color_default": "#bfbfbf",
-    //       "border_color_hover": "#7c7c7c",
-    //       "background_color_hover": "#d8d8d8",
-    //       "hl": false,
-    //       "onclick": null
-    //      },
-    //      {
-    //       "id": "new_game",
-    //       "x": 0,
-    //       "y": 0,
-    //       "width": 200,
-    //       "height": 50,
-    //       "text": "New Game",
-    //       "font_size": 10,
-    //       "font_family": "sans-serif",
-    //       "border_color_default": "#555",
-    //       "background_color_default": "#bfbfbf",
-    //       "border_color_hover": "#7c7c7c",
-    //       "background_color_hover": "#d8d8d8",
-    //       "hl": false,
-    //       "onclick": 'null'
-    //      },
-    //      {
-    //       "id": "exit_game",
-    //       "x": 0,
-    //       "y": -70,
-    //       "width": 200,
-    //       "height": 50,
-    //       "text": "Exit",
-    //       "font_size": 7,
-    //       "font_family": "sans-serif",
-    //       "border_color_default": "#555",
-    //       "background_color_default": "#bfbfbf",
-    //       "border_color_hover": "#7c7c7c",
-    //       "background_color_hover": "#d8d8d8",
-    //       "hl": false,
-    //       "onclick": null
-    //      }
-    //     ],
-    //     "text": []
-    //    }
+    var hitArea = function(event, buttons, state, context){
+        console.log("X:" + event.offsetX + " | Y:" + event.offsetY);
+        var canvas = gameCanvas.getCanvas();
+        var canvasOffset = offset(canvas);
+        var offsetX = canvasOffset.left;
+        var offsetY = canvasOffset.top;
 
-    // canvas.onmousemove = function(e){
-    //     ui.buttons.map((obj, index) => { 
-    //         if(e.clientX > ((canvas.width / 2 - (obj.width / 2) + obj.x) + canvas.offsetLeft - window.scrollX) 
-    //         && e.clientY > ((canvas.height / 2 - (obj.height / 2) + -(obj.y)) + canvas.offsetTop - window.scrollY) 
-    //         && e.clientX < ((canvas.width / 2 - (obj.width / 2) + obj.x) + obj.width  + canvas.offsetLeft) 
-    //         && e.clientY < (((canvas.height / 2 - (obj.height / 2) + -(obj.y)) + canvas.offsetTop - window.scrollY) + obj.height + canvas.offsetTop)){ 
-    //             ui.buttons[index].hl = true
-    //             console.log('active');
-    //         }
-    //         else{
-    //             ui.buttons[index].hl = false
-    //         }
-    //     })
-    // }
-    
-    // canvas.onmousedown = function(e){
-    //     ui.buttons.map((obj, index) => { 
-    //         if(e.clientX > ((canvas.width / 2 - (obj.width / 2) + obj.x) + canvas.offsetLeft - window.scrollX) 
-    //         && e.clientY > ((canvas.height / 2 - (obj.height / 2) + -(obj.y)) + canvas.offsetTop - window.scrollY) 
-    //         && e.clientX < ((canvas.width / 2 - (obj.width / 2) + obj.x) + obj.width  + canvas.offsetLeft) 
-    //         && e.clientY < (((canvas.height / 2 - (obj.height / 2) + -(obj.y)) + canvas.offsetTop - window.scrollY) + obj.height + canvas.offsetTop)){ 
-    //             obj.onclick(e)
-    //         }
-    //     })
-    // }
+        event.preventDefault();
+        var mouseX = parseInt(event.clientX - offsetX);
+        var mouseY = parseInt(event.clientY - offsetY);
 
-    // for(var btn of ui.buttons){
-    //     ctx.fillStyle = '#bfbfbf'
-    //     ctx.lineWidth = 2
-    //     ctx.strokeStyle = '#555'
-    //     ctx.textBaseline = 'middle'
-    //     ctx.textAlign = 'center'
-    //     ctx.font = btn.font_size + 'pt ' + btn.font_family
-    //     if(btn.hl){
-    //         ctx.strokeStyle = '#7c7c7c'
-    //         ctx.fillStyle = '#d8d8d8'
-    //     }
-    //     ctx.fillRect(canvas.width / 2 - (btn.width / 2) + btn.x,
-    //      canvas.height / 2 - btn.height / 2 + -(btn.y), btn.width, btn.height)
-    //     ctx.strokeRect(canvas.width / 2 - (btn.width / 2) + btn.x,
-    //      canvas.height / 2 - btn.height / 2 + -(btn.y), btn.width, btn.height)
-    //     ctx.fillStyle = 'black'
-    //     ctx.fillText(btn.text, canvas.width / 2 - btn.width / 2 + btn.x + btn.width / 2,
-    //      canvas.height / 2 - btn.height / 2 + -(btn.y) + btn.height / 2)
-    // }
-    // for(txt of ui.text){
-    //     ctx.fillStyle = txt.color
-    //     ctx.textBaseline = 'middle'
-    //     ctx.textAlign = 'center'
-    //     ctx.font = txt.font_size + 'pt ' + txt.font_family
-    //     ctx.fillText(txt.text, canvas.width / 2 + txt.x, canvas.height / 2 + -(txt.y))
-    // }
+        Object.entries(buttons).forEach(button => {
+            if (button[0] === "back" && state.content === "main") { return; }
+
+            var buttonX         = button[1].x - button[1].fontSize / 10;
+            var buttonY         = button[1].y - button[1].fontSize + button[1].fontSize / 10;
+            var buttonWidth     = context.measureText(button[1].text).width + 2 * (button[1].fontSize / 10);
+            var buttonHeight    = button[1].fontSize;
+            if (mouseX >= buttonX && mouseX <= buttonX + buttonWidth && mouseY >= buttonY && mouseY <= buttonY + buttonHeight){
+                context.beginPath();    
+                context.strokeStyle = 'blue';
+                context.rect(buttonX, buttonY, buttonWidth, buttonHeight);
+                context.stroke();
+                if (button[1].actionType === "setView") {
+                    stateManager.setView(button[1].action);
+                    RenderManager();
+                    return;
+                }
+                if (button[1].actionType === "setContent") {
+                    stateManager.setContent(button[1].action);
+                    RenderManager();
+                    return;
+                }
+            }
+        });
+        }
 
     return {
-        //rendering splash frame
         renderMain: function(state){
             var state = state;
 
-            context.fillStyle = "rgb(100,100,0)";
+            context.beginPath();
+            context.fillStyle = "rgb(0,0,0)";
             context.fillRect(0, 0, render.width, render.height);
 
-            context.font = "30px Arial";
-            context.fillStyle = "blue";
-            context.fillText("Start Game", 10, 20);
-            context.fillText("Controlls", 10, 50);
-            context.fillText("Credits", 10, 80);
-
-            var ctxForDither = context.getImageData(10,10,50,50);
+            var ctxForDither = context.getImageData(0, 0, render.width, render.height);
             var ctxFromD = Dither.filter(ctxForDither);
-            context.putImageData(ctxFromD, 10, 70);
+            context.putImageData(ctxFromD, 0, 0);
 
-            window.addEventListener('keypress', (event) => {
-                if(event.keyCode == 32) {
-                    stateManager.setView('racer');
-                    RenderManager();
-                }
-              }, { once: true });
+            context.font = "50px Arial";
+            context.fillStyle = "white";
+            context.fillText("StarSlider", 10, 50);
+            context.font = "12px Arial";
+            context.fillText("preAlpha", 230, 50);
+
+            drawButtons(buttons, state);
+
+            window.onclick = function (event) {
+                hitArea(event, buttons, state, context);
+            }
+
         },
+
         renderCredits: function(state){
             var state = state;
 
-            context.fillStyle = "rgb(100,100,0)";
+            context.fillStyle = "rgb(0,0,0)";
             context.fillRect(0, 0, render.width, render.height);
+
+            context.font = "50px Arial";
+            context.fillStyle = "white";
+            context.fillText("StarSlider", 10, 50);
+            context.font = "12px Arial";
+            context.fillText("preAlpha", 230, 50);
 
             context.font = "30px Arial";
             context.fillStyle = "blue";
-            context.fillText("Credits:", 10, 20);
-            context.fillText("code, art: David Barta", 10, 50);
+            context.fillText("Credits:", 10, 100);
+            context.fillText("code, art: David Barta", 10, 130);
 
-            window.addEventListener('keypress', (event) => {
-                console.log(event.keyCode);
-                if(event.keyCode == 32) {
-                    console.log("key32 is pressed");
-                    stateManager.setView('racer');
-                    RenderManager();
-                }
-              }, { once: true });
+            drawButtons(buttons, state);
+
+            window.onclick = function (event) {
+                hitArea(event, buttons, state, context);
+            }
+
         },
+
         renderControlls: function(state){
             var state = state;
 
-            context.fillStyle = "rgb(100,100,0)";
+            context.fillStyle = "rgb(0,0,0)";
             context.fillRect(0, 0, render.width, render.height);
+
+            context.font = "50px Arial";
+            context.fillStyle = "white";
+            context.fillText("StarSlider", 10, 50);
+            context.font = "12px Arial";
+            context.fillText("preAlpha", 230, 50);
+
 
             context.font = "30px Arial";
             context.fillStyle = "blue";
-            context.fillText("nstructions:", 10, 20);
-            context.fillText("space to start, arrows to drive", 10, 50);
+            context.fillText("nstructions:", 10, 100);
+            context.fillText("space to start, arrows to drive", 10, 130);
 
-            window.addEventListener('keypress', (event) => {
-                console.log(event.keyCode);
-                if(event.keyCode == 32) {
-                    console.log("key32 is pressed");
-                    stateManager.setView('racer');
-                    RenderManager();
-                }
-              }, { once: true });
+            drawButtons(buttons, state);
+
+            window.onclick = function (event) {
+                hitArea(event, buttons, state, context);
+            }
         },
 
         }

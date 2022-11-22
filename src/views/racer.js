@@ -3,7 +3,6 @@ import RenderManager from "../controllers/renderManager";
 import stateManager from "../controllers/stateManager";
 
 var Racer = (function(state){
-
     var state = state;
 
 var context = gameCanvas.getContext();
