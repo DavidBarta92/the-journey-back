@@ -10,6 +10,8 @@ var Menu = (function(){
 
     var context = gameCanvas.getContext();
 
+    var canvas = gameCanvas.getCanvas();
+
     gameCanvas.resize();
 
     const buttons = {
@@ -149,8 +151,6 @@ var Menu = (function(){
     }
 
     var hitArea = function(event, buttons, state, context){
-        console.log("X:" + event.offsetX + " | Y:" + event.offsetY);
-        var canvas = gameCanvas.getCanvas();
         var canvasOffset = offset(canvas);
         var offsetX = canvasOffset.left;
         var offsetY = canvasOffset.top;
@@ -160,17 +160,13 @@ var Menu = (function(){
         var mouseY = parseInt(event.clientY - offsetY);
 
         Object.entries(buttons).forEach(button => {
-            if (button[0] === "back" && state.content === "main") { return; }
+            if (!onView(button[1], state.content)) { return; }
 
             var buttonX         = button[1].x - button[1].fontSize / 10;
             var buttonY         = button[1].y - button[1].fontSize + button[1].fontSize / 10;
             var buttonWidth     = context.measureText(button[1].text).width + 2 * (button[1].fontSize / 10);
             var buttonHeight    = button[1].fontSize;
             if (mouseX >= buttonX && mouseX <= buttonX + buttonWidth && mouseY >= buttonY && mouseY <= buttonY + buttonHeight){
-                context.beginPath();    
-                context.strokeStyle = 'blue';
-                context.rect(buttonX, buttonY, buttonWidth, buttonHeight);
-                context.stroke();
                 if (button[1].actionType === "setView") {
                     stateManager.setView(button[1].action);
                     RenderManager();
