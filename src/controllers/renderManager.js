@@ -34,7 +34,7 @@ var RenderManager = (function(){
       break;
     case 'racer':
       console.log('racer');
-      Racer(state);
+      Racer.start(state);
       break;
     case 'story':
       console.log('story');
