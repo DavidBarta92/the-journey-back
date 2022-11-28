@@ -3,27 +3,19 @@ import RenderManager from "../controllers/renderManager";
 import stateManager from "../controllers/stateManager";
 import { player } from "../models/player.js";
 import inputController from "../controllers/inputController.js";
-import { car, tree, rock, background } from "../models/sprites.js";
-import Dither from "./dither";
+import {tree, rock, background } from "../models/sprites.js";
+import Filter from "./filter";
 
 var spritesheet = new Image();
             spritesheet.src = "../media/spritesheet.high.png";
 
 var Racer = (function(){
     var state = state;
-
     var keys = [];
-
     var canvas;
     var context;
 
     var r = Math.random;
-
-    var carSprite = {
-        a: car, 
-        x:125, 
-        y:190
-    };
 
     // -----------------------------
     // ---  closure scoped vars  ---
@@ -71,11 +63,10 @@ var Racer = (function(){
 
     //renders one frame
     var renderGameFrame = function(){
+
         keys = inputController.getKeys();
         
-        // Clean screen
-        context.fillStyle = "#dc9";
-        context.fillRect(0, 0, render.width, render.height);
+        gameCanvas.clear();
         
         // Update the car state 
         //player.updateCarState(lastDelta);
@@ -214,17 +205,26 @@ var Racer = (function(){
         
         currentTimeString = ""+min+":"+sec+":"+mili;
 
-        context.fillStyle = "#010101";
+        // Create gradient
+        var grd = context.createLinearGradient(0,10,100,100);
+        grd.addColorStop(0,"#92885B");
+        grd.addColorStop(1,"#3B351A");
+
+        // Fill with gradient
+        context.fillStyle = grd;
         context.fillRect(0, 620, render.width, 200);
         
         drawString(currentTimeString, {x: 1, y: 1});
         var speed = Math.round(player.speed / player.maxSpeed * 200);
         drawString(""+speed+"mph", {x: 1, y: 10});
 
-        var ctxForDither = context.getImageData(0, 0, render.width, render.height);
-        var ctxFromD = Dither.filter(ctxForDither);
-        context.putImageData(ctxFromD, 0, 0);
+        // var ctxForRaindrops = context.getImageData(0, 0, render.width, render.height);
+        // var ctxFromRainD = Filter.raindrops(ctxForRaindrops, 1,10, 0.5);
+        // context.putImageData(ctxFromRainD, 0, 0);
 
+        var ctxForDither = context.getImageData(0, 0, render.width, render.height);
+        var ctxFromD = Filter.dither(ctxForDither);
+        context.putImageData(ctxFromD, 0, 0);
     };
 
     ///////////////////////////////////////////////////////////////////////6

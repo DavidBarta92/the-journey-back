@@ -2,7 +2,7 @@ import inputController from "../controllers/inputController";
 import gameCanvas from "../models/gameCanvas";
 import RenderManager from "../controllers/renderManager";
 import stateManager from "../controllers/stateManager";
-import Dither from "./dither";
+import Filter from "./filter";
 
 var Menu = (function(){
 
@@ -190,7 +190,7 @@ var Menu = (function(){
             context.fillRect(0, 0, render.width, render.height);
 
             var ctxForDither = context.getImageData(0, 0, render.width, render.height);
-            var ctxFromD = Dither.filter(ctxForDither);
+            var ctxFromD = Filter.dither(ctxForDither);
             context.putImageData(ctxFromD, 0, 0);
 
             context.font = "50px Arial";
