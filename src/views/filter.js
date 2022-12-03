@@ -218,6 +218,10 @@ var Filter = (function(){
         return imageData;
     }
 
+    function randRange(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
     function drawRaindrops(image, dropSize, intensity) {
 
         ctx.putImageData(image, 0, 0);
@@ -268,7 +272,6 @@ var Filter = (function(){
                 return null;
             }
         },
-
         blur: function(image, radius, quality){
             if(radius < 0){
                 radius = 0;
@@ -280,7 +283,6 @@ var Filter = (function(){
                 return null;
             }
         },
-
         raindrops: function(image, minDropSize, maxDropSize, intensity){
             try {
                 return drawRaindrops(image, {minDropSize, maxDropSize}, intensity);

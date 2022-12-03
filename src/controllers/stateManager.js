@@ -15,6 +15,7 @@ var stateManager = (function(){
 
   var state = [];
 
+  // load state from the local storage. if its not possible make a new based on the initialState
   var loadState = function(){
     try {
       state = dataController.loadState();

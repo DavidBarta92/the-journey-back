@@ -1,17 +1,18 @@
-import gameCanvas from "../models/gameCanvas";
+import gameCanvas from "./gameCanvas";
 import RenderManager from "../controllers/renderManager";
 import stateManager from "../controllers/stateManager";
-import { player } from "../models/player.js";
+import { player } from "./player.js";
 import inputController from "../controllers/inputController.js";
-import {tree, rock, background } from "../models/sprites.js";
-import Filter from "./filter";
+import {tree, rock, background } from "./sprites.js";
+import Filter from "../views/filter";
+import desert from '../views/driver/desert.json';
 
 var spritesheet = new Image();
-            spritesheet.src = "../media/spritesheet.high.png";
 
-var Racer = (function(){
+var contentContainer;
+
+var Driver = (function(){
     var state = state;
-    var keys = [];
     var canvas;
     var context;
 
@@ -20,7 +21,6 @@ var Racer = (function(){
     // -----------------------------
     // ---  closure scoped vars  ---
     // -----------------------------
-    var context;
     var startTime = new Date();
     var lastDelta = 0;
     var currentTimeString = "";
@@ -37,8 +37,9 @@ var Racer = (function(){
     var road = [];
     var roadSegmentSize = 5;
     var numberOfSegmentPerColor = 4;
-
-    var render = gameCanvas.getParams();
+    var keys = [];
+    let render = gameCanvas.getParams();
+    let cursor = inputController.getCursor();
 
     var splashInterval;
     var gameInterval;
@@ -48,7 +49,7 @@ var Racer = (function(){
     // -----------------------------
 
     //initialize the game
-    var init = function(){
+    const init = function(){
         // configure canvas
         canvas = gameCanvas.getCanvas();
         context = gameCanvas.getContext();
@@ -56,13 +57,16 @@ var Racer = (function(){
         canvas.height = render.height;
         canvas.width = render.width;
         
-        gameCanvas.resize(); 
+        gameCanvas.resize();
+        
+        contentContainer = desert;
+        spritesheet.src = contentContainer.spritesPath;
         
         generateRoad();
     };
 
     //renders one frame
-    var renderGameFrame = function(){
+    const renderGameFrame = function(){
 
         keys = inputController.getKeys();
         
@@ -229,7 +233,7 @@ var Racer = (function(){
 
     ///////////////////////////////////////////////////////////////////////6
 
-    var exit = function() {
+    const exit = function() {
         clearInterval(gameInterval);
         stateManager.setView('menu');
         stateManager.setContent('main');
@@ -237,11 +241,11 @@ var Racer = (function(){
     }
 
     // Drawing primitive
-    var drawImage = function(image, x, y, scale){
+    const drawImage = function(image, x, y, scale){
         context.drawImage(spritesheet,  image.x, image.y, image.w, image.h, x, y, scale*image.w, scale*image.h);
     };
 
-    var drawString = function(string, pos) {
+    const drawString = function(string, pos) {
 
         string = string.toUpperCase();
         var cur = pos.x;
@@ -251,7 +255,7 @@ var Racer = (function(){
         }
     }
 
-    var drawTrapez = function(pos1, scale1, offset1, pos2, scale2, offset2, delta1, delta2, color){
+    const drawTrapez = function(pos1, scale1, offset1, pos2, scale2, offset2, delta1, delta2, color){
         var demiWidth = render.width / 2;
         
         context.fillStyle = color;
@@ -263,7 +267,7 @@ var Racer = (function(){
         context.fill();
     }
 
-    var drawSprite = function(sprite){
+    const drawSprite = function(sprite){
         //if(sprite.y <= sprite.ymax){
             var destY = sprite.y - sprite.i.h * sprite.s;
             if(sprite.ymax < sprite.y) {
@@ -276,14 +280,14 @@ var Racer = (function(){
         //}
     };
 
-    var drawBackground = function(position) {
+    const drawBackground = function(position) {
         var first = position / 2 % (background.w);
         drawImage(background, first-background.w +3, 0, 3);
         drawImage(background, first+background.w -3, 0, 3);
         drawImage(background, first, 0, 3);
     }
 
-    var drawSegment = function (position1, scale1, offset1, position2, scale2, offset2, alternate, finishStart){
+    const drawSegment = function (position1, scale1, offset1, position2, scale2, offset2, alternate, finishStart){
         var grass     = (alternate) ? "#eda" : "#dc9";
         var border    = (alternate) ? "#e00" : "#fff";
         var road      = (alternate) ? "#999" : "#777";
@@ -314,7 +318,7 @@ var Racer = (function(){
     // -------------------------------------
     // ---  Generates the road randomly  ---
     // -------------------------------------
-    var generateRoad = function(){
+    const generateRoad = function(){
         var currentStateH = 0; //0=flat 1=up 2= down
         var transitionH = [[0,1,2],[0,2,2],[0,1,1]];
         
@@ -401,4 +405,4 @@ var Racer = (function(){
 }
 ());
 
-export default Racer;
+export default Driver;

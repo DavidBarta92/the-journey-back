@@ -1,0 +1,70 @@
+{
+    "name" : "train",
+    "backgroundPath" : "",
+    "spritesPath" : "",
+    "elements" : {
+        "title" : {
+            "type": "text",
+            "text": "Star Slider",
+            "x": 10,
+            "y": 50,
+            "width": 70,
+            "height": 20,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null
+        },
+        "subTitle" : {
+            "type": "text",
+            "text": "Alpha",
+            "x": 230,
+            "y": 50,
+            "width": 70,
+            "height": 20,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 12,
+            "filter" : null
+        },
+        "credits:" : {
+            "type": "text",
+            "text": "Credits:",
+            "x": 10,
+            "y": 100,
+            "width": 70,
+            "height": 20,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 12,
+            "filter" : null
+        },
+        "author" : {
+            "type": "text",
+            "text": "code, art: David Barta",
+            "x": 10,
+            "y": 130,
+            "width": 70,
+            "height": 20,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 12,
+            "filter" : null
+        },
+        "back" : {
+            "type": "button",
+            "text": "Back",
+            "x": 10,
+            "y":300,
+            "width": 70,
+            "height": 20,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 20,
+            "border": false,
+            "actionType": "setContent",
+            "action": "main",
+            "filter" : null
+        }
+    }
+}
