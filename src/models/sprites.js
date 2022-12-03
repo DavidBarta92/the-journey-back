@@ -1,23 +1,3 @@
-export const car = {
-    car_back : { 
-        x: 0,
-        y: 130,
-        w: 69,
-        h: 38
-    },
-    car_left : { 
-        x: 70,
-        y: 130,
-        w: 77,
-        h: 38
-    },
-    car_right : { 
-        x: 148,
-        y: 130,
-        w: 77,
-        h: 38
-    },
-};
 
 export const tree = {
     x: 321,

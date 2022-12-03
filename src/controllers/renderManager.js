@@ -1,13 +1,11 @@
 import gameCanvas from '../models/gameCanvas';
-import Menu from '../views/menu';
-import Racer from '../views/racer';
-import Story from '../views/story';
+import { Menu, Story } from '../models/clickView';
+import Driver from '../models/driverView';
+//import Story from '../views/story/story';
 import inputController from './inputController';
 import stateManager from './stateManager';
 
-
 var RenderManager = (function(){
-    //gameCanvas.clear();
 
     inputController.init();
 
@@ -19,25 +17,12 @@ var RenderManager = (function(){
 
   switch(state.view){
     case 'menu':
-      console.log('menu');
-      switch(state.content){
-        case 'main':
-          Menu.renderMain(state);
-          break;
-        case 'credits':
-          Menu.renderCredits(state);
-          break;
-        case 'controlls':
-          Menu.renderControlls(state);
-          break;
-      }
+      Menu.render(state);
       break;
     case 'racer':
-      console.log('racer');
-      Racer.start(state);
+      Driver.start(state);
       break;
     case 'story':
-      console.log('story');
       Story(state);
       break;
   }

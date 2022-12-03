@@ -19,7 +19,14 @@ var gameCanvas = (function(){
     canvas.height = render.height;
     canvas.width = render.width;
 
-    console.log("Canvas is done");
+    function offset(el) {
+        var box = el.getBoundingClientRect();
+        var docElem = document.documentElement;
+        return {
+          top: box.top + window.pageYOffset - docElem.clientTop,
+          left: box.left + window.pageXOffset - docElem.clientLeft
+        };
+    }
 
     return {
         resize: function(){
@@ -42,6 +49,10 @@ var gameCanvas = (function(){
 
         clear: function(){
             context.clearRect(0, 0, canvas.width, canvas.height);
+        },
+
+        canvasOffset: function(){
+            return offset(canvas);
         },
 
         getContext: function(){

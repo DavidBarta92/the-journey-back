@@ -1,0 +1,30 @@
+{
+    "name" : "desert",
+    "backgroundPath" : "",
+    "spritesPath" : "../media/images/spritesheet.high.png",
+    "itemsPath" : "",
+    "elements" : {
+        "rock" : {
+            "type": "sprite",
+            "x": null,
+            "y": null,
+            "w": null,
+            "h": null,
+            "sourceX" : 345,
+            "sourceY" : 9,
+            "sourceW" : 11,
+            "sourceH" : 14
+        },
+        "tree" : {
+            "type": "sprite",
+            "x": null,
+            "y": null,
+            "w": null,
+            "h": null,
+            "sourceX" : 321,
+            "sourceY" : 9,
+            "sourceW" : 23,
+            "sourceH" : 50
+        }
+    }
+    }

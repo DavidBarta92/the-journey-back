@@ -1,0 +1,76 @@
+{
+    "name" : "train",
+    "backgroundPath" : "",
+    "spritesPath" : "",
+    "elements" : {
+        "title" : {
+            "type": "text",
+            "text": "Star Slider",
+            "x": 10,
+            "y": 50,
+            "width": 70,
+            "height": 20,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "border": false,
+            "actionType": "setView",
+            "action": "racer",
+            "filter" : null
+        },
+        "subTitle" : {
+            "type": "text",
+            "text": "Alpha",
+            "x": 230,
+            "y": 50,
+            "width": 70,
+            "height": 20,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 12,
+            "border": false,
+            "actionType": "setView",
+            "action": "racer",
+            "filter" : null
+        },
+        "instructions" : {
+            "type": "text",
+            "text": "Instructions:",
+            "x": 10,
+            "y": 100,
+            "width": 70,
+            "height": 20,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 12,
+            "filter" : null
+        },
+        "cont" : {
+            "type": "text",
+            "text": "space to start, arrows to drive",
+            "x": 10,
+            "y": 130,
+            "width": 70,
+            "height": 20,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 12,
+            "filter" : null
+        },
+        "back" : {
+            "type": "button",
+            "text": "Back",
+            "x": 10,
+            "y":300,
+            "width": 70,
+            "height": 20,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 20,
+            "border": false,
+            "actionType": "setContent",
+            "action": "main",
+            "filter" : null
+        }
+    }
+}

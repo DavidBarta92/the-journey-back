@@ -1,52 +1,88 @@
-import Racer from "../views/racer";
+import gameCanvas from "../models/gameCanvas";
 
 var inputController = (function(){
 
-    var keys = [];
+    const context = gameCanvas.getContext();
 
-    var init = function () {
+    let keys = [];
+    let cursor = {
+        x: 0,
+        y: 0,
+        click: false,
+    };
 
-    // window.addEventListener('click', (event) => {
-    //     console.log("X:" + event.offsetX + " | Y:" + event.offsetY);
-    // });
-    // window.addEventListener('keydown', (event) => {
-    //     console.log(event);
-    // });
+    const init = function () {
+        //register key handeling:
+        window.onkeydown = function (event) {
+            keys[event.keyCode] = true;
+        };
+        window.onkeyup = function (event) {
+            keys[event.keyCode] = false;
+        };
 
-    window.onkeydown = function (event) { 
-        if(event.keyCode == 32){
-            Racer.exit();
-        }
-            Racer.updateCarState();
+        //register mouse handeling:
+        document.onmousedown = function (event) {
+            console.log("X:" + event.clientX + " | Y:" + event.clientY);
+            cursor.click = true;
+        };
+        document.onmouseup = function (event) {
+            cursor.click = false;
+        };
+        document.onmousemove = (event) => {
+            cursor.x = event.offsetX;
+            cursor.y = event.offsetY;
+        };
     }
-    //register key handeling:
-    window.onkeydown = function (event) {
-        keys[event.keyCode] = true;
-    };
-    window.onkeyup = function (event) {
-        keys[event.keyCode] = false;
-    };
+
+    const cursorOnElement = function(element){
+        var canvasOffset = gameCanvas.canvasOffset();
+        var offsetX = canvasOffset.left;
+        var offsetY = canvasOffset.top;
+
+        var mouseX = parseInt(cursor.x - offsetX);
+        var mouseY = parseInt(cursor.y - offsetY);
+
+        var elementX, elementY, elementWidth, elementHeight;
+
+        if(element.type == 'button' || element.type == 'text'){
+        elementX         = element.x - element.fontSize / 10;
+        elementY         = element.y - element.fontSize + element.fontSize / 10;
+        elementWidth     = context.measureText(element.text).width + 2 * (element.fontSize / 10);
+        elementHeight    = element.fontSize;
+        } else {
+        elementX         = element.x;
+        elementY         = element.y;
+        elementWidth     = element.width;
+        elementHeight    = element.height;
+        }
+        if (mouseX >= elementX && mouseX <= elementX + elementWidth && mouseY >= elementY && mouseY <= elementY + elementHeight){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     return {
     init: function() {
         init();
     },
-
     getActualKey: function() {
         var actualKey;
         window.addEventListener('keypress', (event) => {
-            console.log(event);
             actualKey = event;
           });
         return actualKey;
     },
-
     getKeys: function(){
         return keys;
     },
+    getCursor: function(){ 
+        return cursor;
+    },
+    cursorOnElement: function(element){
+        return cursorOnElement(element);
+    } 
     }
-}
-());
+}());
 
 export default inputController;

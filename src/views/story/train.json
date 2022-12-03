@@ -1,0 +1,31 @@
+{
+"name" : "train",
+"backgroundPath" : "",
+"spritesPath" : "",
+"itemsPath" : "",
+"elements" : {
+    "backToTheCockpit" : {
+        "type": "activeArea",
+        "text": null,
+        "x": 10,
+        "y": 50,
+        "width": 70,
+        "height": 20,
+        "color": "white",
+        "font": "Arial",
+        "fontSize": 50,
+        "filter" : null
+    },
+    "jacket" : {
+        "type": "item",
+        "x": 321,
+        "y": 9,
+        "w": 23,
+        "h": 50,
+        "sourceX" : 0,
+        "sourceY" : 0,
+        "sourceW" : 23,
+        "sourceH" : 50
+    }
+}
+}
