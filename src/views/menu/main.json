@@ -1,7 +1,7 @@
 {
     "name" : "mainMenu",
-    "backgroundPath" : "../media/images/train.jpg",
-    "spritesPath" : "",
+    "backgroundPath" : "../media/images/train_bground.b64",
+    "spritesPath" : "../media/images/train_bground.b64",
     "elements" : {
         "title" : {
             "type": "text",
@@ -15,7 +15,7 @@
             "fontSize": 50,
             "border": false,
             "actionType": "setView",
-            "action": "racer",
+            "action": "driver",
             "filter" : null
         },
         "subTitle" : {
@@ -30,7 +30,7 @@
             "fontSize": 12,
             "border": false,
             "actionType": "setView",
-            "action": "racer",
+            "action": "driver",
             "filter" : null
         },
         "continue" : {
@@ -45,7 +45,7 @@
             "fontSize": 20,
             "border": false,
             "actionType": "setView",
-            "action": "racer",
+            "action": "driver",
             "filter" : null
         },
         "newGame" : {
@@ -60,7 +60,7 @@
             "fontSize": 20,
             "border": true,
             "actionType": "setView",
-            "action": "racer",
+            "action": "driver",
             "filter" : null
         }, 
         "controlls" : {

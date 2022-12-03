@@ -15,7 +15,7 @@
             "fontSize": 50,
             "border": false,
             "actionType": "setView",
-            "action": "racer",
+            "action": "driver",
             "filter" : null
         },
         "subTitle" : {
@@ -30,7 +30,7 @@
             "fontSize": 12,
             "border": false,
             "actionType": "setView",
-            "action": "racer",
+            "action": "driver",
             "filter" : null
         },
         "instructions" : {

@@ -7,6 +7,7 @@ import main from '../views/menu/main.json';
 import credits from '../views/menu/credits.json';
 import controlls from '../views/menu/controlls.json';
 import train from '../views/story/train.json';
+import dataController from "../controllers/dataController";
 
 //all these variables and functions are used by the Menu and the Story functions
 
@@ -140,19 +141,9 @@ export const Menu = (function(){
     const init = function(state){
         // we need to empty this object when a new view is loaded
         interactives = {};
-        switch(state.content){
-            case 'main':
-                contentContainer = main;
-              break;
-            case 'credits':
-                contentContainer = credits;
-              break;
-            case 'controlls':
-                contentContainer = controlls;
-              break;
-        }
-        background.src = contentContainer.backgroundPath;
-        spritesheet.src = contentContainer.spritesPath;
+        contentContainer = dataController.loadContent(state);
+        background = dataController.loadImage(contentContainer.backgroundPath);
+        spritesheet = dataController.loadImage(contentContainer.spritesPath);
         collectInteractives(contentContainer.elements);
     }
 
@@ -184,14 +175,10 @@ export const Story = (function(){
     const init = function(state){
         // we need to empty this object when a new view is loaded
         interactives = {};
-        switch(state.content){
-            case 'main':
-                contentContainer = train;
-              break;
-          }
-          background.src = contentContainer.backgroundPath;
-          spritesheet.src = contentContainer.spritesPath;
-          collectInteractives(contentContainer.elements);
+        contentContainer = dataController.loadContent(state);
+        background = dataController.loadImage(contentContainer.backgroundPath);
+        spritesheet = dataController.loadImage(contentContainer.spritesPath);
+        collectInteractives(contentContainer.elements);
     }
 
     //render one frame of the menu
