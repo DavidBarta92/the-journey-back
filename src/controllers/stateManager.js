@@ -5,7 +5,7 @@ var stateManager = (function(){
 
   const initialState = {
     content: 'main', // 'main', 'credits', 'controlls'
-    view: 'menu', // 'menu', 'racer', 'story'
+    view: 'menu', // 'menu', 'driver', 'story'
     status: 'idle',
     level: 0,
     chapter: 0,

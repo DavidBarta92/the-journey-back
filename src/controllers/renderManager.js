@@ -19,7 +19,7 @@ var RenderManager = (function(){
     case 'menu':
       Menu.render(state);
       break;
-    case 'racer':
+    case 'driver':
       Driver.start(state);
       break;
     case 'story':
