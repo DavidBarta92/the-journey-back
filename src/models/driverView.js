@@ -11,7 +11,29 @@ var spritesheet = new Image();
 
 var contentContainer;
 
+
 var Driver = (function(){
+    var pause = false;
+
+    let ditherParams = {
+        greyscaleMethod: false,
+        replaceColours: true,
+        replaceColourMap: {
+            black: {
+                r: 10,
+                g: 0,
+                b: 32,
+                a: 0,
+            },
+            white: {
+                r: 0,
+                g: 133,
+                b: 120,
+                a: 255,
+            },
+        }
+    }
+
     var state = state;
     var canvas;
     var context;
@@ -53,16 +75,15 @@ var Driver = (function(){
         // configure canvas
         canvas = gameCanvas.getCanvas();
         context = gameCanvas.getContext();
+
         
         canvas.height = render.height;
         canvas.width = render.width;
-        
+
         gameCanvas.resize();
-        
+
         contentContainer = desert;
         spritesheet.src = contentContainer.spritesPath;
-        
-        generateRoad();
     };
 
     //renders one frame
@@ -71,6 +92,10 @@ var Driver = (function(){
         keys = inputController.getKeys();
         
         gameCanvas.clear();
+
+        if(keys[32]){
+            setPause();
+        }
         
         // Update the car state 
         //player.updateCarState(lastDelta);
@@ -192,7 +217,7 @@ var Driver = (function(){
 
         // --------------------------
         // --     Draw the hud     --
-        // --------------------------        
+        // --------------------------
         drawString(""+Math.round(absoluteIndex/(roadParam.length-render.depthOfField)*100)+"%",{x: 287, y: 1});
         
         var now = new Date();
@@ -227,13 +252,21 @@ var Driver = (function(){
         // context.putImageData(ctxFromRainD, 0, 0);
 
         var ctxForDither = context.getImageData(0, 0, render.width, render.height);
-        var ctxFromD = Filter.dither(ctxForDither);
+        var ctxFromD = Filter.dither(ctxForDither, ditherParams);
         context.putImageData(ctxFromD, 0, 0);
     };
 
     ///////////////////////////////////////////////////////////////////////6
 
     const exit = function() {
+        clearInterval(gameInterval);
+        stateManager.setView('menu');
+        stateManager.setContent('main');
+        RenderManager();
+    }
+
+    const setPause = function() {
+        pause = true;
         clearInterval(gameInterval);
         stateManager.setView('menu');
         stateManager.setContent('main');
@@ -393,6 +426,9 @@ var Driver = (function(){
         start: function(state){
             var state = state;
             init(state);
+            if (!pause){
+                generateRoad();
+            }
             gameInterval = setInterval(renderGameFrame, 60);
         },
         exit: function(){

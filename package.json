@@ -1,6 +1,6 @@
 {
   "name": "starslider",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "main": "public/electron.js",
   "homepage": "./",
   "private": true,
@@ -10,6 +10,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "electron-builder": "^23.6.0",
     "electron-redux": "^1.5.4",
     "expect.js": "^0.3.1",
     "jquery": "^3.6.1",
@@ -21,7 +22,11 @@
   "scripts": {
     "build": "craco build",
     "start": "electron .",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "electron-dist": "electron-builder",
+    "electron-packer": "electron-builder --dir",
+    "make": "electron-forge make"
+
   },
   "eslintConfig": {
     "extends": [
