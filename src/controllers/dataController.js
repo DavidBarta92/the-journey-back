@@ -46,7 +46,7 @@ var dataController = (function(){
       var image = new Image();
       try {
         base64img = fs.readFileSync(path.resolve(__dirname, imagePath), 'utf8');;
-        image.src = base64img.slice(1);
+        image.src = base64img.slice(0);
       } catch (err) {
         console.error(err); 
       }

@@ -1,13 +1,12 @@
 import gameCanvas from '../models/gameCanvas';
 import { Menu, Story } from '../models/clickView';
 import Driver from '../models/driverView';
-//import Story from '../views/story/story';
 import inputController from './inputController';
 import stateManager from './stateManager';
 
-var RenderManager = (function(){
-
     inputController.init();
+
+var RenderManager = (function(){
 
     window.addEventListener('resize', () => {
         gameCanvas.resize();
@@ -26,6 +25,6 @@ var RenderManager = (function(){
       Story(state);
       break;
   }
-})
+});
 
 export default RenderManager;

@@ -3,10 +3,6 @@ import gameCanvas from "./gameCanvas";
 import RenderManager from "../controllers/renderManager";
 import stateManager from "../controllers/stateManager";
 import Filter from "../views/filter";
-import main from '../views/menu/main.json';
-import credits from '../views/menu/credits.json';
-import controlls from '../views/menu/controlls.json';
-import train from '../views/story/train.json';
 import dataController from "../controllers/dataController";
 
 //all these variables and functions are used by the Menu and the Story functions
@@ -36,6 +32,7 @@ spritesheetForString.src = "../media/spritesheet.high.png";
 var spritesheet = new Image();
 
 var background = new Image();
+var backgroundFrame;
 
 const drawString = function(string, pos) {
     string = string.toUpperCase();
@@ -50,10 +47,20 @@ function onView(button, stateView) {
     return button.place.includes(stateView);
 }
 
+const isGif = function(image){
+    return String(image).includes("data:image/gif");
+}
+
 //draw the background image. if its not possible it is just fill the screen with blue (after a filter comes)
 const drawBackground = function(){
     try {
-        context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
+        if (isGif(background)){
+            console.log("gif Frames " + background.frames);
+            context.drawImage(background.frames[backgroundFrame].image,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
+            background.frames.length > backgroundFrame ? backgroundFrame++ : backgroundFrame = 0;
+        } else {
+            context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
+        }
     } catch {
         context.beginPath();
         context.fillStyle = "rgb(30,0,250)";
@@ -90,8 +97,13 @@ const drawElements = function(elements) {
         }
         if (element[1].type === 'sprite' || element[1].type === 'item'){
             try {
-                // uncecessary declare here
-                context.drawImage(spritesheet,  element[1].sourceX, element[1].sourceY, element[1].sourceW, element[1].sourceH, element[1].x, element[1].y, element[1].w, element[1].h);
+                if (isGif(spritesheet)){
+                    //sprites and items cant move (at this moment)
+                    context.drawImage(spritesheet.frames[0].image,  element[1].sourceX, element[1].sourceY, element[1].sourceW, element[1].sourceH, element[1].x, element[1].y, element[1].w, element[1].h);
+                } else {
+                    // uncecessary declare here
+                    context.drawImage(spritesheet,  element[1].sourceX, element[1].sourceY, element[1].sourceW, element[1].sourceH, element[1].x, element[1].y, element[1].w, element[1].h);
+                }
             } catch(e) {
                 console.log(e);
             }
@@ -143,6 +155,7 @@ export const Menu = (function(){
         interactives = {};
         contentContainer = dataController.loadContent(state);
         background = dataController.loadImage(contentContainer.backgroundPath);
+        backgroundFrame = 0;
         spritesheet = dataController.loadImage(contentContainer.spritesPath);
         collectInteractives(contentContainer.elements);
     }
@@ -177,6 +190,7 @@ export const Story = (function(){
         interactives = {};
         contentContainer = dataController.loadContent(state);
         background = dataController.loadImage(contentContainer.backgroundPath);
+        backgroundFrame = 0;
         spritesheet = dataController.loadImage(contentContainer.spritesPath);
         collectInteractives(contentContainer.elements);
     }
