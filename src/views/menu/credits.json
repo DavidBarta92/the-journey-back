@@ -53,7 +53,7 @@
         },
         "back" : {
             "type": "button",
-            "text": "Back",
+            "text": "btn_back",
             "x": 10,
             "y":300,
             "width": 70,

@@ -1,7 +1,7 @@
 {
-    "name" : "mainMenu",
-    "backgroundPath" : "../src/media/images/test_gif1.b64",
-    "spritesPath" : "../src/media/images/test_gif1.b64",
+    "name" : "newGame",
+    "backgroundPath" : "",
+    "spritesPath" : "",
     "elements" : {
         "title" : {
             "type": "text",
@@ -13,7 +13,6 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
-            "border": false,
             "filter" : null
         },
         "subTitle" : {
@@ -26,14 +25,37 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 12,
-            "border": false,
             "filter" : null
         },
-        "continue" : {
+        "question:" : {
+            "type": "text",
+            "text": "Do you want to start a new game?",
+            "x": 150,
+            "y": 150,
+            "width": 70,
+            "height": 20,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 20,
+            "filter" : null
+        },
+        "allert" : {
+            "type": "text",
+            "text": "The current game session will be lost.",
+            "x": 150,
+            "y": 170,
+            "width": 70,
+            "height": 20,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 12,
+            "filter" : null
+        },
+        "yes" : {
             "type": "button",
-            "text": "btn_continue",
-            "x": 10,
-            "y":150,
+            "text": "btn_yes",
+            "x": 150,
+            "y":200,
             "width": 70,
             "height": 20,
             "color": "white",
@@ -41,44 +63,14 @@
             "fontSize": 20,
             "border": false,
             "actionType": "startGame",
-            "action": "continue",
+            "action": "new",
             "filter" : null
         },
-        "newGame" : {
+        "no" : {
             "type": "button",
-            "text": "btn_newGame",
-            "x": 10,
-            "y":180,
-            "width": 70,
-            "height": 20,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 20,
-            "border": true,
-            "actionType": "setContent",
-            "action": "newGame",
-            "filter" : null
-        }, 
-        "controlls" : {
-            "type": "button",
-            "text": "btn_controlls",
-            "x": 10,
-            "y":210,
-            "width": 70,
-            "height": 20,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 20,
-            "border": true,
-            "actionType": "setContent",
-            "action": "controlls",
-            "filter" : null
-        }, 
-        "credits" : {
-            "type": "button",
-            "text": "btn_credits",
-            "x": 10,
-            "y":240,
+            "text": "btn_no",
+            "x": 200,
+            "y":200,
             "width": 70,
             "height": 20,
             "color": "white",
@@ -86,20 +78,7 @@
             "fontSize": 20,
             "border": false,
             "actionType": "setContent",
-            "action": "credits",
-            "filter" : null
-        },
-        "main_exit" : {
-            "type": "button",
-            "text": "btn_exit",
-            "x": 10,
-            "y":270,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 20,
-            "border": false,
-            "actionType": "exitGame",
-            "action": "",
+            "action": "main",
             "filter" : null
         }
     }

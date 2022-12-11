@@ -17,8 +17,11 @@ gameCanvas.resize();
 
 let state;
 
+var languageFile;
+
 let menuInterval;
 let storyInterval;
+let clickInterval;
 
 //this object will store every object on the view
 var contentContainer;
@@ -32,7 +35,6 @@ spritesheetForString.src = "../media/spritesheet.high.png";
 var spritesheet = new Image();
 
 var background = new Image();
-var backgroundFrame;
 
 const drawString = function(string, pos) {
     string = string.toUpperCase();
@@ -54,13 +56,7 @@ const isGif = function(image){
 //draw the background image. if its not possible it is just fill the screen with blue (after a filter comes)
 const drawBackground = function(){
     try {
-        if (isGif(background)){
-            console.log("gif Frames " + background.frames);
-            context.drawImage(background.frames[backgroundFrame].image,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
-            background.frames.length > backgroundFrame ? backgroundFrame++ : backgroundFrame = 0;
-        } else {
-            context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
-        }
+        context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
     } catch {
         context.beginPath();
         context.fillStyle = "rgb(30,0,250)";
@@ -71,16 +67,32 @@ const drawBackground = function(){
     context.putImageData(ctxFromD, 0, 0);
 }
 
+//write the given text in the chosen language
+const writeText = function(element){
+    var fontString;
+    var textString;
+    fontString          = element.fontSize + "px " + element.font;
+    context.font        = fontString;
+    context.fillStyle   = element.color;
+    Object.entries(languageFile).forEach(label => {
+        if (label[0] == element.text){
+            textString = label[1]; 
+            return;
+        }
+    });
+    if (textString == null) {
+        context.fillText(element.text, element.x, element.y);
+    } else {
+        context.fillText(textString, element.x, element.y);
+    }
+}
+
 //draw all visible elements on the view
 const drawElements = function(elements) {
-    var fontString;
     var elementImage;
     Object.entries(elements).forEach(element => {
         if (element[1].type === 'button' || element[1].type === 'text'){
-            fontString          = element[1].fontSize + "px " + element[1].font;
-            context.font        = fontString;
-            context.fillStyle   = element[1].color;
-            context.fillText(element[1].text, element[1].x, element[1].y);
+            writeText(element[1]);
 
             //only buttons have border
             if(element.hasOwnProperty('border') && element[1].border){
@@ -126,22 +138,46 @@ const hitArea = function(elements){
         if (inputController.cursorOnElement(element[1])){            
             if (element[1].actionType === "setView") {
                 stateManager.setView(element[1].action);
+                gameCanvas.clear();
                 clearInterval(menuInterval);
-                RenderManager();
+                RenderManager.render();
                 return;
             }
             if (element[1].actionType === "setContent") {
                 stateManager.setContent(element[1].action);
+                gameCanvas.clear();
                 clearInterval(menuInterval);
-                RenderManager();
+                RenderManager.render();
+                return;
+            }
+            if (element[1].actionType === "startGame") {
+                if(element[1].action == 'new'){
+                    stateManager.setView('story');
+                    stateManager.setContent('train');
+                } else {
+                    stateManager.setContentByStatus();
+                }
+                gameCanvas.clear();
+                clearInterval(menuInterval);
+                RenderManager.render();
                 return;
             }
             if (element[1].actionType === "exitGame") {
-                RenderManager();
+                gameCanvas.clear();
+                RenderManager.render();
                 window.close();
             }
         }
     });
+}
+
+//used to triggering animation frame by render game frame
+const triggering = function(){
+    if(context.globalAlpha <= 0.9){
+        return true;
+    } else {
+        return false;
+    }
 }
 
 // -------------------------------
@@ -151,29 +187,39 @@ const hitArea = function(elements){
 // manages and runs the frame rendering of the menu
 export const Menu = (function(){
     const init = function(state){
+        context.globalAlpha = 0;
         // we need to empty this object when a new view is loaded
         interactives = {};
         contentContainer = dataController.loadContent(state);
-        background = dataController.loadImage(contentContainer.backgroundPath);
-        backgroundFrame = 0;
+        background = RenderManager.getLastScreenImage();
         spritesheet = dataController.loadImage(contentContainer.spritesPath);
         collectInteractives(contentContainer.elements);
+        languageFile = dataController.loadLanguageFile(state);
     }
 
     //render one frame of the menu
     const renderMenuFrame = function(){
-        drawBackground();
-        drawElements(contentContainer.elements);
-        if(cursor.click){
-            hitArea(interactives, state);
+        if(context.globalAlpha < 1){
+            context.globalAlpha = (context.globalAlpha += 0.1).toFixed(1);
+            gameCanvas.clear();
+            drawBackground();
+            drawElements(contentContainer.elements);
+        } else {
+            clearInterval(menuInterval);
         }
+    }
+
+    //tracking cursor
+    const trackInput = function(){
+        if(cursor.click) hitArea(interactives, state);
     }
 
     return {
         render: function(state){
             init(state);
-            menuInterval = setInterval(renderMenuFrame, 60);
-        }
+            if(triggering()) menuInterval = setInterval(renderMenuFrame, 100);
+            clickInterval = setInterval(trackInput, 6);
+            }
         }
     }
 ());
@@ -184,31 +230,55 @@ export const Menu = (function(){
 
 // manages and runs the frame rendering of the story view
 export const Story = (function(){
+    var pause = false;
+    var keys = [];
 
     const init = function(state){
+        context.globalAlpha = 0;
         // we need to empty this object when a new view is loaded
         interactives = {};
         contentContainer = dataController.loadContent(state);
         background = dataController.loadImage(contentContainer.backgroundPath);
-        backgroundFrame = 0;
         spritesheet = dataController.loadImage(contentContainer.spritesPath);
         collectInteractives(contentContainer.elements);
+        languageFile = dataController.loadLanguageFile(state);
     }
 
-    //render one frame of the menu
-    const renderStoryFrame = function(){
-        drawBackground(contentContainer.backgroundPath);
-        drawElements(contentContainer.elements);
+    const setPause = function() {
+        var lastScreenImage = new Image();
+        lastScreenImage = context.getImageData(0, 0, render.width, render.height);
+        RenderManager.saveScreenImage(lastScreenImage);
+        pause = true;
+        clearInterval(storyInterval);
+        stateManager.setView('menu');
+        stateManager.setContent('main');
+        RenderManager.render();
+    }
 
-        if(cursor.click){
-            hitArea(interactives, state);
+    //render one frame of the story view
+    const renderStoryFrame = function(){
+        if(context.globalAlpha < 1){
+            context.globalAlpha = (context.globalAlpha += 0.1).toFixed(1);
+            gameCanvas.clear();
+            drawBackground();
+            drawElements(contentContainer.elements);
+        } else {
+            clearInterval(storyInterval);
         }
+    }
+
+    //tracking cursor
+    const trackInput = function(){
+        keys = inputController.getKeys();
+        if(cursor.click) hitArea(interactives, state);
+        if(keys[27]) setPause();
     }
 
     return {
         render: function(state){
              init(state);
-             storyInterval = setInterval(renderStoryFrame, 60);
+             if(triggering()) storyInterval = setInterval(renderStoryFrame, 100);
+             clickInterval = setInterval(trackInput, 6);
         },
         }
     }
