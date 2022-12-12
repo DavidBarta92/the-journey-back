@@ -1,6 +1,6 @@
 {
 "name" : "train",
-"backgroundPath" : "",
+"backgroundPath" : "../src/media/images/train_bg1.b64",
 "spritesPath" : "",
 "itemsPath" : "",
 "elements" : {

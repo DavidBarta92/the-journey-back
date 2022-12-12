@@ -63,7 +63,6 @@ var Driver = (function(){
     let render = gameCanvas.getParams();
     let cursor = inputController.getCursor();
 
-    var splashInterval;
     var gameInterval;
 
     // -----------------------------
@@ -93,7 +92,7 @@ var Driver = (function(){
         
         gameCanvas.clear();
 
-        if(keys[32]){
+        if(keys[27]){
             setPause();
         }
         
@@ -262,15 +261,18 @@ var Driver = (function(){
         clearInterval(gameInterval);
         stateManager.setView('menu');
         stateManager.setContent('main');
-        RenderManager();
+        RenderManager.render();
     }
 
     const setPause = function() {
+        var lastScreenImage = new Image();
+        lastScreenImage = context.getImageData(0, 0, render.width, render.height);
+        RenderManager.saveScreenImage(lastScreenImage);
         pause = true;
         clearInterval(gameInterval);
         stateManager.setView('menu');
         stateManager.setContent('main');
-        RenderManager();
+        RenderManager.render();
     }
 
     // Drawing primitive

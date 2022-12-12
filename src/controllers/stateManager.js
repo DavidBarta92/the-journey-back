@@ -6,7 +6,10 @@ var stateManager = (function(){
   const initialState = {
     content: 'main', // 'main', 'credits', 'controlls'
     view: 'menu', // 'menu', 'driver', 'story'
-    status: 'idle',
+    status: {
+      content: 'train',
+      view: 'story'
+    },
     level: 0,
     chapter: 0,
     scene: 0,
@@ -91,6 +94,36 @@ var stateManager = (function(){
       dataController.saveState(state);
       if (oldLanguage !== state.language){
         console.log('The old language: ' + oldLanguage + ' has changed to: ' + state.language);
+      }
+    },
+  setContentByStatus: () => {
+      state = loadState();
+      var oldView = state.view; 
+      state.view = state.status.view;
+      var oldContent = state.content; 
+      state.content = state.status.content;
+      dataController.saveState(state);
+      gameCanvas.clear();
+      if (oldView !== state.view){
+        console.log('The old view: ' + oldView + ' has changed to: ' + state.view);
+      }
+      if (oldContent !== state.content){
+        console.log('The old content: ' + oldContent + ' has changed to: ' + state.content);
+      }
+    },
+  setStatus: () => {
+      state = loadState();
+      var oldStateView = state.status.view; 
+      state.status.view = state.view;
+      var oldStateContent = state.status.content; 
+      state.status.content = state.content;
+      dataController.saveState(state);
+      gameCanvas.clear();
+      if (oldStateView !== state.status.view){
+        console.log('The old state view: ' + oldStateView + ' has changed to: ' + state.status.view);
+      }
+      if (oldStateContent !== state.status.content){
+        console.log('The old state content: ' + oldStateContent + ' has changed to: ' + state.status.content);
       }
     },
   }
