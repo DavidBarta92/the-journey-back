@@ -2,6 +2,7 @@
     "name" : "newGame",
     "backgroundPath" : "",
     "spritesPath" : "",
+    "dialogue" : "",
     "elements" : {
         "title" : {
             "type": "text",

@@ -4,6 +4,7 @@ import RenderManager from "../controllers/renderManager";
 import stateManager from "../controllers/stateManager";
 import Filter from "../views/filter";
 import dataController from "../controllers/dataController";
+import Timer from './timer';
 
 //all these variables and functions are used by the Menu and the Story functions
 
@@ -22,12 +23,20 @@ var languageFile;
 let menuInterval;
 let storyInterval;
 let clickInterval;
+let animInterval;
+
+//it is an auxiliary variable to manage the bug coused by setInterval calling 
+var dialogueOptionClicked;
 
 //this object will store every object on the view
 var contentContainer;
 
 //this object will store all clickable area on the view
 var interactives;
+
+var dialogueFile;
+var newSpeechIndex;
+var spokenSpeeches = [];
 
 var spritesheetForString = new Image();
 spritesheetForString.src = "../media/spritesheet.high.png";
@@ -55,10 +64,10 @@ const isGif = function(image){
 
 //draw the background image. if its not possible it is just fill the screen with blue (after a filter comes)
 const drawBackground = function(){
+    context.beginPath();
     try {
         context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
     } catch {
-        context.beginPath();
         context.fillStyle = "rgb(30,0,250)";
         context.fillRect(0, 0, render.width, render.height);
     }
@@ -68,7 +77,7 @@ const drawBackground = function(){
 }
 
 //write the given text in the chosen language
-const writeText = function(element){
+const writeText = function(element, textBoxX = window.innerWidth){
     var fontString;
     var textString;
     fontString          = element.fontSize + "px " + element.font;
@@ -80,27 +89,133 @@ const writeText = function(element){
             return;
         }
     });
-    if (textString == null) {
-        context.fillText(element.text, element.x, element.y);
+    if (!(textString == null)) {
+        var lineheight = element.fontSize +(element.fontSize /4);
+        var currentLineX = element.x;
+        var currentLineY = element.y;
+        var words = textString.split(' ');
+
+        for (var i = 0; i<words.length; i++) {
+            words[i] = words[i] + ' ';
+            var currentWordWidth = context.measureText(words[i]).width;
+            if (currentLineX + currentWordWidth > textBoxX) {
+                currentLineY = currentLineY + lineheight;
+            currentLineX = element.x;
+            console.log((currentLineX + currentWordWidth) + " | x:" + currentLineX + " y:" + currentLineY);
+          }
+          context.fillText(words[i], currentLineX, currentLineY);
+          currentLineX = currentWordWidth + currentLineX;
+        }
     } else {
-        context.fillText(textString, element.x, element.y);
+        context.fillText(element.text, element.x, element.y);
     }
+}
+
+const getValidSpeechByIndex = function(speechIndex){
+    let speechIndexIsValid = false;
+    let validSpeech;
+    Object.entries(dialogueFile).forEach(speech => {
+        if (speech[0] === speechIndex) {
+            speechIndexIsValid = true;
+            validSpeech = speech;
+            return;
+        }
+    });
+    return {speechIndexIsValid, validSpeech};
+}
+
+//create interactive and writable entities based on dialogue element1s params and push them to arrays
+const pushDialogueElements = function(dialogueBox){
+    let rightSideOfLastButton = 0;
+    let boxLeftWithPadding = dialogueBox.x + dialogueBox.padding;
+    let boxTopWithPadding = dialogueBox.y + dialogueBox.padding;
+    let speech;
+    //it could be text or button, we'll push this object to the write text func
+    let dialogueElement = {
+        dialType : dialogueBox.type,
+        x: boxLeftWithPadding,
+        y: boxTopWithPadding, //default param but we need to change it
+        color: dialogueBox.colorOfSpeech,
+        font: dialogueBox.fontOfSpeech,
+        fontSize: dialogueBox.fontSizeOfSpeech,
+    };
+    let currentSpeechObj = getValidSpeechByIndex(newSpeechIndex);
+    if (currentSpeechObj.speechIndexIsValid) {
+        speech = currentSpeechObj.validSpeech;
+        speech[1].forEach(element => {
+            if (element.type === "params") {
+                dialogueElement.type = "text";
+                dialogueElement.y = dialogueBox.y + dialogueBox.padding + parseInt(context.measureText(element.text).actualBoundingBoxAscent);
+                dialogueElement.fontSize = dialogueBox.fontSizeOfSpeech;
+                dialogueElement.font = dialogueBox.fontOfSpeech;
+                dialogueElement.color = dialogueBox.colorOfSpeech;
+                dialogueElement.text = element.text;
+                dialogueElement.textBoxEnd = dialogueBox.h - dialogueBox.padding;
+                spokenSpeeches.push(dialogueElement);
+                contentContainer.elements["dial" + speech[0] + "text"] = dialogueElement;
+            }
+            if (element.type === "choice") {
+                //dialogueElement.y = dialogueBox.y + dialogueBox.padding + parseInt(context.measureText(element.buttonText).actualBoundingBoxAscent);
+                dialogueElement.type = "button";
+                dialogueElement.text = element.buttonText;
+                dialogueElement.x = boxLeftWithPadding + Math.round(rightSideOfLastButton);
+                dialogueElement.y = dialogueBox.y + dialogueBox.h - dialogueBox.padding;
+                dialogueElement.width = context.measureText(dialogueBox.fontOfButtons).width + 2 * (dialogueBox.fontSizeOfButtons / 10);
+                dialogueElement.height = dialogueBox.fontSizeOfButtons;
+                dialogueElement.color = dialogueBox.colorOfButtons;
+                dialogueElement.font = dialogueBox.fontOfButtons;
+                dialogueElement.fontSize = dialogueBox.fontSizeOfButtons;
+                dialogueElement.border = true;
+                dialogueElement.actionType = "dialogueOption";
+                dialogueElement.action = element.option;
+                //dialogueElement.filter = "glitch";
+                dialogueElement.longText = element.text;
+                rightSideOfLastButton = dialogueElement.x + parseInt(context.measureText(element.buttonText).width) - boxLeftWithPadding + 20;
+
+                interactives["dial" + speech[0] + "-option" + element.option] = dialogueElement;
+                contentContainer.elements["dial" + speech[0] + "-option" + element.option] = dialogueElement;
+            }
+            dialogueElement = {};
+        });
+    } else {
+        console.log("Conversation is over.");
+    }  
+}
+
+// delete dialogue elements from interactives or contentContainer list
+const deleteDialogueElements = function() {
+    Object.entries(interactives).forEach(element => {
+        if (element[0].includes("dial") && !element[0].includes("dialogue")) delete interactives[element[0]];
+    });
+    Object.entries(contentContainer.elements).forEach(element => {
+        if (element[0].includes("dial") && !element[0].includes("dialogue")) delete contentContainer.elements[element[0]];
+    });
 }
 
 //draw all visible elements on the view
 const drawElements = function(elements) {
     var elementImage;
     Object.entries(elements).forEach(element => {
+        if (element[1].type === 'dialogue') {
+            let currentSpeechObj = getValidSpeechByIndex(newSpeechIndex);
+            if (currentSpeechObj.speechIndexIsValid) {
+                context.fillStyle = element[1].bgcolor;
+                context.fillRect(element[1].x, element[1].y, element[1].w, element[1].h);
+                if (element[1].processed === false) {
+                    pushDialogueElements(element[1]);
+                    contentContainer.elements[element[0]].processed = true;
+                    drawElements(elements);
+                }
+            }
+        };
         if (element[1].type === 'button' || element[1].type === 'text'){
-            writeText(element[1]);
-
+            writeText(element[1], (element[1].x + element[1].textBoxEnd));
+            
             //only buttons have border
             if(element.hasOwnProperty('border') && element[1].border){
                 var width = context.measureText(element[1].text).width + 2 * (element[1].fontSize / 10);
                 var buttonTopLeftX      = element[1].x - element[1].fontSize / 10;
                 var buttonTopLeftY      = element[1].y - element[1].fontSize + element[1].fontSize / 10;
-                //var buttonBottomRightX  = element[1].x + context.measureText(element[1].text).width + 2 * (element[1].fontSize / 10);
-                //var buttonBottomRightY  = element[1].y + element[1].fontSize;
     
                 context.strokeStyle = element[1].color;
                 context.rect(buttonTopLeftX, buttonTopLeftY, width, element[1].fontSize);
@@ -121,6 +236,7 @@ const drawElements = function(elements) {
             }
         }
     });
+    dialogueOptionClicked = false;
 }
 
 // collects all elements from the view whichones are clickable objects or areas
@@ -140,6 +256,7 @@ const hitArea = function(elements){
                 stateManager.setView(element[1].action);
                 gameCanvas.clear();
                 clearInterval(menuInterval);
+                clearInterval(storyInterval);
                 RenderManager.render();
                 return;
             }
@@ -147,7 +264,17 @@ const hitArea = function(elements){
                 stateManager.setContent(element[1].action);
                 gameCanvas.clear();
                 clearInterval(menuInterval);
+                clearInterval(storyInterval);
                 RenderManager.render();
+                return;
+            }
+            if (element[1].actionType === "dialogueOption") {
+                if (!dialogueOptionClicked) {
+                    newSpeechIndex = newSpeechIndex + "-" + element[1].action;
+                    contentContainer.elements.dialogue.processed = false;
+                    deleteDialogueElements();
+                    dialogueOptionClicked = true;
+                }
                 return;
             }
             if (element[1].actionType === "startGame") {
@@ -159,6 +286,7 @@ const hitArea = function(elements){
                 }
                 gameCanvas.clear();
                 clearInterval(menuInterval);
+                clearInterval(storyInterval);
                 RenderManager.render();
                 return;
             }
@@ -173,7 +301,7 @@ const hitArea = function(elements){
 
 //used to triggering animation frame by render game frame
 const triggering = function(){
-    if(context.globalAlpha <= 0.9){
+    if(context.globalAlpha <= 0.9 || dialogueOptionClicked){
         return true;
     } else {
         return false;
@@ -240,6 +368,8 @@ export const Story = (function(){
         contentContainer = dataController.loadContent(state);
         background = dataController.loadImage(contentContainer.backgroundPath);
         spritesheet = dataController.loadImage(contentContainer.spritesPath);
+        dialogueFile = dataController.loadDialogue(contentContainer.dialogue);
+        newSpeechIndex = '1';
         collectInteractives(contentContainer.elements);
         languageFile = dataController.loadLanguageFile(state);
     }
@@ -264,6 +394,8 @@ export const Story = (function(){
             drawElements(contentContainer.elements);
         } else {
             clearInterval(storyInterval);
+            drawBackground();
+            drawElements(contentContainer.elements);
         }
     }
 
@@ -274,12 +406,18 @@ export const Story = (function(){
         if(keys[27]) setPause();
     }
 
+    const trackAnimation = function(){
+        if(triggering()) renderStoryFrame();
+    }
+
     return {
         render: function(state){
-             init(state);
-             if(triggering()) storyInterval = setInterval(renderStoryFrame, 100);
-             clickInterval = setInterval(trackInput, 6);
+            init(state);
+            animInterval = setInterval(trackAnimation, 6);
+            clickInterval = setInterval(trackInput, 6);
         },
-        }
     }
+}
 ());
+
+// multicégek gyarmatosították a valóságot

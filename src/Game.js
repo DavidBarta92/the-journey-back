@@ -1,11 +1,13 @@
 import RenderManager from './controllers/renderManager';
 import stateManager from './controllers/stateManager';
+import Timer from './models/timer';
 
 
 export function Game() {
 
+    Timer.startTimer();
     stateManager.setView('menu');
     stateManager.setContent('main');
-    setTimeout(RenderManager.render(), 1600);
+    RenderManager.render();
 
 }
