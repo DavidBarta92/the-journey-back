@@ -13,6 +13,10 @@ var dataController = (function(){
     train: require('../views/story/train.json')
   };
 
+  let dialogueFiles = {
+    david: require('../views/story/dialogues/david.json')
+  }
+
   let languageFiles = {
     hun: require('../media/languages/hun.json')
   };
@@ -62,9 +66,17 @@ var dataController = (function(){
       }
       return image;
       },
-    }
 
-}
+    loadDialogue: function(dialogueName) {
+      try {
+        return dialogueFiles[dialogueName];
+      } catch (err) {
+        console.error(err); 
+        return null;
+        }
+      },
+    }
+  }
 ());
 
 export default dataController;

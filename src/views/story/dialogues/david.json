@@ -1,0 +1,53 @@
+{
+  "1": [
+    {
+      "type": "params",
+      "text": "dia_david_1",
+      "attitude": "neutral",
+      "repetable": false,
+      "set_variable": ""
+    },
+    {
+      "option": "1",
+      "type": "choice",
+      "buttonText" : "btn_greet", 
+      "text": "Hi"
+    }
+  ],
+  "1-1":[
+    {
+      "type": "params",
+      "text": "dia_david_1-1",
+      "attitude": "neutral",
+      "repetable": true,
+      "set_variable": ""
+    },
+    {
+      "option": "1",
+      "type": "choice",
+      "buttonText" : "btn_yes", 
+      "text": "dia_david_1-1o1"
+    },
+    {
+      "option": "2",
+      "type": "choice",
+      "buttonText" : "btn_no", 
+      "text": "dia_david_1-1o2"
+    }
+  ],
+  "1-1-1":[
+    {
+      "type": "params",
+      "text": "dia_david_1-1-1",
+      "attitude": "neutral",
+      "repetable": true,
+      "set_variable": ""
+    },
+    {
+      "option": "1",
+      "type": "choice",
+      "buttonText" : "btn_thank", 
+      "text": "dia_david_1-1-1o1"
+    }
+  ]
+}

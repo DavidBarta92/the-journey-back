@@ -1,10 +1,19 @@
 {
     "btn_yes" : "Igen",
     "btn_no" : "Nem",
+    "btn_greet" : "Üdv.",
+    "btn_thank" : "Köszönöm",
     "btn_newGame" : "Új játék",
     "btn_continue" : "Folytatás",
     "btn_credits" : "Készítette",
     "btn_controlls" : "Irányítás",
     "btn_exit" : "Kilépés",
-    "btn_back" : "Vissza"
+    "btn_back" : "Vissza",
+    "dia_david_1" : "Szervusz!",
+    "dia_david_1o1" : "Szervusz!",
+    "dia_david_1-1" : "Tudok segíteni?",
+    "dia_david_1-1o1" : "Igen, az orvost keresem.",
+    "dia_david_1-1o2" : "Nem, köszönöm.",
+    "dia_david_1-1-1" : "Áh, én ismerem őt. Gyere, odavazetlek.",
+    "dia_david_1-1-1o1" : "Köszönöm"
 }

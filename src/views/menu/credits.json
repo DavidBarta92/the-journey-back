@@ -2,6 +2,7 @@
     "name" : "train",
     "backgroundPath" : "",
     "spritesPath" : "",
+    "dialogue" : "",
     "elements" : {
         "title" : {
             "type": "text",
