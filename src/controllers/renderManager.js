@@ -12,8 +12,6 @@ var RenderManager = (function(){
         gameCanvas.resize();
     }, true);
 
-    var lastScreenImage = new Image();
-
     var state = stateManager.loadState();
 
   return {
@@ -32,13 +30,10 @@ var RenderManager = (function(){
             break;
         }
       },
-
-      saveScreenImage: function(screenImage){
-        lastScreenImage = screenImage;
-      },
       
-      getLastScreenImage: function(){
-        return lastScreenImage;
+      preRender: function(){
+        state = stateManager.loadState();
+        Menu.preRender(state);
       },
     }
 }

@@ -1,7 +1,7 @@
 {
     "name" : "desert",
     "backgroundPath" : "",
-    "spritesPath" : "../src/media/images/spritesheet.high.png",
+    "spritesPath" : "",
     "itemsPath" : "",
     "elements" : {
         "rock" : {
