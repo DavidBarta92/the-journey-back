@@ -5,12 +5,11 @@ import { player } from "./player.js";
 import inputController from "../controllers/inputController.js";
 import {tree, rock, background } from "./sprites.js";
 import Filter from "../views/filter";
-import desert from '../views/driver/desert.json';
+import desert from "../views/driver/desert.json";
 
 var spritesheet = new Image();
 
 var contentContainer;
-
 
 var Driver = (function(){
     var pause = false;
