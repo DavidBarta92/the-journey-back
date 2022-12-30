@@ -12,6 +12,8 @@ function createWindow() {
     width: 1280,
     height: 720,
     webPreferences: { nodeIntegration: true, contextIsolation: false },
+    autoHideMenuBar: true,
+    fullscreen: true
   });
   // and load the index.html of the app.
   console.log(__dirname);
