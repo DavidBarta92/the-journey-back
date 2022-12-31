@@ -1,0 +1,37 @@
+{
+"name" : "cargo_outside",
+"backgroundPath" : "../src/media/images/cargo_outside_bg1.b64",
+"spritesPath" : "",
+"itemsPath" : "",
+"dialogue" : "",
+"elements" : {
+    "toTheCockpit" : {
+        "type": "activeArea",
+        "text": null,
+        "x": 468,
+        "y": 537,
+        "width": 96,
+        "height": 58,
+        "color": "white",
+        "font": "Arial",
+        "fontSize": 50,
+        "filter" : null,
+        "actionType": "setView",
+        "action": "driver"
+    },
+    "toTheLivingPlatform" : {
+        "type": "activeArea",
+        "text": null,
+        "x": 165,
+        "y": 112,
+        "width": 145,
+        "height": 223,
+        "color": "white",
+        "font": "Arial",
+        "fontSize": 50,
+        "filter" : null,
+        "actionType": "setContent",
+        "action": "livingPlatform"
+    }
+}
+}

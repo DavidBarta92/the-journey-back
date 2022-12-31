@@ -63,6 +63,11 @@ var gameCanvas = (function(){
             return canvas;
         },
 
+        getDataURL: function(){
+            var dataURL = canvas.toDataURL();
+            return dataURL;
+        },
+
         getParams: function(){
             return render;
         },

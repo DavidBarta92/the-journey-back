@@ -14,6 +14,7 @@ var stateManager = (function(){
     chapter: 0,
     scene: 0,
     language: 'hun', // 'hun', 'eng'
+    items: []
   };
 
   var state = [];
@@ -65,6 +66,14 @@ var stateManager = (function(){
       if (oldView !== state.view){
         console.log('The old view: ' + oldView + ' has changed to: ' + state.view);
       }
+    },
+  resetLevelChapterScene: () => {
+      state = loadState();
+      state.level = 1;
+      state.chapter = 1;
+      state.scene = 1;
+      dataController.saveState(state);
+      console.log("level: " + state.level + " | chapter: " + state.chapter + " | scene: " + state.scene);
     },
   newLevel: () => {
       state = loadState();
@@ -120,12 +129,18 @@ var stateManager = (function(){
       dataController.saveState(state);
       gameCanvas.clear();
       if (oldStateView !== state.status.view){
-        console.log('The old state view: ' + oldStateView + ' has changed to: ' + state.status.view);
+        console.log('The old status view: ' + oldStateView + ' has changed to: ' + state.status.view);
       }
       if (oldStateContent !== state.status.content){
-        console.log('The old state content: ' + oldStateContent + ' has changed to: ' + state.status.content);
+        console.log('The old status content: ' + oldStateContent + ' has changed to: ' + state.status.content);
       }
     },
+    resetItems: () => {
+      state = loadState();
+      state.items = [];
+      console.log("State itmes are removed.");
+      dataController.saveState(state);
+    }
   }
 }
 ());

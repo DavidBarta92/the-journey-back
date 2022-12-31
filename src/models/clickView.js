@@ -42,7 +42,6 @@ var newSpeechIndex;
 var spokenSpeeches = [];
 
 var spritesheetForString = new Image();
-spritesheetForString.src = "../media/spritesheet.high.png";
 
 var spritesheet = new Image();
 
@@ -67,16 +66,33 @@ const isGif = function(image){
 
 //draw the background image. if its not possible it is just fill the screen with blue (after a filter comes)
 const drawBackground = function(){
-    context.beginPath();
-    try {
+    var state = dataController.loadState();
+    if(state.view == "menu") {
+        context.beginPath();
+        context.fillStyle = "rgba(229, 224, 221, 1)";
+        context.fillRect(530, 0, render.width, render.height);
+        context.save();
+        context.beginPath();
+        context.rect(700, 150, 400, 500);
+        context.clip();
         context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
-    } catch {
-        context.fillStyle = "rgb(30,0,250)";
-        context.fillRect(0, 0, render.width, render.height);
+        var ctxForDither = context.getImageData(0, 0, render.width, render.height);
+        var ctxFromD = Filter.dither(ctxForDither);
+        context.putImageData(ctxFromD, 0, 0);
+        context.restore();
+        context.beginPath();
+        context.lineWidth = "4";
+        context.strokeStyle = "black";
+        context.rect(700, 150, 400, 500);
+        context.stroke();
+        context.fillStyle = "rgba(250, 126, 59, 1)";
+        context.fillRect(0, 0, 530, render.height);
+    } else {
+        context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
+        var ctxForDither = context.getImageData(0, 0, render.width, render.height);
+        var ctxFromD = Filter.dither(ctxForDither);
+        context.putImageData(ctxFromD, 0, 0);
     }
-    var ctxForDither = context.getImageData(0, 0, render.width, render.height);
-    var ctxFromD = Filter.dither(ctxForDither);
-    context.putImageData(ctxFromD, 0, 0);
 }
 
 //write the given text in the chosen language
@@ -206,49 +222,50 @@ const deleteDialogueElements = function() {
 
 //draw all visible elements on the view
 const drawElements = function(elements) {
-    var elementImage;
-    Object.entries(elements).forEach(element => {
-        if (element[1].type === 'dialogue') {
-            let currentSpeechObj = getValidSpeechByIndex(newSpeechIndex);
-            if (currentSpeechObj.speechIndexIsValid) {
-                context.fillStyle = element[1].bgcolor;
-                context.fillRect(element[1].x, element[1].y, element[1].w, element[1].h);
-                if (element[1].processed === false) {
-                    pushDialogueElements(element[1]);
-                    contentContainer.elements[element[0]].processed = true;
-                    drawElements(elements);
+    document.fonts.ready.then(function () {
+         Object.entries(elements).forEach(element => {
+            if (element[1].type === 'dialogue') {
+                let currentSpeechObj = getValidSpeechByIndex(newSpeechIndex);
+                if (currentSpeechObj.speechIndexIsValid) {
+                    context.fillStyle = element[1].bgcolor;
+                    context.fillRect(element[1].x, element[1].y, element[1].w, element[1].h);
+                    if (element[1].processed === false) {
+                        pushDialogueElements(element[1]);
+                        contentContainer.elements[element[0]].processed = true;
+                        drawElements(elements);
+                    }
+                }
+            };
+            if (element[1].type === 'button' || element[1].type === 'text'){
+                writeText(element[1], (element[1].x + element[1].textBoxEnd));
+                
+                //only buttons have border
+                if(element.hasOwnProperty('border') && element[1].border){
+                    var width = context.measureText(element[1].text).width + 2 * (element[1].fontSize / 10);
+                    var buttonTopLeftX      = element[1].x - element[1].fontSize / 10;
+                    var buttonTopLeftY      = element[1].y - element[1].fontSize + element[1].fontSize / 10;
+        
+                    context.strokeStyle = element[1].color;
+                    context.rect(buttonTopLeftX, buttonTopLeftY, width, element[1].fontSize);
+                    context.stroke();
                 }
             }
-        };
-        if (element[1].type === 'button' || element[1].type === 'text'){
-            writeText(element[1], (element[1].x + element[1].textBoxEnd));
-            
-            //only buttons have border
-            if(element.hasOwnProperty('border') && element[1].border){
-                var width = context.measureText(element[1].text).width + 2 * (element[1].fontSize / 10);
-                var buttonTopLeftX      = element[1].x - element[1].fontSize / 10;
-                var buttonTopLeftY      = element[1].y - element[1].fontSize + element[1].fontSize / 10;
-    
-                context.strokeStyle = element[1].color;
-                context.rect(buttonTopLeftX, buttonTopLeftY, width, element[1].fontSize);
-                context.stroke();
-            }
-        }
-        if (element[1].type === 'sprite' || element[1].type === 'item'){
-            try {
-                if (isGif(spritesheet)){
-                    //sprites and items cant move (at this moment)
-                    context.drawImage(spritesheet.frames[0].image,  element[1].sourceX, element[1].sourceY, element[1].sourceW, element[1].sourceH, element[1].x, element[1].y, element[1].w, element[1].h);
-                } else {
-                    // uncecessary declare here
-                    context.drawImage(spritesheet,  element[1].sourceX, element[1].sourceY, element[1].sourceW, element[1].sourceH, element[1].x, element[1].y, element[1].w, element[1].h);
+            if (element[1].type === 'sprite' || element[1].type === 'item'){
+                try {
+                    if (isGif(spritesheet)){
+                        //sprites and items cant move (at this moment)
+                        context.drawImage(spritesheet.frames[0].image,  element[1].sourceX, element[1].sourceY, element[1].sourceW, element[1].sourceH, element[1].x, element[1].y, element[1].w, element[1].h);
+                    } else {
+                        // uncecessary declare here
+                        context.drawImage(spritesheet,  element[1].sourceX, element[1].sourceY, element[1].sourceW, element[1].sourceH, element[1].x, element[1].y, element[1].w, element[1].h);
+                    }
+                } catch(e) {
+                    console.log(e);
                 }
-            } catch(e) {
-                console.log(e);
             }
-        }
+        });
+        dialogueOptionClicked = false;
     });
-    dialogueOptionClicked = false;
 }
 
 // collects all elements from the view whichones are clickable objects or areas
@@ -292,7 +309,9 @@ const hitArea = function(elements){
             if (element[1].actionType === "startGame") {
                 if(element[1].action == 'new'){
                     stateManager.setView('story');
-                    stateManager.setContent('train');
+                    stateManager.setContent('cargo_outside');
+                    stateManager.resetLevelChapterScene();
+                    stateManager.resetItems();
                 } else {
                     stateManager.setContentByStatus();
                 }
@@ -347,7 +366,7 @@ export const Menu = (function(){
         // we need to empty this object when a new view is loaded
         interactives = {};
         contentContainer = dataController.loadContent(state);
-        background = RenderManager.getLastScreenImage();
+        background = dataController.getLastScreenImage();
         spritesheet = dataController.loadImage(contentContainer.spritesPath);
         collectInteractives(contentContainer.elements);
         languageFile = dataController.loadLanguageFile(state);
@@ -384,6 +403,13 @@ export const Menu = (function(){
             animInterval = setInterval(trackAnimation, 6);
             //if(triggering()) menuInterval = setInterval(renderMenuFrame, 100);
             clickInterval = setInterval(trackInput, 6);
+            },
+
+        //its only for th first screen rendering at the game starting (this preload pictures, fonts for the clickview)
+        preRender: function(state){
+            init(state);
+            renderMenuFrame();
+            RenderManager.render();
             }
         }
     }
@@ -412,11 +438,11 @@ export const Story = (function(){
     }
 
     const setPause = function() {
-        var lastScreenImage = new Image();
-        lastScreenImage = context.getImageData(0, 0, render.width, render.height);
-        RenderManager.saveScreenImage(lastScreenImage);
+        var dataURL = gameCanvas.getDataURL();
+        dataController.saveScreenImage(dataURL);
         pause = true;
         clearInterval(storyInterval);
+        stateManager.setStatus();
         stateManager.setView('menu');
         stateManager.setContent('main');
         RenderManager.render();

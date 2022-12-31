@@ -8,6 +8,6 @@ export function Game() {
     Timer.startTimer();
     stateManager.setView('menu');
     stateManager.setContent('main');
-    RenderManager.render();
+    RenderManager.preRender();
 
 }
