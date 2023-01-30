@@ -4,6 +4,7 @@
 "spritesPath" : "",
 "itemsPath" : "",
 "dialogue" : "",
+"filter" : "fadeOn",
 "elements" : {
     "toTheCockpit" : {
         "type": "activeArea",

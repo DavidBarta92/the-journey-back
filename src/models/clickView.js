@@ -47,6 +47,8 @@ var spritesheet = new Image();
 
 var background = new Image();
 
+var glitchingElement;
+
 const drawString = function(string, pos) {
     string = string.toUpperCase();
     var cur = pos.x;
@@ -76,16 +78,16 @@ const drawBackground = function(){
         context.rect(700, 150, 400, 500);
         context.clip();
         context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
-        var ctxForDither = context.getImageData(0, 0, render.width, render.height);
-        var ctxFromD = Filter.dither(ctxForDither);
-        context.putImageData(ctxFromD, 0, 0);
+        //var ctxForDither = context.getImageData(0, 0, render.width, render.height);
+        //var ctxFromD = Filter.dither(ctxForDither);
+        //context.putImageData(ctxFromD, 0, 0);
         context.restore();
         context.beginPath();
         context.lineWidth = "4";
         context.strokeStyle = "black";
         context.rect(700, 150, 400, 500);
         context.stroke();
-        context.fillStyle = "rgba(250, 126, 59, 1)";
+        context.fillStyle = "rgb(255, 110, 49, 1)";
         context.fillRect(0, 0, 530, render.height);
     } else {
         context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
@@ -242,8 +244,8 @@ const drawElements = function(elements) {
                 //only buttons have border
                 if(element.hasOwnProperty('border') && element[1].border){
                     var width = context.measureText(element[1].text).width + 2 * (element[1].fontSize / 10);
-                    var buttonTopLeftX      = element[1].x - element[1].fontSize / 10;
-                    var buttonTopLeftY      = element[1].y - element[1].fontSize + element[1].fontSize / 10;
+                    var buttonTopLeftX = element[1].x - element[1].fontSize / 10;
+                    var buttonTopLeftY = element[1].y - element[1].fontSize + element[1].fontSize / 10;
         
                     context.strokeStyle = element[1].color;
                     context.rect(buttonTopLeftX, buttonTopLeftY, width, element[1].fontSize);
@@ -266,6 +268,11 @@ const drawElements = function(elements) {
         });
         dialogueOptionClicked = false;
     });
+    if (!(glitchingElement == null)) {
+        Anim.glitch(glitchingElement);
+        glitchingElement = null;
+        requestNewFrame = true;
+    }
 }
 
 // collects all elements from the view whichones are clickable objects or areas
@@ -335,9 +342,7 @@ const glitchElement = function(elements){
     Object.entries(elements).forEach(element => {
         if (inputController.cursorOnElement(element[1])){
             if(element[1].filter == "glitch"){
-                var glitchingElement = {...element[1]};
-                glitchingElement.color = "yellow";
-                writeText(glitchingElement);
+                glitchingElement = {...element[1]};
                 requestNewFrame = true;
             }
         }
@@ -425,7 +430,7 @@ export const Story = (function(){
     var keys = [];
 
     const init = function(state){
-        context.globalAlpha = 0;
+        context.globalAlpha = 0
         // we need to empty this object when a new view is loaded
         interactives = {};
         contentContainer = dataController.loadContent(state);

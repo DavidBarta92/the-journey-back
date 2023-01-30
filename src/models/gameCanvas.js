@@ -19,6 +19,9 @@ var gameCanvas = (function(){
     canvas.height = render.height;
     canvas.width = render.width;
 
+    const offscreenCanvas = new OffscreenCanvas(render.width, render.height);
+    const offscreenContext = offscreenCanvas.getContext('2d');
+
     function offset(el) {
         var box = el.getBoundingClientRect();
         var docElem = document.documentElement;
@@ -74,7 +77,19 @@ var gameCanvas = (function(){
 
         setParam: function(){
             //not finished yet
-        }
+        },
+
+        getOffscreenContext: function(){
+            return offscreenContext;
+        },
+
+        getOffscreenCanvas: function(){
+            return offscreenCanvas;
+        },
+
+        clearOffscreenCanvas: function(){
+            offscreenContext.clearRect(0, 0, canvas.width, canvas.height);
+        },
     }
 }
 ());

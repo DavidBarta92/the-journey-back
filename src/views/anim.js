@@ -1,14 +1,17 @@
 import gameCanvas from "../models/gameCanvas";
+import Filter from "./filter";
 
 var Anim = (function(){
 
     var context = gameCanvas.getContext();
+    var canvas = gameCanvas.getCanvas();
 
-    var render = gameCanvas.getParams();
-    const offscreen = new OffscreenCanvas(render.width, render.height);
-    const ctx = offscreen.getContext('2d');
+    const offscreenContext = gameCanvas.getOffscreenContext();
 
     var fixFadeArray = [];
+
+    var glitchingElement;
+    var glitchedElemet;
 
     //got a fadearray includes color rects to cover texts at the begining
     //every time when you call this function it draws the rect but with 10% less opacitiy 
@@ -63,83 +66,85 @@ var Anim = (function(){
 
 
 
+    //create a random integer
+    const getRandomInt = function(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
 
 
+    const glitch = function(element = null){
+
+        if (element == null) {
+            console.log("something");
+            return false;
+        } else {
+        //lemsáoljuk a képet és beállítjuk a parmétereket
+        var sourceScreenImage = new Image();
+        sourceScreenImage = canvas.toDataURL("image/png", 1.0);
+        var elementX, elementY, elementWidth, elementHeight;
+
+        var glitchImageA;
+        var glitchImageB;
+        var finalImageData;
+
+        if(element.type == 'button' || element.type == 'text'){
+            elementX         = element.x;
+            elementY         = element.y;
+            elementWidth     = context.measureText(element.text).width + 2 * (element.fontSize / 10);
+            elementHeight    = element.fontSize;
+            } else {
+            elementX         = element.x;
+            elementY         = element.y;
+            elementWidth     = element.width;
+            elementHeight    = element.height;
+        } 
+        
+        var randHeight = getRandomInt(1, elementHeight);
+        var randHorizontal = getRandomInt(1, 20);
+
+        var finalGlitchedImageX = elementX;
+        var finalGlitchedImageY = elementY;
+        var finalGlitchedImageW = elementWidth;
+        var finalGlitchedImageH = elementHeight;
+
+        var imageData;
+
+        //az element álltal elfoglalt területen végigmegyünk 5x, a terület megegyezik az element álltal elfoglalt paraméterekkel
+        for (var i = 0; i < 6; i++) {
+            //minden egyes ciklusban a terület xy-ából kiindulva egy véletlenszerű (0 és a terület magassága között)
+                //magasságban és a terület szélességében kimásolunk egy részletet a képből
+
+                imageData = context.getImageData(elementX, elementY, elementWidth, randHeight);
+                glitchImageA = imageData;
+                //glitchImageB = imageData;
+
+                //context.putImageData(glitchImageA, finalGlitchedImageX, finalGlitchedImageY, finalGlitchedImageW, finalGlitchedImageH, 0, 0, finalGlitchedImageW, finalGlitchedImageH); 
+
+            // a kimásolt kép színét módosítjuk A módon és eltoljuk balra random mértékben 
+                //(előre meghatározzuk hogy mi az az értéktartomány amiben mozgunk ezt nevezzük TARTOMÁNYnak)
 
 
+            // a kimásolt kép színét módosítjuk B módon és eltoljuk jobbra random mértékben 
+                //(előre meghatározzuk hogy mi az az értéktartomány amiben mozgunk ezt nevezzük TARTOMÁNYnak)
 
 
-
-
-    const glitch = function(element){
-        imageObjShadow.onload = function(){
-            var arr = lineShadowsHeight(element);
-            var sy = 0;
-
-            for (var i = 0; i < arr.length; i++){
-                //context.drawImage(this, 0, sy, canvas.width, arr[i], getRandomInt(-2*offset(), 2*offset()), sy, canvas.width, arr[i]);
-                sy = sy + arr[i];
-            }
+            //még ebben a ciklusban visszaillesztjük ezt a 2 két kép részletet
+            offscreenContext.putImageData(glitchImageA, 0, 0, glitchImageA.width, glitchImageA.height, elementX - randHorizontal, elementY, glitchImageA.width, glitchImageA.height);
+            //offscreenContext.putImageData(glitchImageB, 0, 0, glitchImageB.width, glitchImageB.height, elementX + randHorizontal, elementY, glitchImageB.width, glitchImageB.height);
+            //var finalImageData = offscreenContext.getImageData(finalGlitchedImageX, finalGlitchedImageY, finalGlitchedImageW, finalGlitchedImageH);
+            finalImageData = offscreenContext.getImageData(0, 0, 900, 700);
+            finalImageData.tagName = getRandomInt(1,40);
+        }
+        //kimásoljuk a másolt kép egy területét és visszaírjuk a helyére az eredeti screenen
+            context.putImageData(imageData, 0, 0, finalGlitchedImageW, finalGlitchedImageH, finalGlitchedImageX, finalGlitchedImageY, finalGlitchedImageW, finalGlitchedImageH); 
+            finalImageData = null;
+            glitchingElement = null;  
+            return finalImageData;
         }
     }
 
-    function drawText(){
-        context.font = "normal 80px Roboto Condensed";
-        context.fillStyle = "#FFFFFF";
-        context.textAlign = "center";
-        context.textBaseline = "middle";
-        context.fillText(text, xPosition, yPosition);
-    }
-      
-    function getRandomInt(min, max){
-        return Math.floor(Math.random() * (max - min + 1) + min);
-    }
-      
-    var lineShadows = function (){
-        return Math.floor(Math.random() * (7 - 4 + 1) + 4);
-    };
-      
-    var offset = function(){
-        return Math.floor(Math.random() * (3 - 2 + 1) + 2)*0.8;
-    }
-      
-    var timeBack = function (){
-        var max = 300;
-        var min = 80;
-        return Math.floor(Math.random() * (max - min + 1) + min);
-    }
-      
-    var lineShadowsHeight = function (element){
-        var h = element.fontSize;
-        var count =lineShadows();
-        var arr = [];
-        var s = 0;
-        
-        for (var i = 0; i < count; i++)
-          {
-             arr[i] = Math.floor(Math.random() * (h/(count-1)- 2 + 1) + 2);
-             h = h -  arr[i];
-             s = s + arr[i];
-             arr[count] = canvas.height - s;
-          }
-          return arr;
-    }
-      
-    function getShadowsImg(){
-        context.save();
-        context.font = "bold 80px Roboto Condensed";    
-        context.textAlign = "center";
-        context.textBaseline = "middle";
-        context.globalCompositeOperation = "destination-over";
-        context.clearRect(0,0,canvas.width,canvas.height);
-        context.fillStyle = "#a3004a";
-        context.fillText(text, xPosition-2, yPosition);
-        context.fillStyle = "#09c4de";
-        context.fillText(text, xPosition+2, yPosition);
-        context.restore(); 
-        
-        imageDataShadows = canvas.toDataURL("image/png", 1.0);
-    }
+
+
 
     return {
         dialogueFade: function(fadeArray){

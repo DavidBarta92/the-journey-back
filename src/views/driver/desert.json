@@ -3,6 +3,7 @@
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
+    "filter" : "",
     "elements" : {
         "rock" : {
             "type": "sprite",

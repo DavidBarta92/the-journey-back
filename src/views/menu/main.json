@@ -3,6 +3,7 @@
   "backgroundPath": null,
   "spritesPath": null,
   "dialogue": null,
+  "filter" : "",
   "elements": {
     "title": {
       "type": "text",
