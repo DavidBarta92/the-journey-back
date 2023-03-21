@@ -12,8 +12,8 @@ var gameCanvas = (function(){
         width: 1280,
         height: 720,
         depthOfField: 150,
-        camera_distance: 40,
-        camera_height: 200
+        camera_distance: 30,
+        camera_height: 150
     };
 
     canvas.height = render.height;
