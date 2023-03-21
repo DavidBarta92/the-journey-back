@@ -4,9 +4,9 @@ export const player = {
     acceleration: 0.05,
     deceleration: 0.3,
     breaking: 0.6,
-    turning: 5.0,
+    turning: 8.0,
     posx: 0,
-    maxSpeed: 15,
+    maxSpeed: 5,
 
 
     // Update the car state

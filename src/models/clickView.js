@@ -140,7 +140,7 @@ const writeText = function(element, textBoxX = window.innerWidth){
 
 var dialogueFadeArray = [];
 
-const getValidSpeechByIndex = function(speechIndex){
+const getValidSpeechByIndex = function(speechIndex){ 
     let speechIndexIsValid = false;
     let validSpeech;
     Object.entries(dialogueFile).forEach(speech => {
@@ -242,7 +242,7 @@ const drawElements = function(elements) {
                 writeText(element[1], (element[1].x + element[1].textBoxEnd));
                 
                 //only buttons have border
-                if(element.hasOwnProperty('border') && element[1].border){
+                if(element[1].hasOwnProperty('border') && element[1].border){
                     var width = context.measureText(element[1].text).width + 2 * (element[1].fontSize / 10);
                     var buttonTopLeftX = element[1].x - element[1].fontSize / 10;
                     var buttonTopLeftY = element[1].y - element[1].fontSize + element[1].fontSize / 10;
