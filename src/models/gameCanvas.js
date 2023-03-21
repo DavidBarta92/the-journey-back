@@ -12,12 +12,15 @@ var gameCanvas = (function(){
         width: 1280,
         height: 720,
         depthOfField: 150,
-        camera_distance: 40,
-        camera_height: 200
+        camera_distance: 30,
+        camera_height: 150
     };
 
     canvas.height = render.height;
     canvas.width = render.width;
+
+    const offscreenCanvas = new OffscreenCanvas(render.width, render.height);
+    const offscreenContext = offscreenCanvas.getContext('2d');
 
     function offset(el) {
         var box = el.getBoundingClientRect();
@@ -74,7 +77,19 @@ var gameCanvas = (function(){
 
         setParam: function(){
             //not finished yet
-        }
+        },
+
+        getOffscreenContext: function(){
+            return offscreenContext;
+        },
+
+        getOffscreenCanvas: function(){
+            return offscreenCanvas;
+        },
+
+        clearOffscreenCanvas: function(){
+            offscreenContext.clearRect(0, 0, canvas.width, canvas.height);
+        },
     }
 }
 ());

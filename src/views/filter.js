@@ -7,8 +7,7 @@ var Filter = (function(){
     var dropPos = [];
 
     var render = gameCanvas.getParams();
-    const offscreen = new OffscreenCanvas(render.width, render.height);
-    const ctx = offscreen.getContext('2d');
+    const offscreenContext = gameCanvas.getOffscreenContext();
 
     const defaultParams = {
         greyscaleMethod: true,
@@ -27,6 +26,17 @@ var Filter = (function(){
                 a: 255,
             },
         }
+    }
+
+    function invertColors (imageData) {
+        for (var i = 0; i < imageData.data.length; i += 4) {
+            imageData.data[i] = 255-imageData.data[i];
+            imageData.data[i + 1] = 255-imageData.data[i + 1];
+            imageData.data[i + 2] = 255-imageData.data[i + 2];
+            imageData.data[i + 3] = 255;
+          }
+
+        return imageData;
     }
 
     function drawDither (data) {
@@ -224,7 +234,7 @@ var Filter = (function(){
 
     function drawRaindrops(image, dropSize, intensity) {
 
-        ctx.putImageData(image, 0, 0);
+        offscreenContext.putImageData(image, 0, 0);
 
         var radius, posX, posY;
 
@@ -244,18 +254,18 @@ var Filter = (function(){
         dropPos.forEach(drop => {
         // Create gradient
         console.log(drop.rad);
-        var grd = ctx.createRadialGradient(drop.x,drop.y,drop.rad,drop.x-10,drop.y,drop.rad*0.5);
+        var grd = offscreenContext.createRadialGradient(drop.x,drop.y,drop.rad,drop.x-10,drop.y,drop.rad*0.5);
         grd.addColorStop(0,"transparent");
         grd.addColorStop(1,"white");
 
         // Fill with gradient
-        ctx.fillStyle = grd;
-        ctx.beginPath();
-        ctx.arc(drop.x, drop.y, drop.rad, 0, 2 * Math.PI);
-        ctx.fill();
+        offscreenContext.fillStyle = grd;
+        offscreenContext.beginPath();
+        offscreenContext.arc(drop.x, drop.y, drop.rad, 0, 2 * Math.PI);
+        offscreenContext.fill();
         });
 
-        var ctxImage = ctx.getImageData(0, 0, render.width, render.height);
+        var ctxImage = offscreenContext.getImageData(0, 0, render.width, render.height);
         return ctxImage;
     }
 
@@ -294,6 +304,10 @@ var Filter = (function(){
 
         getDitherDefaultParams: function(){
             return defaultParams;
+        },
+
+        invertColors: function(imageData){
+            return invertColors(imageData);
         },
 
         }

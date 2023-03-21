@@ -3,6 +3,7 @@
   "backgroundPath": null,
   "spritesPath": null,
   "dialogue": null,
+  "filter" : "",
   "elements": {
     "title": {
       "type": "text",
@@ -46,7 +47,7 @@
       "border": false,
       "actionType": "startGame",
       "action": "continue",
-      "filter": null
+      "filter": "glitch"
     },
     "newGame": {
       "type": "button",

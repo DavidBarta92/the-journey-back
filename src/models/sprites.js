@@ -1,24 +1,29 @@
 
 export const tree = {
-    x: 321,
-    y: 9,
+    x: 25,
+    y: 0,
     w: 23,
     h: 50
 };
 export const rock = {
-    x: 345,
-    y: 9,
+    x: 50,
+    y: 0,
     w: 11,
     h: 14
+};
+export const cross = {
+    x: 0,
+    y: 0,
+    w: 25,
+    h: 25
 };
 
 export const background = {
     x: 0,
     y: 9,
-    w: 320,
-    h: 120,
+    w: 1536,
+    h: 140,
     setImage: function(imageName) {
-//3 racing options and 3 slideshow options, all of these set x y w h params (i'll make it later)
     }
 };
 

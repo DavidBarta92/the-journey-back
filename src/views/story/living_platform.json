@@ -4,6 +4,7 @@
 "spritesPath" : "",
 "itemsPath" : "",
 "dialogue" : "david",
+"filter" : "fadeOn",
 "elements" : {
     "dialogue" : {
         "type": "dialogue",

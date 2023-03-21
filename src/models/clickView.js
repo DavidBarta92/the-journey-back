@@ -3,8 +3,9 @@ import gameCanvas from "./gameCanvas";
 import RenderManager from "../controllers/renderManager";
 import stateManager from "../controllers/stateManager";
 import Filter from "../views/filter";
+import Anim from "../views/anim";
 import dataController from "../controllers/dataController";
-import Timer from './timer';
+import Timer from "./timer";
 
 //all these variables and functions are used by the Menu and the Story functions
 
@@ -19,6 +20,8 @@ gameCanvas.resize();
 let state;
 
 var languageFile;
+
+var requestNewFrame = false;
 
 let menuInterval;
 let storyInterval;
@@ -43,6 +46,8 @@ var spritesheetForString = new Image();
 var spritesheet = new Image();
 
 var background = new Image();
+
+var glitchingElement;
 
 const drawString = function(string, pos) {
     string = string.toUpperCase();
@@ -73,16 +78,16 @@ const drawBackground = function(){
         context.rect(700, 150, 400, 500);
         context.clip();
         context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
-        var ctxForDither = context.getImageData(0, 0, render.width, render.height);
-        var ctxFromD = Filter.dither(ctxForDither);
-        context.putImageData(ctxFromD, 0, 0);
+        //var ctxForDither = context.getImageData(0, 0, render.width, render.height);
+        //var ctxFromD = Filter.dither(ctxForDither);
+        //context.putImageData(ctxFromD, 0, 0);
         context.restore();
         context.beginPath();
         context.lineWidth = "4";
         context.strokeStyle = "black";
         context.rect(700, 150, 400, 500);
         context.stroke();
-        context.fillStyle = "rgba(250, 126, 59, 1)";
+        context.fillStyle = "rgb(255, 110, 49, 1)";
         context.fillRect(0, 0, 530, render.height);
     } else {
         context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
@@ -94,9 +99,11 @@ const drawBackground = function(){
 
 //write the given text in the chosen language
 const writeText = function(element, textBoxX = window.innerWidth){
+    dialogueFadeArray = [];
     var fontString;
     var textString;
     fontString          = element.fontSize + "px " + element.font;
+    context.beginPath();
     context.font        = fontString;
     context.fillStyle   = element.color;
     Object.entries(languageFile).forEach(label => {
@@ -111,23 +118,29 @@ const writeText = function(element, textBoxX = window.innerWidth){
         var currentLineY = element.y;
         var words = textString.split(' ');
 
-        for (var i = 0; i<words.length; i++) {
+        for (var i = 0; i < words.length; i++) {
             words[i] = words[i] + ' ';
             var currentWordWidth = context.measureText(words[i]).width;
             if (currentLineX + currentWordWidth > textBoxX) {
                 currentLineY = currentLineY + lineheight;
-            currentLineX = element.x;
-            console.log((currentLineX + currentWordWidth) + " | x:" + currentLineX + " y:" + currentLineY);
-          }
-          context.fillText(words[i], currentLineX, currentLineY);
-          currentLineX = currentWordWidth + currentLineX;
+                currentLineX = element.x;
+            }
+            context.fillText(words[i], currentLineX, currentLineY);
+            if (element.filter === "dialogueFade") {
+                //dialogueFadeArray.push({x: currentLineX, y: currentLineY - context.measureText(words[i]).actualBoundingBoxAscent, w: currentWordWidth, h: element.fontSize, r: 255, g: 255, b:255, a:1});
+                requestNewFrame = Anim.dialogueFade({x: currentLineX, y: currentLineY - context.measureText(words[i]).actualBoundingBoxAscent, w: currentWordWidth, h: element.fontSize, r: 255, g: 255, b:255, a:1});
+            }
+            currentLineX = currentWordWidth + currentLineX;
         }
+        //requestNewFrame = Filter.dialogueFade(dialogueFadeArray);
     } else {
         context.fillText(element.text, element.x, element.y);
     }
 }
 
-const getValidSpeechByIndex = function(speechIndex){
+var dialogueFadeArray = [];
+
+const getValidSpeechByIndex = function(speechIndex){ 
     let speechIndexIsValid = false;
     let validSpeech;
     Object.entries(dialogueFile).forEach(speech => {
@@ -167,6 +180,7 @@ const pushDialogueElements = function(dialogueBox){
                 dialogueElement.color = dialogueBox.colorOfSpeech;
                 dialogueElement.text = element.text;
                 dialogueElement.textBoxEnd = dialogueBox.h - dialogueBox.padding;
+                dialogueElement.filter = "dialogueFade";
                 spokenSpeeches.push(dialogueElement);
                 contentContainer.elements["dial" + speech[0] + "text"] = dialogueElement;
             }
@@ -184,7 +198,7 @@ const pushDialogueElements = function(dialogueBox){
                 dialogueElement.border = true;
                 dialogueElement.actionType = "dialogueOption";
                 dialogueElement.action = element.option;
-                //dialogueElement.filter = "glitch";
+                dialogueElement.filter = "glitch";
                 dialogueElement.longText = element.text;
                 rightSideOfLastButton = dialogueElement.x + parseInt(context.measureText(element.buttonText).width) - boxLeftWithPadding + 20;
 
@@ -228,10 +242,10 @@ const drawElements = function(elements) {
                 writeText(element[1], (element[1].x + element[1].textBoxEnd));
                 
                 //only buttons have border
-                if(element.hasOwnProperty('border') && element[1].border){
+                if(element[1].hasOwnProperty('border') && element[1].border){
                     var width = context.measureText(element[1].text).width + 2 * (element[1].fontSize / 10);
-                    var buttonTopLeftX      = element[1].x - element[1].fontSize / 10;
-                    var buttonTopLeftY      = element[1].y - element[1].fontSize + element[1].fontSize / 10;
+                    var buttonTopLeftX = element[1].x - element[1].fontSize / 10;
+                    var buttonTopLeftY = element[1].y - element[1].fontSize + element[1].fontSize / 10;
         
                     context.strokeStyle = element[1].color;
                     context.rect(buttonTopLeftX, buttonTopLeftY, width, element[1].fontSize);
@@ -254,6 +268,11 @@ const drawElements = function(elements) {
         });
         dialogueOptionClicked = false;
     });
+    if (!(glitchingElement == null)) {
+        Anim.glitch(glitchingElement);
+        glitchingElement = null;
+        requestNewFrame = true;
+    }
 }
 
 // collects all elements from the view whichones are clickable objects or areas
@@ -318,9 +337,23 @@ const hitArea = function(elements){
     });
 }
 
+// execute the predetermined action of the interactive element
+const glitchElement = function(elements){
+    Object.entries(elements).forEach(element => {
+        if (inputController.cursorOnElement(element[1])){
+            if(element[1].filter == "glitch"){
+                glitchingElement = {...element[1]};
+                requestNewFrame = true;
+            }
+        }
+    });
+}
+
 //used to triggering animation frame by render game frame
 const triggering = function(){
-    if(context.globalAlpha <= 0.9 || dialogueOptionClicked){
+    if(requestNewFrame || context.globalAlpha <= 0.9 || dialogueOptionClicked){
+console.log("render");
+        requestNewFrame = false;
         return true;
     } else {
         return false;
@@ -328,7 +361,7 @@ const triggering = function(){
 }
 
 // -------------------------------
-// -- Here comes the Menu funky --
+// -- Here comes the Menu funky ----------------------------------------------------------------------------------------------------------------------
 // -------------------------------
 
 // manages and runs the frame rendering of the menu
@@ -353,18 +386,27 @@ export const Menu = (function(){
             drawElements(contentContainer.elements);
         } else {
             clearInterval(menuInterval);
+            gameCanvas.clear();
+            drawBackground();
+            drawElements(contentContainer.elements);
         }
     }
 
     //tracking cursor
     const trackInput = function(){
-        if(cursor.click) hitArea(interactives, state);
+        if(cursor.click) hitArea(interactives);
+        glitchElement(contentContainer.elements);
+    }
+
+    const trackAnimation = function(){
+        if(triggering()) renderMenuFrame();
     }
 
     return {
         render: function(state){
             init(state);
-            if(triggering()) menuInterval = setInterval(renderMenuFrame, 100);
+            animInterval = setInterval(trackAnimation, 6);
+            //if(triggering()) menuInterval = setInterval(renderMenuFrame, 100);
             clickInterval = setInterval(trackInput, 6);
             },
 
@@ -379,7 +421,7 @@ export const Menu = (function(){
 ());
 
 // ------------------------------------
-// -- The Story function starts here --
+// -- The Story function starts here -----------------------------------------------------------------------------------------------------------------
 // ------------------------------------
 
 // manages and runs the frame rendering of the story view
@@ -388,7 +430,7 @@ export const Story = (function(){
     var keys = [];
 
     const init = function(state){
-        context.globalAlpha = 0;
+        context.globalAlpha = 0
         // we need to empty this object when a new view is loaded
         interactives = {};
         contentContainer = dataController.loadContent(state);
@@ -413,6 +455,7 @@ export const Story = (function(){
 
     //render one frame of the story view
     const renderStoryFrame = function(){
+        console.log("rendering" + context.globalAlpha);
         if(context.globalAlpha < 1){
             context.globalAlpha = (context.globalAlpha += 0.1).toFixed(1);
             gameCanvas.clear();
@@ -420,6 +463,7 @@ export const Story = (function(){
             drawElements(contentContainer.elements);
         } else {
             clearInterval(storyInterval);
+            gameCanvas.clear();
             drawBackground();
             drawElements(contentContainer.elements);
         }
@@ -428,8 +472,9 @@ export const Story = (function(){
     //tracking cursor
     const trackInput = function(){
         keys = inputController.getKeys();
-        if(cursor.click) hitArea(interactives, state);
+        if(cursor.click) hitArea(interactives);
         if(keys[27]) setPause();
+        glitchElement(contentContainer.elements);
     }
 
     const trackAnimation = function(){
