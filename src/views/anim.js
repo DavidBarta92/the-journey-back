@@ -143,8 +143,9 @@ var Anim = (function(){
         }
     }
 
-
-
+    function framing(imageData, color = "black") {
+        return imageData;
+    }
 
     return {
         dialogueFade: function(fadeArray){
@@ -153,7 +154,11 @@ var Anim = (function(){
 
         glitch: function(element){
             return glitch(element);
-        }
+        },
+
+        framing: function(imageData){
+            return framing(imageData);
+        },
 
         }
     }

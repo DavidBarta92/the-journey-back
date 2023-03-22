@@ -304,6 +304,14 @@ const hitArea = function(elements){
                 RenderManager.render();
                 return;
             }
+            if (element[1].actionType === "setLanguage") {
+                stateManager.changeLanguage(element[1].action);
+                gameCanvas.clear();
+                clearInterval(menuInterval);
+                clearInterval(storyInterval);
+                RenderManager.render();
+                return;
+            }
             if (element[1].actionType === "dialogueOption") {
                 if (!dialogueOptionClicked) {
                     newSpeechIndex = newSpeechIndex + "-" + element[1].action;

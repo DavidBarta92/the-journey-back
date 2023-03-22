@@ -31,7 +31,7 @@
     },
     "question:": {
       "type": "text",
-      "text": "Do you want to start a new game?",
+      "text": "txt_new_game",
       "x": 150,
       "y": 150,
       "width": 70,
@@ -43,7 +43,7 @@
     },
     "allert": {
       "type": "text",
-      "text": "The current game session will be lost.",
+      "text": "txt_new_game_allert",
       "x": 150,
       "y": 170,
       "width": 70,
