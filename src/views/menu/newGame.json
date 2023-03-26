@@ -66,7 +66,7 @@
       "border": false,
       "actionType": "startGame",
       "action": "new",
-      "filter": null
+      "filter": "appointable"
     },
     "no": {
       "type": "button",
@@ -81,7 +81,7 @@
       "border": false,
       "actionType": "setContent",
       "action": "main",
-      "filter": null
+      "filter": "appointable"
     }
   }
 }

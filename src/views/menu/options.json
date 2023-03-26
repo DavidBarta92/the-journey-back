@@ -85,7 +85,7 @@
       "border": false,
       "actionType": "setLanguage",
       "action": "eng",
-      "filter": null
+      "filter": "appointable"
     },
     "hun": {
       "type": "button",
@@ -101,7 +101,7 @@
       "border": false,
       "actionType": "setLanguage",
       "action": "hun",
-      "filter": null
+      "filter": "appointable"
     },
     "back": {
       "type": "button",
@@ -116,7 +116,7 @@
       "border": false,
       "actionType": "setContent",
       "action": "main",
-      "filter": null
+      "filter": "appointable"
     }
   }
 }

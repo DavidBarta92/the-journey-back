@@ -310,6 +310,18 @@ const drawElements = function(elements) {
                     context.stroke();
                 }
             }
+            if(element[1].hasOwnProperty('appoint') && element[1].appoint == true){
+                if(element[1].type === 'button'){
+                    writeText(element[1], (element[1].x + element[1].textBoxEnd), "red");
+                } else {
+                    context.strokeStyle = "green";
+                    context.lineWidth = 2;
+                    context.beginPath();
+                    context.rect(element[1].x,element[1].y,element[1].width,element[1].height);
+                    context.stroke();
+                }
+                element[1].appoint = false;
+            }
             if(element[1].hasOwnProperty('clicked') && element[1].clicked === true){
                 if(element[1].type === 'button'){
                     writeText(element[1], (element[1].x + element[1].textBoxEnd), "green");
@@ -344,7 +356,7 @@ const collectInteractives = function(elements){
     });
 }
 
-// execute the predetermined action of the interactive element
+// found the element in the elements list, witch is under the cursor
 const getArea = function(elements){
     var foundElement = null;
     Object.entries(elements).forEach(element => {
@@ -368,6 +380,7 @@ const clickAnimate = function(element){
     }    
 }
 
+// execute the predetermined action of the interactive element
 const hitArea = function(element){
     if(element !== null){
     if (element[1].actionType === "setView") {
@@ -429,13 +442,17 @@ const hitArea = function(element){
 }
 
 // execute the predetermined action of the interactive element
-const glitchElement = function(elements){
+const appointingElement = function(elements){
     Object.entries(elements).forEach(element => {
         if (inputController.cursorOnElement(element[1])){
-            if(element[1].filter == "glitch"){
+            if(element[1].filter == "appointable"){
                 glitchingElement = {...element[1]};
+                element[1].appoint = true;
                 requestNewFrame = true;
+                console.log(elements);
             }
+        } else {
+            element[1].appoint = false;
         }
     });
 }
@@ -497,7 +514,7 @@ export const Menu = (function(){
                 hitArea(getArea(interactives));
             })
         }
-        glitchElement(contentContainer.elements);
+        appointingElement(contentContainer.elements);
     }
 
     const trackAnimation = function(){
@@ -588,7 +605,7 @@ export const Story = (function(){
             })
         }
         if(keys[27]) setPause();
-        glitchElement(contentContainer.elements);
+        appointingElement(contentContainer.elements);
     }
 
     const trackAnimation = function(){

@@ -78,7 +78,7 @@
       "border": false,
       "actionType": "setContent",
       "action": "main",
-      "filter": null
+      "filter": "appointable"
     }
   }
 }

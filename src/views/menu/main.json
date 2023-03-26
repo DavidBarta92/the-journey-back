@@ -47,7 +47,7 @@
       "border": false,
       "actionType": "startGame",
       "action": "continue",
-      "filter": "glitch"
+      "filter": "appointable"
     },
     "newGame": {
       "type": "button",
@@ -63,7 +63,7 @@
       "border": false,
       "actionType": "setContent",
       "action": "newGame",
-      "filter": null
+      "filter": "appointable"
     },
     "options": {
       "type": "button",
@@ -79,7 +79,7 @@
       "border": false,
       "actionType": "setContent",
       "action": "options",
-      "filter": null
+      "filter": "appointable"
     },
     "credits": {
       "type": "button",
@@ -95,7 +95,7 @@
       "border": false,
       "actionType": "setContent",
       "action": "credits",
-      "filter": null
+      "filter": "appointable"
     },
     "main_exit": {
       "type": "button",
@@ -109,7 +109,7 @@
       "border": false,
       "actionType": "exitGame",
       "action": "",
-      "filter": null
+      "filter": "appointable"
     }
   }
 }
