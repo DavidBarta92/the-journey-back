@@ -7,7 +7,7 @@
   "elements": {
     "title": {
       "type": "text",
-      "text": "Star Slider",
+      "text": "The Journey Back",
       "x": 40,
       "y": 70,
       "width": 70,
@@ -47,7 +47,7 @@
       "border": false,
       "actionType": "startGame",
       "action": "continue",
-      "filter": "glitch"
+      "filter": "appointable"
     },
     "newGame": {
       "type": "button",
@@ -60,14 +60,14 @@
       "color": "white",
       "font": "Rounded",
       "fontSize": 20,
-      "border": true,
+      "border": false,
       "actionType": "setContent",
       "action": "newGame",
-      "filter": null
+      "filter": "appointable"
     },
-    "controlls": {
+    "options": {
       "type": "button",
-      "text": "btn_controlls",
+      "text": "btn_options",
       "x": 40,
       "y": 210,
       "width": 70,
@@ -76,10 +76,10 @@
       "color": "white",
       "font": "Rounded",
       "fontSize": 20,
-      "border": true,
+      "border": false,
       "actionType": "setContent",
-      "action": "controlls",
-      "filter": null
+      "action": "options",
+      "filter": "appointable"
     },
     "credits": {
       "type": "button",
@@ -95,7 +95,7 @@
       "border": false,
       "actionType": "setContent",
       "action": "credits",
-      "filter": null
+      "filter": "appointable"
     },
     "main_exit": {
       "type": "button",
@@ -109,7 +109,7 @@
       "border": false,
       "actionType": "exitGame",
       "action": "",
-      "filter": null
+      "filter": "appointable"
     }
   }
 }

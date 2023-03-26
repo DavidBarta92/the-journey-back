@@ -7,7 +7,7 @@
   "elements": {
     "title": {
       "type": "text",
-      "text": "Star Slider",
+      "text": "The Journey Back",
       "x": 40,
       "y": 70,
       "width": 70,
@@ -43,7 +43,7 @@
     },
     "author": {
       "type": "text",
-      "text": "code, art: David Barta",
+      "text": "txt_code_art",
       "x": 10,
       "y": 130,
       "width": 70,
@@ -55,7 +55,7 @@
     },
     "version": {
       "type": "text",
-      "text": "version: v0.0.5",
+      "text": "v0.0.6",
       "x": 10,
       "y": 160,
       "width": 70,
@@ -78,7 +78,7 @@
       "border": false,
       "actionType": "setContent",
       "action": "main",
-      "filter": null
+      "filter": "appointable"
     }
   }
 }

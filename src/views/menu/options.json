@@ -7,7 +7,7 @@
   "elements": {
     "title": {
       "type": "text",
-      "text": "Star Slider",
+      "text": "The Journey Back",
       "x": 40,
       "y": 70,
       "width": 70,
@@ -37,7 +37,7 @@
     },
     "instructions": {
       "type": "text",
-      "text": "Instructions:",
+      "text": "txt_instructions",
       "x": 40,
       "y": 100,
       "width": 70,
@@ -49,7 +49,7 @@
     },
     "cont": {
       "type": "text",
-      "text": "space to start, arrows to drive",
+      "text": "txt_controlls",
       "x": 10,
       "y": 130,
       "width": 70,
@@ -58,6 +58,50 @@
       "font": "Arial",
       "fontSize": 12,
       "filter": null
+    },
+    "language": {
+      "type": "text",
+      "text": "txt_language",
+      "x": 40,
+      "y": 200,
+      "width": 70,
+      "height": 20,
+      "color": "white",
+      "font": "Arial",
+      "fontSize": 12,
+      "filter": null
+    },
+    "eng": {
+      "type": "button",
+      "text": "btn_eng",
+      "x": 40,
+      "y": 220,
+      "width": 70,
+      "height": 20,
+      "rotate": 0,
+      "color": "white",
+      "font": "Rounded",
+      "fontSize": 20,
+      "border": false,
+      "actionType": "setLanguage",
+      "action": "eng",
+      "filter": "appointable"
+    },
+    "hun": {
+      "type": "button",
+      "text": "btn_hun",
+      "x": 100,
+      "y": 220,
+      "width": 70,
+      "height": 20,
+      "color": "white",
+      "font": "Arial",
+      "fontSize": 20,
+      "rotate": 0,
+      "border": false,
+      "actionType": "setLanguage",
+      "action": "hun",
+      "filter": "appointable"
     },
     "back": {
       "type": "button",
@@ -72,7 +116,7 @@
       "border": false,
       "actionType": "setContent",
       "action": "main",
-      "filter": null
+      "filter": "appointable"
     }
   }
 }

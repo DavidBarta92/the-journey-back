@@ -13,7 +13,7 @@ var stateManager = (function(){
     level: 0,
     chapter: 0,
     scene: 0,
-    language: 'hun', // 'hun', 'eng'
+    language: 'eng', // 'hun', 'eng'
     items: []
   };
 

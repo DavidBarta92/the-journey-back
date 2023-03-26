@@ -5,7 +5,7 @@ var dataController = (function(){
 
   let catalogue = {
     desert: require('../views/driver/desert.json'),
-    controlls: require('../views/menu/controlls.json'),
+    options: require('../views/menu/options.json'),
     credits: require('../views/menu/credits.json'),
     main: require('../views/menu/main.json'),
     newGame: require('../views/menu/newGame.json'),
@@ -19,7 +19,8 @@ var dataController = (function(){
   };
 
   let languageFiles = {
-    hun: require('../media/languages/hun.json')
+    hun: require('../media/languages/hun.json'),
+    eng: require('../media/languages/eng.json')
   };
   
     return {

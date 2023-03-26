@@ -42,6 +42,14 @@ const Timer = (function(){
         var timeString = ""+min+":"+sec+":"+mili;
         return timeString;
     }
+
+    const wait = function(ms){
+        var start = new Date().getTime();
+        var end = start;
+        while(end < start + ms) {
+            end = new Date().getTime();
+       }
+    }
         
     return {
         startTimer: function(){
@@ -53,6 +61,9 @@ const Timer = (function(){
         },
         getCustomTime: function(customTime){
             return convertToMinSecMili(calcDiff(customTime));
+        },
+        wait: function(ms){
+            return wait(ms);
         },
     }
 }
