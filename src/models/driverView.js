@@ -8,6 +8,7 @@ import Filter from "../views/filter";
 import desert from "../views/driver/desert.json";
 import Anim from "../views/anim";
 import dataController from "../controllers/dataController";
+import Timer from "./timer";
 
 var dialogueOptionClicked;
 var backgroundImage = new Image();
@@ -112,7 +113,8 @@ var Driver = (function(){
 
     //renders one frame
     const renderGameFrame = function(){
-
+        //waiting 41 ms, it is needed to keep 24 fps
+        Timer.wait(41);
         keys = inputController.getKeys();
         
         gameCanvas.clear();

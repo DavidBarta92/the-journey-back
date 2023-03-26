@@ -46,20 +46,6 @@
         "filter" : null,
         "actionType": "setView",
         "action": "driver"
-    },
-    "toTheLivingPlatform" : {
-        "type": "activeArea",
-        "text": null,
-        "x": 165,
-        "y": 112,
-        "width": 145,
-        "height": 223,
-        "color": "white",
-        "font": "Arial",
-        "fontSize": 50,
-        "filter" : null,
-        "actionType": "setContent",
-        "action": "livingPlatform"
     }
 }
 }

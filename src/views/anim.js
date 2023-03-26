@@ -1,4 +1,5 @@
 import gameCanvas from "../models/gameCanvas";
+import Timer from "../models/timer";
 import Filter from "./filter";
 
 var Anim = (function(){
@@ -52,19 +53,6 @@ var Anim = (function(){
         }
         return needsNewAnimFrame;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     //create a random integer
     const getRandomInt = function(min, max) {
@@ -143,8 +131,21 @@ var Anim = (function(){
         }
     }
 
-    function framing(imageData, color = "black") {
-        return imageData;
+    function lighting(element, frame) {
+        // lighting.calledTimes++;
+        // if(lighting.calledTimes < frame && element !== null){
+            context.beginPath();
+            context.lineWidth = "20";
+            context.strokeStyle = 'green'
+            context.rect(element[1].x,element[1].y,element[1].width,element[1].height);
+            context.stroke();
+            context.closePath();
+            console.log(lighting.calledTimes);
+        //     return true;
+        // } else {
+        //     lighting.calledTimes = 0;
+        //     return false;
+        // }
     }
 
     return {
@@ -156,8 +157,8 @@ var Anim = (function(){
             return glitch(element);
         },
 
-        framing: function(imageData){
-            return framing(imageData);
+        lighting: function(element, frame){
+            return lighting(element, frame);
         },
 
         }
