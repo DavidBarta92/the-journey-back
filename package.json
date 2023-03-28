@@ -1,6 +1,6 @@
 {
   "name": "starslider",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "main": "public/electron.js",
   "homepage": "./",
   "private": true,
