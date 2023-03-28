@@ -6,6 +6,7 @@ import Filter from "../views/filter";
 import Anim from "../views/anim";
 import dataController from "../controllers/dataController";
 import Timer from "./timer";
+import Sound from "./sound";
 
 //all these variables and functions are used by the Menu and the Story functions
 
@@ -47,6 +48,10 @@ var spritesheetForString = new Image();
 var spritesheet = new Image();
 
 var background = new Image();
+
+var music;
+
+var atmo;
 
 var glitchingElement;
 
@@ -383,6 +388,7 @@ const clickAnimate = function(element){
 // execute the predetermined action of the interactive element
 const hitArea = function(element){
     if(element !== null){
+        Sound.fx('../src/media/sounds/click.ogg');
     if (element[1].actionType === "setView") {
         stateManager.setView(element[1].action);
         gameCanvas.clear();
@@ -468,6 +474,12 @@ const triggering = function(){
     }
 }
 
+//managing base sounds as music and atmo
+const baseSound = function(){
+    Sound.atmo(contentContainer.atmo);
+    Sound.music(contentContainer.music);
+}
+
 // -------------------------------
 // -- Here comes the Menu funky ----------------------------------------------------------------------------------------------------------------------
 // -------------------------------
@@ -524,6 +536,7 @@ export const Menu = (function(){
     return {
         render: function(state){
             init(state);
+            baseSound();
             animInterval = setInterval(trackAnimation, 6);
             //if(triggering()) menuInterval = setInterval(renderMenuFrame, 100);
             clickInterval = setInterval(trackInput, 6);
@@ -615,6 +628,7 @@ export const Story = (function(){
     return {
         render: function(state){
             init(state);
+            baseSound();
             animInterval = setInterval(trackAnimation, 6);
             clickInterval = setInterval(trackInput, 6);
         },

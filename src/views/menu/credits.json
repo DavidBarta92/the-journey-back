@@ -4,6 +4,8 @@
   "spritesPath": "",
   "dialogue": "",
   "filter" : "",
+  "music" : "../src/media/sounds/menu.wav",
+  "atmo" : "",
   "elements": {
     "title": {
       "type": "text",
