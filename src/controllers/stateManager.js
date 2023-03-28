@@ -7,14 +7,15 @@ var stateManager = (function(){
     content: 'main', // 'main', 'credits', 'controlls'
     view: 'menu', // 'menu', 'driver', 'story'
     status: {
-      content: 'train',
-      view: 'story'
+      content: 'main',
+      view: 'menu'
     },
     level: 0,
     chapter: 0,
     scene: 0,
     language: 'eng', // 'hun', 'eng'
-    items: []
+    items: [],
+    volume: 1
   };
 
   var state = [];
@@ -32,11 +33,11 @@ var stateManager = (function(){
       }
         return state;
       } else {
-        console.log('There is no state in the local storage!');
+        console.warn('There is no state in the local storage!');
         return initialState;
       }
     } catch (error) {
-      console.log('inner load state fail');
+      console.warn('inner load state fail');
       console.error(error + ' There is no state in the local storage!');
       return initialState;
     }
@@ -140,7 +141,17 @@ var stateManager = (function(){
       state.items = [];
       console.log("State itmes are removed.");
       dataController.saveState(state);
-    }
+    },
+    setVolume: (num) => {
+      state = loadState();
+      var oldVolume = state.volume; 
+      state.volume = num;
+      dataController.saveState(state);
+      gameCanvas.clear();
+      if (oldVolume !== state.view){
+        console.log('The volume has changed from ' + oldVolume + ' to ' + state.volume);
+      }
+    },
   }
 }
 ());

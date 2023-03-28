@@ -5,6 +5,8 @@
 "itemsPath" : "",
 "dialogue" : "david",
 "filter" : "fadeOn",
+"music" : "../src/media/sounds/menu.wav",
+"atmo" : "",
 "elements" : {
     "dialogue" : {
         "type": "dialogue",

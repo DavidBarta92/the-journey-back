@@ -5,6 +5,7 @@
     "itemsPath" : "",
     "dialogue" : "david",
     "filter" : "",
+    "music" : "",
     "elements" : {
         "dialogue" : {
             "type": "dialogue",
