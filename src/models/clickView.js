@@ -350,6 +350,7 @@ const drawElements = function(elements) {
         glitchingElement = null;
         requestNewFrame = true;
     }
+    Anim.crt();
 }
 
 // collects all elements from the view whichones are clickable objects or areas

@@ -403,7 +403,7 @@ var Driver = (function(){
         // context.putImageData(ctxFromRainD, 0, 0);
 
         drawElements(contentContainer.elements);
-
+        Anim.crt();
         requestNewFrame = true;
     }
 

@@ -161,6 +161,11 @@ var Anim = (function(){
             return lighting(element, frame);
         },
 
+        crt: function(){
+            context.fillStyle = "rgba(0, 0, 0, .2)";
+            for (var i = 0; i < window.innerHeight; i++) context.fillRect(0, i * 2, window.innerWidth, 1);
+        },
+
         }
     }
 ());
