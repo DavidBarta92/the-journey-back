@@ -5,7 +5,7 @@
 "itemsPath" : "",
 "dialogue" : "david",
 "filter" : "fadeOn",
-"music" : "../src/media/sounds/Jari_Pitkanen-Siam_Soul.mp3",
+"music" : "",
 "atmo" : "",
 "elements" : {
     "dialogue" : {
@@ -48,20 +48,11 @@
         "filter" : null,
         "actionType": "setView",
         "action": "driver"
-    },
-    "newLink" : {
-        "type": "activeArea",
-        "text": null,
-        "x": 10,
-        "y": 50,
-        "width": 70,
-        "height": 20,
-        "color": "white",
-        "font": "Arial",
-        "fontSize": 50,
-        "filter" : null,
-        "actionType": "setContent",
-        "action": "living_platform"
     }
+},
+"timer" : {
+    "time": 5000,
+    "actionType": "setContent",
+    "action": "living_platform"
 }
 }

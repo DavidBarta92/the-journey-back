@@ -55,6 +55,8 @@ var atmo;
 
 var glitchingElement;
 
+var counterTimer;
+
 const drawString = function(string, pos) {
     string = string.toUpperCase();
     var cur = pos.x;
@@ -386,22 +388,41 @@ const clickAnimate = function(element){
     }    
 }
 
+const setTiming = function(){
+    if(contentContainer.hasOwnProperty('timer')){
+        counterTimer = new Date();
+        counterTimer.setMilliseconds(contentContainer.timer.time);
+    }
+}
+
+const activateTiming = function(){
+    var now = new Date();
+    if(contentContainer.hasOwnProperty('timer')
+    && counterTimer < now
+    && counterTimer !== null){
+        hitArea(['timer',contentContainer.timer]);
+    }    
+}
+
 // execute the predetermined action of the interactive element
 const hitArea = function(element){
     if(element !== null){
-        Sound.fx('../src/media/sounds/click.ogg');
+        console.log(element);
     if (element[1].actionType === "setView") {
         stateManager.setView(element[1].action);
         gameCanvas.clear();
         interactives = {};
+        counterTimer = null;
         clearInterval(menuInterval);
         clearInterval(storyInterval);
         RenderManager.render();
         return;
     }
     if (element[1].actionType === "setContent") {
+        Sound.fx('../src/media/sounds/click.ogg');
         stateManager.setContent(element[1].action);
         gameCanvas.clear();
+        counterTimer = null;
         clearInterval(menuInterval);
         clearInterval(storyInterval);
         RenderManager.render();
@@ -563,6 +584,7 @@ export const Story = (function(){
     var keys = [];
 
     const init = function(state){
+        counterTimer = null;
         context.globalAlpha = 0
         // we need to empty this object when a new view is loaded
         interactives = {};
@@ -573,6 +595,7 @@ export const Story = (function(){
         newSpeechIndex = '1';
         collectInteractives(contentContainer.elements);
         languageFile = dataController.loadLanguageFile(state);
+        setTiming();
     }
 
     const setPause = function() {
@@ -615,11 +638,12 @@ export const Story = (function(){
                 }, 50);
             });
             clicking.then(()=>{
-            hitArea(activeArea);
+                hitArea(activeArea);
             })
         }
         if(keys[27]) setPause();
         appointingElement(contentContainer.elements);
+        activateTiming();
     }
 
     const trackAnimation = function(){
