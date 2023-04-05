@@ -1,11 +1,11 @@
 {
 "name" : "cargo_outside",
 "backgroundPath" : "../src/media/images/cargo_outside_bg1.b64",
-"spritesPath" : "",
+"spritesPath" : "../src/media/images/cargo_outside_bg1.b64",
 "itemsPath" : "",
 "dialogue" : "david",
 "filter" : "fadeOn",
-"music" : "../src/media/sounds/Jari_Pitkanen-Siam_Soul.mp3",
+"music" : "",
 "atmo" : "",
 "elements" : {
     "dialogue" : {
@@ -49,19 +49,28 @@
         "actionType": "setView",
         "action": "driver"
     },
-    "newLink" : {
-        "type": "activeArea",
+    "one" : {
+        "type": "item",
         "text": null,
-        "x": 10,
-        "y": 50,
-        "width": 70,
-        "height": 20,
+        "x": 300,
+        "y": 300,
+        "width": 96,
+        "height": 58,
+        "sourceX": 1,
+        "sourceY": 1,
+        "sourceW": 96,
+        "sourceH": 58,
         "color": "white",
         "font": "Arial",
         "fontSize": 50,
         "filter" : null,
-        "actionType": "setContent",
-        "action": "living_platform"
+        "actionType": "setView",
+        "action": "driver"
     }
+},
+"timer" : {
+    "time": 1000000,
+    "actionType": "setContent",
+    "action": "living_platform"
 }
 }
