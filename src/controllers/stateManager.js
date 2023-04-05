@@ -10,11 +10,16 @@ var stateManager = (function(){
       content: 'main',
       view: 'menu'
     },
-    level: 0,
     chapter: 0,
     scene: 0,
     language: 'eng', // 'hun', 'eng'
-    items: [],
+    items: {
+      one: 'one',
+      two: null,
+      three: null,
+      four: null,
+      five: null
+    },
     volume: 1
   };
 
@@ -76,20 +81,11 @@ var stateManager = (function(){
       dataController.saveState(state);
       console.log("level: " + state.level + " | chapter: " + state.chapter + " | scene: " + state.scene);
     },
-  newLevel: () => {
+  setChapter: (num) => {
       state = loadState();
-      state.level += 1;
-      state.chapter = 1;
-      state.scene = 1;
+      state.chapter = num;
       dataController.saveState(state);
-      console.log(state.level);
-    },
-  newChapter: () => {
-      state = loadState();
-      state.chapter += 1;
-      state.scene = 1;
-      dataController.saveState(state);
-      console.log(state.level);
+      console.log(state.chapter);
     },
   newScene: () => {
       state = loadState();
@@ -136,13 +132,41 @@ var stateManager = (function(){
         console.log('The old status content: ' + oldStateContent + ' has changed to: ' + state.status.content);
       }
     },
-    resetItems: () => {
+  addItem: (item, place) => {
+      state = loadState();
+      switch(place){
+        case 'one':
+          state.items.one = item;
+          break;
+        case 'two':
+          state.items.two = item;
+          break;
+        case 'three':
+          state.items.three = item;
+          break;
+        case 'four':
+          state.items.four = item;
+          break;
+        case 'five':
+          state.items.five = item;
+          break;
+      }
+      dataController.saveState(state);
+      console.log(state.items);
+    },
+  deleteItem: (item) => {
+      state = loadState();
+      delete state.items[state.items.indexOf(item)];
+      dataController.saveState(state);
+      console.log(state.items);
+    },
+  resetItems: () => {
       state = loadState();
       state.items = [];
       console.log("State itmes are removed.");
       dataController.saveState(state);
     },
-    setVolume: (num) => {
+  setVolume: (num) => {
       state = loadState();
       var oldVolume = state.volume; 
       state.volume = num;

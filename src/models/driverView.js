@@ -770,7 +770,7 @@ var Driver = (function(){
             init(state);
             if (!pause){
                 generateRoad();
-                gameInterval = setInterval(renderGameFrame, 60);
+                gameInterval = setInterval(renderGameFrame, 1);
             }
         },
         exit: function(){

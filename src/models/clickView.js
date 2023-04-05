@@ -86,9 +86,6 @@ const drawBackground = function(){
         context.rect(700, 150, 400, 500);
         context.clip();
         context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
-        //var ctxForDither = context.getImageData(0, 0, render.width, render.height);
-        //var ctxFromD = Filter.dither(ctxForDither);
-        //context.putImageData(ctxFromD, 0, 0);
         context.restore();
         context.beginPath();
         context.lineWidth = "4";
@@ -230,6 +227,24 @@ const deleteDialogueElements = function() {
     });
 }
 
+const allowElements = function(elements, state) {
+    Object.entries(elements).forEach(element => {
+        if(element[1].type == 'item'){
+            if(element[0] == state.items.one 
+            || element[0] == state.items.two
+            || element[0] == state.items.three
+            || element[0] == state.items.four
+            || element[0] == state.items.five){
+                element[1].allowed = true;
+            } else {
+                element[1].allowed = false;
+            }  
+        } else {
+            element[1].allowed = true;
+        }
+    });
+}
+
 //draw all visible elements on the view
 const drawElements = function(elements) {
     document.fonts.ready.then(function () {
@@ -260,18 +275,11 @@ const drawElements = function(elements) {
                     context.stroke();
                 }
             }
-            if (element[1].type === 'sprite' || element[1].type === 'item'){
-                try {
-                    if (isGif(spritesheet)){
-                        //sprites and items cant move (at this moment)
-                        context.drawImage(spritesheet.frames[0].image,  element[1].sourceX, element[1].sourceY, element[1].sourceW, element[1].sourceH, element[1].x, element[1].y, element[1].w, element[1].h);
-                    } else {
-                        // uncecessary declare here
-                        context.drawImage(spritesheet,  element[1].sourceX, element[1].sourceY, element[1].sourceW, element[1].sourceH, element[1].x, element[1].y, element[1].w, element[1].h);
-                    }
-                } catch(e) {
-                    console.log(e);
-                }
+            if (element[1].type === 'item' && element[1].allowed === true){
+                context.drawImage(spritesheet,  element[1].sourceX, element[1].sourceY, element[1].sourceW, element[1].sourceH, element[1].x, element[1].y, element[1].width, element[1].height);
+            }
+            if (element[1].type === 'sprite' && element[1].allowed === false){
+                context.drawImage(spritesheet,  element[1].sourceX, element[1].sourceY, element[1].sourceW, element[1].sourceH, element[1].x, element[1].y, element[1].width, element[1].height);
             }
             if (element[1].type === 'activeArea'){
                 if(true){
@@ -407,65 +415,93 @@ const activateTiming = function(){
 // execute the predetermined action of the interactive element
 const hitArea = function(element){
     if(element !== null){
-        console.log(element);
-    if (element[1].actionType === "setView") {
-        stateManager.setView(element[1].action);
-        gameCanvas.clear();
-        interactives = {};
-        counterTimer = null;
-        clearInterval(menuInterval);
-        clearInterval(storyInterval);
-        RenderManager.render();
-        return;
-    }
-    if (element[1].actionType === "setContent") {
-        Sound.fx('../src/media/sounds/click.ogg');
-        stateManager.setContent(element[1].action);
-        gameCanvas.clear();
-        counterTimer = null;
-        clearInterval(menuInterval);
-        clearInterval(storyInterval);
-        RenderManager.render();
-        return;
-    }
-    if (element[1].actionType === "setLanguage") {
-        stateManager.changeLanguage(element[1].action);
-        gameCanvas.clear();
-        clearInterval(menuInterval);
-        clearInterval(storyInterval);
-        RenderManager.render();
-        return;
-    }
-    if (element[1].actionType === "dialogueOption") {
-        if (!dialogueOptionClicked) {
-            newSpeechIndex = newSpeechIndex + "-" + element[1].action;
-            contentContainer.elements.dialogue.processed = false;
-            deleteDialogueElements();
-            dialogueOptionClicked = true;
+        if(element[1].allowed == true){
+            console.log(element);
+            if (element[1].actionType === "setView") {
+                stateManager.setView(element[1].action);
+                gameCanvas.clear();
+                interactives = {};
+                counterTimer = null;
+                clearInterval(menuInterval);
+                clearInterval(storyInterval);
+                RenderManager.render();
+                return;
+            }
+            if (element[1].actionType === "setContent") {
+                Sound.fx('../src/media/sounds/click.ogg');
+                stateManager.setContent(element[1].action);
+                gameCanvas.clear();
+                counterTimer = null;
+                clearInterval(menuInterval);
+                clearInterval(storyInterval);
+                RenderManager.render();
+                return;
+            }
+            if (element[1].actionType === "setChapter") {
+                stateManager.setChapter();
+                gameCanvas.clear();
+                counterTimer = null;
+                clearInterval(menuInterval);
+                clearInterval(storyInterval);
+                RenderManager.render();
+                return;
+            }
+            if (element[1].actionType === "addItem") {
+                Sound.fx('../src/media/sounds/click.ogg');
+                stateManager.addItem(element[1].action);
+                gameCanvas.clear();
+                clearInterval(menuInterval);
+                clearInterval(storyInterval);
+                RenderManager.render();
+                return;
+            }
+            if (element[1].actionType === "deleteItem") {
+                stateManager.deleteItem(element[1].action);
+                gameCanvas.clear();
+                clearInterval(menuInterval);
+                clearInterval(storyInterval);
+                RenderManager.render();
+                return;
+            }
+            if (element[1].actionType === "setLanguage") {
+                stateManager.changeLanguage(element[1].action);
+                gameCanvas.clear();
+                clearInterval(menuInterval);
+                clearInterval(storyInterval);
+                RenderManager.render();
+                return;
+            }
+            if (element[1].actionType === "dialogueOption") {
+                if (!dialogueOptionClicked) {
+                    newSpeechIndex = newSpeechIndex + "-" + element[1].action;
+                    contentContainer.elements.dialogue.processed = false;
+                    deleteDialogueElements();
+                    dialogueOptionClicked = true;
+                }
+                return;
+            }
+            if (element[1].actionType === "startGame") {
+                if(element[1].action == 'new'){
+                stateManager.setView('story');
+                stateManager.setContent('cargo_outside');
+                stateManager.resetLevelChapterScene();
+                stateManager.resetItems();
+                } else {
+                    stateManager.setContentByStatus();
+                }
+                gameCanvas.clear();
+                clearInterval(menuInterval);
+                clearInterval(storyInterval);
+                RenderManager.render();
+                return;
+            }
+            if (element[1].actionType === "exitGame") {
+                gameCanvas.clear();
+                RenderManager.render();
+                window.close();
+            }
+            return;
         }
-        return;
-    }
-    if (element[1].actionType === "startGame") {
-        if(element[1].action == 'new'){
-        stateManager.setView('story');
-        stateManager.setContent('cargo_outside');
-        stateManager.resetLevelChapterScene();
-        stateManager.resetItems();
-        } else {
-            stateManager.setContentByStatus();
-        }
-        gameCanvas.clear();
-        clearInterval(menuInterval);
-        clearInterval(storyInterval);
-        RenderManager.render();
-        return;
-    }
-    if (element[1].actionType === "exitGame") {
-        gameCanvas.clear();
-        RenderManager.render();
-        window.close();
-    }
-    return;
     }
 }
 
@@ -516,6 +552,7 @@ export const Menu = (function(){
         background = dataController.getLastScreenImage();
         spritesheet = dataController.loadImage(contentContainer.spritesPath);
         collectInteractives(contentContainer.elements);
+        allowElements(contentContainer.elements, state);
         languageFile = dataController.loadLanguageFile(state);
     }
 
@@ -559,9 +596,9 @@ export const Menu = (function(){
         render: function(state){
             init(state);
             baseSound();
-            animInterval = setInterval(trackAnimation, 6);
+            animInterval = setInterval(trackAnimation, 1);
             //if(triggering()) menuInterval = setInterval(renderMenuFrame, 100);
-            clickInterval = setInterval(trackInput, 6);
+            clickInterval = setInterval(trackInput, 1);
             },
 
         //its only for th first screen rendering at the game starting (this preload pictures, fonts for the clickview)
@@ -593,6 +630,7 @@ export const Story = (function(){
         spritesheet = dataController.loadImage(contentContainer.spritesPath);
         dialogueFile = dataController.loadDialogue(contentContainer.dialogue);
         newSpeechIndex = '1';
+        allowElements(contentContainer.elements, state);
         collectInteractives(contentContainer.elements);
         languageFile = dataController.loadLanguageFile(state);
         setTiming();
@@ -631,7 +669,7 @@ export const Story = (function(){
         if(cursor.click){
             requestNewFrame = true;
             var activeArea = getArea(interactives);
-            clickAnimate(activeArea);
+            if (activeArea[1].allowed == true) clickAnimate(activeArea);
             const clicking = new Promise((resolve) => {
                 setTimeout(() => {
                     resolve();
@@ -654,8 +692,8 @@ export const Story = (function(){
         render: function(state){
             init(state);
             baseSound();
-            animInterval = setInterval(trackAnimation, 6);
-            clickInterval = setInterval(trackInput, 6);
+            animInterval = setInterval(trackAnimation, 1);
+            clickInterval = setInterval(trackInput, 1);
         },
     }
 }
