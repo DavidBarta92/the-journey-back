@@ -1,6 +1,6 @@
 {
 "name" : "cargo_outside",
-"backgroundPath" : "../src/media/images/cargo_outside_bg1.b64",
+"backgroundPath" : "../src/media/images/tjb1.b64",
 "spritesPath" : "../src/media/images/cargo_outside_bg1.b64",
 "itemsPath" : "",
 "dialogue" : "david",
@@ -48,6 +48,20 @@
         "filter" : null,
         "actionType": "setView",
         "action": "driver"
+    },
+    "living_platform" : {
+        "type": "activeArea",
+        "text": null,
+        "x": 200,
+        "y": 300,
+        "width": 96,
+        "height": 58,
+        "color": "white",
+        "font": "Arial",
+        "fontSize": 50,
+        "filter" : null,
+        "actionType": "setContent",
+        "action": "living_platform"
     },
     "one" : {
         "type": "item",

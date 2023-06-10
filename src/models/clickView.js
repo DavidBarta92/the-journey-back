@@ -18,11 +18,13 @@ let cursor = inputController.getCursor();
 
 gameCanvas.resize();
 
+const video = document.getElementById('video');
+
 let state;
 
 var languageFile;
 
-var requestNewFrame = false;
+var requestNewFrame;
 
 let menuInterval;
 let storyInterval;
@@ -158,7 +160,7 @@ const getValidSpeechByIndex = function(speechIndex){
     return {speechIndexIsValid, validSpeech};
 }
 
-//create interactive and writable entities based on dialogue element1s params and push them to arrays
+//create interactive and writable entities based on dialogue element's params and push them to arrays
 const pushDialogueElements = function(dialogueBox){
     let rightSideOfLastButton = 0;
     let boxLeftWithPadding = dialogueBox.x + dialogueBox.padding;
@@ -261,6 +263,10 @@ const drawElements = function(elements) {
                     }
                 }
             };
+            if (element[1].type === 'video'){
+                context.drawImage(video, element[1].x, element[1].y, video.videoWidth, video.videoHeight);
+                if(video.ended === false) animationDone = false;
+            }
             if (element[1].type === 'button' || element[1].type === 'text'){
                 writeText(element[1], (element[1].x + element[1].textBoxEnd));
                 
@@ -343,7 +349,7 @@ const drawElements = function(elements) {
                     Timer.wait(41);
                 } else {
                     context.beginPath();
-                    context.lineWidth = "20";
+                    context.lineWidth = "10";
                     context.strokeStyle = 'green'
                     context.rect(element[1].x,element[1].y,element[1].width,element[1].height);
                     context.stroke();
@@ -361,6 +367,13 @@ const drawElements = function(elements) {
         requestNewFrame = true;
     }
     Anim.crt();
+}
+
+// set video element params to be ready to played
+const readyToPlayVideo = function(videoElement){
+    video.src = videoElement.path;
+    video.loop = videoElement.loop;
+    video.mute = videoElement.mute;
 }
 
 // collects all elements from the view whichones are clickable objects or areas
@@ -633,23 +646,29 @@ export const Story = (function(){
         allowElements(contentContainer.elements, state);
         collectInteractives(contentContainer.elements);
         languageFile = dataController.loadLanguageFile(state);
+        if (contentContainer.elements.hasOwnProperty('video')) readyToPlayVideo(contentContainer.elements.video);
         setTiming();
     }
 
     const setPause = function() {
-        var dataURL = gameCanvas.getDataURL();
-        dataController.saveScreenImage(dataURL);
-        pause = true;
-        clearInterval(storyInterval);
-        interactives = {};
-        stateManager.setStatus();
-        stateManager.setView('menu');
-        stateManager.setContent('main');
-        RenderManager.render();
+        var pState = stateManager.loadState();
+        if(pState.view !== 'menu'){
+            var dataURL = gameCanvas.getDataURL();
+            dataController.saveScreenImage(dataURL);
+            pause = true;
+            video.pause();
+            clearInterval(storyInterval);
+            interactives = {};
+            stateManager.setStatus();
+            stateManager.setView('menu');
+            stateManager.setContent('main');
+            RenderManager.render();
+        }
     }
 
     //render one frame of the story view
     const renderStoryFrame = function(){
+        video.play();
         if(context.globalAlpha < 1){
             context.globalAlpha = (context.globalAlpha += 0.1).toFixed(1);
             gameCanvas.clear();
@@ -694,6 +713,9 @@ export const Story = (function(){
             baseSound();
             animInterval = setInterval(trackAnimation, 1);
             clickInterval = setInterval(trackInput, 1);
+            // video.addEventListener('ended', () => {
+            //     hitArea(contentContainer.elements.video);
+            // });
         },
     }
 }
