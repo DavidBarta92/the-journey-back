@@ -651,16 +651,19 @@ export const Story = (function(){
     }
 
     const setPause = function() {
-        var dataURL = gameCanvas.getDataURL();
-        dataController.saveScreenImage(dataURL);
-        pause = true;
-        video.pause();
-        clearInterval(storyInterval);
-        interactives = {};
-        stateManager.setStatus();
-        stateManager.setView('menu');
-        stateManager.setContent('main');
-        RenderManager.render();
+        var pState = stateManager.loadState();
+        if(pState.view !== 'menu'){
+            var dataURL = gameCanvas.getDataURL();
+            dataController.saveScreenImage(dataURL);
+            pause = true;
+            video.pause();
+            clearInterval(storyInterval);
+            interactives = {};
+            stateManager.setStatus();
+            stateManager.setView('menu');
+            stateManager.setContent('main');
+            RenderManager.render();
+        }
     }
 
     //render one frame of the story view
