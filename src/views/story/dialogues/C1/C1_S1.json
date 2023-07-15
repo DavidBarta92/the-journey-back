@@ -1,0 +1,26 @@
+{
+  "1": [
+    {
+      "type": "params",
+      "text": "dia_C1_S1_1",
+      "attitude": "neutral",
+      "repetable": false,
+      "set_variable": ""
+    },
+    {
+      "option": "1",
+      "type": "choice",
+      "buttonText" : "dia_C1_S1_1o1", 
+      "text": "Nothing"
+    }
+  ],
+  "1-1": [
+    {
+      "type": "params",
+      "text": "dia_C1_S1_1-1",
+      "attitude": "neutral",
+      "repetable": false,
+      "set_variable": ""
+    }
+  ]
+}

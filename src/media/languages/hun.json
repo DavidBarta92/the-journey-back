@@ -23,5 +23,19 @@
     "dia_david_1-1o1" : "1 / Igen, az orvost keresem.",
     "dia_david_1-1o2" : "2 / Nem, köszönöm.",
     "dia_david_1-1-1" : "Áh, én ismerem őt. Gyere, odavazetlek.",
-    "dia_david_1-1-1o1" : "1 / Köszönöm"
+    "dia_david_1-1-1o1" : "1 / Köszönöm",
+    "C1_battery_connection_fail" : "Hibás jelszó!",
+    "C1_battery_connection_sucess" : "Jelszó elfogadva.",
+    "dia_C1_S1_1" : "Elnézést... Megkérdezhetem, hogy mi a baj? Látom szomorú.",
+    "dia_C1_S1_1o1" : "Semmi",
+    "dia_C1_S1_1-1" : "Semmi gond. Nem tud segíteni.",
+    "dia_C1_S2" : "Néha az is segíthet ha beszélünk valakivel.",
+    "dia_C1_S4_1" : "Nem könnyű itt élni. Van egy beteg nagyapám. Már nagyon öreg, talán ő itt a legidősebba bolygón és hát... már a memóriája sem a régi. Gondoskodnom kell róla.",
+    "dia_C1_S4_1o1" : "Segítség?",
+    "dia_C1_S4_1-1" : "Van aki segítsen?",
+    "dia_C1_S5_1" : "Nem, csak ketten vagyunk itt. Persze van itt egy állomás. Relatíve közel, de velük csak a hálózaton tartjuk a kapcsolatot.",
+    "dia_C1_S5_1o1" : "Tovább",
+    "dia_C1_S5_1-1" : "A nagyapja biztos nagyon hálás lehet.",
+    "dia_C1_S7" : "Valami rosszat mondtam?",
+    "dia_C1_S8" : "Gyere papa, most már vissza kell mennünk..."
 }

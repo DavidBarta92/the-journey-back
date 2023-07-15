@@ -1,0 +1,23 @@
+{
+    "name" : "C1_S6",
+    "backgroundPath" : "",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "",
+    "elements" : {
+        "empty_object": {
+            "type": "empty_object",
+            "border": false,
+            "filter": null
+          }
+    },
+    "timer" : {
+        "time": 5000,
+        "actionType": "setContent",
+        "action": "C1_S7",
+        "allowed" : true
+    }
+    }

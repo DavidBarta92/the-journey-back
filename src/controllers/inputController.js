@@ -1,4 +1,5 @@
 import gameCanvas from "../models/gameCanvas";
+import Sound from "../models/sound";
 
 var inputController = (function(){
 
@@ -24,6 +25,7 @@ var inputController = (function(){
         document.onmousedown = function (event) {
             console.log("X:" + event.clientX + " | Y:" + event.clientY);
             cursor.click = true;
+            Sound.fx('../src/media/sounds/click.ogg');
         };
         document.onmouseup = function (event) {
             cursor.click = false;

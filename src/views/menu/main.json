@@ -23,14 +23,14 @@
     },
     "subTitle": {
       "type": "text",
-      "text": "Alpha",
+      "text": "BETA",
       "x": 460,
       "y": 80,
       "width": 70,
       "height": 20,
       "rotate": 0,
       "color": "white",
-      "font": "Arial",
+      "font": "Akira",
       "fontSize": 12,
       "border": false,
       "filter": null

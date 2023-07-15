@@ -1,0 +1,32 @@
+{
+    "name" : "C1_S2",
+    "backgroundPath" : "",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "",
+    "elements" : {
+        "subTitle": {
+            "type": "text",
+            "text": "dia_C1_S2",
+            "x": 460,
+            "y": 80,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Akira",
+            "fontSize": 12,
+            "border": false,
+            "filter": null
+          }
+    },
+    "timer" : {
+        "time": 5000,
+        "actionType": "setContent",
+        "action": "C1_S3",
+        "allowed" : true
+    }
+    }

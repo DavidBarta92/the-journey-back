@@ -1,0 +1,32 @@
+{
+    "name" : "C1_S8",
+    "backgroundPath" : "",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "",
+    "elements" : {
+        "subTitle": {
+            "type": "text",
+            "text": "dia_C1_S8",
+            "x": 460,
+            "y": 80,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Akira",
+            "fontSize": 12,
+            "border": false,
+            "filter": null
+          }
+    },
+    "timer" : {
+        "time": 5000,
+        "actionType": "setContent",
+        "action": "living_platform",
+        "allowed" : true
+    }
+}

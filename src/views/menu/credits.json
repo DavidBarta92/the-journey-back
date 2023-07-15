@@ -21,13 +21,13 @@
     },
     "subTitle": {
       "type": "text",
-      "text": "Alpha",
+      "text": "BETA",
       "x": 460,
       "y": 80,
       "width": 70,
       "height": 20,
       "color": "white",
-      "font": "Arial",
+      "font": "Akira",
       "fontSize": 12,
       "filter": null
     },
@@ -57,7 +57,7 @@
     },
     "version": {
       "type": "text",
-      "text": "v0.0.6",
+      "text": "v0.1.0",
       "x": 10,
       "y": 160,
       "width": 70,

@@ -9,13 +9,23 @@ var dataController = (function(){
     credits: require('../views/menu/credits.json'),
     main: require('../views/menu/main.json'),
     newGame: require('../views/menu/newGame.json'),
-    L1_C1_S1: require('../views/story/slideShows/L1_C1_S1.json'),
+    C1_S1: require('../views/story/slideShows/C1/C1_S1.json'),
+    C1_S2: require('../views/story/slideShows/C1/C1_S2.json'),
+    C1_S3: require('../views/story/slideShows/C1/C1_S3.json'),
+    C1_S4: require('../views/story/slideShows/C1/C1_S4.json'),
+    C1_S5: require('../views/story/slideShows/C1/C1_S5.json'),
+    C1_S6: require('../views/story/slideShows/C1/C1_S6.json'),
+    C1_S7: require('../views/story/slideShows/C1/C1_S7.json'),
+    C1_S8: require('../views/story/slideShows/C1/C1_S8.json'),
     living_platform: require('../views/story/living_platform.json'),
     cargo_outside: require('../views/story/cargo_outside.json')
   };
 
   let dialogueFiles = {
-    david: require('../views/story/dialogues/david.json')
+    david: require('../views/story/dialogues/david.json'),
+    C1_S1: require('../views/story/dialogues/C1/C1_S1.json'),
+    C1_S4: require('../views/story/dialogues/C1/C1_S4.json'),
+    C1_S5: require('../views/story/dialogues/C1/C1_S5.json')
   };
 
   let languageFiles = {

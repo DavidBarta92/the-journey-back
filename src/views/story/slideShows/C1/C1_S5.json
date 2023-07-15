@@ -1,0 +1,45 @@
+{
+    "name" : "C1_S5",
+    "backgroundPath" : "",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "C1_S5",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "",
+    "elements" : {
+        "dialogue" : {
+            "type": "dialogue",
+            "processed" : false,
+            "x": 210,
+            "y": 90,
+            "w": 350,
+            "h": 350,
+            "padding" : 10,
+            "textX" : 22,
+            "textY" : 39,
+            "textW" : 330,
+            "textH" : 320,
+            "bgcolor": "white",
+            "colorOfTitle": "black",
+            "fontOfTitle": "Arial",
+            "fontSizeOfTitle": 25,
+            "colorOfSpeech": "black",
+            "fontOfSpeech": "Arial",
+            "fontSizeOfSpeech": 14,
+            "colorOfButtons": "black",
+            "fontOfButtons": "Arial",
+            "fontSizeOfButtons": 20,
+            "border": false,
+            "actionType": "",
+            "action": "",
+            "filter" : null
+        }
+    },
+    "timer" : {
+        "time": 5000,
+        "actionType": "setContent",
+        "action": "C1_S6",
+        "allowed" : true
+    }
+}

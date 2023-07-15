@@ -148,13 +148,18 @@ var dialogueFadeArray = [];
 const getValidSpeechByIndex = function(speechIndex){ 
     let speechIndexIsValid = false;
     let validSpeech;
-    Object.entries(dialogueFile).forEach(speech => {
-        if (speech[0] === speechIndex) {
-            speechIndexIsValid = true;
-            validSpeech = speech;
-            return;
-        }
-    });
+    try {
+        Object.entries(dialogueFile).forEach(speech => {
+            if (speech[0] === speechIndex) {
+                speechIndexIsValid = true;
+                validSpeech = speech;
+                return;
+            }
+        });
+    } catch (error) {
+        console.error(error);
+        console.warn('The dialog file may not be set in the dataController');
+    }
     return {speechIndexIsValid, validSpeech};
 }
 
@@ -397,7 +402,8 @@ const clickAnimate = function(element){
 }
 
 const setTiming = function(){
-    if(contentContainer.hasOwnProperty('timer')){
+    if(contentContainer.hasOwnProperty('timer')
+        && contentContainer.timer.allowed){
         counterTimer = new Date();
         counterTimer.setMilliseconds(contentContainer.timer.time);
     }
@@ -483,7 +489,7 @@ const hitArea = function(element){
             if (element[1].actionType === "startGame") {
                 if(element[1].action == 'new'){
                 stateManager.setView('story');
-                stateManager.setContent('cargo_outside');
+                stateManager.setContent('C1_S1');
                 stateManager.resetLevelChapterScene();
                 stateManager.resetItems();
                 } else {
@@ -513,7 +519,7 @@ const appointingElement = function(elements){
                 glitchingElement = {...element[1]};
                 element[1].appoint = true;
                 requestNewFrame = true;
-                console.log(elements);
+                //console.log(elements);
             }
         } else {
             element[1].appoint = false;
@@ -524,7 +530,7 @@ const appointingElement = function(elements){
 //used to triggering animation frame by render game frame
 const triggering = function(){
     if(requestNewFrame || context.globalAlpha <= 0.9 || dialogueOptionClicked || !animationDone){
-        console.log("requestFrame " + requestNewFrame + " | contexAlpha " + (context.globalAlpha <= 0.9)  + " | dialogueOption " +  dialogueOptionClicked  + " | animationDone " +  !animationDone);
+        //console.log("requestFrame " + requestNewFrame + " | contexAlpha " + (context.globalAlpha <= 0.9)  + " | dialogueOption " +  dialogueOptionClicked  + " | animationDone " +  !animationDone);
         requestNewFrame = false;
         return true;
     } else {
@@ -596,9 +602,9 @@ export const Menu = (function(){
         render: function(state){
             init(state);
             baseSound();
-            animInterval = setInterval(trackAnimation, 1);
+            animInterval = setInterval(trackAnimation, 10);
             //if(triggering()) menuInterval = setInterval(renderMenuFrame, 100);
-            clickInterval = setInterval(trackInput, 1);
+            clickInterval = setInterval(trackInput, 10);
             },
 
         //its only for th first screen rendering at the game starting (this preload pictures, fonts for the clickview)

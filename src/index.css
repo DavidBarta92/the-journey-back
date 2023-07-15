@@ -31,3 +31,9 @@ code {
   font-style: normal;
   src: url('/fonts/Rounded_Elegance.ttf');
 }
+
+@font-face {
+  font-family: Ramillas;
+  font-style: light;
+  src: url('/fonts/TT_Ramillas_Trial_Light.ttf');
+}
