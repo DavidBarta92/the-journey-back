@@ -57,6 +57,18 @@
         "sourceY" : 0,
         "sourceW" : 23,
         "sourceH" : 50
+    },
+    "video" : {
+        "type": "video",
+        "path": "../src/media/videos/planet.webm",
+        "x": 0,
+        "y": 0,
+        "loop" : false,
+        "muted" : false,
+        "sourceX" : 0,
+        "sourceY" : 0,
+        "sourceW" : 23,
+        "sourceH" : 50
     }
 }
 }

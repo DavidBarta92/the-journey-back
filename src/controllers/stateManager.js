@@ -57,6 +57,7 @@ var stateManager = (function(){
       state = loadState();
       var oldContent = state.content; 
       state.content = content;
+      if (state.view !== 'menu') state.status.content = content;
       dataController.saveState(state);
       gameCanvas.clear();
       if (oldContent !== state.content){
@@ -67,6 +68,7 @@ var stateManager = (function(){
       state = loadState();
       var oldView = state.view; 
       state.view = view;
+      if (view !== 'menu') state.status.view = view; 
       dataController.saveState(state);
       gameCanvas.clear();
       if (oldView !== state.view){
