@@ -1,5 +1,5 @@
 {
-  "name": "C1_battery_connection",
+  "name": "C1_batteryConnection299num",
   "backgroundPath": null,
   "spritesPath": null,
   "dialogue": null,
@@ -9,7 +9,7 @@
   "elements": {
     "nums_field": {
       "type": "text",
-      "text": "_ _ _ _",
+      "text": "2 9 9 _",
       "x": 460,
       "y": 80,
       "width": 70,
@@ -34,7 +34,7 @@
       "fontSize": 20,
       "border": false,
       "actionType": "setContent",
-      "action": "C1_battery_connection_wrongnum",
+      "action": "C1_battery_connection_2991num",
       "filter": "appointable"
     },
     "2": {
@@ -50,7 +50,7 @@
       "fontSize": 20,
       "border": false,
       "actionType": "setContent",
-      "action": "C1_battery_connection_2num",
+      "action": "C1_battery_connection_wrongnum",
       "filter": "appointable"
     },
     "3": {

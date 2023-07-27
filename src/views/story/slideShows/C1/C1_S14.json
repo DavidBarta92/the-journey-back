@@ -1,30 +1,16 @@
 {
-    "name" : "C1_S1",
+    "name" : "C1_S14",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
-    "dialogue" : "C1_S1",
+    "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "",
     "atmo" : "",
     "elements" : {
-        "David": {
+        "title": {
             "type": "text",
-            "text": "dia_C1_S1_1",
-            "x": 460,
-            "y": 80,
-            "width": 70,
-            "height": 20,
-            "rotate": 0,
-            "color": "white",
-            "font": "Akira",
-            "fontSize": 12,
-            "border": false,
-            "filter": null
-          },
-        "Eva": {
-            "type": "text",
-            "text": "dia_C1_S1_1-1",
+            "text": "The Journey Back",
             "x": 460,
             "y": 80,
             "width": 70,
@@ -40,7 +26,7 @@
     "timer" : {
         "time": 5000,
         "actionType": "setContent",
-        "action": "C1_S2",
+        "action": "C1_S15",
         "allowed" : true
     }
-}
+    }
