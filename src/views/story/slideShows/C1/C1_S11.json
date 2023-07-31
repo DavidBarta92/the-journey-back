@@ -8,23 +8,37 @@
     "music" : "",
     "atmo" : "",
     "elements" : {
-        "title": {
+        "Thomas": {
             "type": "text",
-            "text": "The Journey Back",
-            "x": 460,
-            "y": 80,
+            "text": "dia_C1_S11_1",
+            "x": 90,
+            "y": 600,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
-            "font": "Akira",
-            "fontSize": 12,
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          },
+          "Aiza": {
+            "type": "text",
+            "text": "dia_C1_S11_1-1",
+            "x": 90,
+            "y": 800,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
             "border": false,
             "filter": null
           }
     },
     "timer" : {
-        "time": 5000,
+        "time": 12000,
         "actionType": "setContent",
         "action": "C1_S12",
         "allowed" : true

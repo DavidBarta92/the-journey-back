@@ -1,0 +1,40 @@
+{
+    "name" : "C1_battery",
+    "backgroundPath" : "../src/media/images/livingPlatform_bg1.b64",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "",
+    "elements" : { 
+        "batteryConnection" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 200,
+            "y": 300,
+            "width": 96,
+            "height": 58,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C1_batteryConnection"
+        },
+        "back" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 600,
+            "y": 300,
+            "width": 96,
+            "height": 58,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C1_electricity_and_battery"
+        }
+    }
+}

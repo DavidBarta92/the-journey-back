@@ -8,25 +8,39 @@
     "music" : "",
     "atmo" : "",
     "elements" : {
-        "title": {
+        "Aiza": {
             "type": "text",
-            "text": "The Journey Back",
-            "x": 460,
-            "y": 80,
+            "text": "dia_C1_S15_1",
+            "x": 100,
+            "y": 640,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
-            "font": "Akira",
-            "fontSize": 12,
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+        },
+        "Thomas": {
+            "type": "text",
+            "text": "dia_C1_S15_1-1",
+            "x": 100,
+            "y": 600,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
             "border": false,
             "filter": null
           }
     },
     "timer" : {
-        "time": 5000,
+        "time": 9000,
         "actionType": "setContent",
-        "action": "C1_startingbase_enterance",
-        "allowed" : false
+        "action": "C1_craterbase_from_enterance",
+        "allowed" : true
     }
     }

@@ -1,5 +1,5 @@
 {
-    "name" : "C1_startingbase_enterance",
+    "name" : "C1_craterbase2_from_enterance",
     "backgroundPath" : "../src/media/images/livingPlatform_bg1.b64",
     "spritesPath" : "",
     "itemsPath" : "",
@@ -7,7 +7,7 @@
     "filter" : "fadeOn",
     "music" : "",
     "atmo" : "",
-    "elements" : {
+    "elements" : { 
         "living_platform" : {
             "type": "activeArea",
             "text": null,

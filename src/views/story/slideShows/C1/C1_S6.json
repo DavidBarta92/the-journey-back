@@ -15,9 +15,9 @@
           }
     },
     "timer" : {
-        "time": 5000,
+        "time": 7000,
         "actionType": "setContent",
         "action": "C1_S7",
         "allowed" : true
     }
-    }
+}

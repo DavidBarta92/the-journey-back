@@ -1,5 +1,5 @@
 {
-  "name": "C1_batteryConnection",
+  "name": "C1_batteryConnectionWrongnum",
   "backgroundPath": null,
   "spritesPath": null,
   "dialogue": null,
@@ -9,13 +9,13 @@
   "elements": {
     "nums_field": {
       "type": "text",
-      "text": "_ _ _ _",
-      "x": 460,
+      "text": "C1_battery_connection_fail",
+      "x":  460,
       "y": 80,
       "width": 70,
       "height": 20,
       "rotate": 0,
-      "color": "white",
+      "color": "red",
       "font": "Akira",
       "fontSize": 12,
       "border": false,
@@ -164,6 +164,6 @@
       "actionType": "setContent",
       "action": "C1_battery_connection_wrongnum",
       "filter": "appointable"
-    },
+    }
   }
 }

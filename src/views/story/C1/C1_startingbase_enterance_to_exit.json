@@ -1,0 +1,26 @@
+{
+    "name" : "C1_startingbase_enterance_to_exit",
+    "backgroundPath" : "../src/media/images/livingPlatform_bg1.b64",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "",
+    "elements" : { 
+        "living_platform" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 200,
+            "y": 300,
+            "width": 96,
+            "height": 58,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "living_platform"
+        }
+    }
+}

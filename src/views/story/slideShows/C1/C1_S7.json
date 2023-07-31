@@ -12,19 +12,20 @@
             "type": "text",
             "text": "dia_C1_S7",
             "x": 460,
-            "y": 80,
+            "y": 600,
             "width": 70,
             "height": 20,
             "rotate": 0,
+            "textBoxEnd": 250,
             "color": "white",
-            "font": "Akira",
-            "fontSize": 12,
+            "font": "Inconsolata",
+            "fontSize": 20,
             "border": false,
             "filter": null
           }
     },
     "timer" : {
-        "time": 5000,
+        "time": 7000,
         "actionType": "setContent",
         "action": "C1_S8",
         "allowed" : true

@@ -11,21 +11,20 @@
         "text": {
             "type": "text",
             "text": "dia_C1_S2",
-            "x": 460,
-            "y": 80,
-            "textBoxEnd": 70,
+            "x": 230,
+            "y": 650,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
-            "font": "Akira",
-            "fontSize": 12,
+            "font": "Inconsolata",
+            "fontSize": 20,
             "border": false,
             "filter": null
           }
     },
     "timer" : {
-        "time": 5000,
+        "time": 10000,
         "actionType": "setContent",
         "action": "C1_S3",
         "allowed" : true

@@ -8,23 +8,14 @@
     "music" : "",
     "atmo" : "",
     "elements" : {
-        "subTitle": {
-            "type": "text",
-            "text": "dia_C1_S2",
-            "x": 460,
-            "y": 500,
-            "width": 70,
-            "height": 20,
-            "rotate": 0,
-            "color": "white",
-            "font": "Akira",
-            "fontSize": 12,
+        "empty_object": {
+            "type": "empty_object",
             "border": false,
             "filter": null
           }
     },
     "timer" : {
-        "time": 5000,
+        "time": 10000,
         "actionType": "setContent",
         "action": "C1_S4",
         "allowed" : true
