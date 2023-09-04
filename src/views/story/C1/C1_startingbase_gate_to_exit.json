@@ -8,7 +8,7 @@
     "music" : "",
     "atmo" : "",
     "elements" : { 
-        "living_platform" : {
+        "forward" : {
             "type": "activeArea",
             "text": null,
             "x": 200,
@@ -20,7 +20,21 @@
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "living_platform"
+            "action": "C1_startingbase_enterance_to_exit"
+        },
+        "turn" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 400,
+            "y": 300,
+            "width": 96,
+            "height": 58,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C1_startingbase_enterance_to_enter"
         }
     }
 }

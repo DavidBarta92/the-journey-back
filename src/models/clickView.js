@@ -490,6 +490,14 @@ const hitArea = function(element){
                 RenderManager.render();
                 return;
             }
+            if (element[1].actionType === "setMute") {
+                stateManager.setVolume(element[1].action);
+                gameCanvas.clear();
+                clearInterval(menuInterval);
+                clearInterval(storyInterval);
+                RenderManager.render();
+                return;
+            }
             if (element[1].actionType === "dialogueOption") {
                 if (!dialogueOptionClicked) {
                     newSpeechIndex = newSpeechIndex + "-" + element[1].action;
