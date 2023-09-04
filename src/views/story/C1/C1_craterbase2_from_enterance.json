@@ -20,7 +20,7 @@
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "living_platform"
+            "action": "C1_craterbase_to_enterance"
         }
     }
 }

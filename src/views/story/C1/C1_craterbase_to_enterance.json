@@ -1,6 +1,6 @@
 {
-    "name" : "CC1_craterbase_to_enterance",
-    "backgroundPath" : "../src/media/images/livingPlatform_bg1.b64",
+    "name" : "C1_craterbase_to_enterance",
+    "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -8,7 +8,7 @@
     "music" : "",
     "atmo" : "",
     "elements" : { 
-        "living_platform" : {
+        "C1_craterbase_from_enterance" : {
             "type": "activeArea",
             "text": null,
             "x": 200,
@@ -20,7 +20,7 @@
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "living_platform"
+            "action": "C1_craterbase_from_enterance"
         }
     }
 }

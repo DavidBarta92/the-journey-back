@@ -1,5 +1,8 @@
 import fs from 'fs';
 import path from 'path';
+const electron = require("electron");
+
+const app = electron.app;
 
 var dataController = (function(){
 
@@ -9,6 +12,7 @@ var dataController = (function(){
     credits: require('../views/menu/credits.json'),
     main: require('../views/menu/main.json'),
     newGame: require('../views/menu/newGame.json'),
+    living_platform: require('../views/story/C1/C1_battery.json'),
     C1_S1: require('../views/story/slideShows/C1/C1_S1.json'),
     C1_S2: require('../views/story/slideShows/C1/C1_S2.json'),
     C1_S3: require('../views/story/slideShows/C1/C1_S3.json'),
@@ -87,16 +91,19 @@ var dataController = (function(){
     loadImage: function(imagePath) {
       var base64img;
       var image = new Image();
-      try {
         if (imagePath == "" || imagePath == null) {
           return image;
         } else {
-        base64img = fs.readFileSync(path.resolve(__dirname, imagePath), 'utf8');
-        image.src = base64img.slice(0);
+          try {
+            console.log(__dirname);
+            base64img = fs.readFileSync(path.resolve(__dirname, imagePath), 'utf8');
+          } catch (err) { 
+            console.warn("__dirname is not working!");
+            const dirName = localStorage.getItem('dirName');
+            base64img = fs.readFileSync(path.resolve(dirName, imagePath), 'utf8');
+          }
+          image.src = base64img.slice(0);
         }
-      } catch (err) {
-        console.error(err); 
-      }
       return image;
       },
 

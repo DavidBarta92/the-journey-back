@@ -254,9 +254,9 @@ var Driver = (function(){
         }
 
         //dithetring
-        var ctxForDither = context.getImageData(0, 0, render.width, render.height);
-        var ctxFromD = Filter.dither(ctxForDither, ditherParams);
-        context.putImageData(ctxFromD, 0, 0);
+        //var ctxForDither = context.getImageData(0, 0, render.width, render.height);
+        //var ctxFromD = Filter.dither(ctxForDither, ditherParams);
+        //context.putImageData(ctxFromD, 0, 0);
 
         iter = render.depthOfField;
 

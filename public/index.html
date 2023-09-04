@@ -5,6 +5,11 @@
         <title>The Journey Back</title>
 
     <script src="../src/jquery.min.js" type="javascript"></script>
+    <script>
+      console.log(__dirname);
+      const dirName = __dirname;
+      localStorage.setItem("dirName", dirName);
+    </script>
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
