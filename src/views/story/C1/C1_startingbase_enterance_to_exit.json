@@ -35,6 +35,20 @@
             "filter" : null,
             "actionType": "setContent",
             "action": "C1_startingbase_enterance_to_enter"
+        },
+        "C1_waste_processor_halfway" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 0,
+            "y": 300,
+            "width": 96,
+            "height": 58,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C1_waste_processor_halfway"
         }
     }
 }

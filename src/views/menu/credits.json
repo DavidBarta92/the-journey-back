@@ -1,6 +1,7 @@
 {
   "name": "credits",
   "backgroundPath": "",
+  "middlegroundPath": null,
   "spritesPath": "",
   "dialogue": "",
   "filter" : "",

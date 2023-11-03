@@ -1,6 +1,7 @@
 {
   "name": "mainMenu",
   "backgroundPath": null,
+  "middlegroundPath": null,
   "spritesPath": null,
   "dialogue": null,
   "filter" : "",
@@ -23,8 +24,8 @@
     },
     "subTitle": {
       "type": "text",
-      "text": "BETA",
-      "x": 460,
+      "text": "txt_beta",
+      "x": 40,
       "y": 80,
       "width": 70,
       "height": 20,

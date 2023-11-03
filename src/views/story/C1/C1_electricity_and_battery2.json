@@ -1,6 +1,6 @@
 {
-    "name" : "C1_craterbase_to_enterance",
-    "backgroundPath" : "../src/media/images/C1_craterbase_to_enterance.b64",
+    "name" : "C1_electricity_and_battery",
+    "backgroundPath" : "../src/media/images/C1_electricity_and_battery2.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -9,6 +9,20 @@
     "atmo" : "",
     "elements" : { 
         "forward" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 0,
+            "y": 300,
+            "width": 96,
+            "height": 58,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C1_craterbase_to_enterance"
+        },
+        "battery" : {
             "type": "activeArea",
             "text": null,
             "x": 200,
@@ -20,12 +34,12 @@
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "C1_startingbase_enterance_to_enter"
+            "action": "C1_electricity"
         },
-        "turn" : {
+        "electricity" : {
             "type": "activeArea",
             "text": null,
-            "x": 400,
+            "x": 600,
             "y": 300,
             "width": 96,
             "height": 58,
@@ -34,12 +48,12 @@
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "C1_craterbase_from_enterance"
+            "action": "C1_electricity"
         },
-        "C1_electricity_and_battery" : {
+        "turn" : {
             "type": "activeArea",
             "text": null,
-            "x": 0,
+            "x": 400,
             "y": 300,
             "width": 96,
             "height": 58,

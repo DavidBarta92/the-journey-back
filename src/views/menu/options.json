@@ -1,6 +1,7 @@
 {
   "name": "controlls",
   "backgroundPath": null,
+  "middlegroundPath": null,
   "spritesPath": "",
   "dialogue": "",
   "filter" : "",

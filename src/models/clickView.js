@@ -50,6 +50,7 @@ var spritesheetForString = new Image();
 var spritesheet = new Image();
 
 var background = new Image();
+var middleground = new Image();
 
 var music;
 
@@ -88,6 +89,7 @@ const drawBackground = function(){
         context.rect(700, 150, 400, 500);
         context.clip();
         context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
+        context.drawImage(middleground,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
         context.restore();
         context.beginPath();
         context.lineWidth = "4";
@@ -508,11 +510,27 @@ const hitArea = function(element){
                 return;
             }
             if (element[1].actionType === "startGame") {
+                if(element[1].action == 'start'){
+                    if (stateManager.loadState().init){
+                        stateManager.setView('story');
+                        stateManager.setContent('C1_S1');
+                        // stateManager.setView('driver');
+                        // stateManager.setContent('desert');
+                        stateManager.setInitFalse();
+                        stateManager.resetLevelChapterScene();
+                        stateManager.resetItems();
+                    } else {
+                        stateManager.setContentByStatus();
+                    }
+                } 
                 if(element[1].action == 'new'){
-                stateManager.setView('story');
-                stateManager.setContent('C1_S1');
-                stateManager.resetLevelChapterScene();
-                stateManager.resetItems();
+                    stateManager.setView('story');
+                    stateManager.setContent('C1_S1');
+                    // stateManager.setView('driver');
+                    // stateManager.setContent('desert');
+                    stateManager.setInitFalse();
+                    stateManager.resetLevelChapterScene();
+                    stateManager.resetItems();
                 } else {
                     stateManager.setContentByStatus();
                 }
@@ -577,6 +595,7 @@ export const Menu = (function(){
         interactives = {};
         contentContainer = dataController.loadContent(state);
         background = dataController.getLastScreenImage();
+        middleground = dataController.loadImage(contentContainer.middlegroundPath);
         spritesheet = dataController.loadImage(contentContainer.spritesPath);
         collectInteractives(contentContainer.elements);
         allowElements(contentContainer.elements, state);
@@ -654,6 +673,7 @@ export const Story = (function(){
         interactives = {};
         contentContainer = dataController.loadContent(state);
         background = dataController.loadImage(contentContainer.backgroundPath);
+        middleground = dataController.loadImage(contentContainer.middlegroundPath);
         spritesheet = dataController.loadImage(contentContainer.spritesPath);
         dialogueFile = dataController.loadDialogue(contentContainer.dialogue);
         newSpeechIndex = '1';

@@ -35,6 +35,34 @@
             "filter" : null,
             "actionType": "setContent",
             "action": "C1_electricity"
+        },
+        "sunconsoles" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 0,
+            "y": 300,
+            "width": 96,
+            "height": 58,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C1_sunconsoles"
+        },
+        "turn" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 400,
+            "y": 300,
+            "width": 96,
+            "height": 58,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C1_startingbase_exit"
         }
     }
 }

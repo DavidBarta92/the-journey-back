@@ -1,6 +1,7 @@
 {
   "name": "newGame",
   "backgroundPath": "",
+  "middlegroundPath": null,
   "spritesPath": "",
   "dialogue": "",
   "filter" : "",

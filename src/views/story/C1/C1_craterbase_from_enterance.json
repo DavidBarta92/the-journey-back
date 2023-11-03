@@ -1,6 +1,6 @@
 {
     "name" : "C1_craterbase_from_enterance",
-    "backgroundPath" : "../src/media/images/livingPlatform_bg1.b64",
+    "backgroundPath" : "../src/media/images/C1_craterbase_from_enterance.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -35,6 +35,20 @@
             "filter" : null,
             "actionType": "setContent",
             "action": "C1_craterbase_to_enterance"
+        },
+        "C1_electricity_and_battery" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 0,
+            "y": 300,
+            "width": 96,
+            "height": 58,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C1_electricity_and_battery"
         }
     }
 }

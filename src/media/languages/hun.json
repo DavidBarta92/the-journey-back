@@ -1,8 +1,10 @@
 {
     "btn_yes" : "Igen",
     "btn_no" : "Nem",
+    "txt_beta" : "UTAZAS VISSZA - BETA",
     "btn_greet" : "1 / Üdv.",
     "btn_thank" : "Köszönöm",
+    "btn_start" : "KEZDÉS",
     "btn_newGame" : "Új játék",
     "btn_continue" : "Folytatás",
     "btn_credits" : "Készítette",

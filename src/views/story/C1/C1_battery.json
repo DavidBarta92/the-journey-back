@@ -25,7 +25,7 @@
         "back" : {
             "type": "activeArea",
             "text": null,
-            "x": 600,
+            "x": 400,
             "y": 300,
             "width": 96,
             "height": 58,
@@ -34,7 +34,7 @@
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "C1_electricity_and_battery"
+            "action": "C1_electricity_and_battery2"
         }
     }
 }

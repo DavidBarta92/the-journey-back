@@ -23,7 +23,7 @@ var interactives;
 
 var requestNewFrame = false;
 
-var Driver = (function(){
+export const Driver = (function(){
     var pause = false;
 
     let ditherParams = {
@@ -116,10 +116,11 @@ var Driver = (function(){
         //waiting 41 ms, it is needed to keep 24 fps
         Timer.wait(41);
         keys = inputController.getKeys();
+        var driverViewIndexParams;
         
         gameCanvas.clear();
 
-        //if(keys[27]) setPause();
+        if(keys[27]) setPause(driverViewIndexParams);
         
         // Update the car state 
         //player.updateCarState(lastDelta);
@@ -254,9 +255,9 @@ var Driver = (function(){
         }
 
         //dithetring
-        //var ctxForDither = context.getImageData(0, 0, render.width, render.height);
-        //var ctxFromD = Filter.dither(ctxForDither, ditherParams);
-        //context.putImageData(ctxFromD, 0, 0);
+        var ctxForDither = context.getImageData(0, 0, render.width, render.height);
+        var ctxFromD = Filter.dither(ctxForDither, ditherParams);
+        context.putImageData(ctxFromD, 0, 0);
 
         iter = render.depthOfField;
 
@@ -544,15 +545,18 @@ var Driver = (function(){
         RenderManager.render();
     }
 
-    const setPause = function() {
-        var lastScreenImage = new Image();
-        lastScreenImage = context.getImageData(0, 0, render.width, render.height);
-        RenderManager.saveScreenImage(lastScreenImage);
-        pause = true;
-        clearInterval(gameInterval);
-        stateManager.setView('menu');
-        stateManager.setContent('main');
-        RenderManager.render();
+    const setPause = function(driverViewIndexParams) {
+        var pState = stateManager.loadState();
+        if(pState.view !== 'menu'){
+            var dataURL = gameCanvas.getDataURL();
+            dataController.saveScreenImage(dataURL);
+            pause = true;
+            clearInterval(gameInterval);
+            stateManager.setStatus(driverViewIndexParams);
+            stateManager.setView('menu');
+            stateManager.setContent('main');
+            RenderManager.render();
+        }
     }
 
     var dialogueFadeArray = [];
@@ -725,6 +729,8 @@ var Driver = (function(){
                     finalCurve = roadParam.maxCurve * r(); break;
             }
 
+
+            console.log(gameInterval);
             for(var i=0; i < roadParam.zoneSize; i++){
                 // add a tree
                 if(i % roadParam.zoneSize / 4 == 0){
@@ -769,6 +775,9 @@ var Driver = (function(){
             var state = state;
             init(state);
             if (!pause){
+                gameInterval = setInterval(renderGameFrame, 1);
+                generateRoad();
+            } else {
                 generateRoad();
                 gameInterval = setInterval(renderGameFrame, 1);
             }
@@ -783,4 +792,36 @@ var Driver = (function(){
 }
 ());
 
-export default Driver;
+export const Driver2 = (function(){
+    const init = function(state){
+
+    }
+
+    //render one frame of the menu
+    const renderMenuFrame = function(){
+
+    }
+
+    //tracking cursor
+    const trackInput = function(){
+
+    }
+
+    const trackAnimation = function(){
+
+    }
+
+    return {
+        render: function(state){
+
+            },
+
+        //its only for th first screen rendering at the game starting (this preload pictures, fonts for the clickview)
+        preRender: function(state){
+
+            }
+        }
+    }
+());
+
+//export default Driver;

@@ -1,6 +1,6 @@
 {
-    "name" : "C1_sunconsoles",
-    "backgroundPath" : "../src/media/images/C1_sunconsoles.b64",
+    "name" : "C1_waste_processor",
+    "backgroundPath" : "../src/media/images/livingPlatform_bg1.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -8,7 +8,7 @@
     "music" : "",
     "atmo" : "",
     "elements" : { 
-        "go" : {
+        "forward" : {
             "type": "activeArea",
             "text": null,
             "x": 200,
@@ -20,9 +20,9 @@
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": ""
+            "action": "C1_waste_processor_halfway2"
         },
-        "back" : {
+        "turn" : {
             "type": "activeArea",
             "text": null,
             "x": 400,
@@ -34,7 +34,7 @@
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "C1_electricity_and_battery2"
+            "action": "C1_waste_processor"
         }
     }
 }

@@ -1,8 +1,10 @@
 {
     "btn_yes" : "Yes",
     "btn_no" : "No",
+    "txt_beta" : "BETA",
     "btn_greet" : "1 / Hello",
     "btn_thank" : "Thank you",
+    "btn_start" : "START",
     "btn_newGame" : "New game",
     "btn_continue" : "Continue",
     "btn_credits" : "Credits",

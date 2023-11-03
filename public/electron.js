@@ -7,14 +7,19 @@ const BrowserWindow = electron.BrowserWindow;
 let mainWindow;
 
 function createWindow() {
+  const windowParams = {
+    width: 1280,
+    height: 720,
+    depthOfField: 150,
+    camera_distance: 30,
+    camera_height: 150,
+    webPreferences: { nodeIntegration: true, contextIsolation: false },
+    autoHideMenuBar: true,
+      fullscreen: false,
+      resizable: false,
+    };
   // Create the browser window.
-  mainWindow = new BrowserWindow({
-  width: 1280,
-  height: 720,
-  webPreferences: { nodeIntegration: true, contextIsolation: false },
-  autoHideMenuBar: true,
-    fullscreen: true
-  });
+  mainWindow = new BrowserWindow(windowParams);
   // and load the index.html of the app.
   console.log(__dirname);
   //mainWindow.loadURL('http://localhost:3000');

@@ -16,6 +16,7 @@ var inputController = (function(){
         //register key handeling:
         window.onkeydown = function (event) {
             keys[event.keyCode] = true;
+            console.log(event.keyCode);
         };
         window.onkeyup = function (event) {
             keys[event.keyCode] = false;
