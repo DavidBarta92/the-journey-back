@@ -298,7 +298,7 @@ const drawElements = function(elements) {
                 if(true){
                     context.beginPath();
                     context.lineWidth = 2;
-                    context.strokeStyle = "yellow";
+                    context.strokeStyle = "white";
                     context.moveTo(element[1].x - 5, element[1].y);
                     context.lineTo(element[1].x + 5, element[1].y);
                     context.stroke();
@@ -514,8 +514,6 @@ const hitArea = function(element){
                     if (stateManager.loadState().init){
                         stateManager.setView('story');
                         stateManager.setContent('C1_S1');
-                        // stateManager.setView('driver');
-                        // stateManager.setContent('desert');
                         stateManager.setInitFalse();
                         stateManager.resetLevelChapterScene();
                         stateManager.resetItems();
@@ -526,8 +524,6 @@ const hitArea = function(element){
                 if(element[1].action == 'new'){
                     stateManager.setView('story');
                     stateManager.setContent('C1_S1');
-                    // stateManager.setView('driver');
-                    // stateManager.setContent('desert');
                     stateManager.setInitFalse();
                     stateManager.resetLevelChapterScene();
                     stateManager.resetItems();
@@ -542,6 +538,8 @@ const hitArea = function(element){
             }
             if (element[1].actionType === "exitGame") {
                 gameCanvas.clear();
+                clearInterval(menuInterval);
+                clearInterval(storyInterval);
                 RenderManager.render();
                 window.close();
             }

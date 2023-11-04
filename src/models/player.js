@@ -10,27 +10,14 @@ export const player = {
 
 
     // Update the car state
-    updateCarState: function(lastDelta) {
-        window.onkeyup = function (event) {        
-        if (Math.abs(lastDelta) > 130){
-            if (this.speed > 3) {
-                this.speed -= 0.2;
-            }
-        } else {
-            // read acceleration controls
-            if (event.keyCode === 38) { // 38 up
-                //player.position += 0.1;
-                this.speed += this.acceleration;
-            } else if (event.keyCode === 40) { // 40 down
-                this.speed -= this.breaking;
-            } else {
-                this.speed -= this.deceleration;
-            }
+    updateCarState: function(baseOffset) {
+        const delta = player.posx - baseOffset * 2;
+      
+        if (Math.abs(delta) > 130 && player.speed > 3) {
+          player.speed -= 0.2;
         }
-        }
-        this.speed = Math.max(this.speed, 0); //cannot go in reverse
-        this.speed = Math.min(this.speed, this.maxSpeed); //maximum speed
-        this.position += this.speed;
+      
+        return delta;
     }
 
 };
