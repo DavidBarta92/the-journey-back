@@ -1,0 +1,48 @@
+{
+    "name" : "C1_S4",
+    "backgroundPath" : "../src/media/images/C1_S4_bg.b64",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "C1_S4",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "",
+    "elements" : {
+        "Eva": {
+            "type": "text",
+            "text": "dia_C1_S4_1",
+            "x": 138,
+            "y": 160,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "textBoxEnd": 320,
+            "color": "DarkSalmon",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          },
+        "David": {
+            "type": "text",
+            "text": "dia_C1_S4_1-1",
+            "x": 138,
+            "y": 350,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "textBoxEnd": 320,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          }
+    },
+    "timer" : {
+        "time": 13000,
+        "actionType": "setContent",
+        "action": "C1_S5",
+        "allowed" : true
+    }
+}

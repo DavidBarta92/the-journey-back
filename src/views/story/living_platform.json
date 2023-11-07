@@ -1,6 +1,6 @@
 {
 "name" : "living_platform",
-"backgroundPath" : "../src/media/images/livingPlatform_bg1.b64",
+"backgroundPath" : "",
 "spritesPath" : "",
 "itemsPath" : "",
 "dialogue" : "david",

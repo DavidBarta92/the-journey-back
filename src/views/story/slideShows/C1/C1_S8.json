@@ -1,0 +1,33 @@
+{
+    "name" : "C1_S8",
+    "backgroundPath" : "../src/media/images/C1_S8_bg.b64",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "",
+    "elements" : {
+        "subTitle": {
+            "type": "text",
+            "text": "dia_C1_S8",
+            "x": 207,
+            "y": 210,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "textBoxEnd": 250,
+            "color": "DarkSalmon",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          }
+    },
+    "timer" : {
+        "time": 7000,
+        "actionType": "setContent",
+        "action": "C1_title",
+        "allowed" : true
+    }
+}

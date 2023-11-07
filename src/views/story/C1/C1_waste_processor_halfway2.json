@@ -1,0 +1,40 @@
+{
+    "name" : "C1_waste_processor_halfway",
+    "backgroundPath" : "../src/media/images/livingPlatform_bg1.b64",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "",
+    "elements" : { 
+        "forward" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 200,
+            "y": 300,
+            "width": 96,
+            "height": 58,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C1_startingbase_enterance_to_enter"
+        },
+        "turn" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 400,
+            "y": 300,
+            "width": 96,
+            "height": 58,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C1_waste_processor_halfway"
+        }
+    }
+}

@@ -14,6 +14,7 @@ var dialogueOptionClicked;
 var backgroundImage = new Image();
 var spritesheet = new Image();
 var hud = new Image();
+var currentDialogueImage = new Image();
 var newSpeechIndex;
 var contentContainer;
 var languageFile;
@@ -23,7 +24,7 @@ var interactives;
 
 var requestNewFrame = false;
 
-var Driver = (function(){
+export const Driver = (function(){
     var pause = false;
 
     let ditherParams = {
@@ -61,10 +62,10 @@ var Driver = (function(){
     var roadParam = {
         maxHeight: 900,
         maxCurve:  700,
-        length:    12,
+        length:    8,
         curvy:     0.9,
         mountainy: 0.8,
-        zoneSize:  500
+        zoneSize:  80
     }
 
     var road = [];
@@ -73,8 +74,12 @@ var Driver = (function(){
     var keys = [];
     var render;
     let cursor = inputController.getCursor();
+    var driverViewIndexParams;
 
     var gameInterval;
+    var absoluteIndex = 0;
+    var baseOffset = 0;
+    var currentDialogueText;
 
     // -----------------------------
     // -- closure scoped function --
@@ -109,79 +114,80 @@ var Driver = (function(){
         newSpeechIndex = '1';
     };
 
-    console.log(pause);
-
     //renders one frame
     const renderGameFrame = function(){
-        //waiting 41 ms, it is needed to keep 24 fps
+        // Wait for 41 ms to maintain 24 fps
         Timer.wait(41);
         keys = inputController.getKeys();
-        
+
         gameCanvas.clear();
+        console.log(absoluteIndex);
+        if (keys[27]) setPause(driverViewIndexParams);
 
-        //if(keys[27]) setPause();
-        
-        // Update the car state 
-        //player.updateCarState(lastDelta);
-
-        if (Math.abs(lastDelta) > 130){
-            if (player.speed > 3) {
-                player.speed -= 0.2;
-            }
-        } else {
-            // read acceleration controls
-            if (keys[38]) { // 38 up
-                //player.position += 0.1;
-                player.speed += player.acceleration;
-            } else if (keys[40]) { // 40 down
-                player.speed -= player.breaking;
-            } else if (keys[49]) { // 49 down
-                newSpeechIndex = newSpeechIndex + "-1";
-                contentContainer.elements.dialogue.processed = false;
-                deleteDialogueElements();
-                dialogueOptionClicked = true;
-            } else if (keys[50]) { // 50 down
-                newSpeechIndex = newSpeechIndex + "-2";
-                contentContainer.elements.dialogue.processed = false;
-                deleteDialogueElements();
-                dialogueOptionClicked = true;
-            } else {
-                player.speed -= player.deceleration;
-            }
-        }
-
-        player.speed = Math.max(player.speed, 0); //cannot go in reverse
-        player.speed = Math.min(player.speed, player.maxSpeed); //maximum speed
-        player.position += player.speed;
-        
-        // car turning
-        if (keys[37]) {
-            // 37 left
-            if(player.speed > 0){
-                player.posx -= player.turning;
-            }
-        } else if (keys[39]) {
-            // 39 right
-            if(player.speed > 0){
-                player.posx += player.turning;
-            }
-        }
+        const delta = player.updateCarState(baseOffset);
+        handleSpeedAndPosition(keys, delta);
 
         drawBackground(-player.posx);
+        
+        renderRoad();
+ 
+        renderHUD();
 
+        Anim.crt();
+        requestNewFrame = true;
+    }
+
+    ///////////////////////////////////////////////////////////////////////
+      
+    const handleSpeedAndPosition = function(keys, delta) {
+        if (keys[38]) {
+          player.speed += player.acceleration;
+        } else if (keys[40]) {
+          player.speed -= player.breaking;
+        } else if (keys[49] || keys[50]) {
+          handleDialogueOptionClick(keys);
+        } else {
+          player.speed -= player.deceleration;
+        }
+      
+        player.speed = Math.max(0, player.speed); // Cannot go in reverse
+        player.speed = Math.min(player.speed, player.maxSpeed); // Maximum speed
+        player.position += player.speed;
+      
+        handleCarTurning(keys, delta);
+      }
+      
+    const handleDialogueOptionClick = function(keys) {
+        if (keys[49]) {
+          newSpeechIndex = newSpeechIndex + "-1";
+        } else if (keys[50]) {
+          newSpeechIndex = newSpeechIndex + "-2";
+        }
+      
+        contentContainer.elements.dialogue.processed = false;
+        deleteDialogueElements();
+        dialogueOptionClicked = true;
+      }
+      
+    const handleCarTurning = function(keys, delta) {
+        if (keys[37] && player.speed > 0) {
+          player.posx -= player.turning;
+        } else if (keys[39] && player.speed > 0) {
+          player.posx += player.turning;
+        }
+      }
+
+    // --------------------------
+    // --   Render the road    --
+    // --------------------------
+    const renderRoad = function(){
         var spriteBuffer = [];
         var holoSpriteBuffer = [];
+
+        absoluteIndex = Math.floor(player.position / roadSegmentSize);
         
-        // --------------------------
-        // --   Render the road    --
-        // --------------------------
-        var absoluteIndex = Math.floor(player.position / roadSegmentSize);
-        
-        if(absoluteIndex >= roadParam.length-render.depthOfField-1){
-            clearInterval(gameInterval);
-            drawString("You did it!", {x: 100, y: 20});
-        }
-        
+        setActionByAbsoluteIndex();
+
         var currentSegmentIndex    = (absoluteIndex - 2) % road.length;
         var currentSegmentPosition = (absoluteIndex - 2) * roadSegmentSize - player.position;
         var currentSegment         = road[currentSegmentIndex];
@@ -195,7 +201,7 @@ var Driver = (function(){
         var playerPosRelative          = (player.position % roadSegmentSize) / roadSegmentSize;
         var playerHeight               = render.camera_height + playerPosSegmentHeight + (playerPosNextSegmentHeight - playerPosSegmentHeight) * playerPosRelative;
         
-        var baseOffset                 =  currentSegment.curve + (road[(currentSegmentIndex + 1) % road.length].curve - currentSegment.curve) * playerPosRelative;
+        baseOffset                 =  currentSegment.curve + (road[(currentSegmentIndex + 1) % road.length].curve - currentSegment.curve) * playerPosRelative;
         
         lastDelta = player.posx - baseOffset*2;
         
@@ -315,10 +321,12 @@ var Driver = (function(){
         while(holoSprite = holoSpriteBuffer.pop()) {
             drawSprite(holoSprite);
         }
+    }    
 
-        // --------------------------
-        // --     Draw the hud     --
-        // --------------------------
+    // --------------------------
+    // --     Draw the hud     --
+    // --------------------------
+    const renderHUD = function(){
         context.drawImage(hud, 0, 0, canvas.width, canvas.height);
 
         var now = new Date();
@@ -337,49 +345,30 @@ var Driver = (function(){
 
         drawString(currentTimeString, {x: 30, y: 500});
 
-        var speed = Math.round(player.speed / player.maxSpeed * 200);
+        var speed = Math.round((player.speed / player.maxSpeed * 200) / 6 );
         drawString(""+speed+"mph", {x: 30, y: 488});
 
         var percent = ""+Math.round(absoluteIndex/(roadParam.length-render.depthOfField)*100)+"%";
 
+        //draw dialoge things
+        currentDialogueImage.src = currentDialogueText.image;
+        context.drawImage(currentDialogueImage, 0, 0, canvas.width, canvas.height);
+        writeText(currentDialogueText.text, (currentDialogueText.text.x + currentDialogueText.text.textBoxEnd));
+
         drawString(percent,{x: 287, y: 488});
 
-        var speedCounter = {
-            "type": "activeArea",
-            "text": speed + "mph",
-            "x": 33,
-            "y": 553,
-            "width": 96,
-            "height": 58,
-            "color": "#dc3a15",
-            "font": "Akira",
-            "fontSize": 60,
-            "filter" : null,
-            "actionType": "setView",
-            "action": "driver"
-        };
+        contentContainer.elements.speedCounter.text = speed + "mph";
+        contentContainer.elements.percentCounter.text = percent;
 
-        var percentCounter = {
-            "type": "activeArea",
-            "text": percent,
-            "x": 30,
-            "y": 600,
-            "width": 96,
-            "height": 58,
-            "color": "#dc3a15",
-            "font": "Akira",
-            "fontSize": 30,
-            "filter" : null,
-            "actionType": "setView",
-            "action": "driver"
-        };
-
-        writeText(speedCounter);
-        speedCounter.x = 30;
-        speedCounter.y = 550;
-        speedCounter.color = "white";
-        writeText(speedCounter);
-        writeText(percentCounter);
+        contentContainer.elements.speedCounter.x = 33;
+        contentContainer.elements.speedCounter.y = 553;
+        contentContainer.elements.speedCounter.color = "#dc3a15";
+        writeText(contentContainer.elements.speedCounter);
+        contentContainer.elements.speedCounter.x = 30;
+        contentContainer.elements.speedCounter.y = 550;
+        contentContainer.elements.speedCounter.color = "white";
+        writeText(contentContainer.elements.speedCounter);
+        writeText(contentContainer.elements.percentCounter);
 
         context.beginPath();
         context.lineWidth = "2";
@@ -396,53 +385,58 @@ var Driver = (function(){
         context.strokeStyle = "#dc3a15";
         context.rect(30, 635, 750, 0);
         context.stroke();
-        
-
-        // var ctxForRaindrops = context.getImageData(0, 0, render.width, render.height);
-        // var ctxFromRainD = Filter.raindrops(ctxForRaindrops, 1,10, 0.5);
-        // context.putImageData(ctxFromRainD, 0, 0);
 
         drawElements(contentContainer.elements);
-        Anim.crt();
-        requestNewFrame = true;
     }
 
-    ///////////////////////////////////////////////////////////////////////
+    const setActionByAbsoluteIndex = function(){
+        currentDialogueText = getContentsByAbsoluteIndex();
+        if(absoluteIndex >= roadParam.length-render.depthOfField-1){
+            setState();
+        }
+    }
 
-    const getValidSpeechByIndex = function(speechIndex){ 
-        let speechIndexIsValid = false;
-        let validSpeech;
-        Object.entries(dialogueFile).forEach(speech => {
-            if (speech[0] === speechIndex) {
-                speechIndexIsValid = true;
-                validSpeech = speech;
-                return;
+    const getContentsByAbsoluteIndex = function(){
+        // Check if "elements" and "dialogue" properties exist in the JSON data
+        if (contentContainer && contentContainer.elements && contentContainer.elements.dialogue) {
+            const dialogue = contentContainer.elements.dialogue;
+
+            // Filter the dialogue contents based on the absoluteIndex
+            const filteredContents = Object.keys(dialogue.contents).filter(index => index <= absoluteIndex);
+
+            if (filteredContents.length > 0) {
+                // Get the last matching index
+                const lastIndex = filteredContents[filteredContents.length - 1];
+
+                // Return the corresponding contents for the last matching index
+                return dialogue.contents[lastIndex];
             }
-        });
-        return {speechIndexIsValid, validSpeech};
+        }
+        return null; // Return null if not found
     }
 
-    const drawPessKey = function(){ 
-        
+    const setState = function(){
+        if (contentContainer.end.actionType === "setToClickView") {
+            stateManager.setView('story');
+            stateManager.setContent(contentContainer.end.action);
+            gameCanvas.clear();
+            interactives = {};
+            clearInterval(gameInterval);
+            RenderManager.render();
+            return;
+        }
     }
 
     //draw all visible elements on the view
     const drawElements = function(elements) {
         document.fonts.ready.then(function () {
             Object.entries(elements).forEach(element => {
-                if (element[1].type === 'dialogue') {
-                    let currentSpeechObj = getValidSpeechByIndex(newSpeechIndex);
-                    console.log(newSpeechIndex);
-                    if (currentSpeechObj.speechIndexIsValid) {
-                        context.fillStyle = element[1].bgcolor;
-                        context.fillRect(element[1].x, element[1].y, element[1].w, element[1].h);
-                        if (element[1].processed === false) {
-                            pushDialogueElements(element[1]);
-                            contentContainer.elements[element[0]].processed = true;
-                            drawElements(elements);
-                        }
-                    }
-                };
+                if (element[1].type === 'rock') {
+                    
+                }
+                if (element[1].type === 'tree') {
+                    
+                }
                 if (element[1].type === 'button' || element[1].type === 'text'){
                     //if (element[1].hasOwnProperty('buttonKey')) drawPessKey(element[1].buttonKey);
 
@@ -467,66 +461,6 @@ var Driver = (function(){
 
     }
 
-    //create interactive and writable entities based on dialogue element1s params and push them to arrays
-    const pushDialogueElements = function(dialogueBox){
-        let rightSideOfLastButton = 0;
-        let boxLeftWithPadding = dialogueBox.x + dialogueBox.padding;
-        let boxTopWithPadding = dialogueBox.y + dialogueBox.padding;
-        let speech;
-        //it could be text or button, we'll push this object to the write text func
-        let dialogueElement = {
-            dialType : dialogueBox.type,
-            x: boxLeftWithPadding,
-            y: boxTopWithPadding, //default param but we need to change it
-            color: dialogueBox.colorOfSpeech,
-            font: dialogueBox.fontOfSpeech,
-            fontSize: dialogueBox.fontSizeOfSpeech,
-        };
-        let currentSpeechObj = getValidSpeechByIndex(newSpeechIndex);
-        if (currentSpeechObj.speechIndexIsValid) {
-            speech = currentSpeechObj.validSpeech;
-            speech[1].forEach(element => {
-                if (element.type === "params") {
-                    dialogueElement.type = "text";
-                    dialogueElement.y = dialogueBox.y + dialogueBox.padding + parseInt(context.measureText(element.text).actualBoundingBoxAscent);
-                    dialogueElement.fontSize = dialogueBox.fontSizeOfSpeech;
-                    dialogueElement.font = dialogueBox.fontOfSpeech;
-                    dialogueElement.color = dialogueBox.colorOfSpeech;
-                    dialogueElement.text = element.text;
-                    dialogueElement.textBoxEnd = dialogueBox.h - dialogueBox.padding;
-                    dialogueElement.filter = "dialogueFade";
-                    spokenSpeeches.push(dialogueElement);
-                    contentContainer.elements["dial" + speech[0] + "text"] = dialogueElement;
-                }
-                if (element.type === "choice") {
-                    //dialogueElement.y = dialogueBox.y + dialogueBox.padding + parseInt(context.measureText(element.buttonText).actualBoundingBoxAscent);
-                    dialogueElement.type = "button";
-                    dialogueElement.text = element.buttonText;
-                    dialogueElement.buttonKey = element.option;
-                    dialogueElement.x = boxLeftWithPadding + Math.round(rightSideOfLastButton);
-                    dialogueElement.y = dialogueBox.y + dialogueBox.h - dialogueBox.padding;
-                    dialogueElement.width = context.measureText(dialogueBox.fontOfButtons).width + 2 * (dialogueBox.fontSizeOfButtons / 10);
-                    dialogueElement.height = dialogueBox.fontSizeOfButtons;
-                    dialogueElement.color = dialogueBox.colorOfButtons;
-                    dialogueElement.font = dialogueBox.fontOfButtons;
-                    dialogueElement.fontSize = dialogueBox.fontSizeOfButtons;
-                    dialogueElement.border = true;
-                    dialogueElement.actionType = "dialogueOption";
-                    dialogueElement.action = element.option;
-                    dialogueElement.filter = "glitch";
-                    dialogueElement.longText = element.text;
-                    rightSideOfLastButton = dialogueElement.x + parseInt(context.measureText(element.buttonText).width) - boxLeftWithPadding + 20;
-
-                    interactives["dial" + speech[0] + "-option" + element.option] = dialogueElement;
-                    contentContainer.elements["dial" + speech[0] + "-option" + element.option] = dialogueElement;
-                }
-                dialogueElement = {};
-            });
-        } else {
-            console.log("Conversation is over.");
-        }  
-    }
-
     // delete dialogue elements from interactives or contentContainer list
     const deleteDialogueElements = function() {
         Object.entries(interactives).forEach(element => {
@@ -544,15 +478,18 @@ var Driver = (function(){
         RenderManager.render();
     }
 
-    const setPause = function() {
-        var lastScreenImage = new Image();
-        lastScreenImage = context.getImageData(0, 0, render.width, render.height);
-        RenderManager.saveScreenImage(lastScreenImage);
-        pause = true;
-        clearInterval(gameInterval);
-        stateManager.setView('menu');
-        stateManager.setContent('main');
-        RenderManager.render();
+    const setPause = function(driverViewIndexParams) {
+        var pState = stateManager.loadState();
+        if(pState.view !== 'menu'){
+            var dataURL = gameCanvas.getDataURL();
+            dataController.saveScreenImage(dataURL);
+            pause = true;
+            clearInterval(gameInterval);
+            stateManager.setStatus(driverViewIndexParams);
+            stateManager.setView('menu');
+            stateManager.setContent('main');
+            RenderManager.render();
+        }
     }
 
     var dialogueFadeArray = [];
@@ -682,7 +619,6 @@ var Driver = (function(){
     //used to triggering animation frame by render game frame
     const triggering = function(){
         if(requestNewFrame || context.globalAlpha <= 0.9 || dialogueOptionClicked){
-    console.log("render");
             requestNewFrame = false;
             return true;
         } else {
@@ -769,6 +705,9 @@ var Driver = (function(){
             var state = state;
             init(state);
             if (!pause){
+                gameInterval = setInterval(renderGameFrame, 1);
+                generateRoad();
+            } else {
                 generateRoad();
                 gameInterval = setInterval(renderGameFrame, 1);
             }
@@ -783,4 +722,36 @@ var Driver = (function(){
 }
 ());
 
-export default Driver;
+export const Driver2 = (function(){
+    const init = function(state){
+
+    }
+
+    //render one frame of the menu
+    const renderMenuFrame = function(){
+
+    }
+
+    //tracking cursor
+    const trackInput = function(){
+
+    }
+
+    const trackAnimation = function(){
+
+    }
+
+    return {
+        render: function(state){
+
+            },
+
+        //its only for th first screen rendering at the game starting (this preload pictures, fonts for the clickview)
+        preRender: function(state){
+
+            }
+        }
+    }
+());
+
+//export default Driver;

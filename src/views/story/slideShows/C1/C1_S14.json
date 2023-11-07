@@ -1,0 +1,46 @@
+{
+    "name" : "C1_S14",
+    "backgroundPath" : "",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "",
+    "elements" : {
+        "Aiza": {
+            "type": "text",
+            "text": "dia_C1_S14_1",
+            "x": 100,
+            "y": 80,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+        },
+        "Thomas": {
+            "type": "text",
+            "text": "dia_C1_S14_1-1",
+            "x": 100,
+            "y": 120,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+        }
+    },
+    "timer" : {
+        "time": 11000,
+        "actionType": "setContent",
+        "action": "C1_S15",
+        "allowed" : true
+    }
+    }

@@ -5,6 +5,11 @@
         <title>The Journey Back</title>
 
     <script src="../src/jquery.min.js" type="javascript"></script>
+    <script>
+      console.log(__dirname);
+      const dirName = __dirname;
+      localStorage.setItem("dirName", dirName);
+    </script>
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
@@ -34,12 +39,12 @@
       //window.$ = window.jQuery = require("jquery");
       window.$ = window.jQuery = require("../src/jquery.min.js");
     </script>
-
-    <canvas id="c" style="position: absolute;"></canvas>
-    <video id="video" hidden></video>
-    
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+  <div id="grain" class="grain">
+      <canvas id="c" style="position: absolute;"></canvas>
+      <video id="video" hidden></video>  
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  </div>
+  <div id="root"></div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

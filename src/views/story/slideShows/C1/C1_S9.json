@@ -1,0 +1,33 @@
+{
+    "name" : "C1_S9",
+    "backgroundPath" : "",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "",
+    "elements" : {
+        "title": {
+            "type": "text",
+            "text": "dia_C1_S9",
+            "x": 70,
+            "y": 80,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "textBoxEnd": 220,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 12,
+            "border": false,
+            "filter": null
+          }
+    },
+    "timer" : {
+        "time": 8000,
+        "actionType": "setContent",
+        "action": "C1_S10",
+        "allowed" : true
+    }
+    }

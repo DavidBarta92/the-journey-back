@@ -1,0 +1,33 @@
+{
+    "name" : "C1_S7",
+    "backgroundPath" : "../src/media/images/C1_S7_bg.b64",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "",
+    "elements" : {
+        "subTitle": {
+            "type": "text",
+            "text": "dia_C1_S7",
+            "x": 800,
+            "y": 416,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "textBoxEnd": 250,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          }
+    },
+    "timer" : {
+        "time": 7000,
+        "actionType": "setContent",
+        "action": "C1_S8",
+        "allowed" : true
+    }
+    }

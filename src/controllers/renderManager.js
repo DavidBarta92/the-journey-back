@@ -1,6 +1,6 @@
 import gameCanvas from '../models/gameCanvas';
 import { Menu, Story } from '../models/clickView';
-import Driver from '../models/driverView';
+import { Driver } from '../models/driverView';
 import inputController from './inputController';
 import stateManager from './stateManager';
 

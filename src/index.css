@@ -5,8 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-filter: blur(1px);
-  filter: url(./blur.svg#gaussian_blur);
+  /*-webkit-filter: blur(5px);
+  filter: url(./blur.svg#gaussian_blur);*/
 }
 
 code {
@@ -17,17 +17,29 @@ code {
 @font-face {
   font-family: Akira;
   font-style: normal;
-  src: url('/fonts/Akira_Expanded_Demo.otf');
+  src: url('./fonts/Akira_Expanded_Demo.otf') format('opentype');
 }
 
 @font-face {
   font-family: Peace;
   font-style: normal;
-  src: url('/fonts/Peace_Sans_Webfont.ttf');
+  src: url('./fonts/Peace_Sans_Webfont.ttf') format('opentype');
 }
 
 @font-face {
   font-family: Rounded;
   font-style: normal;
-  src: url('/fonts/Rounded_Elegance.ttf');
+  src: url('./fonts/Rounded_Elegance.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: Ramillas;
+  font-style: light;
+  src: url('./fonts/TT_Ramillas_Trial_Light.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: Inconsolata;
+  font-style: normal;
+  src: url('./fonts/Inconsolata_VariableFont_wdth.ttf') format('opentype');
 }

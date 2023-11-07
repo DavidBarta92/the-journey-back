@@ -1,0 +1,29 @@
+{
+    "name": "startScreen",
+    "backgroundPath": null,
+    "middlegroundPath": null,
+    "spritesPath": null,
+    "dialogue": null,
+    "filter" : "",
+    "music" : "",
+    "atmo" : "",
+    "elements": {
+      "start": {
+        "type": "button",
+        "text": "btn_start",
+        "x": 600,
+        "y": 600,
+        "width": 70,
+        "height": 20,
+        "rotate": 0,
+        "color": "white",
+        "font": "Rounded",
+        "fontSize": 20,
+        "border": false,
+        "actionType": "startGame",
+        "action": "start",
+        "filter": "appointable"
+      }  
+    }
+  }
+  

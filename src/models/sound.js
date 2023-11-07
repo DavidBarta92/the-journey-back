@@ -10,12 +10,14 @@ const Sound = (function(){
 
     const playFx = function(path){
         fx.src = path;
+        fx.volume = stateManager.loadState().volume;
         fx.play();
     }
 
     const playNoise = function(path, max = 5000){
         noise.src = path;
         Timer.wait(Math.floor(Math.random() * max));
+        noise.volume = stateManager.loadState().volume;
         noise.play();
     }
 
@@ -36,8 +38,8 @@ const Sound = (function(){
                 Timer.wait(41);
             }
             audioElement.src = path;
-            audioElement.play();
             audioElement.volume = stateManager.loadState().volume;
+            audioElement.play();
         }
     }
         

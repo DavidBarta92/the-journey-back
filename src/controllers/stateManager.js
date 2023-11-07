@@ -4,10 +4,10 @@ import dataController from './dataController';
 var stateManager = (function(){
 
   const initialState = {
-    content: 'main', // 'main', 'credits', 'controlls'
+    content: 'startScreen', // 'main', 'credits', 'controlls'
     view: 'menu', // 'menu', 'driver', 'story'
     status: {
-      content: 'main',
+      content: 'startScreen',
       view: 'menu'
     },
     chapter: 0,
@@ -20,7 +20,8 @@ var stateManager = (function(){
       four: null,
       five: null
     },
-    volume: 1
+    volume: 1,
+    init: true
   };
 
   var state = [];
@@ -178,6 +179,12 @@ var stateManager = (function(){
         console.log('The volume has changed from ' + oldVolume + ' to ' + state.volume);
       }
     },
+  setInitFalse: () => {
+      state = loadState();
+      state.init = false;
+      dataController.saveState(state);
+      console.log('The state is not init anymore.');
+    }, 
   }
 }
 ());

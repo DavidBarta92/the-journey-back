@@ -1,6 +1,7 @@
 {
   "name": "mainMenu",
   "backgroundPath": null,
+  "middlegroundPath": null,
   "spritesPath": null,
   "dialogue": null,
   "filter" : "",
@@ -23,14 +24,14 @@
     },
     "subTitle": {
       "type": "text",
-      "text": "Alpha",
-      "x": 460,
+      "text": "txt_beta",
+      "x": 40,
       "y": 80,
       "width": 70,
       "height": 20,
       "rotate": 0,
       "color": "white",
-      "font": "Arial",
+      "font": "Akira",
       "fontSize": 12,
       "border": false,
       "filter": null

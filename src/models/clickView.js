@@ -50,6 +50,7 @@ var spritesheetForString = new Image();
 var spritesheet = new Image();
 
 var background = new Image();
+var middleground = new Image();
 
 var music;
 
@@ -88,6 +89,7 @@ const drawBackground = function(){
         context.rect(700, 150, 400, 500);
         context.clip();
         context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
+        context.drawImage(middleground,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
         context.restore();
         context.beginPath();
         context.lineWidth = "4";
@@ -150,13 +152,18 @@ var dialogueFadeArray = [];
 const getValidSpeechByIndex = function(speechIndex){ 
     let speechIndexIsValid = false;
     let validSpeech;
-    Object.entries(dialogueFile).forEach(speech => {
-        if (speech[0] === speechIndex) {
-            speechIndexIsValid = true;
-            validSpeech = speech;
-            return;
-        }
-    });
+    try {
+        Object.entries(dialogueFile).forEach(speech => {
+            if (speech[0] === speechIndex) {
+                speechIndexIsValid = true;
+                validSpeech = speech;
+                return;
+            }
+        });
+    } catch (error) {
+        console.error(error);
+        console.warn('The dialog file may not be set in the dataController');
+    }
     return {speechIndexIsValid, validSpeech};
 }
 
@@ -291,7 +298,7 @@ const drawElements = function(elements) {
                 if(true){
                     context.beginPath();
                     context.lineWidth = 2;
-                    context.strokeStyle = "yellow";
+                    context.strokeStyle = "white";
                     context.moveTo(element[1].x - 5, element[1].y);
                     context.lineTo(element[1].x + 5, element[1].y);
                     context.stroke();
@@ -410,7 +417,8 @@ const clickAnimate = function(element){
 }
 
 const setTiming = function(){
-    if(contentContainer.hasOwnProperty('timer')){
+    if(contentContainer.hasOwnProperty('timer')
+        && contentContainer.timer.allowed){
         counterTimer = new Date();
         counterTimer.setMilliseconds(contentContainer.timer.time);
     }
@@ -484,6 +492,14 @@ const hitArea = function(element){
                 RenderManager.render();
                 return;
             }
+            if (element[1].actionType === "setMute") {
+                stateManager.setVolume(element[1].action);
+                gameCanvas.clear();
+                clearInterval(menuInterval);
+                clearInterval(storyInterval);
+                RenderManager.render();
+                return;
+            }
             if (element[1].actionType === "dialogueOption") {
                 if (!dialogueOptionClicked) {
                     newSpeechIndex = newSpeechIndex + "-" + element[1].action;
@@ -494,11 +510,23 @@ const hitArea = function(element){
                 return;
             }
             if (element[1].actionType === "startGame") {
+                if(element[1].action == 'start'){
+                    if (stateManager.loadState().init){
+                        stateManager.setView('story');
+                        stateManager.setContent('C1_S1');
+                        stateManager.setInitFalse();
+                        stateManager.resetLevelChapterScene();
+                        stateManager.resetItems();
+                    } else {
+                        stateManager.setContentByStatus();
+                    }
+                } 
                 if(element[1].action == 'new'){
-                stateManager.setView('story');
-                stateManager.setContent('cargo_outside');
-                stateManager.resetLevelChapterScene();
-                stateManager.resetItems();
+                    stateManager.setView('story');
+                    stateManager.setContent('C1_S1');
+                    stateManager.setInitFalse();
+                    stateManager.resetLevelChapterScene();
+                    stateManager.resetItems();
                 } else {
                     stateManager.setContentByStatus();
                 }
@@ -510,6 +538,8 @@ const hitArea = function(element){
             }
             if (element[1].actionType === "exitGame") {
                 gameCanvas.clear();
+                clearInterval(menuInterval);
+                clearInterval(storyInterval);
                 RenderManager.render();
                 window.close();
             }
@@ -526,7 +556,7 @@ const appointingElement = function(elements){
                 glitchingElement = {...element[1]};
                 element[1].appoint = true;
                 requestNewFrame = true;
-                console.log(elements);
+                //console.log(elements);
             }
         } else {
             element[1].appoint = false;
@@ -537,7 +567,7 @@ const appointingElement = function(elements){
 //used to triggering animation frame by render game frame
 const triggering = function(){
     if(requestNewFrame || context.globalAlpha <= 0.9 || dialogueOptionClicked || !animationDone){
-        console.log("requestFrame " + requestNewFrame + " | contexAlpha " + (context.globalAlpha <= 0.9)  + " | dialogueOption " +  dialogueOptionClicked  + " | animationDone " +  !animationDone);
+        //console.log("requestFrame " + requestNewFrame + " | contexAlpha " + (context.globalAlpha <= 0.9)  + " | dialogueOption " +  dialogueOptionClicked  + " | animationDone " +  !animationDone);
         requestNewFrame = false;
         return true;
     } else {
@@ -563,6 +593,7 @@ export const Menu = (function(){
         interactives = {};
         contentContainer = dataController.loadContent(state);
         background = dataController.getLastScreenImage();
+        middleground = dataController.loadImage(contentContainer.middlegroundPath);
         spritesheet = dataController.loadImage(contentContainer.spritesPath);
         collectInteractives(contentContainer.elements);
         allowElements(contentContainer.elements, state);
@@ -609,9 +640,9 @@ export const Menu = (function(){
         render: function(state){
             init(state);
             baseSound();
-            animInterval = setInterval(trackAnimation, 1);
+            animInterval = setInterval(trackAnimation, 10);
             //if(triggering()) menuInterval = setInterval(renderMenuFrame, 100);
-            clickInterval = setInterval(trackInput, 1);
+            clickInterval = setInterval(trackInput, 10);
             },
 
         //its only for th first screen rendering at the game starting (this preload pictures, fonts for the clickview)
@@ -640,6 +671,7 @@ export const Story = (function(){
         interactives = {};
         contentContainer = dataController.loadContent(state);
         background = dataController.loadImage(contentContainer.backgroundPath);
+        middleground = dataController.loadImage(contentContainer.middlegroundPath);
         spritesheet = dataController.loadImage(contentContainer.spritesPath);
         dialogueFile = dataController.loadDialogue(contentContainer.dialogue);
         newSpeechIndex = '1';

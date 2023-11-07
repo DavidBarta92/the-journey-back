@@ -1,6 +1,7 @@
 {
   "name": "newGame",
   "backgroundPath": "",
+  "middlegroundPath": null,
   "spritesPath": "",
   "dialogue": "",
   "filter" : "",
@@ -21,13 +22,13 @@
     },
     "subTitle": {
       "type": "text",
-      "text": "Alpha",
+      "text": "BETA",
       "x": 460,
       "y": 80,
       "width": 70,
       "height": 20,
       "color": "white",
-      "font": "Arial",
+      "font": "Akira",
       "fontSize": 12,
       "filter": null
     },

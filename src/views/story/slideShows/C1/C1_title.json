@@ -1,0 +1,32 @@
+{
+    "name" : "C1_title",
+    "backgroundPath" : "",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "",
+    "elements" : {
+        "title": {
+            "type": "text",
+            "text": "The Journey Back",
+            "x": 70,
+            "y": 80,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Akira",
+            "fontSize": 40,
+            "border": false,
+            "filter": null
+          }
+    },
+    "timer" : {
+        "time": 5000,
+        "actionType": "setContent",
+        "action": "C1_S9",
+        "allowed" : true
+    }
+    }
