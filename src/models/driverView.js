@@ -350,22 +350,25 @@ export const Driver = (function(){
 
         var percent = ""+Math.round(absoluteIndex/(roadParam.length-render.depthOfField)*100)+"%";
 
+        //draw dialoge things
+        currentDialogueImage.src = currentDialogueText.image;
+        context.drawImage(currentDialogueImage, 0, 0, canvas.width, canvas.height);
+        writeText(currentDialogueText.text, (currentDialogueText.text.x + currentDialogueText.text.textBoxEnd));
+
         drawString(percent,{x: 287, y: 488});
 
         contentContainer.elements.speedCounter.text = speed + "mph";
         contentContainer.elements.percentCounter.text = percent;
 
+        contentContainer.elements.speedCounter.x = 33;
+        contentContainer.elements.speedCounter.y = 553;
+        contentContainer.elements.speedCounter.color = "#dc3a15";
         writeText(contentContainer.elements.speedCounter);
         contentContainer.elements.speedCounter.x = 30;
         contentContainer.elements.speedCounter.y = 550;
         contentContainer.elements.speedCounter.color = "white";
         writeText(contentContainer.elements.speedCounter);
         writeText(contentContainer.elements.percentCounter);
-
-        //draw dialoge things
-        currentDialogueImage.src = currentDialogueText.image;
-        context.drawImage(currentDialogueImage, 0, 0, canvas.width, canvas.height);
-        writeText(currentDialogueText.text, (currentDialogueText.text.x + currentDialogueText.text.textBoxEnd));
 
         context.beginPath();
         context.lineWidth = "2";
