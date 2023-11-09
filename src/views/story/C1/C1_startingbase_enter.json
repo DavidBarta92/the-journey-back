@@ -1,6 +1,6 @@
 {
     "name" : "C1_startingbase_enter",
-    "backgroundPath" : "../src/media/images/livingPlatform_bg1.b64",
+    "backgroundPath" : "../src/media/images/startingbase_enter.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

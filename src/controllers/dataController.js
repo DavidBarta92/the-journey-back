@@ -52,6 +52,7 @@ var dataController = (function(){
     C1_startingbase_gate_to_enter: require('../views/story/C1/C1_startingbase_gate_to_enter.json'),
     C1_startingbase_gate_to_exit: require('../views/story/C1/C1_startingbase_gate_to_exit.json'),
     C1_sunconsoles: require('../views/story/C1/C1_sunconsoles.json'),
+    C1_sunconsoles2: require('../views/story/C1/C1_sunconsoles2.json'),
     C1_waste_processor: require('../views/story/C1/C1_waste_processor.json')
   };
 

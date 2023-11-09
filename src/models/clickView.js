@@ -2,7 +2,6 @@ import inputController from "../controllers/inputController";
 import gameCanvas from "./gameCanvas";
 import RenderManager from "../controllers/renderManager";
 import stateManager from "../controllers/stateManager";
-import Filter from "../views/filter";
 import Anim from "../views/anim";
 import dataController from "../controllers/dataController";
 import Timer from "./timer";
@@ -100,9 +99,9 @@ const drawBackground = function(){
         context.fillRect(0, 0, 530, render.height);
     } else {
         context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
-        var ctxForDither = context.getImageData(0, 0, render.width, render.height);
-        var ctxFromD = Filter.dither(ctxForDither);
-        context.putImageData(ctxFromD, 0, 0);
+        // var ctxForDither = context.getImageData(0, 0, render.width, render.height);
+        // var ctxFromD = Filter.dither(ctxForDither);
+        // context.putImageData(ctxFromD, 0, 0);
     }
 }
 

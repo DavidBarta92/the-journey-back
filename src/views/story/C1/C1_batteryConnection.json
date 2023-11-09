@@ -1,6 +1,6 @@
 {
     "name":"C1_batteryConnection",
-    "backgroundPath":null,
+    "backgroundPath":"../src/media/images/batteryConnection.b64",
     "spritesPath":null,
     "dialogue":null,
     "filter":"",

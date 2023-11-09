@@ -1,6 +1,6 @@
 {
     "name" : "C1_electricity",
-    "backgroundPath" : "../src/media/images/livingPlatform_bg1.b64",
+    "backgroundPath" : "../src/media/images/electricity.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -11,9 +11,9 @@
         "go" : {
             "type": "activeArea",
             "text": null,
-            "x": 200,
-            "y": 300,
-            "width": 96,
+            "x": 783,
+            "y": 515,
+            "width": 58,
             "height": 58,
             "color": "white",
             "font": "Arial",

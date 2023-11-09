@@ -16,6 +16,7 @@
     "txt_sound" : "Hang",
     "btn_on" : "BE",
     "btn_off" : "KI",
+    "btn_turn" : "FORDULÁS",
     "txt_language" : "Nyelv:",
     "txt_code_art" : "kód és grafika: David Barta",
     "txt_controlls" : "A nyilakkal tudsz irányítani, az egérrel pedig kattintani.",

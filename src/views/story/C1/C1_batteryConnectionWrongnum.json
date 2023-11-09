@@ -1,6 +1,6 @@
 {
   "name": "C1_batteryConnectionWrongnum",
-  "backgroundPath": null,
+  "backgroundPath": "../src/media/images/batteryConnectionWrongnum.b64",
   "spritesPath": null,
   "dialogue": null,
   "filter" : "",
