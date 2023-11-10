@@ -1,6 +1,6 @@
 {
-    "name" : "C1_battery",
-    "backgroundPath" : "../src/media/images/battery_halfway.b64",
+    "name" : "C1_hall1",
+    "backgroundPath" : "../src/media/images/hall1.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -8,23 +8,25 @@
     "music" : "",
     "atmo" : "",
     "elements" : { 
-        "batteryConnection" : {
-            "type": "activeArea",
-            "text": null,
-            "x": 304,
-            "y": 162,
-            "width": 200,
-            "height": 400,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
-            "actionType": "setContent",
-            "action": "C1_batteryConnection"
-        },
-        "back": {
+        "map": {
             "type": "button",
-            "text": "btn_back",
+            "text": "btn_map",
+            "x": 30,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C1_map",
+            "filter": "appointable"
+        }, 
+        "turn": {
+            "type": "button",
+            "text": "btn_turn_right",
             "x": 346,
             "y": 650,
             "width": 70,
@@ -35,8 +37,8 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C1_electricity_and_battery",
+            "action": "C1_hall2",
             "filter": "appointable"
-          }
+        }
     }
 }

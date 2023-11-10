@@ -1,0 +1,28 @@
+{
+    "name" : "C1_roundroom",
+    "backgroundPath" : "../src/media/images/roundroom.b64",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "",
+    "elements" : {
+        "map": {
+            "type": "button",
+            "text": "btn_map",
+            "x": 30,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C1_map",
+            "filter": "appointable"
+        }
+    }
+}

@@ -46,14 +46,23 @@ var dataController = (function(){
     C1_electricity_and_battery: require('../views/story/C1/C1_electricity_and_battery.json'),
     C1_electricity: require('../views/story/C1/C1_electricity.json'),
     C1_startingbase_enter: require('../views/story/C1/C1_startingbase_enter.json'),
-    C1_startingbase_enterance_to_enter: require('../views/story/C1/C1_startingbase_enterance_to_enter.json'),
-    C1_startingbase_enterance_to_exit: require('../views/story/C1/C1_startingbase_enterance_to_exit.json'),
     C1_startingbase_exit: require('../views/story/C1/C1_startingbase_exit.json'),
     C1_startingbase_gate_to_enter: require('../views/story/C1/C1_startingbase_gate_to_enter.json'),
     C1_startingbase_gate_to_exit: require('../views/story/C1/C1_startingbase_gate_to_exit.json'),
     C1_sunconsoles: require('../views/story/C1/C1_sunconsoles.json'),
     C1_sunconsoles2: require('../views/story/C1/C1_sunconsoles2.json'),
-    C1_waste_processor: require('../views/story/C1/C1_waste_processor.json')
+    C1_waste_processor: require('../views/story/C1/C1_waste_processor.json'),
+    C1_corridor1: require('../views/story/C1/C1_corridor1.json'),
+    C1_corridor2: require('../views/story/C1/C1_corridor2.json'),
+    C1_gate1: require('../views/story/C1/C1_gate1.json'),
+    C1_gate2: require('../views/story/C1/C1_gate2.json'),
+    C1_hall1: require('../views/story/C1/C1_hall1.json'),
+    C1_hall2: require('../views/story/C1/C1_hall2.json'),
+    C1_mainhall: require('../views/story/C1/C1_mainhall.json'),
+    C1_map: require('../views/story/C1/C1_map.json'),
+    C1_middlecorner: require('../views/story/C1/C1_middlecorner.json'),
+    C1_room: require('../views/story/C1/C1_room.json'),
+    C1_roundroom: require('../views/story/C1/C1_roundroom.json')
   };
 
   let dialogueFiles = {

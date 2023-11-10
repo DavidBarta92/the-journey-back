@@ -11,16 +11,16 @@
         "battery" : {
             "type": "activeArea",
             "text": null,
-            "x": 1,
-            "y": 1,
+            "x": 812,
+            "y": 368,
             "width": 96,
-            "height": 58,
+            "height": 200,
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "C1_electricity"
+            "action": "C1_battery"
         },
         "electricity" : {
             "type": "activeArea",

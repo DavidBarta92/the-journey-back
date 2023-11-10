@@ -22,19 +22,21 @@
             "actionType": "setContent",
             "action": ""
         },
-        "turn" : {
-            "type": "activeArea",
-            "text": null,
-            "x": 400,
-            "y": 300,
-            "width": 96,
-            "height": 58,
+        "turn": {
+            "type": "button",
+            "text": "btn_turn",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
             "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
             "actionType": "setContent",
-            "action": "C1_waste_processor2"
+            "action": "C1_waste_processor2",
+            "filter": "appointable"
         }
     }
 }

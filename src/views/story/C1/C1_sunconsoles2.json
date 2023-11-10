@@ -22,6 +22,20 @@
             "actionType": "setContent",
             "action": "C1_electricity_and_battery"
         },
+        "C1_startingbase_enter" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 119,
+            "y": 345,
+            "width": 90,
+            "height": 120,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C1_startingbase_enter"
+        },
         "turn": {
             "type": "button",
             "text": "btn_turn",

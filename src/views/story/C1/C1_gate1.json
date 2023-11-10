@@ -1,6 +1,6 @@
 {
-    "name" : "C1_waste_processor_halfway2",
-    "backgroundPath" : "../src/media/images/waste_processor_halfway2.b64",
+    "name" : "C1_gate1",
+    "backgroundPath" : "../src/media/images/gate1.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -11,17 +11,33 @@
         "forward" : {
             "type": "activeArea",
             "text": null,
-            "x": 617,
-            "y": 315,
-            "width": 150,
-            "height": 150,
+            "x": 164,
+            "y": 213,
+            "width": 280,
+            "height": 280,
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "C1_startingbase_enter"
+            "action": "C1_startingbase_exit"
         },
+        "map": {
+            "type": "button",
+            "text": "btn_map",
+            "x": 30,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C1_map",
+            "filter": "appointable"
+        }, 
         "turn": {
             "type": "button",
             "text": "btn_turn",
@@ -35,7 +51,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C1_waste_processor_halfway",
+            "action": "C1_gate2",
             "filter": "appointable"
         }
     }
