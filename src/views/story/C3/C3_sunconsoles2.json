@@ -1,0 +1,56 @@
+{
+    "name" : "C3_sunconsoles2",
+    "backgroundPath" : "../src/media/images/sunconsoles2.b64",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "../src/media/sounds/i_am_you_am.mp3",
+    "atmo" : "../src/media/sounds/astronaut_suit.mp3",
+    "elements" : { 
+        "go" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 631,
+            "y": 300,
+            "width": 110,
+            "height": 130,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C3_electricity_and_battery"
+        },
+        "C3_startingbase_enter" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 119,
+            "y": 345,
+            "width": 90,
+            "height": 120,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C3_startingbase_enter"
+        },
+        "turn": {
+            "type": "button",
+            "text": "btn_turn",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C3_sunconsoles",
+            "filter": "appointable"
+          }
+    }
+}

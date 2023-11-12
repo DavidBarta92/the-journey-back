@@ -1,6 +1,6 @@
 {
     "name" : "C1_electricity",
-    "backgroundPath" : "../src/media/images/livingPlatform_bg1.b64",
+    "backgroundPath" : "../src/media/images/electricity.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -11,9 +11,9 @@
         "go" : {
             "type": "activeArea",
             "text": null,
-            "x": 200,
-            "y": 300,
-            "width": 96,
+            "x": 790,
+            "y": 515,
+            "width": 58,
             "height": 58,
             "color": "white",
             "font": "Arial",
@@ -22,19 +22,21 @@
             "actionType": "setContent",
             "action": ""
         },
-        "back" : {
-            "type": "activeArea",
-            "text": null,
-            "x": 400,
-            "y": 300,
-            "width": 96,
-            "height": 58,
+        "back": {
+            "type": "button",
+            "text": "btn_back",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
             "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
             "actionType": "setContent",
-            "action": "C1_electricity_and_battery2"
-        }
+            "action": "C1_electricity_and_battery",
+            "filter": "appointable"
+          }
     }
 }

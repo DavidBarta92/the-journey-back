@@ -2,7 +2,6 @@ import inputController from "../controllers/inputController";
 import gameCanvas from "./gameCanvas";
 import RenderManager from "../controllers/renderManager";
 import stateManager from "../controllers/stateManager";
-import Filter from "../views/filter";
 import Anim from "../views/anim";
 import dataController from "../controllers/dataController";
 import Timer from "./timer";
@@ -100,9 +99,9 @@ const drawBackground = function(){
         context.fillRect(0, 0, 530, render.height);
     } else {
         context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
-        var ctxForDither = context.getImageData(0, 0, render.width, render.height);
-        var ctxFromD = Filter.dither(ctxForDither);
-        context.putImageData(ctxFromD, 0, 0);
+        // var ctxForDither = context.getImageData(0, 0, render.width, render.height);
+        // var ctxFromD = Filter.dither(ctxForDither);
+        // context.putImageData(ctxFromD, 0, 0);
     }
 }
 
@@ -298,7 +297,7 @@ const drawElements = function(elements) {
                 if(true){
                     context.beginPath();
                     context.lineWidth = 2;
-                    context.strokeStyle = "white";
+                    context.strokeStyle = "#86a986";
                     context.moveTo(element[1].x - 5, element[1].y);
                     context.lineTo(element[1].x + 5, element[1].y);
                     context.stroke();
@@ -342,7 +341,7 @@ const drawElements = function(elements) {
                 if(element[1].type === 'button'){
                     writeText(element[1], (element[1].x + element[1].textBoxEnd), "red");
                 } else {
-                    context.strokeStyle = "green";
+                    context.strokeStyle = "#498564";
                     context.lineWidth = 2;
                     context.beginPath();
                     context.rect(element[1].x,element[1].y,element[1].width,element[1].height);
@@ -356,8 +355,8 @@ const drawElements = function(elements) {
                     Timer.wait(41);
                 } else {
                     context.beginPath();
-                    context.lineWidth = "10";
-                    context.strokeStyle = 'green'
+                    context.lineWidth = "4";
+                    context.strokeStyle = "#dbe0bc";
                     context.rect(element[1].x,element[1].y,element[1].width,element[1].height);
                     context.stroke();
                     context.closePath();

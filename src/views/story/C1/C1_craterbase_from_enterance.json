@@ -1,54 +1,56 @@
 {
     "name" : "C1_craterbase_from_enterance",
-    "backgroundPath" : "../src/media/images/C1_craterbase_from_enterance.b64",
+    "backgroundPath" : "../src/media/images/craterbase_from_enterance.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "",
-    "atmo" : "",
+    "atmo" : "../src/media/sounds/astronaut_suit.mp3",
     "elements" : { 
-        "forward" : {
+        "craterbase_to_enterance" : {
             "type": "activeArea",
             "text": null,
             "x": 200,
             "y": 300,
-            "width": 96,
-            "height": 58,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
-            "actionType": "setContent",
-            "action": "living_platform"
-        },
-        "turn" : {
-            "type": "activeArea",
-            "text": null,
-            "x": 400,
-            "y": 300,
-            "width": 96,
-            "height": 58,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
-            "actionType": "setContent",
-            "action": "C1_craterbase_to_enterance"
-        },
-        "C1_electricity_and_battery" : {
-            "type": "activeArea",
-            "text": null,
-            "x": 0,
-            "y": 300,
-            "width": 96,
-            "height": 58,
+            "width": 100,
+            "height": 180,
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
             "action": "C1_electricity_and_battery"
-        }
+        },
+        "C1_sunconsoles" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 900,
+            "y": 300,
+            "width": 100,
+            "height": 180,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C1_sunconsoles"
+        },
+        "turn": {
+            "type": "button",
+            "text": "btn_turn",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C1_craterbase_to_enterance",
+            "filter": "appointable"
+          }
     }
 }

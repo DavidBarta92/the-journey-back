@@ -1,0 +1,42 @@
+{
+    "name" : "C2_electricity_and_battery",
+    "backgroundPath" : "../src/media/images/electricity_and_battery.b64",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "../src/media/sounds/i_am_you_am.mp3",
+    "atmo" : "../src/media/sounds/astronaut_suit.mp3",
+    "elements" : { 
+        "battery" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 812,
+            "y": 368,
+            "width": 96,
+            "height": 200,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C2_battery"
+        },       
+        "turn": {
+            "type": "button",
+            "text": "btn_turn",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C2_electricity_and_battery2",
+            "filter": "appointable"
+          }
+    }
+}

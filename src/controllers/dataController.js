@@ -6,54 +6,46 @@ const app = electron.app;
 
 var dataController = (function(){
 
-  let catalogue = {
-    desert: require('../views/driver/desert.json'),
-    options: require('../views/menu/options.json'),
-    credits: require('../views/menu/credits.json'),
-    main: require('../views/menu/main.json'),
-    newGame: require('../views/menu/newGame.json'),
-    startScreen: require('../views/menu/start.json'),
-    living_platform: require('../views/story/C1/C1_battery.json'),
-    C1_S1: require('../views/story/slideShows/C1/C1_S1.json'),
-    C1_S2: require('../views/story/slideShows/C1/C1_S2.json'),
-    C1_S3: require('../views/story/slideShows/C1/C1_S3.json'),
-    C1_S4: require('../views/story/slideShows/C1/C1_S4.json'),
-    C1_S5: require('../views/story/slideShows/C1/C1_S5.json'),
-    C1_S6: require('../views/story/slideShows/C1/C1_S6.json'),
-    C1_S7: require('../views/story/slideShows/C1/C1_S7.json'),
-    C1_S8: require('../views/story/slideShows/C1/C1_S8.json'),
-    C1_S9: require('../views/story/slideShows/C1/C1_S9.json'),
-    C1_S10: require('../views/story/slideShows/C1/C1_S10.json'),
-    C1_S11: require('../views/story/slideShows/C1/C1_S11.json'),
-    C1_S12: require('../views/story/slideShows/C1/C1_S12.json'),
-    C1_S13: require('../views/story/slideShows/C1/C1_S13.json'),
-    C1_S14: require('../views/story/slideShows/C1/C1_S14.json'),
-    C1_S15: require('../views/story/slideShows/C1/C1_S15.json'),
-    C1_title: require('../views/story/slideShows/C1/C1_title.json'),
-    C1_battery: require('../views/story/C1/C1_battery.json'),
-    C1_batteryConnection: require('../views/story/C1/C1_batteryConnection.json'),
-    C1_batteryConnection2num: require('../views/story/C1/C1_batteryConnection2num.json'),
-    C1_batteryConnection29num: require('../views/story/C1/C1_batteryConnection29num.json'),
-    C1_batteryConnection299num: require('../views/story/C1/C1_batteryConnection299num.json'),
-    C1_batteryConnection2991num: require('../views/story/C1/C1_batteryConnection2991num.json'),
-    C1_batteryConnectionWrongnum: require('../views/story/C1/C1_batteryConnectionWrongnum.json'),
-    C1_craterbase_from_enterance: require('../views/story/C1/C1_craterbase_from_enterance.json'),
-    C1_craterbase_to_enterance: require('../views/story/C1/C1_craterbase_to_enterance.json'),
-    C1_electricity_and_battery2: require('../views/story/C1/C1_electricity_and_battery2.json'),
-    C1_waste_processor2: require('../views/story/C1/C1_waste_processor2.json'),
-    C1_waste_processor_halfway: require('../views/story/C1/C1_waste_processor_halfway.json'),
-    C1_waste_processor_halfway2: require('../views/story/C1/C1_waste_processor_halfway2.json'),
-    C1_electricity_and_battery: require('../views/story/C1/C1_electricity_and_battery.json'),
-    C1_electricity: require('../views/story/C1/C1_electricity.json'),
-    C1_startingbase_enter: require('../views/story/C1/C1_startingbase_enter.json'),
-    C1_startingbase_enterance_to_enter: require('../views/story/C1/C1_startingbase_enterance_to_enter.json'),
-    C1_startingbase_enterance_to_exit: require('../views/story/C1/C1_startingbase_enterance_to_exit.json'),
-    C1_startingbase_exit: require('../views/story/C1/C1_startingbase_exit.json'),
-    C1_startingbase_gate_to_enter: require('../views/story/C1/C1_startingbase_gate_to_enter.json'),
-    C1_startingbase_gate_to_exit: require('../views/story/C1/C1_startingbase_gate_to_exit.json'),
-    C1_sunconsoles: require('../views/story/C1/C1_sunconsoles.json'),
-    C1_waste_processor: require('../views/story/C1/C1_waste_processor.json')
-  };
+  function findFileByParameter(startPath, parameterToFind) {
+    const files = fs.readdirSync(startPath);
+  
+    for (const file of files) {
+      const filePath = path.join(startPath, file);
+  
+      // Check if it's a directory
+      if (fs.statSync(filePath).isDirectory()) {
+        const result = findFileByParameter(filePath, parameterToFind);
+        if (result) {
+          return result;
+        }
+      } else {
+        if (path.extname(filePath).toLowerCase() === '.json') {
+          const content = fs.readFileSync(filePath, 'utf-8');
+          const json = JSON.parse(content);
+  
+          if (json.name === parameterToFind) {
+            return filePath;
+          }
+        }
+      }
+    }
+  
+    // If no file is found with the specified parameter
+    return null;
+  }
+
+
+  function readJsonFile(filePath) {
+    try {
+      const content = fs.readFileSync(filePath, 'utf-8');
+      const json = JSON.parse(content);
+  
+      return json;
+    } catch (error) {
+      console.error(`Error reading JSON file ${filePath}: ${error.message}`);
+      return null;
+    }
+  }
 
   let dialogueFiles = {
     david: require('../views/story/dialogues/david.json'),
@@ -82,7 +74,7 @@ var dataController = (function(){
     
     // if the state content field matches with any field of the catalogue, load it
     loadContent: function(state) {
-      return catalogue[state.content];
+      return readJsonFile(findFileByParameter(path.resolve('src/views/'), state.content));
       },
 
     // if the state language field matches with any field of the language, load it

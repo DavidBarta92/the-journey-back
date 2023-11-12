@@ -1,0 +1,44 @@
+{
+    "name" : "C1_hall1",
+    "backgroundPath" : "../src/media/images/hall1.b64",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "../src/media/sounds/mars_base_atmo.mp3",
+    "elements" : { 
+        "map": {
+            "type": "button",
+            "text": "btn_map",
+            "x": 30,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C1_map",
+            "filter": "appointable"
+        }, 
+        "turn": {
+            "type": "button",
+            "text": "btn_turn_right",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C1_hall2",
+            "filter": "appointable"
+        }
+    }
+}

@@ -1,12 +1,12 @@
 {
     "name" : "C1_startingbase_gate_to_enter",
-    "backgroundPath" : "../src/media/images/livingPlatform_bg1.b64",
+    "backgroundPath" : "../src/media/images/startingbase_gate_to_enter.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "",
-    "atmo" : "",
+    "atmo" : "../src/media/sounds/astronaut_suit.mp3",
     "elements" : { 
         "forward" : {
             "type": "activeArea",

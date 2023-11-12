@@ -1,40 +1,28 @@
 {
     "name" : "C1_sunconsoles",
-    "backgroundPath" : "../src/media/images/C1_sunconsoles.b64",
+    "backgroundPath" : "../src/media/images/sunconsoles.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "",
-    "atmo" : "",
+    "atmo" : "../src/media/sounds/astronaut_suit.mp3",
     "elements" : { 
-        "go" : {
-            "type": "activeArea",
-            "text": null,
-            "x": 200,
-            "y": 300,
-            "width": 96,
-            "height": 58,
+        "turn": {
+            "type": "button",
+            "text": "btn_turn",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
             "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
             "actionType": "setContent",
-            "action": ""
-        },
-        "back" : {
-            "type": "activeArea",
-            "text": null,
-            "x": 400,
-            "y": 300,
-            "width": 96,
-            "height": 58,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
-            "actionType": "setContent",
-            "action": "C1_electricity_and_battery2"
-        }
+            "action": "C1_sunconsoles2",
+            "filter": "appointable"
+          }
     }
 }

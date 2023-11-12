@@ -1,40 +1,56 @@
 {
     "name" : "C1_startingbase_exit",
-    "backgroundPath" : "../src/media/images/livingPlatform_bg1.b64",
+    "backgroundPath" : "../src/media/images/startingbase_exit.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "",
-    "atmo" : "",
+    "atmo" : "../src/media/sounds/astronaut_suit.mp3",
     "elements" : { 
-        "forward" : {
+        "C1_craterbase_from_enterance" : {
             "type": "activeArea",
             "text": null,
-            "x": 200,
+            "x": 100,
             "y": 300,
-            "width": 96,
-            "height": 58,
+            "width": 150,
+            "height": 150,
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "C1_startingbase_gate_to_exit"
+            "action": "C1_craterbase_from_enterance"
         },
-        "turn" : {
+        "C1_waste_processor_halfway" : {
             "type": "activeArea",
             "text": null,
-            "x": 400,
+            "x": 930,
             "y": 300,
-            "width": 96,
-            "height": 58,
+            "width": 150,
+            "height": 150,
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "C1_startingbase_enter"
+            "action": "C1_waste_processor_halfway"
+        },
+        "turn": {
+            "type": "button",
+            "text": "btn_turn",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C1_startingbase_enter",
+            "filter": "appointable"
         }
     }
 }

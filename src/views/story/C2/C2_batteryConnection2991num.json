@@ -1,0 +1,31 @@
+{
+  "name": "C2_batteryConnection2991num",
+  "backgroundPath": "../src/media/images/battery.b64",
+  "spritesPath": null,
+  "dialogue": null,
+  "filter" : "",
+  "music" : "../src/media/sounds/i_am_you_am.mp3",
+  "atmo" : "../src/media/sounds/astronaut_suit.mp3",
+  "elements": {
+    "nums_field":{
+      "type":"text",
+      "text":"O P E N",
+      "x": 545,
+      "y":478,
+      "width":70,
+      "height":20,
+      "rotate":0,
+      "color":"black",
+      "font":"Akira",
+      "fontSize":12,
+      "border":false,
+      "filter":null
+   }
+  },
+  "timer" : {
+      "time": 4000,
+      "actionType": "setContent",
+      "action": "C3_S1",
+      "allowed" : true
+  }
+}

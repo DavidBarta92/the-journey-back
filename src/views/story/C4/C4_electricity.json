@@ -1,0 +1,42 @@
+{
+    "name" : "C4_electricity",
+    "backgroundPath" : "../src/media/images/electricity.b64",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "../src/media/sounds/i_am_you_am.mp3",
+    "atmo" : "../src/media/sounds/astronaut_suit.mp3",
+    "elements" : { 
+        "go" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 790,
+            "y": 515,
+            "width": 58,
+            "height": 58,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C5_S1"
+        },
+        "back": {
+            "type": "button",
+            "text": "btn_back",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C4_electricity_and_battery",
+            "filter": "appointable"
+          }
+    }
+}
