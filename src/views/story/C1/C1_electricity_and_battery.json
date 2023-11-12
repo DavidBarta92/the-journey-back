@@ -6,7 +6,7 @@
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "",
-    "atmo" : "",
+    "atmo" : "../src/media/sounds/astronaut_suit.mp3",
     "elements" : { 
         "battery" : {
             "type": "activeArea",
@@ -21,21 +21,7 @@
             "filter" : null,
             "actionType": "setContent",
             "action": "C1_battery"
-        },
-        "electricity" : {
-            "type": "activeArea",
-            "text": null,
-            "x": 252,
-            "y": 331,
-            "width": 117,
-            "height": 100,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
-            "actionType": "setContent",
-            "action": "C1_electricity"
-        },       
+        },      
         "turn": {
             "type": "button",
             "text": "btn_turn",

@@ -1,0 +1,58 @@
+{
+    "name" : "C2_gate1",
+    "backgroundPath" : "../src/media/images/gate1.b64",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "../src/media/sounds/i_am_you_am.mp3",
+    "atmo" : "../src/media/sounds/mars_base_atmo.mp3",
+    "elements" : { 
+        "forward" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 164,
+            "y": 213,
+            "width": 280,
+            "height": 280,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C2_startingbase_exit"
+        },
+        "map": {
+            "type": "button",
+            "text": "btn_map",
+            "x": 30,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C2_map",
+            "filter": "appointable"
+        }, 
+        "turn": {
+            "type": "button",
+            "text": "btn_turn",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C2_gate2",
+            "filter": "appointable"
+        }
+    }
+}

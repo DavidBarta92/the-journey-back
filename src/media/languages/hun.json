@@ -68,7 +68,11 @@
     "dia_C1_S14_1-1" : "Igen, illetve áramtalanítani a lakókabint és próbáld ki a rover rendszerét is, bizots ami biztos...",
     "dia_C1_S15_1" : "Adok jelzést ha készen állunk az indulásra.",
     "dia_C1_S15_1-1" : "Rendben. Bontom a kapocslatot.",
-
+    "dia_C2_S1" : "Kapcsold át az energiatermelést a roverre a 2991 kóddal!",
+    "dia_C3_S1" : "Létfentartó rendszert is le kell kapcsolni. Így sokkal gyorsabban feltölti a rovert a rendszer.",
+    "dia_C4_S2" : "Kapcsold le az enrgiát és gyerünk.",
+    "dia_C5_S1" : "This is the end of the beta.",
+    
     "dia_C_S01": "Az a kérdés hogy akkor kik vagyunk amikor egyedül vagyunk. A belső megoldatlan problémáinkat általában valami külső ingerrel akarjuk tompítani. Ez a társadalom pedig csak ráerősít erre. Mennyi lehetőséget ad a mai világ arra, hogy kivonuljunk a világból, hogy hódoljunk a szenvedélyünknek, hogy törtessünk a vágyaink felé? Ez nem csak a függőség miatt káros. Amiatt is káros, mert az alapján határozzuk meg magunkat amit teszünk és nem az alapján amit nem teszünk. Félrevezet minket a világ.",
 
     "dia_C_S1": "Ismertem egy embert. Úgy hívták, Terry. Nem tudom, hogy mit mondhatnék a kétségbeesésről. Annak örülnék a legjobban ha boldog lennél. Én a madarakra gondolokmikor meg szeretném magam nyugtatni. A földön élnek madarak...",

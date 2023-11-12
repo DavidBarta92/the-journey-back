@@ -6,7 +6,7 @@
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "",
-    "atmo" : "",
+    "atmo" : "../src/media/sounds/astronaut_suit.mp3",
     "elements" : { 
         "go" : {
             "type": "activeArea",

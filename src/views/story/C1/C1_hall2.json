@@ -6,7 +6,7 @@
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "",
-    "atmo" : "",
+    "atmo" : "../src/media/sounds/mars_base_atmo.mp3",
     "elements" : { 
         "forward" : {
             "type": "activeArea",
@@ -21,6 +21,20 @@
             "filter" : null,
             "actionType": "setContent",
             "action": "C1_room"
+        },
+        "C2" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 700,
+            "y": 390,
+            "width": 180,
+            "height": 300,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C2_S1"
         },
         "map": {
             "type": "button",

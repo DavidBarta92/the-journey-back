@@ -1,0 +1,56 @@
+{
+    "name" : "C2_craterbase_to_enterance",
+    "backgroundPath" : "../src/media/images/craterbase_to_enterance.b64",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "../src/media/sounds/i_am_you_am.mp3",
+    "atmo" : "../src/media/sounds/astronaut_suit.mp3",
+    "elements" : { 
+        "C2_waste_processor_halfway" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 761,
+            "y": 301,
+            "width": 96,
+            "height": 58,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C2_waste_processor_halfway"
+        },
+        "C2_startingbase_enter" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 995,
+            "y": 295,
+            "width": 96,
+            "height": 160,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C2_startingbase_enter"
+        },
+        "turn": {
+            "type": "button",
+            "text": "btn_turn",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C2_craterbase_from_enterance",
+            "filter": "appointable"
+          }
+    }
+}
