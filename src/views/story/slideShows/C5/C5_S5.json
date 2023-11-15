@@ -1,5 +1,5 @@
 {
-    "name" : "C5_S1",
+    "name" : "C5_S5",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
@@ -26,7 +26,7 @@
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C5_S2",
+        "action": "C5_mainCorridor",
         "allowed" : true
     }
     }
