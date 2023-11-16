@@ -8,9 +8,23 @@
     "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "",
     "elements" : {
-        "text": {
+        "dial1": {
             "type": "text",
-            "text": "dia_C5_S1",
+            "text": "dia_C5_S3_1",
+            "x": 435,
+            "y": 612,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          },
+          "dial2": {
+            "type": "text",
+            "text": "dia_C5_S3_1",
             "x": 435,
             "y": 612,
             "width": 70,

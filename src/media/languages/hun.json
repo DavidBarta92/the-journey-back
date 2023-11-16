@@ -71,7 +71,15 @@
     "dia_C2_S1" : "Kapcsold át az energiatermelést a roverre a 2991 kóddal!",
     "dia_C3_S1" : "Létfentartó rendszert is le kell kapcsolni. Így sokkal gyorsabban feltölti a rovert a rendszer.",
     "dia_C4_S2" : "Kapcsold le az enrgiát és gyerünk.",
-    "dia_C5_S1" : "This is the end of the beta.",
+    "dia_C5_S1_1" : "Készen állunk. Hallanak minket?",
+    "dia_C5_S1_2" : "Halljuk önöket GHT-002. Leállították a fentartó rendszert? A rover készen áll az indulásra?",
+    "dia_C5_S2_1" : "Minden készen áll, akár most is indulhatunk.",
+    "dia_C5_S2_2" : "A légköri számításokat is figyelembe véve, 30 SOL alatt ide tudnak érni. Mi készen állunk a fogadásukra.",
+    "dia_C5_S3_1" : "Eddig ezt a rovert nem vezettem, remélem nem lesz gond.",
+    "dia_C5_S3_2" : "A rover fedélzeti számítógépén megtalálhatóak a szükséges adatok. Ott mindent megtalál.",
+    "dia_C5_S4" : "Thomas azt kérdezi, a csomagot. Sikerült megszerezni?",
+    "dia_C5_S5_1" : "Igen, nálam van. Sajnos kinyitni még nem sikerült. Remélem tisztában vannak a ...",
+    "dia_C5_S5_2" : "Remek hír. Köszönjük a szolgálatát. Ön hozza el a csomagot, mi megoldjuk a többit.",
     
     "dia_C_S01": "Az a kérdés hogy akkor kik vagyunk amikor egyedül vagyunk. A belső megoldatlan problémáinkat általában valami külső ingerrel akarjuk tompítani. Ez a társadalom pedig csak ráerősít erre. Mennyi lehetőséget ad a mai világ arra, hogy kivonuljunk a világból, hogy hódoljunk a szenvedélyünknek, hogy törtessünk a vágyaink felé? Ez nem csak a függőség miatt káros. Amiatt is káros, mert az alapján határozzuk meg magunkat amit teszünk és nem az alapján amit nem teszünk. Félrevezet minket a világ.",
 

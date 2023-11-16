@@ -8,9 +8,9 @@
     "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "",
     "elements" : {
-        "text": {
+        "dial": {
             "type": "text",
-            "text": "dia_C5_S1",
+            "text": "dia_C5_S4",
             "x": 435,
             "y": 612,
             "width": 70,
