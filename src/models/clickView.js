@@ -437,6 +437,16 @@ const hitArea = function(element){
     if(element !== null){
         if(element[1].allowed == true){
             console.log(element);
+            if (element[1].actionType === "setToDrive") {
+                stateManager.setView('driver');
+                stateManager.setContent(element[1].action);
+                gameCanvas.clear();
+                counterTimer = null;
+                clearInterval(menuInterval);
+                clearInterval(storyInterval);
+                RenderManager.render();
+                return;
+            }
             if (element[1].actionType === "setView") {
                 stateManager.setView(element[1].action);
                 gameCanvas.clear();

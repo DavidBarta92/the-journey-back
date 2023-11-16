@@ -10,7 +10,7 @@
     "elements" : {
         "text": {
             "type": "text",
-            "text": "dia_C5_S1",
+            "text": "dia_C6_S3",
             "x": 435,
             "y": 612,
             "width": 70,
@@ -25,8 +25,8 @@
     },
     "timer" : {
         "time": 10000,
-        "actionType": "setContent",
-        "action": "C6_cockpit",
+        "actionType": "setToDrive",
+        "action": "desert",
         "allowed" : true
     }
     }

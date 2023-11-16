@@ -143,6 +143,6 @@
     },
     "end" : {
         "actionType": "setToClickView",
-        "action": "C1_S2"
+        "action": "C7_S1"
     }
     }
