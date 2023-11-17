@@ -1,5 +1,5 @@
 {
-    "name" : "C5_S3",
+    "name" : "C6_S4",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
@@ -8,23 +8,9 @@
     "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "",
     "elements" : {
-        "dial1": {
+        "text": {
             "type": "text",
-            "text": "dia_C5_S3_1",
-            "x": 435,
-            "y": 612,
-            "width": 70,
-            "height": 20,
-            "rotate": 0,
-            "color": "white",
-            "font": "Inconsolata",
-            "fontSize": 20,
-            "border": false,
-            "filter": null
-          },
-          "dial2": {
-            "type": "text",
-            "text": "dia_C5_S3_2",
+            "text": "dia_C6_S4",
             "x": 435,
             "y": 612,
             "width": 70,
@@ -40,7 +26,7 @@
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C5_S4",
+        "action": "C6_S5",
         "allowed" : true
     }
     }

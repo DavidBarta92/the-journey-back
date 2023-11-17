@@ -80,7 +80,14 @@
     "dia_C5_S4" : "Thomas azt kérdezi, a csomagot. Sikerült megszerezni?",
     "dia_C5_S5_1" : "Igen, nálam van. Sajnos kinyitni még nem sikerült. Remélem tisztában vannak a ...",
     "dia_C5_S5_2" : "Remek hír. Köszönjük a szolgálatát. Ön hozza el a csomagot, mi megoldjuk a többit.",
-    
+    "dia_C6_S1_1" : "Üdvözlöm! A Phobos project viruális aszisztense vagyok. Miben segíthetek?",
+    "dia_C6_S1_2" : "A Mars rover fedélzeti rendszerének működéséről és a jármű iránytásáról kérek dokumentációt.",
+    "dia_C6_S2" : "A Rover önálló létfentartó egységgel rendelkezik. Az energiaellátását önállóan vagy akár külső rendszerre csatlakoztatva is el lehet érni. A komunikáció a tetőre szerelt antennákkal lehetséges.",
+    "dia_C6_S3" : "A jármű felszíni radarokkal van ellátva, melyek a környezeti tereptárgyakat szkennelik. A begyűjtött domborzati információkat alapul véve számítja ki a legrövidebb, illetve a legbiztonságosabb útvonalat.",
+    "dia_C6_S4" : "Az útvonalat a fedélzeti számítógép, az irányítópult képernyőjét jeleníti meg valós időben. Így vezetés közben látható a biztonságosan járható ösvény, ezzel is elkerülve az esetleges baleseteket / elakadásokat.",
+    "dia_C6_S5_1" : "Milyen úti célt szeretne választani?",
+    "dia_C6_S5_2" : "Az úti célunk a KZM-0203 Mars bázis.",
+    "dia_C6_S5_3" : "A kalkuláció megtörtént. Jó utat!",
     "dia_C_S01": "Az a kérdés hogy akkor kik vagyunk amikor egyedül vagyunk. A belső megoldatlan problémáinkat általában valami külső ingerrel akarjuk tompítani. Ez a társadalom pedig csak ráerősít erre. Mennyi lehetőséget ad a mai világ arra, hogy kivonuljunk a világból, hogy hódoljunk a szenvedélyünknek, hogy törtessünk a vágyaink felé? Ez nem csak a függőség miatt káros. Amiatt is káros, mert az alapján határozzuk meg magunkat amit teszünk és nem az alapján amit nem teszünk. Félrevezet minket a világ.",
 
     "dia_C_S1": "Ismertem egy embert. Úgy hívták, Terry. Nem tudom, hogy mit mondhatnék a kétségbeesésről. Annak örülnék a legjobban ha boldog lennél. Én a madarakra gondolokmikor meg szeretném magam nyugtatni. A földön élnek madarak...",

@@ -11,13 +11,14 @@
         "text": {
             "type": "text",
             "text": "dia_C6_S3",
-            "x": 435,
+            "x": 130,
             "y": 612,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
             "font": "Inconsolata",
+            "textBoxEnd": 1100,
             "fontSize": 20,
             "border": false,
             "filter": null
@@ -25,8 +26,8 @@
     },
     "timer" : {
         "time": 10000,
-        "actionType": "setToDrive",
-        "action": "desert",
+        "actionType": "setContent",
+        "action": "C6_S4",
         "allowed" : true
     }
     }
