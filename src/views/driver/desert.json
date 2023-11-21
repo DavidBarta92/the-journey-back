@@ -37,56 +37,201 @@
                     "1" : {
                         "text": {
                             "type": "text",
-                            "text": "test_text",
-                            "x": 988,
-                            "y": 141,
+                            "text": "",
+                            "x": 959,
+                            "y": 200,
                             "width": 70,
                             "height": 20,
                             "rotate": 0,
-                            "textBoxEnd": 250,
+                            "textBoxEnd": 300,
                             "color": "white",
                             "font": "Inconsolata",
-                            "fontSize": 20,
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "200" : {
+                        
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C6_1",
+                            "x": 959,
+                            "y": 200,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
                             "border": false,
                             "filter": null
                         },
                         "image":"../src/media/images/david.jpg"
                     },
-                    "35" : {
+                    "250" : {
                         "text": {
                             "type": "text",
-                            "text": "test_text2",
-                            "x": 988,
-                            "y": 141,
+                            "text": "dia_C6_2",
+                            "x": 959,
+                            "y": 200,
                             "width": 70,
                             "height": 20,
                             "rotate": 0,
-                            "textBoxEnd": 250,
+                            "textBoxEnd": 300,
                             "color": "white",
                             "font": "Inconsolata",
-                            "fontSize": 20,
+                            "fontSize": 18,
                             "border": false,
                             "filter": null
                         },
                         "image":""
                     },
-                    "100" : {
+                    "280" : {
                         "text": {
                             "type": "text",
-                            "text": "test_text3",
-                            "x": 988,
-                            "y": 141,
+                            "text": "dia_C6_3",
+                            "x": 959,
+                            "y": 200,
                             "width": 70,
                             "height": 20,
                             "rotate": 0,
-                            "textBoxEnd": 250,
+                            "textBoxEnd": 300,
                             "color": "white",
                             "font": "Inconsolata",
-                            "fontSize": 20,
+                            "fontSize": 18,
                             "border": false,
                             "filter": null
                         },
                         "image":""
+                    },
+                    "310" : {
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C6_4",
+                            "x": 959,
+                            "y": 200,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/david.jpg"
+                    },
+                    "400" : {
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C6_5",
+                            "x": 959,
+                            "y": 200,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "450" : {
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C6_6",
+                            "x": 959,
+                            "y": 200,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "485" : {
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C6_7",
+                            "x": 959,
+                            "y": 200,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/david.jpg"
+                    },
+                    "550" : {
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C6_8",
+                            "x": 959,
+                            "y": 200,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "650" : {
+                        "text": {
+                            "type": "text",
+                            "text": "",
+                            "x": 959,
+                            "y": 200,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "700" : {
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C6_9",
+                            "x": 959,
+                            "y": 200,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/david.jpg"
                     }
                 }
         },

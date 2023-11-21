@@ -65,7 +65,7 @@ export const Driver = (function(){
         length:    8,
         curvy:     0.9,
         mountainy: 0.8,
-        zoneSize:  80
+        zoneSize:  100
     }
 
     var road = [];
@@ -352,7 +352,7 @@ export const Driver = (function(){
 
         //draw dialoge things
         currentDialogueImage.src = currentDialogueText.image;
-        context.drawImage(currentDialogueImage, 0, 0, canvas.width, canvas.height);
+        context.drawImage(currentDialogueImage, 959, 42, canvas.width, canvas.height);
         writeText(currentDialogueText.text, (currentDialogueText.text.x + currentDialogueText.text.textBoxEnd));
 
         drawString(percent,{x: 287, y: 488});

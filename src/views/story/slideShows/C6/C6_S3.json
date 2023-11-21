@@ -11,21 +11,21 @@
         "text": {
             "type": "text",
             "text": "dia_C6_S3",
-            "x": 130,
-            "y": 612,
+            "x": 700,
+            "y": 300,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
             "font": "Inconsolata",
-            "textBoxEnd": 1100,
+            "textBoxEnd": 500,
             "fontSize": 20,
             "border": false,
             "filter": null
           }
     },
     "timer" : {
-        "time": 10000,
+        "time": 12000,
         "actionType": "setContent",
         "action": "C6_S4",
         "allowed" : true

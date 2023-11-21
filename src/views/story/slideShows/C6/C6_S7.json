@@ -1,5 +1,5 @@
 {
-    "name" : "C6_S4",
+    "name" : "C6_S7",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
@@ -10,24 +10,23 @@
     "elements" : {
         "text": {
             "type": "text",
-            "text": "dia_C6_S4",
-            "x": 110,
-            "y": 612,
+            "text": "2",
+            "x": 570,
+            "y": 320,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
             "font": "Inconsolata",
-            "textBoxEnd": 1090,
-            "fontSize": 20,
+            "fontSize": 140,
             "border": false,
             "filter": null
           }
     },
     "timer" : {
-        "time": 11000,
+        "time": 2000,
         "actionType": "setContent",
-        "action": "C6_S5",
+        "action": "C6_S8",
         "allowed" : true
     }
     }
