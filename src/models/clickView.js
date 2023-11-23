@@ -80,29 +80,13 @@ const isGif = function(image){
 const drawBackground = function(){
     var state = dataController.loadState();
     if(state.view == "menu") {
-        context.beginPath();
-        context.fillStyle = "rgba(229, 224, 221, 1)";
-        context.fillRect(530, 0, render.width, render.height);
-        context.save();
-        context.beginPath();
-        context.rect(700, 150, 400, 500);
-        context.clip();
         context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
         context.drawImage(middleground,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
-        context.restore();
-        context.beginPath();
-        context.lineWidth = "4";
-        context.strokeStyle = "black";
-        context.rect(700, 150, 400, 500);
-        context.stroke();
-        context.fillStyle = "rgb(255, 110, 49, 1)";
-        context.fillRect(0, 0, 530, render.height);
-    } else {
-        context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
-        // var ctxForDither = context.getImageData(0, 0, render.width, render.height);
-        // var ctxFromD = Filter.dither(ctxForDither);
-        // context.putImageData(ctxFromD, 0, 0);
     }
+    context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
+    // var ctxForDither = context.getImageData(0, 0, render.width, render.height);
+    // var ctxFromD = Filter.dither(ctxForDither);
+    // context.putImageData(ctxFromD, 0, 0);
 }
 
 //write the given text in the chosen language
@@ -437,6 +421,16 @@ const hitArea = function(element){
     if(element !== null){
         if(element[1].allowed == true){
             console.log(element);
+            if (element[1].actionType === "setToDrive") {
+                stateManager.setView('driver');
+                stateManager.setContent(element[1].action);
+                gameCanvas.clear();
+                counterTimer = null;
+                clearInterval(menuInterval);
+                clearInterval(storyInterval);
+                RenderManager.render();
+                return;
+            }
             if (element[1].actionType === "setView") {
                 stateManager.setView(element[1].action);
                 gameCanvas.clear();

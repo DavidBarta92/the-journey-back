@@ -22,9 +22,14 @@ var dataController = (function(){
         if (path.extname(filePath).toLowerCase() === '.json') {
           const content = fs.readFileSync(filePath, 'utf-8');
           const json = JSON.parse(content);
-  
-          if (json.name === parameterToFind) {
-            return filePath;
+          try {
+            if (json.name === parameterToFind) {
+              return filePath;
+            } 
+          } catch (error) {
+            
+            console.warn('There is an empt json file. ' + filePath);
+            return null;
           }
         }
       }

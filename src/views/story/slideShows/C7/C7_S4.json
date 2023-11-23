@@ -1,24 +1,24 @@
 {
-    "name" : "C1_title",
+    "name" : "C7_S4",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "",
+    "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "",
     "elements" : {
-        "title": {
+        "text": {
             "type": "text",
-            "text": "The Journey Back",
-            "x": 70,
-            "y": 80,
+            "text": "dia_C7_S1",
+            "x": 435,
+            "y": 612,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
-            "font": "Akira",
-            "fontSize": 40,
+            "font": "Inconsolata",
+            "fontSize": 20,
             "border": false,
             "filter": null
           }
@@ -26,7 +26,7 @@
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C1_S9",
+        "action": "C7_S5",
         "allowed" : true
     }
     }

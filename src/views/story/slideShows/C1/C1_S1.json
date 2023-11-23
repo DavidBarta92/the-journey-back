@@ -8,24 +8,9 @@
     "music" : "",
     "atmo" : "",
     "elements" : {
-        "David": {
-            "type": "text",
-            "text": "dia_C1_S1_1",
-            "x": 988,
-            "y": 141,
-            "width": 70,
-            "height": 20,
-            "rotate": 0,
-            "textBoxEnd": 250,
-            "color": "white",
-            "font": "Inconsolata",
-            "fontSize": 20,
-            "border": false,
-            "filter": null
-          },
         "Eva": {
             "type": "text",
-            "text": "dia_C1_S1_1-1",
+            "text": "dia_C1_S1",
             "x": 988,
             "y": 291,
             "width": 70,

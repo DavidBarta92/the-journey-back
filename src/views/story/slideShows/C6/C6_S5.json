@@ -1,18 +1,18 @@
 {
-    "name" : "C5_S1",
+    "name" : "C6_S5",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/i_am_you_am.mp3",
+    "music" : "../src/media/sounds/mars_for_the_rich.mp3",
     "atmo" : "",
     "elements" : {
-        "dial1": {
+        "text1": {
             "type": "text",
-            "text": "dia_C5_S1_1",
-            "x": 435,
-            "y": 612,
+            "text": "dia_C6_S5_1",
+            "x": 40,
+            "y": 100,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -22,11 +22,25 @@
             "border": false,
             "filter": null
           },
-          "dial2": {
+          "text2": {
             "type": "text",
-            "text": "dia_C5_S1_2",
-            "x": 435,
-            "y": 612,
+            "text": "dia_C6_S5_2",
+            "x": 480,
+            "y": 630,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          },
+          "text3": {
+            "type": "text",
+            "text": "dia_C6_S5_3",
+            "x": 900,
+            "y": 100,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -38,9 +52,9 @@
           }
     },
     "timer" : {
-        "time": 10000,
+        "time": 10900,
         "actionType": "setContent",
-        "action": "C5_S2",
+        "action": "C6_S6",
         "allowed" : true
     }
     }

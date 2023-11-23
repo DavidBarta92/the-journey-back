@@ -1,32 +1,32 @@
 {
-    "name" : "C1_title",
+    "name" : "C6_S8",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "",
+    "music" : "../src/media/sounds/mars_for_the_rich.mp3",
     "atmo" : "",
     "elements" : {
-        "title": {
+        "text": {
             "type": "text",
-            "text": "The Journey Back",
-            "x": 70,
-            "y": 80,
+            "text": "1",
+            "x": 570,
+            "y": 320,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
-            "font": "Akira",
-            "fontSize": 40,
+            "font": "Inconsolata",
+            "fontSize": 140,
             "border": false,
             "filter": null
           }
     },
     "timer" : {
-        "time": 10000,
-        "actionType": "setContent",
-        "action": "C1_S9",
+        "time": 2000,
+        "actionType": "setToDrive",
+        "action": "C6_desert",
         "allowed" : true
     }
     }

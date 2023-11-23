@@ -1,0 +1,301 @@
+{
+    "name" : "C6_desert",
+    "backgroundPath" : "../src/media/images/driver-background.png",
+    "spritesPath" : "../src/media/images/spritesheet.high.png",
+    "itemsPath" : "",
+    "dialogue" : "david",
+    "filter" : "",
+    "music" : "",
+    "roadParam" : {
+        "maxHeight" : 900,
+        "maxCurve" : 700,
+        "length": 8,
+        "curvy" : 0.9,
+        "mountainy" : 0.8,
+        "zoneSize" : 100
+    },
+    "elements" : {
+        "dialogue" : {
+            "type": "dialogue",
+                "processed" : false,
+                "x": 960,
+                "y": 311,
+                "w": 300,
+                "h": 350,
+                "padding" : 10,
+                "textX" : 22,
+                "textY" : 39,
+                "textW" : 330,
+                "textH" : 320,
+                "bgcolor": "white",
+                "colorOfTitle": "black",
+                "fontOfTitle": "Akira",
+                "fontSizeOfTitle": 25,
+                "colorOfSpeech": "black",
+                "fontOfSpeech": "Rounded",
+                "fontSizeOfSpeech": 18,
+                "colorOfButtons": "black",
+                "fontOfButtons": "Rounded",
+                "fontSizeOfButtons": 20,
+                "border": false,
+                "actionType": "",
+                "action": "",
+                "filter" : null,
+                "contents" : {
+                    "1" : {
+                        "text": {
+                            "type": "text",
+                            "text": "",
+                            "x": 959,
+                            "y": 200,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "200" : {
+                        
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C6_1",
+                            "x": 959,
+                            "y": 200,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/david.jpg"
+                    },
+                    "250" : {
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C6_2",
+                            "x": 959,
+                            "y": 200,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "280" : {
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C6_3",
+                            "x": 959,
+                            "y": 200,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "310" : {
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C6_4",
+                            "x": 959,
+                            "y": 200,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/david.jpg"
+                    },
+                    "400" : {
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C6_5",
+                            "x": 959,
+                            "y": 200,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "450" : {
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C6_6",
+                            "x": 959,
+                            "y": 200,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "485" : {
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C6_7",
+                            "x": 959,
+                            "y": 200,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/david.jpg"
+                    },
+                    "550" : {
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C6_8",
+                            "x": 959,
+                            "y": 200,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "650" : {
+                        "text": {
+                            "type": "text",
+                            "text": "",
+                            "x": 959,
+                            "y": 200,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "700" : {
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C6_9",
+                            "x": 959,
+                            "y": 200,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/david.jpg"
+                    }
+                }
+        },
+        "rock" : {
+            "type": "sprite",
+            "x": null,
+            "y": null,
+            "w": null,
+            "h": null,
+            "sourceX" : 345,
+            "sourceY" : 9,
+            "sourceW" : 11,
+            "sourceH" : 14
+        },
+        "tree" : {
+            "type": "sprite",
+            "x": null,
+            "y": null,
+            "w": null,
+            "h": null,
+            "sourceX" : 321,
+            "sourceY" : 9,
+            "sourceW" : 23,
+            "sourceH" : 50
+        },
+        "speedCounter" : {
+            "type": "activeArea",
+            "text": "0 mph",
+            "x": 33,
+            "y": 553,
+            "width": 96,
+            "height": 58,
+            "color": "#dc3a15",
+            "font": "Akira",
+            "fontSize": 60,
+            "filter" : null,
+            "actionType": "setView",
+            "action": "driver"
+        },
+        "percentCounter" : {
+            "type": "activeArea",
+            "text": "0%",
+            "x": 30,
+            "y": 600,
+            "width": 96,
+            "height": 58,
+            "color": "#dc3a15",
+            "font": "Akira",
+            "fontSize": 30,
+            "filter" : null,
+            "actionType": "setView",
+            "action": "driver"
+        }
+    },
+    "end" : {
+        "actionType": "setToClickView",
+        "action": "C7_S1"
+    }
+    }

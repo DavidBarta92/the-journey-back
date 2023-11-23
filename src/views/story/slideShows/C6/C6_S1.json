@@ -1,48 +1,48 @@
 {
-    "name" : "C1_S4",
-    "backgroundPath" : "../src/media/images/C1_S4_bg.b64",
+    "name" : "C6_S1",
+    "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
-    "dialogue" : "C1_S4",
+    "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "",
+    "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "",
     "elements" : {
-        "Eva": {
+        "text": {
             "type": "text",
-            "text": "dia_C1_S4_1",
-            "x": 138,
-            "y": 160,
+            "text": "dia_C6_S1_1",
+            "x": 883,
+            "y": 75,
             "width": 70,
             "height": 20,
             "rotate": 0,
-            "textBoxEnd": 320,
-            "color": "DarkSalmon",
+            "color": "white",
             "font": "Inconsolata",
+            "textBoxEnd": 320,
             "fontSize": 20,
             "border": false,
             "filter": null
           },
-        "David": {
+          "text2": {
             "type": "text",
-            "text": "dia_C1_S4_2",
-            "x": 138,
-            "y": 350,
+            "text": "dia_C6_S1_2",
+            "x": 40,
+            "y": 500,
             "width": 70,
             "height": 20,
             "rotate": 0,
-            "textBoxEnd": 320,
             "color": "white",
             "font": "Inconsolata",
+            "textBoxEnd": 320,
             "fontSize": 20,
             "border": false,
             "filter": null
           }
     },
     "timer" : {
-        "time": 13000,
+        "time": 10000,
         "actionType": "setContent",
-        "action": "C1_S5",
+        "action": "C6_S2",
         "allowed" : true
     }
-}
+    }

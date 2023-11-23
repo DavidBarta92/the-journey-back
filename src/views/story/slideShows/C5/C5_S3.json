@@ -1,37 +1,35 @@
 {
-    "name" : "C1_S4",
-    "backgroundPath" : "../src/media/images/C1_S4_bg.b64",
+    "name" : "C5_S3",
+    "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
-    "dialogue" : "C1_S4",
+    "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "",
+    "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "",
     "elements" : {
-        "Eva": {
+        "dial1": {
             "type": "text",
-            "text": "dia_C1_S4_1",
-            "x": 138,
-            "y": 160,
+            "text": "dia_C5_S3_1",
+            "x": 435,
+            "y": 612,
             "width": 70,
             "height": 20,
             "rotate": 0,
-            "textBoxEnd": 320,
-            "color": "DarkSalmon",
+            "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
             "border": false,
             "filter": null
           },
-        "David": {
+          "dial2": {
             "type": "text",
-            "text": "dia_C1_S4_2",
-            "x": 138,
-            "y": 350,
+            "text": "dia_C5_S3_2",
+            "x": 435,
+            "y": 612,
             "width": 70,
             "height": 20,
             "rotate": 0,
-            "textBoxEnd": 320,
             "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
@@ -40,9 +38,9 @@
           }
     },
     "timer" : {
-        "time": 13000,
+        "time": 10000,
         "actionType": "setContent",
-        "action": "C1_S5",
+        "action": "C5_S4",
         "allowed" : true
     }
-}
+    }
