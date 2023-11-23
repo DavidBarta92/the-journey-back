@@ -1,11 +1,19 @@
 {
-    "name" : "desert",
+    "name" : "C6_desert",
     "backgroundPath" : "../src/media/images/driver-background.png",
     "spritesPath" : "../src/media/images/spritesheet.high.png",
     "itemsPath" : "",
     "dialogue" : "david",
     "filter" : "",
     "music" : "",
+    "roadParam" : {
+        "maxHeight" : 900,
+        "maxCurve" : 700,
+        "length": 8,
+        "curvy" : 0.9,
+        "mountainy" : 0.8,
+        "zoneSize" : 100
+    },
     "elements" : {
         "dialogue" : {
             "type": "dialogue",

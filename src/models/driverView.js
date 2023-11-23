@@ -5,7 +5,6 @@ import { player } from "./player.js";
 import inputController from "../controllers/inputController.js";
 import {tree, rock, cross, background } from "./sprites.js";
 import Filter from "../views/filter";
-import desert from "../views/driver/desert.json";
 import Anim from "../views/anim";
 import dataController from "../controllers/dataController";
 import Timer from "./timer";
@@ -59,27 +58,18 @@ export const Driver = (function(){
     var lastDelta = 0;
     var currentTimeString = "";
 
-    var roadParam = {
-        maxHeight: 900,
-        maxCurve:  700,
-        length:    8,
-        curvy:     0.9,
-        mountainy: 0.8,
-        zoneSize:  100
-    }
-
     var road = [];
     var roadSegmentSize = 5;
     var numberOfSegmentPerColor = 4;
     var keys = [];
     var render;
-    let cursor = inputController.getCursor();
     var driverViewIndexParams;
 
     var gameInterval;
     var absoluteIndex = 0;
     var baseOffset = 0;
     var currentDialogueText;
+    var roadParam;
 
     // -----------------------------
     // -- closure scoped function --
@@ -104,14 +94,17 @@ export const Driver = (function(){
             camera_distance: 30,
             camera_height: 150
         };
+        
         interactives = {};
-        contentContainer = desert;
+        contentContainer = dataController.loadContent(state);
         spritesheet.src = contentContainer.spritesPath;
         backgroundImage.src = contentContainer.backgroundPath;
         hud.src = "../src/media/images/drive.png";
         languageFile = dataController.loadLanguageFile(state);
         dialogueFile = dataController.loadDialogue(contentContainer.dialogue);
         newSpeechIndex = '1';
+
+        roadParam = contentContainer.roadParam;
     };
 
     //renders one frame
