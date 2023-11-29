@@ -31,7 +31,7 @@ var stateManager = (function(){
     try {
       state = dataController.loadState();
       var i;
-      if (state !== null) {
+      if (!!state) {
         for (i in initialState) {
           if (!state.hasOwnProperty(i)) {
             state[i] = initialState[i];
@@ -153,6 +153,9 @@ var stateManager = (function(){
         case 'five':
           state.items.five = item;
           break;
+        default:
+          console.error('Unexpected place:', place);
+          break;  
       }
       dataController.saveState(state);
       console.log(state.items);

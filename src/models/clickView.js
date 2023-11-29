@@ -79,7 +79,7 @@ const isGif = function(image){
 //draw the background image. if its not possible it is just fill the screen with blue (after a filter comes)
 const drawBackground = function(){
     var state = dataController.loadState();
-    if(state.view == "menu") {
+    if(state.view === "menu") {
         context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
         context.drawImage(middleground,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
     }
@@ -99,12 +99,12 @@ const writeText = function(element, textBoxX = window.innerWidth, color = elemen
     context.font        = fontString;
     context.fillStyle   = color;
     Object.entries(languageFile).forEach(label => {
-        if (label[0] == element.text){
+        if (label[0] === element.text){
             textString = label[1]; 
             return;
         }
     });
-    if (!(textString == null)) {
+    if (!!textString) {
         var lineheight = element.fontSize +(element.fontSize /4);
         var currentLineX = element.x;
         var currentLineY = element.y;
@@ -221,12 +221,12 @@ const deleteDialogueElements = function() {
 
 const allowElements = function(elements, state) {
     Object.entries(elements).forEach(element => {
-        if(element[1].type == 'item'){
-            if(element[0] == state.items.one 
-            || element[0] == state.items.two
-            || element[0] == state.items.three
-            || element[0] == state.items.four
-            || element[0] == state.items.five){
+        if(element[1].type === 'item'){
+            if(element[0] === state.items.one 
+            || element[0] === state.items.two
+            || element[0] === state.items.three
+            || element[0] === state.items.four
+            || element[0] === state.items.five){
                 element[1].allowed = true;
             } else {
                 element[1].allowed = false;
@@ -321,7 +321,7 @@ const drawElements = function(elements) {
                     context.stroke();
                 }
             }
-            if(element[1].hasOwnProperty('appoint') && element[1].appoint == true){
+            if(element[1].hasOwnProperty('appoint') && element[1].appoint === true){
                 if(element[1].type === 'button'){
                     writeText(element[1], (element[1].x + element[1].textBoxEnd), "red");
                 } else {
@@ -351,7 +351,7 @@ const drawElements = function(elements) {
         });
         dialogueOptionClicked = false;
     });
-    if (!(glitchingElement == null)) {
+    if (!!glitchingElement) {
         Anim.glitch(glitchingElement);
         glitchingElement = null;
         requestNewFrame = true;
@@ -366,10 +366,14 @@ const readyToPlayVideo = function(videoElement){
     video.mute = videoElement.mute;
 }
 
-// collects all elements from the view whichones are clickable objects or areas
+// collects all elements from the view which ones are clickable objects or areas
 const collectInteractives = function(elements){
     Object.entries(elements).forEach(element => {
-        if (element[1].hasOwnProperty('type') && element[1].type === 'button' || element[1].type === 'item' || element[1].type === 'activeArea') {
+        if (
+            (element[1].hasOwnProperty('type') && element[1].type === 'button') ||
+            (element[1].type === 'item') ||
+            (element[1].type === 'activeArea')
+        ) {
             interactives[element[0]] = element[1];
         }
     });
@@ -387,7 +391,7 @@ const getArea = function(elements){
 }
 
 const clickAnimate = function(element){
-    if(element !== null){
+    if(!!element){
         animationDone = false;
         if (!animationDone) {
             Object.entries(contentContainer.elements).forEach(contElement => {
@@ -411,15 +415,15 @@ const activateTiming = function(){
     var now = new Date();
     if(contentContainer.hasOwnProperty('timer')
     && counterTimer < now
-    && counterTimer !== null){
+    && !!counterTimer){
         hitArea(['timer',contentContainer.timer]);
     }    
 }
 
 // execute the predetermined action of the interactive element
 const hitArea = function(element){
-    if(element !== null){
-        if(element[1].allowed == true){
+    if(!!element){
+        if(element[1].allowed === true){
             console.log(element);
             if (element[1].actionType === "setToDrive") {
                 stateManager.setView('driver');
@@ -503,7 +507,7 @@ const hitArea = function(element){
                 return;
             }
             if (element[1].actionType === "startGame") {
-                if(element[1].action == 'start'){
+                if(element[1].action === 'start'){
                     if (stateManager.loadState().init){
                         stateManager.setView('story');
                         stateManager.setContent('C1_S1');
@@ -514,7 +518,7 @@ const hitArea = function(element){
                         stateManager.setContentByStatus();
                     }
                 } 
-                if(element[1].action == 'new'){
+                if(element[1].action === 'new'){
                     stateManager.setView('story');
                     stateManager.setContent('C1_S1');
                     stateManager.setInitFalse();
@@ -545,7 +549,7 @@ const hitArea = function(element){
 const appointingElement = function(elements){
     Object.entries(elements).forEach(element => {
         if (inputController.cursorOnElement(element[1])){
-            if(element[1].filter == "appointable"){
+            if(element[1].filter === "appointable"){
                 glitchingElement = {...element[1]};
                 element[1].appoint = true;
                 requestNewFrame = true;
@@ -663,6 +667,7 @@ export const Story = (function(){
         // we need to empty this object when a new view is loaded
         interactives = {};
         contentContainer = dataController.loadContent(state);
+        console.log(contentContainer);
         background = dataController.loadImage(contentContainer.backgroundPath);
         middleground = dataController.loadImage(contentContainer.middlegroundPath);
         spritesheet = dataController.loadImage(contentContainer.spritesPath);
@@ -713,7 +718,7 @@ export const Story = (function(){
         if(cursor.click){
             requestNewFrame = true;
             var activeArea = getArea(interactives);
-            if (activeArea[1].allowed == true) clickAnimate(activeArea);
+            if (activeArea[1].allowed === true) clickAnimate(activeArea);
             const clicking = new Promise((resolve) => {
                 setTimeout(() => {
                     resolve();

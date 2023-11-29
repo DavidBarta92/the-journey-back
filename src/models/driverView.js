@@ -223,7 +223,7 @@ export const Driver = (function(){
                     render.height / 2 + endProjectedHeight, 
                     endScaling, 
                     nextSegment.curve - baseOffset - lastDelta * endScaling, 
-                    counter < numberOfSegmentPerColor, currentSegmentIndex == 2 || currentSegmentIndex == (roadParam.length-render.depthOfField));
+                    counter < numberOfSegmentPerColor, currentSegmentIndex === 2 || currentSegmentIndex === (roadParam.length-render.depthOfField));
             }
             if(currentSegment.sprite){
                 spriteBuffer.push({
@@ -289,7 +289,7 @@ export const Driver = (function(){
                     render.height / 2 + holoEndProjectedHeight, 
                     holoEndScaling, 
                     holoNextSegment.curve - baseOffset - lastDelta * holoEndScaling, 
-                    holoCurrentSegmentIndex == 2 || holoCurrentSegmentIndex == (roadParam.length-render.depthOfField));
+                    holoCurrentSegmentIndex === 2 || holoCurrentSegmentIndex === (roadParam.length-render.depthOfField));
                 }
                 if(holoCurrentSegment.sprite){
                     holoSpriteBuffer.push({
@@ -497,12 +497,12 @@ export const Driver = (function(){
         context.font        = fontString;
         context.fillStyle   = element.color;
         Object.entries(languageFile).forEach(label => {
-            if (label[0] == element.text){
+            if (label[0] === element.text){
                 textString = label[1]; 
                 return;
             }
         });
-        if (!(textString == null)) {
+        if (!!textString) {
             var lineheight = element.fontSize +(element.fontSize /4);
             var currentLineX = element.x;
             var currentLineY = element.y;
@@ -656,7 +656,7 @@ export const Driver = (function(){
 
             for(var i=0; i < roadParam.zoneSize; i++){
                 // add a tree
-                if(i % roadParam.zoneSize / 4 == 0){
+                if(i % roadParam.zoneSize / 4 === 0){
                     var sprite = {type: rock, pos: -0.55};
                 } else {
                     if(r() < 0.05) {

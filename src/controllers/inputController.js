@@ -47,7 +47,7 @@ var inputController = (function(){
 
         var elementX, elementY, elementWidth, elementHeight;
 
-        if(element.type == 'button' || element.type == 'text'){
+        if(element.type === 'button' || element.type === 'text'){
         elementX         = element.x - element.fontSize / 10;
         elementY         = element.y - element.fontSize + element.fontSize / 10;
         elementWidth     = context.measureText(element.text).width + 2 * (element.fontSize / 10);

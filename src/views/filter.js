@@ -71,7 +71,7 @@ var Filter = (function(){
         if (!drawColour)
             drawColour = false;
     
-        if(drawColour == true)
+        if(drawColour === true)
             skipPixels = 1;
     
         var imageLength	= image.data.length;
@@ -100,7 +100,7 @@ var Filter = (function(){
             image.data[currentPixel + (4 * imageWidth) + 4]		+= err;
             image.data[currentPixel + (8 * imageWidth)]			+= err;
     
-            if (drawColour == false)
+            if (drawColour === false)
                 image.data[currentPixel + 1] = image.data[currentPixel + 2] = image.data[currentPixel];
     
         }
@@ -168,7 +168,7 @@ var Filter = (function(){
                     b[yi] = bsum;
                     a[yi] = asum;
     
-                    if (y == 0) {
+                    if (y === 0) {
                         vmin[x] = Math.min(x + rad1x, wm) << 2;
                         vmax[x] = Math.max(x - radius, 0) << 2;
                     }
@@ -208,7 +208,7 @@ var Filter = (function(){
                     pixels[yi + 2] = (bsum * div2 + 0.5) | 0;
                     pixels[yi + 3] = (asum * div2 + 0.5) | 0;
     
-                    if (x == 0) {
+                    if (x === 0) {
                         vmin[y] = Math.min(y + rad1y, hm) * width;
                         vmax[y] = Math.max(y - radius, 0) * width;
                     }
