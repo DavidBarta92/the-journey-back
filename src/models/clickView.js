@@ -3,6 +3,7 @@ import gameCanvas from "./gameCanvas";
 import RenderManager from "../controllers/renderManager";
 import stateManager from "../controllers/stateManager";
 import Anim from "../views/anim";
+import Filter from "../views/filter";
 import dataController from "../controllers/dataController";
 import Timer from "./timer";
 import Sound from "./sound";
@@ -82,9 +83,13 @@ const drawBackground = function(){
     var state = dataController.loadState();
     if(state.view === "menu") {
         context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
+        var ctxForDither = context.getImageData(0, 0, render.width, render.height);
+        var ctxFromD = Filter.dither(ctxForDither);
+        context.putImageData(ctxFromD, 0, 0);
         context.drawImage(middleground,  0, 0, middleground.width, middleground.height, 0, 0, render.width, render.height);
+    } else {
+        context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
     }
-    context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
     // var ctxForDither = context.getImageData(0, 0, render.width, render.height);
     // var ctxFromD = Filter.dither(ctxForDither);
     // context.putImageData(ctxFromD, 0, 0);
@@ -446,7 +451,10 @@ const hitArea = function(element){
                 return;
             }
             if (element[1].actionType === "setContent") {
-                Sound.fx('../src/media/sounds/click.ogg');
+                if (element[1].hasOwnProperty('clickNoise') && element[1].clickNoise) {
+                    console.log(element[1].hasOwnProperty('clickNoise') && element[1].clickNoise);
+                    Sound.fx('../src/media/sounds/click.ogg')
+                };
                 stateManager.setContent(element[1].action);
                 gameCanvas.clear();
                 counterTimer = null;
@@ -465,7 +473,7 @@ const hitArea = function(element){
                 return;
             }
             if (element[1].actionType === "addItem") {
-                Sound.fx('../src/media/sounds/click.ogg');
+                if (element[1].hasOwnProperty('clickNoise') && element[1].clickNoise) Sound.fx('../src/media/sounds/click.ogg');
                 stateManager.addItem(element[1].action);
                 gameCanvas.clear();
                 clearInterval(menuInterval);

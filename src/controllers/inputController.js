@@ -27,7 +27,7 @@ var inputController = (function(){
         document.onmousedown = function (event) {
             D.log(["X:" , event.clientX , " | Y:" , event.clientY]);
             cursor.click = true;
-            Sound.fx('../src/media/sounds/click.ogg');
+            Sound.fx('../src/media/sounds/mouse.wav');
         };
         document.onmouseup = function (event) {
             cursor.click = false;

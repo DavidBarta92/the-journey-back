@@ -1,7 +1,7 @@
 {
   "name": "main",
   "backgroundPath": null,
-  "middlegroundPath": null,
+  "middlegroundPath": "../src/media/images/black.b64",
   "spritesPath": null,
   "dialogue": null,
   "filter" : "",
@@ -50,7 +50,8 @@
       "border": false,
       "actionType": "startGame",
       "action": "continue",
-      "filter": "appointable"
+      "filter": "appointable",
+      "clickNoise" : true
     },
     "newGame": {
       "type": "button",
