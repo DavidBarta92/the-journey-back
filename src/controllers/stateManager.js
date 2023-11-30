@@ -1,5 +1,6 @@
 import gameCanvas from '../models/gameCanvas';
 import dataController from './dataController';
+import D from "../models/debugLog";
 
 var stateManager = (function(){
 
@@ -21,7 +22,8 @@ var stateManager = (function(){
       five: null
     },
     volume: 1,
-    init: true
+    init: true,
+    debugMode: true
   };
 
   var state = [];
@@ -62,7 +64,7 @@ var stateManager = (function(){
       dataController.saveState(state);
       gameCanvas.clear();
       if (oldContent !== state.content){
-        console.log('The old content: ' + oldContent + ' has changed to: ' + state.content);
+        D.log(['The old content: ' , oldContent , ' has changed to: ' , state.content]);
       }
     },
   setView: (view) => {
@@ -73,7 +75,7 @@ var stateManager = (function(){
       dataController.saveState(state);
       gameCanvas.clear();
       if (oldView !== state.view){
-        console.log('The old view: ' + oldView + ' has changed to: ' + state.view);
+        D.log(['The old view: ' , oldView , ' has changed to: ' , state.view])
       }
     },
   resetLevelChapterScene: () => {
@@ -82,19 +84,19 @@ var stateManager = (function(){
       state.chapter = 1;
       state.scene = 1;
       dataController.saveState(state);
-      console.log("level: " + state.level + " | chapter: " + state.chapter + " | scene: " + state.scene);
+      D.log(["level: " , state.level , " | chapter: " , state.chapter , " | scene: " , state.scene]);
     },
   setChapter: (num) => {
       state = loadState();
       state.chapter = num;
       dataController.saveState(state);
-      console.log(state.chapter);
+      D.log([state.chapter]);
     },
   newScene: () => {
       state = loadState();
       state.scene += 1;
       dataController.saveState(state);
-      console.log(state.level);
+      D.log([state.level]);
     },
   changeLanguage: (language) => {
       state = loadState();
@@ -102,7 +104,7 @@ var stateManager = (function(){
       state.language = language;
       dataController.saveState(state);
       if (oldLanguage !== state.language){
-        console.log('The old language: ' + oldLanguage + ' has changed to: ' + state.language);
+        D.log(['The old language: ' , oldLanguage , ' has changed to: ' , state.language]);
       }
     },
   setContentByStatus: () => {
@@ -114,10 +116,10 @@ var stateManager = (function(){
       dataController.saveState(state);
       gameCanvas.clear();
       if (oldView !== state.view){
-        console.log('The old view: ' + oldView + ' has changed to: ' + state.view);
+        D.log(['The old view: ' , oldView , ' has changed to: ' , state.view]);
       }
       if (oldContent !== state.content){
-        console.log('The old content: ' + oldContent + ' has changed to: ' + state.content);
+        D.log(['The old content: ' , oldContent , ' has changed to: ' , state.content]);
       }
     },
   setStatus: () => {
@@ -129,10 +131,10 @@ var stateManager = (function(){
       dataController.saveState(state);
       gameCanvas.clear();
       if (oldStateView !== state.status.view){
-        console.log('The old status view: ' + oldStateView + ' has changed to: ' + state.status.view);
+        D.log(['The old status view: ' , oldStateView , ' has changed to: ' , state.status.view]);
       }
       if (oldStateContent !== state.status.content){
-        console.log('The old status content: ' + oldStateContent + ' has changed to: ' + state.status.content);
+        D.log(['The old status content: ' , oldStateContent , ' has changed to: ' , state.status.content]);
       }
     },
   addItem: (item, place) => {
@@ -158,18 +160,18 @@ var stateManager = (function(){
           break;  
       }
       dataController.saveState(state);
-      console.log(state.items);
+      D.log([state.items]);
     },
   deleteItem: (item) => {
       state = loadState();
       delete state.items[state.items.indexOf(item)];
       dataController.saveState(state);
-      console.log(state.items);
+      D.log([state.items]);
     },
   resetItems: () => {
       state = loadState();
       state.items = [];
-      console.log("State itmes are removed.");
+      D.log(["State itmes are removed."]);
       dataController.saveState(state);
     },
   setVolume: (num) => {
@@ -179,14 +181,14 @@ var stateManager = (function(){
       dataController.saveState(state);
       gameCanvas.clear();
       if (oldVolume !== state.view){
-        console.log('The volume has changed from ' + oldVolume + ' to ' + state.volume);
+        D.log(['The volume has changed from ' , oldVolume , ' to ' , state.volume]);
       }
     },
   setInitFalse: () => {
       state = loadState();
       state.init = false;
       dataController.saveState(state);
-      console.log('The state is not init anymore.');
+      D.log(['The state is not init anymore.']);
     }, 
   }
 }

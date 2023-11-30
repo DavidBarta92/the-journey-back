@@ -65,12 +65,10 @@ var dataController = (function(){
     // save chapter number into the browser storage
     saveState: function(state) {
         localStorage.setItem('state', JSON.stringify(state));
-        //console.log(JSON.stringify(state));
       },
     
     // load chapter number from the browser storage
     loadState: function() {
-        //console.log(JSON.parse(localStorage.getItem('state')));
         return JSON.parse(localStorage.getItem('state'));
       },
     
@@ -92,7 +90,6 @@ var dataController = (function(){
           imagePath = '../src/media/images/black.b64';
         }
         try {
-          console.log(__dirname);
           base64img = fs.readFileSync(path.resolve(__dirname, imagePath), 'utf8');
         } catch (error) { 
           console.warn("__dirname is not working!");

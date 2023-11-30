@@ -6,6 +6,7 @@ import Anim from "../views/anim";
 import dataController from "../controllers/dataController";
 import Timer from "./timer";
 import Sound from "./sound";
+import D from "./debugLog";
 
 //all these variables and functions are used by the Menu and the Story functions
 
@@ -81,7 +82,7 @@ const drawBackground = function(){
     var state = dataController.loadState();
     if(state.view === "menu") {
         context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
-        context.drawImage(middleground,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
+        context.drawImage(middleground,  0, 0, middleground.width, middleground.height, 0, 0, render.width, render.height);
     }
     context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
     // var ctxForDither = context.getImageData(0, 0, render.width, render.height);
@@ -278,7 +279,7 @@ const drawElements = function(elements) {
                 context.drawImage(spritesheet,  element[1].sourceX, element[1].sourceY, element[1].sourceW, element[1].sourceH, element[1].x, element[1].y, element[1].width, element[1].height);
             }
             if (element[1].type === 'activeArea'){
-                if(true){
+                if(element[1].hasOwnProperty('allowed') && element[1].allowed === true){
                     context.beginPath();
                     context.lineWidth = 2;
                     context.strokeStyle = "#86a986";
@@ -306,8 +307,7 @@ const drawElements = function(elements) {
                     context.moveTo(element[1].x + element[1].width, element[1].y + element[1].height - 5);
                     context.lineTo(element[1].x + element[1].width, element[1].y + element[1].height + 5);
                     context.stroke();
-                }
-                if(false){
+                } else {
                     context.strokeStyle = "red";
                     context.lineWidth = 2;
                     context.beginPath();
@@ -424,7 +424,7 @@ const activateTiming = function(){
 const hitArea = function(element){
     if(!!element){
         if(element[1].allowed === true){
-            console.log(element);
+            D.log('element',element);
             if (element[1].actionType === "setToDrive") {
                 stateManager.setView('driver');
                 stateManager.setContent(element[1].action);
@@ -553,7 +553,6 @@ const appointingElement = function(elements){
                 glitchingElement = {...element[1]};
                 element[1].appoint = true;
                 requestNewFrame = true;
-                //console.log(elements);
             }
         } else {
             element[1].appoint = false;
@@ -564,7 +563,6 @@ const appointingElement = function(elements){
 //used to triggering animation frame by render game frame
 const triggering = function(){
     if(requestNewFrame || context.globalAlpha <= 0.9 || dialogueOptionClicked || !animationDone){
-        //console.log("requestFrame " + requestNewFrame + " | contexAlpha " + (context.globalAlpha <= 0.9)  + " | dialogueOption " +  dialogueOptionClicked  + " | animationDone " +  !animationDone);
         requestNewFrame = false;
         return true;
     } else {
@@ -667,7 +665,6 @@ export const Story = (function(){
         // we need to empty this object when a new view is loaded
         interactives = {};
         contentContainer = dataController.loadContent(state);
-        console.log(contentContainer);
         background = dataController.loadImage(contentContainer.backgroundPath);
         middleground = dataController.loadImage(contentContainer.middlegroundPath);
         spritesheet = dataController.loadImage(contentContainer.spritesPath);
@@ -718,7 +715,7 @@ export const Story = (function(){
         if(cursor.click){
             requestNewFrame = true;
             var activeArea = getArea(interactives);
-            if (activeArea[1].allowed === true) clickAnimate(activeArea);
+            if (!!activeArea && activeArea[1].allowed === true) clickAnimate(activeArea);
             const clicking = new Promise((resolve) => {
                 setTimeout(() => {
                     resolve();
