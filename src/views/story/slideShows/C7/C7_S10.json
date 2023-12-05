@@ -1,5 +1,5 @@
 {
-    "name" : "C7_S3",
+    "name" : "C7_S10",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
@@ -8,17 +8,8 @@
     "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "",
     "elements" : {
-        "text": {
-            "type": "text",
-            "text": "dia_C7_S3",
-            "x": 100,
-            "y": 612,
-            "width": 70,
-            "height": 20,
-            "rotate": 0,
-            "color": "white",
-            "font": "Inconsolata",
-            "fontSize": 20,
+        "empty_object": {
+            "type": "empty_object",
             "border": false,
             "filter": null
           }
@@ -26,7 +17,7 @@
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C7_S4",
+        "action": "C7_S11",
         "allowed" : true
     }
     }

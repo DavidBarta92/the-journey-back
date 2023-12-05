@@ -8,17 +8,8 @@
     "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "",
     "elements" : {
-        "text": {
-            "type": "text",
-            "text": "dia_C7_S1",
-            "x": 435,
-            "y": 612,
-            "width": 70,
-            "height": 20,
-            "rotate": 0,
-            "color": "white",
-            "font": "Inconsolata",
-            "fontSize": 20,
+        "empty_object": {
+            "type": "empty_object",
             "border": false,
             "filter": null
           }
