@@ -47,7 +47,7 @@
                             "type": "text",
                             "text": "",
                             "x": 959,
-                            "y": 200,
+                            "y": 250,
                             "width": 70,
                             "height": 20,
                             "rotate": 0,
@@ -66,7 +66,7 @@
                             "type": "text",
                             "text": "dia_C6_1",
                             "x": 959,
-                            "y": 200,
+                            "y": 250,
                             "width": 70,
                             "height": 20,
                             "rotate": 0,
@@ -77,14 +77,14 @@
                             "border": false,
                             "filter": null
                         },
-                        "image":"../src/media/images/david.jpg"
+                        "image":"../src/media/images/dd_serious.png"
                     },
                     "250" : {
                         "text": {
                             "type": "text",
                             "text": "dia_C6_2",
                             "x": 959,
-                            "y": 200,
+                            "y": 250,
                             "width": 70,
                             "height": 20,
                             "rotate": 0,
@@ -95,14 +95,14 @@
                             "border": false,
                             "filter": null
                         },
-                        "image":""
+                        "image":"../src/media/images/dd_serious.png"
                     },
                     "280" : {
                         "text": {
                             "type": "text",
                             "text": "dia_C6_3",
                             "x": 959,
-                            "y": 200,
+                            "y": 250,
                             "width": 70,
                             "height": 20,
                             "rotate": 0,
@@ -113,14 +113,14 @@
                             "border": false,
                             "filter": null
                         },
-                        "image":""
+                        "image":"../src/media/images/de_serious.png"
                     },
                     "310" : {
                         "text": {
                             "type": "text",
                             "text": "dia_C6_4",
                             "x": 959,
-                            "y": 200,
+                            "y": 250,
                             "width": 70,
                             "height": 20,
                             "rotate": 0,
@@ -131,14 +131,14 @@
                             "border": false,
                             "filter": null
                         },
-                        "image":"../src/media/images/david.jpg"
+                        "image":"../src/media/images/dd_serious.png"
                     },
                     "400" : {
                         "text": {
                             "type": "text",
                             "text": "dia_C6_5",
                             "x": 959,
-                            "y": 200,
+                            "y": 250,
                             "width": 70,
                             "height": 20,
                             "rotate": 0,
@@ -149,14 +149,14 @@
                             "border": false,
                             "filter": null
                         },
-                        "image":""
+                        "image":"../src/media/images/de_serious.png"
                     },
                     "450" : {
                         "text": {
                             "type": "text",
                             "text": "dia_C6_6",
                             "x": 959,
-                            "y": 200,
+                            "y": 250,
                             "width": 70,
                             "height": 20,
                             "rotate": 0,
@@ -167,14 +167,14 @@
                             "border": false,
                             "filter": null
                         },
-                        "image":""
+                        "image":"../src/media/images/dd_serious.png"
                     },
                     "485" : {
                         "text": {
                             "type": "text",
                             "text": "dia_C6_7",
                             "x": 959,
-                            "y": 200,
+                            "y": 250,
                             "width": 70,
                             "height": 20,
                             "rotate": 0,
@@ -185,14 +185,14 @@
                             "border": false,
                             "filter": null
                         },
-                        "image":"../src/media/images/david.jpg"
+                        "image":"../src/media/images/de_serious.png"
                     },
                     "550" : {
                         "text": {
                             "type": "text",
                             "text": "dia_C6_8",
                             "x": 959,
-                            "y": 200,
+                            "y": 250,
                             "width": 70,
                             "height": 20,
                             "rotate": 0,
@@ -203,14 +203,14 @@
                             "border": false,
                             "filter": null
                         },
-                        "image":""
+                        "image":"../src/media/images/dd_serious.png"
                     },
                     "650" : {
                         "text": {
                             "type": "text",
                             "text": "",
                             "x": 959,
-                            "y": 200,
+                            "y": 250,
                             "width": 70,
                             "height": 20,
                             "rotate": 0,
@@ -221,14 +221,14 @@
                             "border": false,
                             "filter": null
                         },
-                        "image":""
+                        "image":"../src/media/images/de_serious.png"
                     },
                     "700" : {
                         "text": {
                             "type": "text",
                             "text": "dia_C6_9",
                             "x": 959,
-                            "y": 200,
+                            "y": 250,
                             "width": 70,
                             "height": 20,
                             "rotate": 0,
@@ -239,7 +239,7 @@
                             "border": false,
                             "filter": null
                         },
-                        "image":"../src/media/images/david.jpg"
+                        "image":"../src/media/images/dd_serious.png"
                     }
                 }
         },

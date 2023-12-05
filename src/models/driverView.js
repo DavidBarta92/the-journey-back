@@ -345,7 +345,7 @@ export const Driver = (function(){
 
         //draw dialoge things
         currentDialogueImage.src = currentDialogueText.image;
-        context.drawImage(currentDialogueImage, 959, 42, canvas.width, canvas.height);
+        context.drawImage(currentDialogueImage, 959, 42, 310, 177);
         writeText(currentDialogueText.text, (currentDialogueText.text.x + currentDialogueText.text.textBoxEnd));
 
         drawString(percent,{x: 287, y: 488});
