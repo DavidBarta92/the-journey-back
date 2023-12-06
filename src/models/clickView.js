@@ -3,9 +3,11 @@ import gameCanvas from "./gameCanvas";
 import RenderManager from "../controllers/renderManager";
 import stateManager from "../controllers/stateManager";
 import Anim from "../views/anim";
+import Filter from "../views/filter";
 import dataController from "../controllers/dataController";
 import Timer from "./timer";
 import Sound from "./sound";
+import D from "./debugLog";
 
 //all these variables and functions are used by the Menu and the Story functions
 
@@ -79,11 +81,15 @@ const isGif = function(image){
 //draw the background image. if its not possible it is just fill the screen with blue (after a filter comes)
 const drawBackground = function(){
     var state = dataController.loadState();
-    if(state.view == "menu") {
+    if(state.view === "menu") {
         context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
-        context.drawImage(middleground,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
+        var ctxForDither = context.getImageData(0, 0, render.width, render.height);
+        var ctxFromD = Filter.dither(ctxForDither);
+        context.putImageData(ctxFromD, 0, 0);
+        context.drawImage(middleground,  0, 0, middleground.width, middleground.height, 0, 0, render.width, render.height);
+    } else {
+        context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
     }
-    context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
     // var ctxForDither = context.getImageData(0, 0, render.width, render.height);
     // var ctxFromD = Filter.dither(ctxForDither);
     // context.putImageData(ctxFromD, 0, 0);
@@ -99,12 +105,12 @@ const writeText = function(element, textBoxX = window.innerWidth, color = elemen
     context.font        = fontString;
     context.fillStyle   = color;
     Object.entries(languageFile).forEach(label => {
-        if (label[0] == element.text){
+        if (label[0] === element.text){
             textString = label[1]; 
             return;
         }
     });
-    if (!(textString == null)) {
+    if (!!textString) {
         var lineheight = element.fontSize +(element.fontSize /4);
         var currentLineX = element.x;
         var currentLineY = element.y;
@@ -221,12 +227,12 @@ const deleteDialogueElements = function() {
 
 const allowElements = function(elements, state) {
     Object.entries(elements).forEach(element => {
-        if(element[1].type == 'item'){
-            if(element[0] == state.items.one 
-            || element[0] == state.items.two
-            || element[0] == state.items.three
-            || element[0] == state.items.four
-            || element[0] == state.items.five){
+        if(element[1].type === 'item'){
+            if(element[0] === state.items.one 
+            || element[0] === state.items.two
+            || element[0] === state.items.three
+            || element[0] === state.items.four
+            || element[0] === state.items.five){
                 element[1].allowed = true;
             } else {
                 element[1].allowed = false;
@@ -278,7 +284,7 @@ const drawElements = function(elements) {
                 context.drawImage(spritesheet,  element[1].sourceX, element[1].sourceY, element[1].sourceW, element[1].sourceH, element[1].x, element[1].y, element[1].width, element[1].height);
             }
             if (element[1].type === 'activeArea'){
-                if(true){
+                if(element[1].hasOwnProperty('allowed') && element[1].allowed === true){
                     context.beginPath();
                     context.lineWidth = 2;
                     context.strokeStyle = "#86a986";
@@ -306,8 +312,7 @@ const drawElements = function(elements) {
                     context.moveTo(element[1].x + element[1].width, element[1].y + element[1].height - 5);
                     context.lineTo(element[1].x + element[1].width, element[1].y + element[1].height + 5);
                     context.stroke();
-                }
-                if(false){
+                } else {
                     context.strokeStyle = "red";
                     context.lineWidth = 2;
                     context.beginPath();
@@ -321,7 +326,7 @@ const drawElements = function(elements) {
                     context.stroke();
                 }
             }
-            if(element[1].hasOwnProperty('appoint') && element[1].appoint == true){
+            if(element[1].hasOwnProperty('appoint') && element[1].appoint === true){
                 if(element[1].type === 'button'){
                     writeText(element[1], (element[1].x + element[1].textBoxEnd), "red");
                 } else {
@@ -351,7 +356,7 @@ const drawElements = function(elements) {
         });
         dialogueOptionClicked = false;
     });
-    if (!(glitchingElement == null)) {
+    if (!!glitchingElement) {
         Anim.glitch(glitchingElement);
         glitchingElement = null;
         requestNewFrame = true;
@@ -366,10 +371,14 @@ const readyToPlayVideo = function(videoElement){
     video.mute = videoElement.mute;
 }
 
-// collects all elements from the view whichones are clickable objects or areas
+// collects all elements from the view which ones are clickable objects or areas
 const collectInteractives = function(elements){
     Object.entries(elements).forEach(element => {
-        if (element[1].hasOwnProperty('type') && element[1].type === 'button' || element[1].type === 'item' || element[1].type === 'activeArea') {
+        if (
+            (element[1].hasOwnProperty('type') && element[1].type === 'button') ||
+            (element[1].type === 'item') ||
+            (element[1].type === 'activeArea')
+        ) {
             interactives[element[0]] = element[1];
         }
     });
@@ -387,7 +396,7 @@ const getArea = function(elements){
 }
 
 const clickAnimate = function(element){
-    if(element !== null){
+    if(!!element){
         animationDone = false;
         if (!animationDone) {
             Object.entries(contentContainer.elements).forEach(contElement => {
@@ -411,16 +420,16 @@ const activateTiming = function(){
     var now = new Date();
     if(contentContainer.hasOwnProperty('timer')
     && counterTimer < now
-    && counterTimer !== null){
+    && !!counterTimer){
         hitArea(['timer',contentContainer.timer]);
     }    
 }
 
 // execute the predetermined action of the interactive element
 const hitArea = function(element){
-    if(element !== null){
-        if(element[1].allowed == true){
-            console.log(element);
+    if(!!element){
+        if(element[1].allowed === true){
+            D.log('element',element);
             if (element[1].actionType === "setToDrive") {
                 stateManager.setView('driver');
                 stateManager.setContent(element[1].action);
@@ -442,7 +451,10 @@ const hitArea = function(element){
                 return;
             }
             if (element[1].actionType === "setContent") {
-                Sound.fx('../src/media/sounds/click.ogg');
+                if (element[1].hasOwnProperty('clickNoise') && element[1].clickNoise) {
+                    console.log(element[1].hasOwnProperty('clickNoise') && element[1].clickNoise);
+                    Sound.fx('../src/media/sounds/click.ogg')
+                };
                 stateManager.setContent(element[1].action);
                 gameCanvas.clear();
                 counterTimer = null;
@@ -461,7 +473,7 @@ const hitArea = function(element){
                 return;
             }
             if (element[1].actionType === "addItem") {
-                Sound.fx('../src/media/sounds/click.ogg');
+                if (element[1].hasOwnProperty('clickNoise') && element[1].clickNoise) Sound.fx('../src/media/sounds/click.ogg');
                 stateManager.addItem(element[1].action);
                 gameCanvas.clear();
                 clearInterval(menuInterval);
@@ -503,7 +515,7 @@ const hitArea = function(element){
                 return;
             }
             if (element[1].actionType === "startGame") {
-                if(element[1].action == 'start'){
+                if(element[1].action === 'start'){
                     if (stateManager.loadState().init){
                         stateManager.setView('story');
                         stateManager.setContent('C1_S1');
@@ -514,7 +526,7 @@ const hitArea = function(element){
                         stateManager.setContentByStatus();
                     }
                 } 
-                if(element[1].action == 'new'){
+                if(element[1].action === 'new'){
                     stateManager.setView('story');
                     stateManager.setContent('C1_S1');
                     stateManager.setInitFalse();
@@ -545,11 +557,10 @@ const hitArea = function(element){
 const appointingElement = function(elements){
     Object.entries(elements).forEach(element => {
         if (inputController.cursorOnElement(element[1])){
-            if(element[1].filter == "appointable"){
+            if(element[1].filter === "appointable"){
                 glitchingElement = {...element[1]};
                 element[1].appoint = true;
                 requestNewFrame = true;
-                //console.log(elements);
             }
         } else {
             element[1].appoint = false;
@@ -560,7 +571,6 @@ const appointingElement = function(elements){
 //used to triggering animation frame by render game frame
 const triggering = function(){
     if(requestNewFrame || context.globalAlpha <= 0.9 || dialogueOptionClicked || !animationDone){
-        //console.log("requestFrame " + requestNewFrame + " | contexAlpha " + (context.globalAlpha <= 0.9)  + " | dialogueOption " +  dialogueOptionClicked  + " | animationDone " +  !animationDone);
         requestNewFrame = false;
         return true;
     } else {
@@ -713,7 +723,7 @@ export const Story = (function(){
         if(cursor.click){
             requestNewFrame = true;
             var activeArea = getArea(interactives);
-            if (activeArea[1].allowed == true) clickAnimate(activeArea);
+            if (!!activeArea && activeArea[1].allowed === true) clickAnimate(activeArea);
             const clicking = new Promise((resolve) => {
                 setTimeout(() => {
                     resolve();

@@ -1,7 +1,7 @@
 {
   "name": "newGame",
   "backgroundPath": "",
-  "middlegroundPath": null,
+  "middlegroundPath": "../src/media/images/black.b64",
   "spritesPath": "",
   "dialogue": "",
   "filter" : "",

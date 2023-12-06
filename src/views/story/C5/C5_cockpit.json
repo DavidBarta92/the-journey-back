@@ -1,13 +1,27 @@
 {
-    "name" : "C5_kockpit",
-    "backgroundPath" : "../src/media/images/battery_halfway.b64",
+    "name" : "C5_cockpit",
+    "backgroundPath" : "../src/media/images/cockpit.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "../src/media/sounds/astronaut_suit.mp3",
-    "elements" : { 
+    "elements" : {
+        "forward" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 560,
+            "y": 250,
+            "width": 160,
+            "height": 140,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C6_S1"
+        },
         "back": {
             "type": "button",
             "text": "btn_back",
@@ -21,8 +35,8 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C4_electricity_and_battery",
+            "action": "C5_consoleRoom_2",
             "filter": "appointable"
-          }
+        }
     }
 }

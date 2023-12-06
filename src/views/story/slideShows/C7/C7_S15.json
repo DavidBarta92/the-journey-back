@@ -1,5 +1,5 @@
 {
-    "name" : "C7_S3",
+    "name" : "C7_S15",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
@@ -10,7 +10,7 @@
     "elements" : {
         "text": {
             "type": "text",
-            "text": "dia_C7_S3",
+            "text": "dia_C7_S15",
             "x": 100,
             "y": 612,
             "width": 70,
@@ -26,7 +26,7 @@
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C7_S4",
+        "action": "C7_S16",
         "allowed" : true
     }
     }

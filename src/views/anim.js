@@ -19,12 +19,12 @@ var Anim = (function(){
     function dialogueFade(fadeRect) {
         var adding = false;
         var needsNewAnimFrame = false;
-        if (!(fixFadeArray.length == 0)) {
+        if (!(fixFadeArray.length === 0)) {
             for (var i = 0; i < fixFadeArray.length; i++) {
-                if (fixFadeArray[i].x == fadeRect.x 
-                    && fixFadeArray[i].y == fadeRect.y 
-                    && fixFadeArray[i].w == fadeRect.w 
-                    && fixFadeArray[i].h == fadeRect.h) {
+                if (fixFadeArray[i].x === fadeRect.x 
+                    && fixFadeArray[i].y === fadeRect.y 
+                    && fixFadeArray[i].w === fadeRect.w 
+                    && fixFadeArray[i].h === fadeRect.h) {
                         return;
                 } else {
                     adding = true;
@@ -62,7 +62,7 @@ var Anim = (function(){
 
     const glitch = function(element = null){
 
-        if (element == null) {
+        if (!element) {
             console.log("something");
             return false;
         } else {
@@ -75,7 +75,7 @@ var Anim = (function(){
         var glitchImageB;
         var finalImageData;
 
-        if(element.type == 'button' || element.type == 'text'){
+        if(element.type === 'button' || element.type === 'text'){
             elementX         = element.x;
             elementY         = element.y;
             elementWidth     = context.measureText(element.text).width + 2 * (element.fontSize / 10);

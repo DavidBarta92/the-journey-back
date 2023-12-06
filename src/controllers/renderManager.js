@@ -28,6 +28,9 @@ var RenderManager = (function(){
           case 'story':
             Story.render(state);
             break;
+          default:
+            console.error('Unexpected view:', state.view);
+            break;
         }
       },
       

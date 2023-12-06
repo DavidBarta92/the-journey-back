@@ -1,5 +1,5 @@
 {
-    "name" : "C6_desert",
+    "name" : "C8_sunset",
     "backgroundPath" : "../src/media/images/driver-background.png",
     "spritesPath" : "../src/media/images/spritesheet.high.png",
     "itemsPath" : "",
@@ -12,7 +12,7 @@
         "length": 8,
         "curvy" : 0.9,
         "mountainy" : 0.8,
-        "zoneSize" : 100
+        "zoneSize" : 250
     },
     "elements" : {
         "dialogue" : {
@@ -60,11 +60,10 @@
                         },
                         "image":""
                     },
-                    "200" : {
-                        
+                    "1050" : {
                         "text": {
                             "type": "text",
-                            "text": "dia_C6_1",
+                            "text": "dia_C8_S1",
                             "x": 959,
                             "y": 250,
                             "width": 70,
@@ -79,28 +78,10 @@
                         },
                         "image":"../src/media/images/dd_serious.png"
                     },
-                    "250" : {
+                    "1110" : {
                         "text": {
                             "type": "text",
-                            "text": "dia_C6_2",
-                            "x": 959,
-                            "y": 250,
-                            "width": 70,
-                            "height": 20,
-                            "rotate": 0,
-                            "textBoxEnd": 300,
-                            "color": "white",
-                            "font": "Inconsolata",
-                            "fontSize": 18,
-                            "border": false,
-                            "filter": null
-                        },
-                        "image":"../src/media/images/dd_serious.png"
-                    },
-                    "280" : {
-                        "text": {
-                            "type": "text",
-                            "text": "dia_C6_3",
+                            "text": "dia_C8_S2",
                             "x": 959,
                             "y": 250,
                             "width": 70,
@@ -115,10 +96,10 @@
                         },
                         "image":"../src/media/images/de_serious.png"
                     },
-                    "310" : {
+                    "1300" : {
                         "text": {
                             "type": "text",
-                            "text": "dia_C6_4",
+                            "text": "dia_C8_S3",
                             "x": 959,
                             "y": 250,
                             "width": 70,
@@ -133,10 +114,10 @@
                         },
                         "image":"../src/media/images/dd_serious.png"
                     },
-                    "400" : {
+                    "1450" : {
                         "text": {
                             "type": "text",
-                            "text": "dia_C6_5",
+                            "text": "dia_C8_S4",
                             "x": 959,
                             "y": 250,
                             "width": 70,
@@ -151,10 +132,10 @@
                         },
                         "image":"../src/media/images/de_serious.png"
                     },
-                    "450" : {
+                    "1600" : {
                         "text": {
                             "type": "text",
-                            "text": "dia_C6_6",
+                            "text": "dia_C8_S5",
                             "x": 959,
                             "y": 250,
                             "width": 70,
@@ -169,10 +150,10 @@
                         },
                         "image":"../src/media/images/dd_serious.png"
                     },
-                    "485" : {
+                    "1650" : {
                         "text": {
                             "type": "text",
-                            "text": "dia_C6_7",
+                            "text": "dia_C8_S6",
                             "x": 959,
                             "y": 250,
                             "width": 70,
@@ -187,25 +168,7 @@
                         },
                         "image":"../src/media/images/de_serious.png"
                     },
-                    "550" : {
-                        "text": {
-                            "type": "text",
-                            "text": "dia_C6_8",
-                            "x": 959,
-                            "y": 250,
-                            "width": 70,
-                            "height": 20,
-                            "rotate": 0,
-                            "textBoxEnd": 300,
-                            "color": "white",
-                            "font": "Inconsolata",
-                            "fontSize": 18,
-                            "border": false,
-                            "filter": null
-                        },
-                        "image":"../src/media/images/dd_serious.png"
-                    },
-                    "650" : {
+                    "1740" : {
                         "text": {
                             "type": "text",
                             "text": "",
@@ -221,12 +184,12 @@
                             "border": false,
                             "filter": null
                         },
-                        "image":"../src/media/images/de_serious.png"
+                        "image":""
                     },
-                    "700" : {
+                    "1750" : {
                         "text": {
                             "type": "text",
-                            "text": "dia_C6_9",
+                            "text": "dia_C8_S7",
                             "x": 959,
                             "y": 250,
                             "width": 70,
@@ -296,6 +259,6 @@
     },
     "end" : {
         "actionType": "setToClickView",
-        "action": "C7_S1"
+        "action": "C8_mainCorridor_1"
     }
     }
