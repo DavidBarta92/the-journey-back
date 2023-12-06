@@ -8,9 +8,23 @@
     "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "../src/media/sounds/astronaut_suit.mp3",
     "elements" : { 
-        "back": {
+        "forward" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 549,
+            "y": 277,
+            "width": 170,
+            "height": 200,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C5_kitchen_2"
+        },
+        "turn": {
             "type": "button",
-            "text": "btn_back",
+            "text": "btn_turn",
             "x": 346,
             "y": 650,
             "width": 70,
@@ -21,8 +35,8 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C4_electricity_and_battery",
+            "action": "C5_consoleRoom_1",
             "filter": "appointable"
-          }
+        }
     }
 }

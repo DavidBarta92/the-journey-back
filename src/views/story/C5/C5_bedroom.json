@@ -21,7 +21,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C4_electricity_and_battery",
+            "action": "C5_consoleRoom_2",
             "filter": "appointable"
           }
     }
