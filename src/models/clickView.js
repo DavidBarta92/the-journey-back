@@ -8,6 +8,7 @@ import dataController from "../controllers/dataController";
 import Timer from "./timer";
 import Sound from "./sound";
 import D from "./debugLog";
+import Draw from "./draw";
 
 //all these variables and functions are used by the Menu and the Story functions
 
@@ -94,49 +95,6 @@ const drawBackground = function(){
     // var ctxFromD = Filter.dither(ctxForDither);
     // context.putImageData(ctxFromD, 0, 0);
 }
-
-//write the given text in the chosen language
-const writeText = function(element, textBoxX = window.innerWidth, color = element.color){
-    dialogueFadeArray = [];
-    var fontString;
-    var textString;
-    fontString          = element.fontSize + "px " + element.font;
-    context.beginPath();
-    context.font        = fontString;
-    context.fillStyle   = color;
-    Object.entries(languageFile).forEach(label => {
-        if (label[0] === element.text){
-            textString = label[1]; 
-            return;
-        }
-    });
-    if (!!textString) {
-        var lineheight = element.fontSize +(element.fontSize /4);
-        var currentLineX = element.x;
-        var currentLineY = element.y;
-        var words = textString.split(' ');
-
-        for (var i = 0; i < words.length; i++) {
-            words[i] = words[i] + ' ';
-            var currentWordWidth = context.measureText(words[i]).width;
-            if (currentLineX + currentWordWidth > textBoxX) {
-                currentLineY = currentLineY + lineheight;
-                currentLineX = element.x;
-            }
-            context.fillText(words[i], currentLineX, currentLineY);
-            if (element.filter === "dialogueFade") {
-                //dialogueFadeArray.push({x: currentLineX, y: currentLineY - context.measureText(words[i]).actualBoundingBoxAscent, w: currentWordWidth, h: element.fontSize, r: 255, g: 255, b:255, a:1});
-                requestNewFrame = Anim.dialogueFade({x: currentLineX, y: currentLineY - context.measureText(words[i]).actualBoundingBoxAscent, w: currentWordWidth, h: element.fontSize, r: 255, g: 255, b:255, a:1});
-            }
-            currentLineX = currentWordWidth + currentLineX;
-        }
-        //requestNewFrame = Filter.dialogueFade(dialogueFadeArray);
-    } else {
-        context.fillText(element.text, element.x, element.y);
-    }
-}
-
-var dialogueFadeArray = [];
 
 const getValidSpeechByIndex = function(speechIndex){ 
     let speechIndexIsValid = false;
@@ -264,18 +222,7 @@ const drawElements = function(elements) {
                 if(video.ended === false) animationDone = false;
             }
             if (element[1].type === 'button' || element[1].type === 'text'){
-                writeText(element[1], (element[1].x + element[1].textBoxEnd));
-                
-                //only buttons have border
-                if(element[1].hasOwnProperty('border') && element[1].border){
-                    var width = context.measureText(element[1].text).width + 2 * (element[1].fontSize / 10);
-                    var buttonTopLeftX = element[1].x - element[1].fontSize / 10;
-                    var buttonTopLeftY = element[1].y - element[1].fontSize + element[1].fontSize / 10;
-        
-                    context.strokeStyle = element[1].color;
-                    context.rect(buttonTopLeftX, buttonTopLeftY, width, element[1].fontSize);
-                    context.stroke();
-                }
+                Draw.writeText(element, (element[1].x + element[1].textBoxEnd));
             }
             if (element[1].type === 'item' && element[1].allowed === true){
                 context.drawImage(spritesheet,  element[1].sourceX, element[1].sourceY, element[1].sourceW, element[1].sourceH, element[1].x, element[1].y, element[1].width, element[1].height);
@@ -284,73 +231,18 @@ const drawElements = function(elements) {
                 context.drawImage(spritesheet,  element[1].sourceX, element[1].sourceY, element[1].sourceW, element[1].sourceH, element[1].x, element[1].y, element[1].width, element[1].height);
             }
             if (element[1].type === 'activeArea'){
-                if(element[1].hasOwnProperty('allowed') && element[1].allowed === true){
-                    context.beginPath();
-                    context.lineWidth = 2;
-                    context.strokeStyle = "#86a986";
-                    context.moveTo(element[1].x - 5, element[1].y);
-                    context.lineTo(element[1].x + 5, element[1].y);
-                    context.stroke();
-                    context.moveTo(element[1].x, element[1].y - 5);
-                    context.lineTo(element[1].x, element[1].y + 5);
-                    context.stroke();
-                    context.moveTo(element[1].x + element[1].width - 5, element[1].y);
-                    context.lineTo(element[1].x + element[1].width + 5, element[1].y);
-                    context.stroke();
-                    context.moveTo(element[1].x + element[1].width, element[1].y - 5);
-                    context.lineTo(element[1].x + element[1].width, element[1].y + 5);
-                    context.stroke();
-                    context.moveTo(element[1].x - 5, element[1].y + element[1].height);
-                    context.lineTo(element[1].x + 5, element[1].y + element[1].height);
-                    context.stroke();
-                    context.moveTo(element[1].x, element[1].y + element[1].height - 5);
-                    context.lineTo(element[1].x, element[1].y + element[1].height + 5);
-                    context.stroke();
-                    context.moveTo(element[1].x + element[1].width - 5, element[1].y + element[1].height);
-                    context.lineTo(element[1].x + element[1].width + 5, element[1].y + element[1].height);
-                    context.stroke();
-                    context.moveTo(element[1].x + element[1].width, element[1].y + element[1].height - 5);
-                    context.lineTo(element[1].x + element[1].width, element[1].y + element[1].height + 5);
-                    context.stroke();
-                } else {
-                    context.strokeStyle = "red";
-                    context.lineWidth = 2;
-                    context.beginPath();
-                    context.rect(element[1].x,element[1].y,element[1].width,element[1].height);
-                    context.stroke();
-                    context.moveTo(element[1].x + 10, element[1].y + 10);
-                    context.lineTo(element[1].x + element[1].width -10, element[1].y + element[1].height -10);
-                    context.stroke();
-                    context.moveTo(element[1].x + element[1].width - 10, element[1].y + 10);
-                    context.lineTo(element[1].x + 10, element[1].y + element[1].height - 10);
-                    context.stroke();
-                }
+                Draw.activeArea(element);
             }
             if(element[1].hasOwnProperty('appoint') && element[1].appoint === true){
-                if(element[1].type === 'button'){
-                    writeText(element[1], (element[1].x + element[1].textBoxEnd), "red");
-                } else {
-                    context.strokeStyle = "#498564";
-                    context.lineWidth = 2;
-                    context.beginPath();
-                    context.rect(element[1].x,element[1].y,element[1].width,element[1].height);
-                    context.stroke();
-                }
+                    // context.strokeStyle = "#498564";
+                    // context.lineWidth = 2;
+                    // context.beginPath();
+                    // context.rect(element[1].x,element[1].y,element[1].width,element[1].height);
+                    // context.stroke();
                 element[1].appoint = false;
             }
             if(element[1].hasOwnProperty('clicked') && element[1].clicked === true){
-                if(element[1].type === 'button'){
-                    writeText(element[1], (element[1].x + element[1].textBoxEnd), "green");
-                    Timer.wait(41);
-                } else {
-                    context.beginPath();
-                    context.lineWidth = "4";
-                    context.strokeStyle = "#dbe0bc";
-                    context.rect(element[1].x,element[1].y,element[1].width,element[1].height);
-                    context.stroke();
-                    context.closePath();
-                    Timer.wait(41);
-                }
+                Timer.wait(41);
                 element[1].clicked = false;
             }
         });
