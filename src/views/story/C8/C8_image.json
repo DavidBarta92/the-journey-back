@@ -1,5 +1,5 @@
 {
-    "name" : "C8_store",
+    "name" : "C8_image",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
@@ -8,19 +8,21 @@
     "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "../src/media/sounds/astronaut_suit.mp3",
     "elements" : {
-        "shelter" : {
-            "type": "activeArea",
-            "text": null,
+        "bring": {
+            "type": "button",
+            "text": "btn_bring",
             "x": 100,
-            "y": 270,
-            "width": 100,
-            "height": 180,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
             "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
             "actionType": "setContent",
-            "action": "C8_shelter"
+            "action": "C9_S1",
+            "filter": "appointable"
         },
         "back": {
             "type": "button",
@@ -35,7 +37,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C8_cockpit",
+            "action": "C8_shelter",
             "filter": "appointable"
         }
     }

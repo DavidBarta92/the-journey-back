@@ -1,5 +1,5 @@
 {
-    "name" : "C8_store",
+    "name" : "C8_shelter",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
@@ -20,7 +20,7 @@
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "C8_shelter"
+            "action": "C8_image"
         },
         "back": {
             "type": "button",
@@ -35,7 +35,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C8_cockpit",
+            "action": "C8_store",
             "filter": "appointable"
         }
     }
