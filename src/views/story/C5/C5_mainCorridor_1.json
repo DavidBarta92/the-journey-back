@@ -22,9 +22,23 @@
             "actionType": "setContent",
             "action": "C5_consoleRoom_1"
         },
+        "ladder" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 1122,
+            "y": 130,
+            "width": 150,
+            "height": 380,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C5_attic"
+        },
         "turn": {
             "type": "button",
-            "text": "btn_turn_nincs_kesz",
+            "text": "btn_turn",
             "x": 346,
             "y": 650,
             "width": 70,

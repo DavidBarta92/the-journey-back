@@ -36,9 +36,23 @@
             "actionType": "setContent",
             "action": "C5_bedroom"
         },
-        "turn": {
+        "window" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 638,
+            "y": 240,
+            "width": 210,
+            "height": 140,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C5_window"
+        },
+        "turn_right": {
             "type": "button",
-            "text": "btn_turn",
+            "text": "btn_turn_right",
             "x": 346,
             "y": 650,
             "width": 70,
@@ -49,7 +63,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C5_consoleRoom_2",
+            "action": "C5_mainCorridor_2",
             "filter": "appointable"
         }
     }
