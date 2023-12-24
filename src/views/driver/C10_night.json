@@ -1,5 +1,5 @@
 {
-    "name" : "C11_night",
+    "name" : "C10_night",
     "backgroundPath" : "../src/media/images/driver-background.png",
     "spritesPath" : "../src/media/images/spritesheet.high.png",
     "itemsPath" : "",
@@ -296,6 +296,6 @@
     },
     "end" : {
         "actionType": "setToClickView",
-        "action": "C7_S1"
+        "action": "C11_S1"
     }
     }

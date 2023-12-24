@@ -1,30 +1,44 @@
 {
-    "name" : "C5_consoleRoom_2",
-    "backgroundPath" : "../src/media/images/consoleRoom_2.b64",
+    "name" : "C8_cockpit",
+    "backgroundPath" : "../src/media/images/cockpit.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "../src/media/sounds/astronaut_suit.mp3",
-    "elements" : { 
+    "elements" : {
         "forward" : {
             "type": "activeArea",
             "text": null,
-            "x": 140,
-            "y": 180,
-            "width": 200,
-            "height": 320,
+            "x": 560,
+            "y": 250,
+            "width": 160,
+            "height": 140,
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "C5_mainCorridor_2"
+            "action": "C6_S1"
         },
-        "turn": {
+        "store" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 25,
+            "y": 245,
+            "width": 160,
+            "height": 280,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C8_store"
+        },
+        "back": {
             "type": "button",
-            "text": "btn_turn_right",
+            "text": "btn_back",
             "x": 346,
             "y": 650,
             "width": 70,
@@ -35,7 +49,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C5_cockpit",
+            "action": "C8_consoleRoom_2",
             "filter": "appointable"
         }
     }

@@ -1,30 +1,30 @@
 {
-    "name" : "C5_consoleRoom_2",
-    "backgroundPath" : "../src/media/images/consoleRoom_2.b64",
+    "name" : "C5_attic",
+    "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "../src/media/sounds/astronaut_suit.mp3",
-    "elements" : { 
-        "forward" : {
+    "elements" : {
+        "computer" : {
             "type": "activeArea",
             "text": null,
-            "x": 140,
-            "y": 180,
-            "width": 200,
-            "height": 320,
+            "x": 880,
+            "y": 270,
+            "width": 160,
+            "height": 200,
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "C5_mainCorridor_2"
+            "action": "C5_computer"
         },
-        "turn": {
+        "back": {
             "type": "button",
-            "text": "btn_turn_right",
+            "text": "btn_back",
             "x": 346,
             "y": 650,
             "width": 70,
@@ -35,7 +35,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C5_cockpit",
+            "action": "C5_mainCorridor_1",
             "filter": "appointable"
         }
     }

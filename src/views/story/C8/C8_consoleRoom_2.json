@@ -1,5 +1,5 @@
 {
-    "name" : "C5_consoleRoom_2",
+    "name" : "C8_consoleRoom_2",
     "backgroundPath" : "../src/media/images/consoleRoom_2.b64",
     "spritesPath" : "",
     "itemsPath" : "",
@@ -20,7 +20,7 @@
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "C5_mainCorridor_2"
+            "action": "C8_mainCorridor_2"
         },
         "turn": {
             "type": "button",
@@ -35,7 +35,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C5_cockpit",
+            "action": "C8_cockpit",
             "filter": "appointable"
         }
     }

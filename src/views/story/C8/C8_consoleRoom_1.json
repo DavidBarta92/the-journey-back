@@ -1,6 +1,6 @@
 {
-    "name" : "C5_mainCorridor_1",
-    "backgroundPath" : "../src/media/images/mainCorridor_1.b64",
+    "name" : "C8_consoleRoom_1",
+    "backgroundPath" : "../src/media/images/consoleRoom_1.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -8,37 +8,51 @@
     "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "../src/media/sounds/astronaut_suit.mp3",
     "elements" : { 
-        "forward" : {
+        "kockpit" : {
             "type": "activeArea",
             "text": null,
-            "x": 450,
-            "y": 180,
-            "width": 350,
+            "x": 361,
+            "y": 207,
+            "width": 70,
+            "height": 200,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C8_cockpit"
+        },
+        "bedroom" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 1100,
+            "y": 230,
+            "width": 150,
             "height": 300,
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "C5_consoleRoom_1"
+            "action": "C8_bedroom"
         },
-        "ladder" : {
+        "window" : {
             "type": "activeArea",
             "text": null,
-            "x": 1122,
-            "y": 130,
-            "width": 150,
-            "height": 380,
+            "x": 638,
+            "y": 240,
+            "width": 210,
+            "height": 140,
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "C5_attic"
+            "action": "C8_window"
         },
-        "turn": {
+        "turn_right": {
             "type": "button",
-            "text": "btn_turn",
+            "text": "btn_turn_right",
             "x": 346,
             "y": 650,
             "width": 70,
@@ -49,7 +63,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C5_kitchen_door",
+            "action": "C8_mainCorridor_2",
             "filter": "appointable"
         }
     }

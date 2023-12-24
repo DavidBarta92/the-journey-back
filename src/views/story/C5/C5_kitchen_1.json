@@ -22,6 +22,20 @@
             "actionType": "setContent",
             "action": "C5_mainCorridor_1"
         },
+        "drawer" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 22,
+            "y": 472,
+            "width": 300,
+            "height": 100,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C5_drawer"
+        },
         "turn": {
             "type": "button",
             "text": "btn_turn",

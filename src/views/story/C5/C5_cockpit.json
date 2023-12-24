@@ -22,6 +22,20 @@
             "actionType": "setContent",
             "action": "C6_S1"
         },
+        "store" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 25,
+            "y": 245,
+            "width": 160,
+            "height": 280,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C5_store"
+        },
         "back": {
             "type": "button",
             "text": "btn_back",

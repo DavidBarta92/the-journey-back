@@ -1,6 +1,6 @@
 {
-    "name" : "C5_consoleRoom_2",
-    "backgroundPath" : "../src/media/images/consoleRoom_2.b64",
+    "name" : "C8_mainCorridor_1",
+    "backgroundPath" : "../src/media/images/mainCorridor_1.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -11,20 +11,34 @@
         "forward" : {
             "type": "activeArea",
             "text": null,
-            "x": 140,
+            "x": 450,
             "y": 180,
-            "width": 200,
-            "height": 320,
+            "width": 350,
+            "height": 300,
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "C5_mainCorridor_2"
+            "action": "C8_consoleRoom_1"
+        },
+        "ladder" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 1122,
+            "y": 130,
+            "width": 150,
+            "height": 380,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter" : null,
+            "actionType": "setContent",
+            "action": "C8_attic"
         },
         "turn": {
             "type": "button",
-            "text": "btn_turn_right",
+            "text": "btn_turn",
             "x": 346,
             "y": 650,
             "width": 70,
@@ -35,7 +49,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C5_cockpit",
+            "action": "C8_kitchen_door",
             "filter": "appointable"
         }
     }
