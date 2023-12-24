@@ -8,6 +8,7 @@ import Filter from "../views/filter";
 import Anim from "../views/anim";
 import dataController from "../controllers/dataController";
 import Timer from "./timer";
+import Draw from "./draw";
 
 var dialogueOptionClicked;
 var backgroundImage = new Image();
@@ -56,7 +57,6 @@ export const Driver = (function(){
     // -----------------------------
     var startTime = new Date();
     var lastDelta = 0;
-    var currentTimeString = "";
 
     var road = [];
     var roadSegmentSize = 5;
@@ -114,18 +114,15 @@ export const Driver = (function(){
         keys = inputController.getKeys();
 
         gameCanvas.clear();
-        console.log(absoluteIndex);
-        if (keys[27]) setPause(driverViewIndexParams);
-
         const delta = player.updateCarState(baseOffset);
         handleSpeedAndPosition(keys, delta);
 
-        drawBackground(-player.posx);
+        Draw.drawBackground(+(2*(player.posx)),backgroundImage);
         
         renderRoad();
  
-        renderHUD();
-
+        Draw.renderHUD(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render);
+        drawElements(contentContainer.elements);
         Anim.crt();
         requestNewFrame = true;
     }
@@ -249,7 +246,7 @@ export const Driver = (function(){
         var sprite;
 
         while(sprite = spriteBuffer.pop()) {
-            drawSprite(sprite);
+            Draw.sprite(sprite);
         }
 
         //dithetring
@@ -312,75 +309,9 @@ export const Driver = (function(){
         var holoSprite;
 
         while(holoSprite = holoSpriteBuffer.pop()) {
-            drawSprite(holoSprite);
+            Draw.sprite(holoSprite);
         }
     }    
-
-    // --------------------------
-    // --     Draw the hud     --
-    // --------------------------
-    const renderHUD = function(){
-        context.drawImage(hud, 0, 0, canvas.width, canvas.height);
-
-        var now = new Date();
-        var diff = now.getTime() - startTime.getTime();
-        
-        var min = Math.floor(diff / 60000);
-        
-        var sec = Math.floor((diff - min * 60000) / 1000); 
-        if(sec < 10) sec = "0" + sec;
-        
-        var mili = Math.floor(diff - min * 60000 - sec * 1000);
-        if(mili < 100) mili = "0" + mili;
-        if(mili < 10) mili = "0" + mili;
-        
-        currentTimeString = ""+min+":"+sec+":"+mili;
-
-        drawString(currentTimeString, {x: 30, y: 500});
-
-        var speed = Math.round((player.speed / player.maxSpeed * 200) / 6 );
-        drawString(""+speed+"mph", {x: 30, y: 488});
-
-        var percent = ""+Math.round(absoluteIndex/(roadParam.length-render.depthOfField)*100)+"%";
-
-        //draw dialoge things
-        currentDialogueImage.src = currentDialogueText.image;
-        context.drawImage(currentDialogueImage, 959, 42, 310, 177);
-        writeText(currentDialogueText.text, (currentDialogueText.text.x + currentDialogueText.text.textBoxEnd));
-
-        drawString(percent,{x: 287, y: 488});
-
-        contentContainer.elements.speedCounter.text = speed + "mph";
-        contentContainer.elements.percentCounter.text = percent;
-
-        contentContainer.elements.speedCounter.x = 33;
-        contentContainer.elements.speedCounter.y = 553;
-        contentContainer.elements.speedCounter.color = "#dc3a15";
-        writeText(contentContainer.elements.speedCounter);
-        contentContainer.elements.speedCounter.x = 30;
-        contentContainer.elements.speedCounter.y = 550;
-        contentContainer.elements.speedCounter.color = "white";
-        writeText(contentContainer.elements.speedCounter);
-        writeText(contentContainer.elements.percentCounter);
-
-        context.beginPath();
-        context.lineWidth = "2";
-        context.strokeStyle = "#dc3a15";
-        context.rect(30, 620, 30, 30);
-        context.stroke();
-        context.beginPath();
-        context.lineWidth = "2";
-        context.strokeStyle = "#dc3a15";
-        context.rect(750, 620, 30, 30);
-        context.stroke();
-        context.beginPath();
-        context.lineWidth = "3";
-        context.strokeStyle = "#dc3a15";
-        context.rect(30, 635, 750, 0);
-        context.stroke();
-
-        drawElements(contentContainer.elements);
-    }
 
     const setActionByAbsoluteIndex = function(){
         currentDialogueText = getContentsByAbsoluteIndex();
@@ -433,7 +364,7 @@ export const Driver = (function(){
                 if (element[1].type === 'button' || element[1].type === 'text'){
                     //if (element[1].hasOwnProperty('buttonKey')) drawPessKey(element[1].buttonKey);
 
-                    writeText(element[1], (element[1].x + element[1].textBoxEnd));
+                    Draw.writeText(element[1], (element[1].x + element[1].textBoxEnd));
                     
                     //only buttons have border
                     if(element[1].hasOwnProperty('border') && element[1].border){
@@ -471,78 +402,6 @@ export const Driver = (function(){
         RenderManager.render();
     }
 
-    const setPause = function(driverViewIndexParams) {
-        var pState = stateManager.loadState();
-        if(pState.view !== 'menu'){
-            var dataURL = gameCanvas.getDataURL();
-            dataController.saveScreenImage(dataURL);
-            pause = true;
-            clearInterval(gameInterval);
-            stateManager.setStatus(driverViewIndexParams);
-            stateManager.setView('menu');
-            stateManager.setContent('main');
-            RenderManager.render();
-        }
-    }
-
-    var dialogueFadeArray = [];
-
-    //write the given text in the chosen language
-    const writeText = function(element, textBoxX = window.innerWidth){
-        dialogueFadeArray = [];
-        var fontString;
-        var textString;
-        fontString          = element.fontSize + "px " + element.font;
-        context.beginPath();
-        context.font        = fontString;
-        context.fillStyle   = element.color;
-        Object.entries(languageFile).forEach(label => {
-            if (label[0] === element.text){
-                textString = label[1]; 
-                return;
-            }
-        });
-        if (!!textString) {
-            var lineheight = element.fontSize +(element.fontSize /4);
-            var currentLineX = element.x;
-            var currentLineY = element.y;
-            var words = textString.split(' ');
-
-            for (var i = 0; i < words.length; i++) {
-                words[i] = words[i] + ' ';
-                var currentWordWidth = context.measureText(words[i]).width;
-                if (currentLineX + currentWordWidth > textBoxX) {
-                    currentLineY = currentLineY + lineheight;
-                    currentLineX = element.x;
-                }
-                context.fillText(words[i], currentLineX, currentLineY);
-                if (element.filter === "dialogueFade") {
-                    //dialogueFadeArray.push({x: currentLineX, y: currentLineY - context.measureText(words[i]).actualBoundingBoxAscent, w: currentWordWidth, h: element.fontSize, r: 255, g: 255, b:255, a:1});
-                    requestNewFrame = Anim.dialogueFade({x: currentLineX, y: currentLineY - context.measureText(words[i]).actualBoundingBoxAscent, w: currentWordWidth, h: element.fontSize, r: 255, g: 255, b:255, a:1});
-                }
-                currentLineX = currentWordWidth + currentLineX;
-            }
-            //requestNewFrame = Filter.dialogueFade(dialogueFadeArray);
-        } else {
-            context.fillText(element.text, element.x, element.y);
-        }
-    }
-
-    // Drawing primitive
-    const drawImage = function(image, x, y, scaleW, scaleH){
-        context.drawImage(image, x, 0, image.width, image.height, 0, 0, scaleW*image.width, scaleH*image.height);
-    };
-
-    const drawString = function(string, pos) {
-        string = string.toUpperCase();
-        var cur = pos.x;
-        for(var i=0; i < string.length; i++) {
-            spritesheet.src = "../src/media/images/spritesheet.high.png";
-            context.drawImage(spritesheet, (string.charCodeAt(i) - 32) * 8, 0, 8, 8, cur, pos.y, 8, 8);
-            cur += 8;
-        }
-    }
-
     const drawTrapez = function(pos1, scale1, offset1, pos2, scale2, offset2, delta1, delta2, color){
         var demiWidth = render.width / 2;
 
@@ -557,25 +416,6 @@ export const Driver = (function(){
         context.lineTo(demiWidth + delta2 * render.width * scale2 + offset2, pos2); 
         context.lineTo(demiWidth + delta2 * render.width * scale1 + offset1, pos1);
         context.fill();
-    }
-
-    const drawSprite = function(sprite){
-        //if(sprite.y <= sprite.ymax){
-            var destY = sprite.y - sprite.i.h * sprite.s;
-            if(sprite.ymax < sprite.y) {
-                var h = Math.min(sprite.i.h * (sprite.ymax - destY) / (sprite.i.h * sprite.s), sprite.i.h);
-            } else {
-                var h = sprite.i.h; 
-            }
-            //sprite.y - sprite.i.h * sprite.s
-            spritesheet.src = "../src/media/images/images/spritesheet.high.png";
-            if(h > 0) context.drawImage(spritesheet,  sprite.i.x, sprite.i.y, sprite.i.w, h, sprite.x, destY, sprite.s * sprite.i.w, sprite.s * h);
-        //}
-    };
-
-    const drawBackground = function(position) {
-        var first = position / 20 % (backgroundImage.width);
-        drawImage(backgroundImage, first+700, 8, 2.2, 2.2);
     }
 
     const drawSegment = function (position1, scale1, offset1, position2, scale2, offset2, alternate, finishStart){
