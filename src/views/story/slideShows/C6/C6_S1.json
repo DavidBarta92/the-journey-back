@@ -1,6 +1,6 @@
 {
     "name" : "C6_S1",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/C6_S1_bg.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -11,14 +11,14 @@
         "text": {
             "type": "text",
             "text": "dia_C6_S1_1",
-            "x": 883,
-            "y": 75,
+            "x": 50,
+            "y": 418,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
             "font": "Inconsolata",
-            "textBoxEnd": 320,
+            "textBoxEnd": 200,
             "fontSize": 20,
             "border": false,
             "filter": null
@@ -26,14 +26,14 @@
           "text2": {
             "type": "text",
             "text": "dia_C6_S1_2",
-            "x": 40,
-            "y": 500,
+            "x": 1035,
+            "y": 150,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
             "font": "Inconsolata",
-            "textBoxEnd": 320,
+            "textBoxEnd": 200,
             "fontSize": 20,
             "border": false,
             "filter": null

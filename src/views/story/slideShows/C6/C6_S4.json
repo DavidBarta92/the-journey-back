@@ -1,6 +1,6 @@
 {
     "name" : "C6_S4",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/C6_S4_bg.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -11,14 +11,14 @@
         "text": {
             "type": "text",
             "text": "dia_C6_S4",
-            "x": 110,
-            "y": 612,
+            "x": 350,
+            "y": 509,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
             "font": "Inconsolata",
-            "textBoxEnd": 1090,
+            "textBoxEnd": 620,
             "fontSize": 20,
             "border": false,
             "filter": null

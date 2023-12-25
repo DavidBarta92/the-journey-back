@@ -1,6 +1,6 @@
 {
     "name" : "C7_S9",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/C7_S9_bg.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -11,8 +11,8 @@
         "text": {
             "type": "text",
             "text": "dia_C7_S9",
-            "x": 100,
-            "y": 612,
+            "x": 880,
+            "y": 600,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -26,7 +26,7 @@
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C7_S10",
+        "action": "C7_S15",
         "allowed" : true
     }
     }

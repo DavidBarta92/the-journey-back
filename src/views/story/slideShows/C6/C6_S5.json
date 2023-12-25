@@ -1,6 +1,6 @@
 {
     "name" : "C6_S5",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/C6_S5_bg.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -25,7 +25,7 @@
           "text2": {
             "type": "text",
             "text": "dia_C6_S5_2",
-            "x": 480,
+            "x": 463,
             "y": 630,
             "width": 70,
             "height": 20,

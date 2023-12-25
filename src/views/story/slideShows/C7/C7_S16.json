@@ -1,6 +1,6 @@
 {
     "name" : "C7_S16",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/C7_S16_bg.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -11,11 +11,12 @@
         "text": {
             "type": "text",
             "text": "dia_C7_S16",
-            "x": 100,
-            "y": 612,
+            "x": 106,
+            "y": 547,
             "width": 70,
             "height": 20,
             "rotate": 0,
+            "textBoxEnd": 350,
             "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
