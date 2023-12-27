@@ -62,21 +62,8 @@ var glitchingElement;
 
 var counterTimer;
 
-const drawString = function(string, pos) {
-    string = string.toUpperCase();
-    var cur = pos.x;
-    for(var i=0; i < string.length; i++) {
-        context.drawImage(spritesheetForString, (string.charCodeAt(i) - 32) * 8, 0, 8, 8, cur, pos.y, 8, 8);
-        cur += 8;
-    }
-}
-
 function onView(button, stateView) {
     return button.place.includes(stateView);
-}
-
-const isGif = function(image){
-    return String(image).includes("data:image/gif");
 }
 
 //draw the background image. if its not possible it is just fill the screen with blue (after a filter comes)
@@ -84,9 +71,6 @@ const drawBackground = function(){
     var state = dataController.loadState();
     if(state.view === "menu") {
         context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
-        var ctxForDither = context.getImageData(0, 0, render.width, render.height);
-        var ctxFromD = Filter.dither(ctxForDither);
-        context.putImageData(ctxFromD, 0, 0);
         context.drawImage(middleground,  0, 0, middleground.width, middleground.height, 0, 0, render.width, render.height);
     } else {
         context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
@@ -535,9 +519,9 @@ export const Menu = (function(){
         render: function(state){
             init(state);
             baseSound();
-            animInterval = setInterval(trackAnimation, 10);
+            animInterval = setInterval(trackAnimation, 500);
             //if(triggering()) menuInterval = setInterval(renderMenuFrame, 100);
-            clickInterval = setInterval(trackInput, 10);
+            clickInterval = setInterval(trackInput, 1);
             },
 
         //its only for th first screen rendering at the game starting (this preload pictures, fonts for the clickview)
