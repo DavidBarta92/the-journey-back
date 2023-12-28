@@ -10,6 +10,7 @@ function createWindow() {
   const windowParams = {
     width: 1280,
     height: 720,
+    useContentSize: true,
     depthOfField: 150,
     camera_distance: 30,
     camera_height: 150,

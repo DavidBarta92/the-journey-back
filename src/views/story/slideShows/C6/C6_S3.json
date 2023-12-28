@@ -1,6 +1,6 @@
 {
     "name" : "C6_S3",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/C6_S3_bg.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -11,8 +11,8 @@
         "text": {
             "type": "text",
             "text": "dia_C6_S3",
-            "x": 700,
-            "y": 300,
+            "x": 610,
+            "y": 495,
             "width": 70,
             "height": 20,
             "rotate": 0,

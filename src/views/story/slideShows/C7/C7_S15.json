@@ -1,6 +1,6 @@
 {
     "name" : "C7_S15",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/C7_S15_bg.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -11,8 +11,8 @@
         "text": {
             "type": "text",
             "text": "dia_C7_S15",
-            "x": 100,
-            "y": 612,
+            "x": 500,
+            "y": 636,
             "width": 70,
             "height": 20,
             "rotate": 0,
