@@ -1,5 +1,5 @@
 {
-    "name" : "C4_S2",
+    "name" : "C4_S3",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
@@ -10,7 +10,7 @@
     "elements" : {
         "text1": {
             "type": "text",
-            "text": "dia_C4_S2-1",
+            "text": "dia_C4_S3-1",
             "x": 435,
             "y": 612,
             "width": 70,
@@ -24,7 +24,7 @@
           },
           "text2": {
             "type": "text",
-            "text": "dia_C4_S2-2",
+            "text": "dia_C4_S3-2",
             "x": 435,
             "y": 612,
             "width": 70,
@@ -38,7 +38,7 @@
           },
           "text3": {
             "type": "text",
-            "text": "dia_C4_S2-3",
+            "text": "dia_C4_S3-3",
             "x": 435,
             "y": 612,
             "width": 70,
@@ -52,7 +52,7 @@
           },
           "text4": {
             "type": "text",
-            "text": "dia_C4_S2-4",
+            "text": "dia_C4_S3-4",
             "x": 435,
             "y": 612,
             "width": 70,
@@ -68,7 +68,7 @@
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C4_S3",
+        "action": "C4_S4",
         "allowed" : true
     }
     }

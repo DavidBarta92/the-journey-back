@@ -1,5 +1,5 @@
 {
-    "name" : "C4_S1",
+    "name" : "C4_S6",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
@@ -8,8 +8,17 @@
     "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "",
     "elements" : {
-        "empty_object": {
-            "type": "empty_object",
+        "text": {
+            "type": "text",
+            "text": "dial_C4_S6",
+            "x": 435,
+            "y": 612,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
             "border": false,
             "filter": null
           }
@@ -17,7 +26,7 @@
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C4_S2",
+        "action": "C4_S7",
         "allowed" : true
     }
     }
