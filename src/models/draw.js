@@ -7,9 +7,14 @@ var Draw = (function(){
     var context = gameCanvas.getContext();
     var canvas = gameCanvas.getCanvas();
     let state = stateManager.loadState();
-    var languageFile = dataController.loadLanguageFile(state);
+    var languageFile;
     var spritesheet = new Image();
     var currentTimeString = "";
+
+    const loadLanguage = function () {
+        state = dataController.loadState();
+        languageFile = dataController.loadLanguageFile(state);
+    };
 
     const activeArea = function (element) {
         const { x, y, width, height } = element[1];
@@ -200,6 +205,7 @@ var Draw = (function(){
         },
 
         writeText: function(element, textBoxX = window.innerWidth, color = element.color){
+            loadLanguage();
             if(element[1].hasOwnProperty('clicked') 
             && element[1].clicked === true 
             && element[1].type === 'button'){
@@ -226,10 +232,12 @@ var Draw = (function(){
         },
 
         renderHUD: function(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render){
+            loadLanguage();
             return renderHUD(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render);
         },
 
         drawString: function(string, pos){
+            loadLanguage();
             return drawString(string, pos);
         },
 
