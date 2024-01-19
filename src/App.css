@@ -70,4 +70,6 @@ html, body {
 
 #c {
   position: absolute;
+  position: relative;
+  -webkit-filter: url(#kill);
 }
