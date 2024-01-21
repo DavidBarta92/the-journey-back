@@ -519,7 +519,7 @@ export const Menu = (function(){
         render: function(state){
             init(state);
             baseSound();
-            animInterval = setInterval(trackAnimation, 500);
+            animInterval = setInterval(trackAnimation, 1);
             //if(triggering()) menuInterval = setInterval(renderMenuFrame, 100);
             clickInterval = setInterval(trackInput, 1);
             },
@@ -561,9 +561,13 @@ export const Story = (function(){
         setTiming();
     }
 
+    const escAllowed = function(){
+        return contentContainer.hasOwnProperty('escAllowed') ? contentContainer.escAllowed !== false : true;
+    }
+
     const setPause = function() {
         var pState = stateManager.loadState();
-        if(pState.view !== 'menu'){
+        if(pState.view !== 'menu' && escAllowed()){
             var dataURL = gameCanvas.getDataURL();
             var bluredDataURL = Filter.imgElementBlur(dataURL);
             dataController.saveScreenImage(bluredDataURL);
