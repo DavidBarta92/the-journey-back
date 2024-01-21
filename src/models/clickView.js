@@ -565,7 +565,8 @@ export const Story = (function(){
         var pState = stateManager.loadState();
         if(pState.view !== 'menu'){
             var dataURL = gameCanvas.getDataURL();
-            dataController.saveScreenImage(dataURL);
+            var bluredDataURL = Filter.imgElementBlur(dataURL);
+            dataController.saveScreenImage(bluredDataURL);
             pause = true;
             video.pause();
             clearInterval(storyInterval);

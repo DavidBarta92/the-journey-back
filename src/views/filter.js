@@ -1,7 +1,8 @@
 import gameCanvas from '../models/gameCanvas'
-import stackblur from 'stackblur-canvas';
 
 var Filter = (function () {
+  const StackBlur = require('stackblur-canvas');
+
   var r = Math.random
 
   var dropPos = []
@@ -153,8 +154,6 @@ var Filter = (function () {
           : white.a
     }
   }
-  const StackBlur = require('stackblur-canvas');
-
 
   /**
    * Blur image data.
@@ -163,18 +162,16 @@ var Filter = (function () {
    * @param {number} quality The blur quality.
    * @return {ImageData} The processed image data with blur.
    */
-  function doBlur (imageData, radius, quality) {
-    
+  function doBlur (imageData) {
     const width = imageData.width;
     const height = imageData.height;
 
     const blurredImageData = new ImageData(width, height);
     blurredImageData.data.set(imageData.data);
 
-    
-
     return StackBlur.imageDataRGBA(imageData,0,0, width, height, 5);
   }
+
   /**
    * Generate a random number within a specified range.
    * @param {number} min The minimum value of the range.
@@ -261,20 +258,31 @@ var Filter = (function () {
       }
     },
     /**
-     * Apply a blur filter to an image.
+     * Blur for ImageData objects
      * @param {ImageData} image The image data to be processed.
-     * @param {number} radius The blur radius.
-     * @param {number} quality The blur quality.
      * @return {ImageData|null} The processed image data, or null if an error occurs.
      */
-    blur: function (image, radius, quality) {
-      console.log(image);
-      if (radius < 0) {
-        radius = 0
-      }
-        return doBlur(image, radius, quality)
+    imageDataBlur: function (image) {
+        return doBlur(image);
+    },
+    /**
+     * Blur for HTML img elements
+     * @param {imgElement} imgElem The image data to be processed.
+     * @return {imgElement|null} The processed image data, or null if an error occurs.
+     */
+    imgElementBlur: function (imgElem) {
+      var base64ScreenImg = imgElem.replace('', '')
+      var img = new Image();
+      var imageData;
+      img.src = base64ScreenImg;
+      const tempCanvas = document.getElementById("c");
+      const tempcontext = tempCanvas.getContext('2d');
+      tempcontext.drawImage(img, 0, 0);
+      imageData = tempcontext.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
+      doBlur(imageData)
+      tempcontext.putImageData(imageData, 0, 0);
 
-
+      return tempCanvas.toDataURL();
     },
     /**
      * Apply raindrops effect to an image.
