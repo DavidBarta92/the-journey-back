@@ -285,6 +285,10 @@
     "note_24" : "",
     "note_25" : "",
 
+    "lbl_cockpit" : "pilótafülke",
+    "lbl_bedroom" : "háló",
+    "lbl_window" : "ablak",
+
     "dia_C_S1": "Ismertem egy embert. Úgy hívták, Terry. Nem tudom, hogy mit mondhatnék a kétségbeesésről. Annak örülnék a legjobban ha boldog lennél. Én a madarakra gondolokmikor meg szeretném magam nyugtatni. A földön élnek madarak...",
     "dia_C_S2": "Lehunyom a szemem és az erdőbe képzelem magam. Tiszta a levegő, nincs rajtam szkafander és az arcomon érzem a nap melegét.",
     "dia_C_S3": "A madarak énekét hallgatom, a levelek susogását. Fiatal vagyok, öreg vagyok. Nincs is korom. Talán már otthon is vagyok.",

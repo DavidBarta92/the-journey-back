@@ -18,10 +18,11 @@ var Draw = (function(){
 
     const activeArea = function (element) {
         const { x, y, width, height } = element[1];
-    
-        if (element[1].appoint === true) {
-            //writeText("text", 100, "#a1a1a1");
-            console.log("valami");
+
+        if(element[1].hasOwnProperty('appoint') 
+        && element[1].appoint === true 
+        && element[1].hasOwnProperty('text')){
+            writeText(element[1]);
         }
     
         context.beginPath();
@@ -73,7 +74,7 @@ var Draw = (function(){
         textBoxX = window.innerWidth,
         color = element.color
     ) {
-        const { x, y, fontSize, font, text } = element;
+        const { x, y, fontSize, font, text, shadow} = element;
         const fontString = fontSize + "px " + font;
         const words = languageFile[text]?.split(" ") || [text];
     
@@ -92,9 +93,15 @@ var Draw = (function(){
                 currentLineY += lineheight;
                 currentLineX = x;
             }
-    
+            if (shadow){
+                context.shadowOffsetX = 0;
+                context.shadowOffsetY = 0;
+                context.shadowColor = shadow;
+                context.shadowBlur = 5;
+            }
             context.fillText(word + " ", currentLineX, currentLineY);
             currentLineX += currentWordWidth;
+            context.shadowBlur = 0;
         }
     
         context.closePath();
@@ -210,14 +217,22 @@ var Draw = (function(){
             && element[1].clicked === true 
             && element[1].type === 'button'){
                 console.log("clicked");
-                return writeText(element[1], (element[1].x + element[1].textBoxEnd), "#dc3a15");
+                writeText(element[1], (element[1].x + element[1].textBoxEnd), "#dc3a15");
+                return;
             } 
             if(element[1].hasOwnProperty('appoint') 
             && element[1].appoint === true 
             && element[1].type === 'button'){
-                return writeText(element[1], (element[1].x + element[1].textBoxEnd), "#a1a1a1");
+                element[1].shadow = "#bf300f";
+                var color = element[1].color;
+                element[1].color = "#e65939";
+                writeText(element[1], (element[1].x + element[1].textBoxEnd), "#e65939");
+                element[1].shadow = null;
+                element[1].color = color;
+                return;
             } else {
-                return writeText(element[1], textBoxX, color);
+                writeText(element[1], textBoxX, color);
+                return;
             }
             //only buttons have border
             if(element[1].hasOwnProperty('border') && element[1].border){
