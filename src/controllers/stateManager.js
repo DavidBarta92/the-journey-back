@@ -8,7 +8,8 @@ var stateManager = (function () {
     view: 'menu', // 'menu', 'driver', 'story'
     status: {
       content: 'startScreen',
-      view: 'menu'
+      view: 'menu',
+      atmoPath: '../src/media/sounds/astronaut_suit.mp3'
     },
     chapter: 0,
     scene: 0,
@@ -170,6 +171,11 @@ var stateManager = (function () {
           state.status.content
         ])
       }
+    },
+    setAtmoPath: (atmoPath) => {
+      state = loadState()
+      state.status.atmoPath = atmoPath
+      dataController.saveState(state)
     },
     addItem: (item, place) => {
       state = loadState()

@@ -455,9 +455,14 @@ const triggering = function(){
 }
 
 //managing base sounds as music and atmo
-const baseSound = function(){
-    Sound.atmo(contentContainer.atmo);
-    Sound.music(contentContainer.music);
+const baseSound = function(type){
+    if(type === 'story'){
+        Sound.atmo(contentContainer.atmo);
+        Sound.music(contentContainer.music);
+    } else {
+        Sound.menuAtmo();
+        Sound.music(contentContainer.music);
+    }
 }
 
 // -------------------------------
@@ -518,7 +523,7 @@ export const Menu = (function(){
     return {
         render: function(state){
             init(state);
-            baseSound();
+            baseSound('menu');
             animInterval = setInterval(trackAnimation, 1);
             //if(triggering()) menuInterval = setInterval(renderMenuFrame, 100);
             clickInterval = setInterval(trackInput, 1);
@@ -576,6 +581,7 @@ export const Story = (function(){
             clearInterval(storyInterval);
             interactives = {};
             stateManager.setStatus();
+            stateManager.setAtmoPath(contentContainer.atmo);
             stateManager.setView('menu');
             stateManager.setContent('main');
             RenderManager.render();
@@ -626,7 +632,7 @@ export const Story = (function(){
     return {
         render: function(state){
             init(state);
-            baseSound();
+            baseSound('story');
             animInterval = setInterval(trackAnimation, 1);
             clickInterval = setInterval(trackInput, 1);
             // video.addEventListener('ended', () => {
