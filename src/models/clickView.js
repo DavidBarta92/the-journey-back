@@ -305,6 +305,7 @@ const activateTiming = function(){
 const hitArea = function(element){
     if(!!element){
         if(element[1].allowed === true){
+            if (element[1].hasOwnProperty('fx')) Sound.fx(element[1].fx);
             D.log('element',element);
             if (element[1].actionType === "setToDrive") {
                 stateManager.setView('driver');
@@ -327,10 +328,6 @@ const hitArea = function(element){
                 return;
             }
             if (element[1].actionType === "setContent") {
-                if (element[1].hasOwnProperty('clickNoise') && element[1].clickNoise) {
-                    console.log(element[1].hasOwnProperty('clickNoise') && element[1].clickNoise);
-                    Sound.fx('../src/media/sounds/click.ogg')
-                };
                 stateManager.setContent(element[1].action);
                 gameCanvas.clear();
                 counterTimer = null;

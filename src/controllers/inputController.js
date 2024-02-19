@@ -1,5 +1,4 @@
 import gameCanvas from '../models/gameCanvas'
-import Sound from '../models/sound'
 import D from '../models/debugLog'
 
 var inputController = (function () {
@@ -26,7 +25,6 @@ var inputController = (function () {
     document.onmousedown = function (event) {
       D.log(['X:', event.clientX, ' | Y:', event.clientY])
       cursor.click = true
-      Sound.fx('../src/media/sounds/mouse.wav')
     }
     document.onmouseup = function (event) {
       cursor.click = false
