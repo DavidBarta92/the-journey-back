@@ -461,7 +461,7 @@ const baseSound = function(type){
         Sound.music(contentContainer.music);
     } else {
         Sound.menuAtmo();
-        Sound.music(contentContainer.music);
+       // Sound.music(contentContainer.music);
     }
 }
 
