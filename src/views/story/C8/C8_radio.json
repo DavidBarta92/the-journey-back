@@ -1,16 +1,16 @@
 {
-    "name" : "C8_computer",
-    "backgroundPath" : "",
+    "name" : "C8_radio",
+    "backgroundPath" : "../src/media/images/car_computer.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "../src/media/sounds/astronaut_suit.mp3",
-    "elements" : {
+    "elements" : { 
         "radio" : {
             "type": "activeArea",
-            "text": null,
+            "text": 1,
             "x": 304,
             "y": 162,
             "width": 200,
@@ -20,7 +20,7 @@
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "C8_radio"
+            "action": "C8_radioConnection"
         },
         "back": {
             "type": "button",
@@ -30,13 +30,13 @@
             "width": 70,
             "height": 20,
             "rotate": 0,
-            "color": "#e65939",
+            "color": "white",
             "font": "Rounded",
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C8_attic",
+            "action": "C8_computer",
             "filter": "appointable"
-        }
+          }
     }
 }

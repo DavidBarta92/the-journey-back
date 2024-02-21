@@ -1,0 +1,31 @@
+{
+  "name": "C8_radioConnection2691num",
+  "backgroundPath": "../src/media/images/car_computer_sym.b64",
+  "spritesPath": null,
+  "dialogue": null,
+  "filter" : "",
+  "music" : "../src/media/sounds/i_am_you_am.mp3",
+  "atmo" : "../src/media/sounds/astronaut_suit.mp3",
+  "elements": {
+    "nums_field":{
+      "type":"text",
+      "text":"RECONNECTED",
+      "x": 545,
+      "y":478,
+      "width":70,
+      "height":20,
+      "rotate":0,
+      "color":"black",
+      "font":"Akira",
+      "fontSize":12,
+      "border":false,
+      "filter":null
+   }
+  },
+  "timer" : {
+      "time": 4000,
+      "actionType": "setContent",
+      "action": "C9_computer",
+      "allowed" : true
+  }
+}
