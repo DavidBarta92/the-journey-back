@@ -19,8 +19,8 @@
             "font": "Arial",
             "fontSize": 50,
             "filter" : null,
-            "actionType": "setContent",
-            "action": "C6_S1"
+            "actionType": "setToDrive",
+            "action": "C10_night"
         },
         "store" : {
             "type": "activeArea",
