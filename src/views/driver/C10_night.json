@@ -1,5 +1,6 @@
 {
     "name" : "C10_night",
+    "cursor" : false,
     "backgroundPath" : "../src/media/images/driver-background.png",
     "spritesPath" : "../src/media/images/spritesheet.high.png",
     "itemsPath" : "",

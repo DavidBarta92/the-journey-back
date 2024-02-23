@@ -1,5 +1,6 @@
 {
     "name" : "C6_desert",
+    "cursor" : "fasle",
     "backgroundPath" : "../src/media/images/driver-background.png",
     "spritesPath" : "../src/media/images/spritesheet.high.png",
     "itemsPath" : "",

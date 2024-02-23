@@ -1,5 +1,6 @@
 {
     "name" : "C8_sunset",
+    "cursor" : "false",
     "backgroundPath" : "../src/media/images/driver-background.png",
     "spritesPath" : "../src/media/images/spritesheet.high.png",
     "itemsPath" : "",
@@ -12,7 +13,7 @@
         "length": 8,
         "curvy" : 0.9,
         "mountainy" : 0.8,
-        "zoneSize" : 250
+        "zoneSize" : 345
     },
     "elements" : {
         "dialogue" : {
@@ -76,7 +77,7 @@
                             "border": false,
                             "filter": null
                         },
-                        "image":"../src/media/images/dd_serious.png"
+                        "image":"../src/media/images/de_serious.png"
                     },
                     "1110" : {
                         "text": {
@@ -94,81 +95,9 @@
                             "border": false,
                             "filter": null
                         },
-                        "image":"../src/media/images/de_serious.png"
-                    },
-                    "1300" : {
-                        "text": {
-                            "type": "text",
-                            "text": "dia_C8_S3",
-                            "x": 959,
-                            "y": 250,
-                            "width": 70,
-                            "height": 20,
-                            "rotate": 0,
-                            "textBoxEnd": 300,
-                            "color": "white",
-                            "font": "Inconsolata",
-                            "fontSize": 18,
-                            "border": false,
-                            "filter": null
-                        },
                         "image":"../src/media/images/dd_serious.png"
                     },
-                    "1450" : {
-                        "text": {
-                            "type": "text",
-                            "text": "dia_C8_S4",
-                            "x": 959,
-                            "y": 250,
-                            "width": 70,
-                            "height": 20,
-                            "rotate": 0,
-                            "textBoxEnd": 300,
-                            "color": "white",
-                            "font": "Inconsolata",
-                            "fontSize": 18,
-                            "border": false,
-                            "filter": null
-                        },
-                        "image":"../src/media/images/de_serious.png"
-                    },
-                    "1600" : {
-                        "text": {
-                            "type": "text",
-                            "text": "dia_C8_S5",
-                            "x": 959,
-                            "y": 250,
-                            "width": 70,
-                            "height": 20,
-                            "rotate": 0,
-                            "textBoxEnd": 300,
-                            "color": "white",
-                            "font": "Inconsolata",
-                            "fontSize": 18,
-                            "border": false,
-                            "filter": null
-                        },
-                        "image":"../src/media/images/dd_serious.png"
-                    },
-                    "1650" : {
-                        "text": {
-                            "type": "text",
-                            "text": "dia_C8_S6",
-                            "x": 959,
-                            "y": 250,
-                            "width": 70,
-                            "height": 20,
-                            "rotate": 0,
-                            "textBoxEnd": 300,
-                            "color": "white",
-                            "font": "Inconsolata",
-                            "fontSize": 18,
-                            "border": false,
-                            "filter": null
-                        },
-                        "image":"../src/media/images/de_serious.png"
-                    },
-                    "1740" : {
+                    "1180" : {
                         "text": {
                             "type": "text",
                             "text": "",
@@ -186,7 +115,115 @@
                         },
                         "image":""
                     },
-                    "1750" : {
+                    "1280" : {
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C8_S3",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/de_serious.png"
+                    },
+                    "1410" : {
+                        "text": {
+                            "type": "text",
+                            "text": "",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "1510" : {
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C8_S4",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/dd_serious.png"
+                    },
+                    "1700" : {
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C8_S5",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/de_serious.png"
+                    },
+                    "1950" : {
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C8_S6",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/dd_serious.png"
+                    },
+                    "1995" : {
+                        "text": {
+                            "type": "text",
+                            "text": "",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "2050" : {
                         "text": {
                             "type": "text",
                             "text": "dia_C8_S7",
@@ -202,7 +239,97 @@
                             "border": false,
                             "filter": null
                         },
-                        "image":"../src/media/images/dd_serious.png"
+                        "image":"../src/media/images/de_serious.png"
+                    },
+                    "2170" : {
+                        "text": {
+                            "type": "text",
+                            "text": "",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "2260" : {
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C8_S8",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/de_serious.png"
+                    },
+                    "2320" : {
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C8_S9",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/de_serious.png"
+                    },
+                    "2420" : {
+                        "text": {
+                            "type": "text",
+                            "text": "dia_C8_S10",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/de_serious.png"
+                    },
+                    "2500" : {
+                        "text": {
+                            "type": "text",
+                            "text": "",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
                     }
                 }
         },
