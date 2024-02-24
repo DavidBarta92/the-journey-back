@@ -81,27 +81,35 @@ var Draw = (function(){
         context.beginPath();
         context.font = fontString;
         context.fillStyle = color;
-    
-        let currentLineX = x;
-        let currentLineY = y;
-        const lineheight = fontSize + fontSize / 4;
-    
-        for (const word of words) {
-            const currentWordWidth = context.measureText(word + " ").width;
-    
-            if (currentLineX + currentWordWidth > textBoxX) {
-                currentLineY += lineheight;
-                currentLineX = x;
+
+        if(element.hasOwnProperty('vertical') 
+        && element.vertical === true ){
+            context.translate(x, y);
+            context.rotate(-Math.PI / 2);
+            context.fillText(words, 0, 7);
+            context.resetTransform();
+        } else {
+            let currentLineX = x;
+            let currentLineY = y;
+            const lineheight = fontSize + fontSize / 4;
+        
+            for (const word of words) {
+                const currentWordWidth = context.measureText(word + " ").width;
+        
+                if (currentLineX + currentWordWidth > textBoxX) {
+                    currentLineY += lineheight;
+                    currentLineX = x;
+                }
+                if (shadow){
+                    context.shadowOffsetX = 0;
+                    context.shadowOffsetY = 0;
+                    context.shadowColor = shadow;
+                    context.shadowBlur = 5;
+                }
+                context.fillText(word + " ", currentLineX, currentLineY);
+                currentLineX += currentWordWidth;
+                context.shadowBlur = 0;
             }
-            if (shadow){
-                context.shadowOffsetX = 0;
-                context.shadowOffsetY = 0;
-                context.shadowColor = shadow;
-                context.shadowBlur = 5;
-            }
-            context.fillText(word + " ", currentLineX, currentLineY);
-            currentLineX += currentWordWidth;
-            context.shadowBlur = 0;
         }
     
         context.closePath();
@@ -216,7 +224,6 @@ var Draw = (function(){
             if(element[1].hasOwnProperty('clicked') 
             && element[1].clicked === true 
             && element[1].type === 'button'){
-                console.log("clicked");
                 writeText(element[1], (element[1].x + element[1].textBoxEnd), "#dc3a15");
                 return;
             } 
