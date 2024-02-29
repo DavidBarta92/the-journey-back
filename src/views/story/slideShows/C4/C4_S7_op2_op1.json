@@ -1,0 +1,46 @@
+{
+    "name" : "C4_S7_op2_op1",
+    "backgroundPath" : "",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "",
+    "elements" : {
+          "text1": {
+            "type": "text",
+            "text": "dia_C4_S7_op2_op1_1",
+            "x": 60,
+            "y": 460,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          },
+          "text2": {
+            "type": "text",
+            "text": "dia_C4_S7_op2_op1_2",
+            "x": 60,
+            "y": 500,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          }
+    },
+    "timer" : {
+        "time": 10000,
+        "actionType": "setContent",
+        "action": "C4_S8",
+        "allowed" : true
+    }
+    }

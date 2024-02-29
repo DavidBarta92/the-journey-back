@@ -1,0 +1,32 @@
+{
+    "name" : "C4_S11",
+    "backgroundPath" : "",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "",
+    "elements" : {
+        "text1": {
+            "type": "text",
+            "text": "dia_C4_3S11",
+            "x": 150,
+            "y": 612,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          }
+    },
+    "timer" : {
+        "time": 10000,
+        "actionType": "setContent",
+        "action": "C4_hall2",
+        "allowed" : true
+    }
+    }

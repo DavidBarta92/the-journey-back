@@ -1,0 +1,44 @@
+{
+    "name" : "C1_computer",
+    "backgroundPath" : "../src/media/images/monitor.b64",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "../src/media/sounds/mars_base_atmo.mp3",
+    "elements" : { 
+        "batteryConnection": {
+            "type": "button",
+            "text": "comp_diary",
+            "x": 304,
+            "y": 162,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C1_diary",
+            "filter": "appointable"
+        },
+        "back": {
+            "type": "button",
+            "text": "btn_back",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C1_middlecorner",
+            "filter": "appointable"
+          }
+    }
+}

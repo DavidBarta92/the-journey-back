@@ -1,7 +1,7 @@
 {
   "name": "credits",
   "backgroundPath": "",
-  "middlegroundPath": null,
+  "middlegroundPath": "../src/media/images/creditsbg.b64",
   "spritesPath": "",
   "dialogue": "",
   "filter" : "",
@@ -32,11 +32,11 @@
       "fontSize": 12,
       "filter": null
     },
-    "credits:": {
+    "author_text": {
       "type": "text",
-      "text": "Credits:",
-      "x": 10,
-      "y": 100,
+      "text": "author_text",
+      "x": 48,
+      "y": 300,
       "width": 70,
       "height": 20,
       "color": "white",
@@ -44,11 +44,23 @@
       "fontSize": 12,
       "filter": null
     },
-    "author": {
+    "author_name": {
       "type": "text",
-      "text": "txt_code_art",
-      "x": 10,
-      "y": 130,
+      "text": "author_name",
+      "x": 260,
+      "y": 300,
+      "width": 70,
+      "height": 20,
+      "color": "white",
+      "font": "Arial",
+      "fontSize": 16,
+      "filter": null
+    },
+    "aiza_actor_text": {
+      "type": "text",
+      "text": "aiza_actor_text",
+      "x": 210,
+      "y": 175,
       "width": 70,
       "height": 20,
       "color": "white",
@@ -56,23 +68,71 @@
       "fontSize": 12,
       "filter": null
     },
-    "version": {
+    "aiza_actor_name": {
       "type": "text",
-      "text": "v0.6.0",
-      "x": 10,
-      "y": 160,
+      "text": "aiza_actor_name",
+      "x": 260,
+      "y": 175,
+      "width": 70,
+      "height": 20,
+      "color": "white",
+      "font": "Arial",
+      "fontSize": 16,
+      "filter": null
+    },
+    "teo_actor_text": {
+      "type": "text",
+      "text": "teo_actor_text",
+      "x": 540,
+      "y": 175,
       "width": 70,
       "height": 20,
       "color": "white",
       "font": "Arial",
       "fontSize": 12,
+      "filter": null
+    },
+    "teo_actor_name": {
+      "type": "text",
+      "text": "teo_actor_name",
+      "x": 590,
+      "y": 175,
+      "width": 70,
+      "height": 20,
+      "color": "white",
+      "font": "Arial",
+      "fontSize": 16,
+      "filter": null
+    },
+    "version_text": {
+      "type": "text",
+      "text": "version_text",
+      "x": 40,
+      "y": 125,
+      "width": 70,
+      "height": 20,
+      "color": "white",
+      "font": "Arial",
+      "fontSize": 12,
+      "filter": null
+    },
+    "version_num": {
+      "type": "text",
+      "text": "v0.7.0",
+      "x": 115,
+      "y": 125,
+      "width": 70,
+      "height": 20,
+      "color": "white",
+      "font": "Arial",
+      "fontSize": 14,
       "filter": null
     },
     "back": {
       "type": "button",
       "text": "btn_back",
-      "x": 40,
-      "y": 300,
+      "x": 50,
+      "y": 500,
       "width": 70,
       "height": 20,
       "color": "white",

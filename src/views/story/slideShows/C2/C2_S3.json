@@ -1,0 +1,63 @@
+{
+    "name" : "C2_S3",
+    "backgroundPath" : "",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "../src/media/sounds/i_am_you_am.mp3",
+    "atmo" : "",
+    "elements" : {
+        "aiza": {
+            "type": "text",
+            "text": "dia_C2_S5",
+            "x": 670,
+            "y": 190,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "textBoxEnd": 350,
+            "filter": null
+          },
+        "teo": {
+            "type": "text",
+            "text": "dia_C2_S6",
+            "x": 670,
+            "y": 330,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "textBoxEnd": 350,
+            "filter": null
+          },
+          "aiza2": {
+            "type": "text",
+            "text": "dia_C2_S7",
+            "x": 670,
+            "y": 570,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "textBoxEnd": 350,
+            "filter": null
+          }
+    },
+    "timer" : {
+        "time": 10000,
+        "actionType": "setContent",
+        "action": "C2_hall2",
+        "allowed" : true
+    }
+    }

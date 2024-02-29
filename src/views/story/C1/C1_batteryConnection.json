@@ -23,7 +23,7 @@
        },
        "1":{
          "type": "activeArea",
-         "text": null,
+         "text": "",
          "x": 531,
          "y": 165,
          "width": 50,
@@ -37,7 +37,7 @@
        },
        "2":{
          "type": "activeArea",
-         "text": null,
+         "text": "",
          "x": 601,
          "y": 165,
          "width": 50,
@@ -51,7 +51,7 @@
        },
        "3":{
          "type": "activeArea",
-         "text": null,
+         "text": "",
          "x": 671,
          "y": 165,
          "width": 50,
@@ -65,7 +65,7 @@
        },
        "4":{
          "type": "activeArea",
-         "text": null,
+         "text": "",
          "x": 531,
          "y": 235,
          "width": 50,
@@ -79,7 +79,7 @@
        },
        "5":{
          "type": "activeArea",
-         "text": null,
+         "text": "",
          "x": 601,
          "y": 235,
          "width": 50,
@@ -93,7 +93,7 @@
        },
        "6":{
          "type": "activeArea",
-         "text": null,
+         "text": "",
          "x": 671,
          "y": 235,
          "width": 50,
@@ -107,7 +107,7 @@
        },
        "7":{
          "type": "activeArea",
-         "text": null,
+         "text": "",
          "x": 531,
          "y": 305,
          "width": 50,
@@ -121,7 +121,7 @@
        },
        "8":{
          "type": "activeArea",
-         "text": null,
+         "text": "",
          "x": 601,
          "y": 305,
          "width": 50,
@@ -135,7 +135,7 @@
        },
        "9":{
          "type": "activeArea",
-         "text": null,
+         "text": "",
          "x": 671,
          "y": 305,
          "width": 50,
@@ -149,7 +149,7 @@
       },
       "0":{
          "type": "activeArea",
-         "text": null,
+         "text": "",
          "x": 601,
          "y": 375,
          "width": 50,

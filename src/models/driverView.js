@@ -105,6 +105,7 @@ export const Driver = (function(){
         newSpeechIndex = '1';
 
         roadParam = contentContainer.roadParam;
+        if(contentContainer.hasOwnProperty('cursor') && !contentContainer.cursor) document.body.style.cursor = 'none';
     };
 
     //renders one frame
@@ -117,7 +118,7 @@ export const Driver = (function(){
         const delta = player.updateCarState(baseOffset);
         handleSpeedAndPosition(keys, delta);
 
-        Draw.drawBackground(+(2*(player.posx)),backgroundImage);
+        Draw.drawBackground(+((player.posx)*0.6),backgroundImage);
         
         renderRoad();
  

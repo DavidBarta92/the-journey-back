@@ -31,6 +31,49 @@ var gameCanvas = (function(){
         };
     }
 
+    function chromaticAbberation() {
+        var mRed = document.getElementById('mRed');
+        var fered = document.getElementById('fered');
+        var mBlue = document.getElementById('mBlue');
+        var feblue = document.getElementById('feblue');
+
+        console.log("chromaticAbberation");
+        var colorMatrixRed = ['1.2 0 0 0 0 0 0.15 0 0 0 0 0 0.15 0 0 0 0 0 1 0','1.5 0 0 0 0 0 0.15 0 0 0 0 0 0.15 0 0 0 0 0 1 0'];
+        var randomIndex = Math.floor(Math.random() * colorMatrixRed.length);
+        
+        mRed.setAttribute('values', colorMatrixRed[randomIndex]);
+        fered.setAttribute('dx', getRandomBetween(-1, 2));
+        
+        var colorMatrixBlue = ['0.15 0 0 0 0 0 1.2 0 0 0 0 0 1.2 0 0 0 0 0 1 0','0.15 0 0 0 0 0 1.5 0 0 0 0 0 1.5 0 0 0 0 0 1 0'];
+        var randomIndex = Math.floor(Math.random() * colorMatrixBlue.length);
+        
+        mBlue.setAttribute('values', colorMatrixBlue[randomIndex]);
+        feblue.setAttribute('dx', getRandomBetween(-1, 2));
+        var randomTime = Math.floor((Math.random() * 1000)*2);
+        console.log(randomTime);
+        setTimeout(resetChanges, randomTime);
+      }
+    
+      function resetChanges() {
+        var mRed = document.getElementById('mRed');
+        var fered = document.getElementById('fered');
+        var mBlue = document.getElementById('mBlue');
+        var feblue = document.getElementById('feblue');
+    
+        // Set the original colors
+        mRed.setAttribute('values', '1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0');
+        fered.setAttribute('dx', '0');
+    
+        mBlue.setAttribute('values', '1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0');
+        feblue.setAttribute('dx', '0');
+      }
+    
+      function getRandomBetween(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      setInterval(chromaticAbberation, getRandomBetween(100, 50000));
+
     return {
         resize: function(){
             var scale;

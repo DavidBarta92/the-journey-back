@@ -1,0 +1,46 @@
+{
+  "name" : "C4_S7",
+  "backgroundPath" : "",
+  "spritesPath" : "",
+  "itemsPath" : "",
+  "dialogue" : "",
+  "filter" : "fadeOn",
+  "music" : "",
+  "atmo" : "",
+  "elements" : {   
+        "question1": {
+          "type": "button",
+          "text": "btn_C4_S7_q1",
+          "fx": "",
+          "x": 60,
+          "y": 600,
+          "width": 70,
+          "height": 20,
+          "rotate": 0,
+          "color": "white",
+          "font": "Rounded",
+          "fontSize": 20,
+          "border": false,
+          "actionType": "setContent",
+          "action": "C4_S7_op1",
+          "filter": "appointable"
+        },
+        "question2": {
+          "type": "button",
+          "text": "btn_C4_S7_q2",
+          "fx": "",
+          "x": 60,
+          "y": 640,
+          "width": 70,
+          "height": 20,
+          "rotate": 0,
+          "color": "white",
+          "font": "Rounded",
+          "fontSize": 20,
+          "border": false,
+          "actionType": "setContent",
+          "action": "C4_S7_op2",
+          "filter": "appointable"
+        }
+  }
+  }

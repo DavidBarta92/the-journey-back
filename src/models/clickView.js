@@ -305,6 +305,7 @@ const activateTiming = function(){
 const hitArea = function(element){
     if(!!element){
         if(element[1].allowed === true){
+            if (element[1].hasOwnProperty('fx')) Sound.fx(element[1].fx);
             D.log('element',element);
             if (element[1].actionType === "setToDrive") {
                 stateManager.setView('driver');
@@ -327,10 +328,6 @@ const hitArea = function(element){
                 return;
             }
             if (element[1].actionType === "setContent") {
-                if (element[1].hasOwnProperty('clickNoise') && element[1].clickNoise) {
-                    console.log(element[1].hasOwnProperty('clickNoise') && element[1].clickNoise);
-                    Sound.fx('../src/media/sounds/click.ogg')
-                };
                 stateManager.setContent(element[1].action);
                 gameCanvas.clear();
                 counterTimer = null;
@@ -455,9 +452,14 @@ const triggering = function(){
 }
 
 //managing base sounds as music and atmo
-const baseSound = function(){
-    Sound.atmo(contentContainer.atmo);
-    Sound.music(contentContainer.music);
+const baseSound = function(type){
+    if(type === 'story'){
+        Sound.atmo(contentContainer.atmo);
+        Sound.music(contentContainer.music);
+    } else {
+        Sound.menuAtmo();
+       // Sound.music(contentContainer.music);
+    }
 }
 
 // -------------------------------
@@ -518,8 +520,8 @@ export const Menu = (function(){
     return {
         render: function(state){
             init(state);
-            baseSound();
-            animInterval = setInterval(trackAnimation, 500);
+            baseSound('menu');
+            animInterval = setInterval(trackAnimation, 1);
             //if(triggering()) menuInterval = setInterval(renderMenuFrame, 100);
             clickInterval = setInterval(trackInput, 1);
             },
@@ -561,16 +563,22 @@ export const Story = (function(){
         setTiming();
     }
 
+    const escAllowed = function(){
+        return contentContainer.hasOwnProperty('escAllowed') ? contentContainer.escAllowed !== false : true;
+    }
+
     const setPause = function() {
         var pState = stateManager.loadState();
-        if(pState.view !== 'menu'){
+        if(pState.view !== 'menu' && escAllowed()){
             var dataURL = gameCanvas.getDataURL();
-            dataController.saveScreenImage(dataURL);
+            var bluredDataURL = Filter.imgElementBlur(dataURL);
+            dataController.saveScreenImage(bluredDataURL);
             pause = true;
             video.pause();
             clearInterval(storyInterval);
             interactives = {};
             stateManager.setStatus();
+            stateManager.setAtmoPath(contentContainer.atmo);
             stateManager.setView('menu');
             stateManager.setContent('main');
             RenderManager.render();
@@ -621,7 +629,7 @@ export const Story = (function(){
     return {
         render: function(state){
             init(state);
-            baseSound();
+            baseSound('story');
             animInterval = setInterval(trackAnimation, 1);
             clickInterval = setInterval(trackInput, 1);
             // video.addEventListener('ended', () => {

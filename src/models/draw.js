@@ -7,16 +7,22 @@ var Draw = (function(){
     var context = gameCanvas.getContext();
     var canvas = gameCanvas.getCanvas();
     let state = stateManager.loadState();
-    var languageFile = dataController.loadLanguageFile(state);
+    var languageFile;
     var spritesheet = new Image();
     var currentTimeString = "";
 
+    const loadLanguage = function () {
+        state = dataController.loadState();
+        languageFile = dataController.loadLanguageFile(state);
+    };
+
     const activeArea = function (element) {
         const { x, y, width, height } = element[1];
-    
-        if (element[1].appoint === true) {
-            //writeText("text", 100, "#a1a1a1");
-            console.log("valami");
+
+        if(element[1].hasOwnProperty('appoint') 
+        && element[1].appoint === true 
+        && element[1].hasOwnProperty('text')){
+            writeText(element[1]);
         }
     
         context.beginPath();
@@ -68,28 +74,42 @@ var Draw = (function(){
         textBoxX = window.innerWidth,
         color = element.color
     ) {
-        const { x, y, fontSize, font, text } = element;
+        const { x, y, fontSize, font, text, shadow} = element;
         const fontString = fontSize + "px " + font;
         const words = languageFile[text]?.split(" ") || [text];
     
         context.beginPath();
         context.font = fontString;
         context.fillStyle = color;
-    
-        let currentLineX = x;
-        let currentLineY = y;
-        const lineheight = fontSize + fontSize / 4;
-    
-        for (const word of words) {
-            const currentWordWidth = context.measureText(word + " ").width;
-    
-            if (currentLineX + currentWordWidth > textBoxX) {
-                currentLineY += lineheight;
-                currentLineX = x;
+
+        if(element.hasOwnProperty('vertical') 
+        && element.vertical === true ){
+            context.translate(x, y);
+            context.rotate(-Math.PI / 2);
+            context.fillText(words, 0, 7);
+            context.resetTransform();
+        } else {
+            let currentLineX = x;
+            let currentLineY = y;
+            const lineheight = fontSize + fontSize / 4;
+        
+            for (const word of words) {
+                const currentWordWidth = context.measureText(word + " ").width;
+        
+                if (currentLineX + currentWordWidth > textBoxX) {
+                    currentLineY += lineheight;
+                    currentLineX = x;
+                }
+                if (shadow){
+                    context.shadowOffsetX = 0;
+                    context.shadowOffsetY = 0;
+                    context.shadowColor = shadow;
+                    context.shadowBlur = 5;
+                }
+                context.fillText(word + " ", currentLineX, currentLineY);
+                currentLineX += currentWordWidth;
+                context.shadowBlur = 0;
             }
-    
-            context.fillText(word + " ", currentLineX, currentLineY);
-            currentLineX += currentWordWidth;
         }
     
         context.closePath();
@@ -200,18 +220,26 @@ var Draw = (function(){
         },
 
         writeText: function(element, textBoxX = window.innerWidth, color = element.color){
+            loadLanguage();
             if(element[1].hasOwnProperty('clicked') 
             && element[1].clicked === true 
             && element[1].type === 'button'){
-                console.log("clicked");
-                return writeText(element[1], (element[1].x + element[1].textBoxEnd), "#dc3a15");
+                writeText(element[1], (element[1].x + element[1].textBoxEnd), "#dc3a15");
+                return;
             } 
             if(element[1].hasOwnProperty('appoint') 
             && element[1].appoint === true 
             && element[1].type === 'button'){
-                return writeText(element[1], (element[1].x + element[1].textBoxEnd), "#a1a1a1");
+                element[1].shadow = "#bf300f";
+                var color = element[1].color;
+                element[1].color = "#e65939";
+                writeText(element[1], (element[1].x + element[1].textBoxEnd), "#e65939");
+                element[1].shadow = null;
+                element[1].color = color;
+                return;
             } else {
-                return writeText(element[1], textBoxX, color);
+                writeText(element[1], textBoxX, color);
+                return;
             }
             //only buttons have border
             if(element[1].hasOwnProperty('border') && element[1].border){
@@ -226,10 +254,12 @@ var Draw = (function(){
         },
 
         renderHUD: function(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render){
+            loadLanguage();
             return renderHUD(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render);
         },
 
         drawString: function(string, pos){
+            loadLanguage();
             return drawString(string, pos);
         },
 

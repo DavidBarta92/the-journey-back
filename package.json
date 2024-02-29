@@ -1,6 +1,6 @@
 {
   "name": "starslider",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "main": "public/electron.js",
   "homepage": "./",
   "private": true,
@@ -22,7 +22,8 @@
     "react-konva": "^18.2.3",
     "react-redux": "^8.0.4",
     "react-scripts": "^4.0.3",
-    "stackblur": "^1.0.0"
+    "stackblur": "^1.0.0",
+    "stackblur-canvas": "^2.6.0"
   },
   "scripts": {
     "build": "craco build",

@@ -39,6 +39,7 @@
     "continue": {
       "type": "button",
       "text": "btn_continue",
+      "fx": "../src/media/sounds/click.ogg",
       "x": 40,
       "y": 150,
       "width": 70,
@@ -56,6 +57,7 @@
     "newGame": {
       "type": "button",
       "text": "btn_newGame",
+      "fx": "../src/media/sounds/click.ogg",
       "x": 40,
       "y": 180,
       "width": 70,
@@ -72,6 +74,7 @@
     "options": {
       "type": "button",
       "text": "btn_options",
+      "fx": "../src/media/sounds/click.ogg",
       "x": 40,
       "y": 210,
       "width": 70,
@@ -88,6 +91,7 @@
     "credits": {
       "type": "button",
       "text": "btn_credits",
+      "fx": "../src/media/sounds/click.ogg",
       "x": 40,
       "y": 240,
       "width": 70,
@@ -104,6 +108,7 @@
     "main_exit": {
       "type": "button",
       "text": "btn_exit",
+      "fx": "../src/media/sounds/click.ogg",
       "x": 40,
       "y": 270,
       "color": "white",

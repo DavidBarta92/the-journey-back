@@ -5,14 +5,28 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/i_am_you_am.mp3",
+    "music" : "",
     "atmo" : "",
     "elements" : {
-        "text": {
+        "text1": {
             "type": "text",
-            "text": "dia_C4_S2",
-            "x": 435,
-            "y": 612,
+            "text": "dia_C4_1S1",
+            "x": 470,
+            "y": 530,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          },
+          "text2": {
+            "type": "text",
+            "text": "dia_C4_1S2",
+            "x": 470,
+            "y": 570,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -26,7 +40,7 @@
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C4_hall2",
+        "action": "C4_S3",
         "allowed" : true
     }
     }

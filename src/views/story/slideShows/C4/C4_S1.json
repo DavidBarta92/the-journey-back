@@ -8,17 +8,8 @@
     "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "",
     "elements" : {
-        "text": {
-            "type": "text",
-            "text": "",
-            "x": 435,
-            "y": 612,
-            "width": 70,
-            "height": 20,
-            "rotate": 0,
-            "color": "white",
-            "font": "Inconsolata",
-            "fontSize": 20,
+        "empty_object": {
+            "type": "empty_object",
             "border": false,
             "filter": null
           }
@@ -26,7 +17,7 @@
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C4_waste_processor",
+        "action": "C4_S2",
         "allowed" : true
     }
     }

@@ -7,11 +7,12 @@
     "filter" : "fadeOn",
     "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "",
+    "escAllowed" : false,
     "elements" : {
         "text": {
             "type": "text",
-            "text": "dia_C7_S4",
-            "x": 190,
+            "text": "dia_C7_S4_1",
+            "x": 170,
             "y": 612,
             "width": 70,
             "height": 20,

@@ -57,3 +57,24 @@
     -->
   </body>
 </html>
+
+<svg width="0" height="0">
+  <filter id="kill">
+    <feColorMatrix type="matrix" id="mRed"
+      result="red_"             
+      values="1 0 0 0 0
+              0 1 0 0 0 
+              0 0 1 0 0 
+              0 0 0 1 0"/>
+    <feOffset id="fered" in="red_" dx="0" dy="0" result="red"/>
+    <feColorMatrix type="matrix" id="mBlue"
+      in="SourceGraphic"             
+      result="blue_"             
+      values="1 0 0 0 0
+              0 1 0 0 0 
+              0 0 1 0 0 
+              0 0 0 1 0"/>
+    <feOffset id="feblue" in="blue_" dx="0" dy="0" result="blue"/>    
+    <feBlend mode="screen" in="red" in2="blue"/>
+  </filter>
+</svg>

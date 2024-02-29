@@ -6,7 +6,10 @@ html, body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif;
   max-width: 38rem;
+  cursor: url("./cursor.png"), auto;
 }
+
+
 
 .grain{
   display:flex;
@@ -67,4 +70,6 @@ html, body {
 
 #c {
   position: absolute;
+  position: relative;
+  -webkit-filter: url(#kill);
 }

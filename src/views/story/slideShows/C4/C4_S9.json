@@ -1,0 +1,88 @@
+{
+    "name" : "C4_S9",
+    "backgroundPath" : "",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "",
+    "elements" : {
+        "text1": {
+            "type": "text",
+            "text": "dia_C4_3S4",
+            "x": 600,
+            "y": 200,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          },
+          "text2": {
+            "type": "text",
+            "text": "dia_C4_3S5",
+            "x": 600,
+            "y": 250,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          },
+          "text3": {
+            "type": "text",
+            "text": "dia_C4_3S6",
+            "x": 600,
+            "y": 300,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          },
+          "text4": {
+            "type": "text",
+            "text": "dia_C4_3S7",
+            "x": 600,
+            "y": 350,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          },
+          "text5": {
+            "type": "text",
+            "text": "dia_C4_3S8",
+            "x": 600,
+            "y": 400,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          }
+    },
+    "timer" : {
+        "time": 10000,
+        "actionType": "setContent",
+        "action": "C4_S10",
+        "allowed" : true
+    }
+    }
