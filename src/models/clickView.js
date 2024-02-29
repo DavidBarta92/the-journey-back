@@ -16,11 +16,11 @@ var render = gameCanvas.getParams();
 
 var context = gameCanvas.getContext();
 
-let cursor = inputController.getCursor();
-
 gameCanvas.resize();
 
 const video = document.getElementById('video');
+
+let animationId;
 
 let state;
 
@@ -312,8 +312,7 @@ const hitArea = function(element){
                 stateManager.setContent(element[1].action);
                 gameCanvas.clear();
                 counterTimer = null;
-                clearInterval(menuInterval);
-                clearInterval(storyInterval);
+                cancelAnimationFrame(animationId);
                 RenderManager.render();
                 return;
             }
@@ -322,8 +321,7 @@ const hitArea = function(element){
                 gameCanvas.clear();
                 interactives = {};
                 counterTimer = null;
-                clearInterval(menuInterval);
-                clearInterval(storyInterval);
+                cancelAnimationFrame(animationId);
                 RenderManager.render();
                 return;
             }
@@ -331,8 +329,7 @@ const hitArea = function(element){
                 stateManager.setContent(element[1].action);
                 gameCanvas.clear();
                 counterTimer = null;
-                clearInterval(menuInterval);
-                clearInterval(storyInterval);
+                cancelAnimationFrame(animationId);
                 RenderManager.render();
                 return;
             }
@@ -340,8 +337,7 @@ const hitArea = function(element){
                 stateManager.setChapter();
                 gameCanvas.clear();
                 counterTimer = null;
-                clearInterval(menuInterval);
-                clearInterval(storyInterval);
+                cancelAnimationFrame(animationId);
                 RenderManager.render();
                 return;
             }
@@ -349,32 +345,28 @@ const hitArea = function(element){
                 if (element[1].hasOwnProperty('clickNoise') && element[1].clickNoise) Sound.fx('../src/media/sounds/click.ogg');
                 stateManager.addItem(element[1].action);
                 gameCanvas.clear();
-                clearInterval(menuInterval);
-                clearInterval(storyInterval);
+                cancelAnimationFrame(animationId);
                 RenderManager.render();
                 return;
             }
             if (element[1].actionType === "deleteItem") {
                 stateManager.deleteItem(element[1].action);
                 gameCanvas.clear();
-                clearInterval(menuInterval);
-                clearInterval(storyInterval);
+                cancelAnimationFrame(animationId);
                 RenderManager.render();
                 return;
             }
             if (element[1].actionType === "setLanguage") {
                 stateManager.changeLanguage(element[1].action);
                 gameCanvas.clear();
-                clearInterval(menuInterval);
-                clearInterval(storyInterval);
+                cancelAnimationFrame(animationId);
                 RenderManager.render();
                 return;
             }
             if (element[1].actionType === "setMute") {
                 stateManager.setVolume(element[1].action);
                 gameCanvas.clear();
-                clearInterval(menuInterval);
-                clearInterval(storyInterval);
+                cancelAnimationFrame(animationId);
                 RenderManager.render();
                 return;
             }
@@ -407,23 +399,22 @@ const hitArea = function(element){
                     stateManager.resetItems();
                 } else {
                     stateManager.setContentByStatus();
+                    pause = false;
                 }
                 gameCanvas.clear();
-                clearInterval(menuInterval);
-                clearInterval(storyInterval);
+                cancelAnimationFrame(animationId);
                 RenderManager.render();
                 return;
             }
             if (element[1].actionType === "exitGame") {
                 gameCanvas.clear();
-                clearInterval(menuInterval);
-                clearInterval(storyInterval);
+                cancelAnimationFrame(animationId);
                 RenderManager.render();
                 window.close();
             }
-            return;
+                        return;
         }
-    }
+            }
 }
 
 // execute the predetermined action of the interactive element
@@ -462,12 +453,70 @@ const baseSound = function(type){
     }
 }
 
+var pause;
+var keys = [];
+
+const escAllowed = function(){
+    return contentContainer.hasOwnProperty('escAllowed') ? contentContainer.escAllowed !== false : true;
+}
+
+const setPause = function() {
+    var pState = stateManager.loadState();
+    if(pState.view === 'menu'){
+        stateManager.setContentByStatus();
+        gameCanvas.clear();
+        cancelAnimationFrame(animationId);
+        RenderManager.render();
+        Timer.wait(400);
+        pause = false;
+        return;
+    }
+    if(pState.view === 'story' && escAllowed() && pause === false){
+        var dataURL = gameCanvas.getDataURL();
+        var bluredDataURL = Filter.imgElementBlur(dataURL);
+        dataController.saveScreenImage(bluredDataURL);
+        pause = true;
+        video.pause();
+        cancelAnimationFrame(animationId);
+        interactives = {};
+        stateManager.setStatus();
+        stateManager.setAtmoPath(contentContainer.atmo);
+        stateManager.setView('menu');
+        stateManager.setContent('main');
+        RenderManager.render();
+        return;
+    }
+}
+
+//tracking cursor
+const trackInput = function(){
+    keys = inputController.getKeys();
+    if(inputController.getCursor().click){
+        requestNewFrame = true;
+        var activeArea = getArea(interactives);
+        if (!!activeArea && activeArea[1].allowed === true) clickAnimate(activeArea);
+        const clicking = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve();
+            }, 50);
+        });
+        clicking.then(()=>{
+            hitArea(activeArea);
+        })
+    }
+    if(keys[27]) setPause();
+    appointingElement(contentContainer.elements);
+    activateTiming();
+}
+
 // -------------------------------
 // -- Here comes the Menu funky ----------------------------------------------------------------------------------------------------------------------
 // -------------------------------
 
 // manages and runs the frame rendering of the menu
 export const Menu = (function(){
+    var keys = [];
+
     const init = function(state){
         context.globalAlpha = 0;
         // we need to empty this object when a new view is loaded
@@ -489,28 +538,11 @@ export const Menu = (function(){
             drawBackground();
             drawElements(contentContainer.elements);
         } else {
-            clearInterval(menuInterval);
+            cancelAnimationFrame(animationId);
             gameCanvas.clear();
             drawBackground();
             drawElements(contentContainer.elements);
         }
-    }
-
-    //tracking cursor
-    const trackInput = function(){
-        if(cursor.click){
-            requestNewFrame = true;
-            clickAnimate(getArea(interactives));
-            const clicking = new Promise((resolve) => {
-                setTimeout(() => {
-                    resolve();
-                }, 50);
-            });
-            clicking.then(()=>{
-                hitArea(getArea(interactives));
-            })
-        }
-        appointingElement(contentContainer.elements);
     }
 
     const trackAnimation = function(){
@@ -521,9 +553,12 @@ export const Menu = (function(){
         render: function(state){
             init(state);
             baseSound('menu');
-            animInterval = setInterval(trackAnimation, 1);
-            //if(triggering()) menuInterval = setInterval(renderMenuFrame, 100);
-            clickInterval = setInterval(trackInput, 1);
+            function animate() {
+                trackAnimation();
+                trackInput();
+                animationId = requestAnimationFrame(animate);
+            }           
+            animationId = requestAnimationFrame(animate);
             },
 
         //its only for th first screen rendering at the game starting (this preload pictures, fonts for the clickview)
@@ -542,7 +577,7 @@ export const Menu = (function(){
 
 // manages and runs the frame rendering of the story view
 export const Story = (function(){
-    var pause = false;
+    pause = false;
     var keys = [];
 
     const init = function(state){
@@ -561,28 +596,7 @@ export const Story = (function(){
         languageFile = dataController.loadLanguageFile(state);
         if (contentContainer.elements.hasOwnProperty('video')) readyToPlayVideo(contentContainer.elements.video);
         setTiming();
-    }
-
-    const escAllowed = function(){
-        return contentContainer.hasOwnProperty('escAllowed') ? contentContainer.escAllowed !== false : true;
-    }
-
-    const setPause = function() {
-        var pState = stateManager.loadState();
-        if(pState.view !== 'menu' && escAllowed()){
-            var dataURL = gameCanvas.getDataURL();
-            var bluredDataURL = Filter.imgElementBlur(dataURL);
-            dataController.saveScreenImage(bluredDataURL);
-            pause = true;
-            video.pause();
-            clearInterval(storyInterval);
-            interactives = {};
-            stateManager.setStatus();
-            stateManager.setAtmoPath(contentContainer.atmo);
-            stateManager.setView('menu');
-            stateManager.setContent('main');
-            RenderManager.render();
-        }
+        if(contentContainer.hasOwnProperty('cursor') && !contentContainer.cursor) document.body.style.cursor = 'none';
     }
 
     //render one frame of the story view
@@ -594,49 +608,30 @@ export const Story = (function(){
             drawBackground();
             drawElements(contentContainer.elements);
         } else {
-            clearInterval(storyInterval);
+            cancelAnimationFrame(animationId);
             gameCanvas.clear();
             drawBackground();
             drawElements(contentContainer.elements);
         }
     }
 
-    //tracking cursor
-    const trackInput = function(){
-        keys = inputController.getKeys();
-        if(cursor.click){
-            requestNewFrame = true;
-            var activeArea = getArea(interactives);
-            if (!!activeArea && activeArea[1].allowed === true) clickAnimate(activeArea);
-            const clicking = new Promise((resolve) => {
-                setTimeout(() => {
-                    resolve();
-                }, 50);
-            });
-            clicking.then(()=>{
-                hitArea(activeArea);
-            })
-        }
-        if(keys[27]) setPause();
-        appointingElement(contentContainer.elements);
-        activateTiming();
-    }
-
     const trackAnimation = function(){
         if(triggering()) renderStoryFrame();
     }
-
+    
     return {
         render: function(state){
             init(state);
             baseSound('story');
-            animInterval = setInterval(trackAnimation, 1);
-            clickInterval = setInterval(trackInput, 1);
-            // video.addEventListener('ended', () => {
-            //     hitArea(contentContainer.elements.video);
-            // });
+            function animate() {
+                trackAnimation();
+                trackInput();
+                if(stateManager.loadState().view === "story") animationId = requestAnimationFrame(animate);
+            }           
+            if(stateManager.loadState().view === "story") animationId = requestAnimationFrame(animate);
         },
     }
+    
 }
 ());
 
