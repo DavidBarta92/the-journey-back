@@ -1,25 +1,24 @@
 {
-    "name" : "C4_S4",
+    "name" : "C2_S2",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "",
+    "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "",
     "elements" : {
-        "text1": {
+        "teo": {
             "type": "text",
-            "text": "dia_C4_2S4",
-            "x": 350,
-            "y": 612,
+            "text": "dia_C2_S4",
+            "x": 450,
+            "y": 600,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
-            "textBoxEnd": 660,
             "border": false,
             "filter": null
           }
@@ -27,7 +26,7 @@
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C4_S5",
+        "action": "C2_S3",
         "allowed" : true
     }
     }

@@ -8,11 +8,11 @@
     "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "",
     "elements" : {
-        "text": {
+        "aiza": {
             "type": "text",
             "text": "dia_C2_S1",
-            "x": 435,
-            "y": 612,
+            "x": 170,
+            "y": 90,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -20,13 +20,44 @@
             "font": "Inconsolata",
             "fontSize": 20,
             "border": false,
+            "textBoxEnd": 350,
+            "filter": null
+          },
+        "teo": {
+            "type": "text",
+            "text": "dia_C2_S2",
+            "x": 170,
+            "y": 330,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "textBoxEnd": 350,
+            "filter": null
+          },
+          "aiza2": {
+            "type": "text",
+            "text": "dia_C2_S3",
+            "x": 170,
+            "y": 570,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "textBoxEnd" : 350,
             "filter": null
           }
     },
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C2_hall2",
+        "action": "C2_S2",
         "allowed" : true
     }
     }

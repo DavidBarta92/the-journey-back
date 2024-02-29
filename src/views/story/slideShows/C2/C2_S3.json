@@ -1,5 +1,5 @@
 {
-    "name" : "C3_S1",
+    "name" : "C2_S3",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
@@ -10,9 +10,9 @@
     "elements" : {
         "aiza": {
             "type": "text",
-            "text": "dia_C3_S1",
-            "x": 170,
-            "y": 140,
+            "text": "dia_C2_S5",
+            "x": 670,
+            "y": 190,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -23,11 +23,26 @@
             "textBoxEnd": 350,
             "filter": null
           },
-          "teo": {
+        "teo": {
             "type": "text",
-            "text": "dia_C3_S2",
-            "x": 170,
-            "y": 450,
+            "text": "dia_C2_S6",
+            "x": 670,
+            "y": 330,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "textBoxEnd": 350,
+            "filter": null
+          },
+          "aiza2": {
+            "type": "text",
+            "text": "dia_C2_S7",
+            "x": 670,
+            "y": 570,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -40,9 +55,9 @@
           }
     },
     "timer" : {
-        "time": 27000,
+        "time": 10000,
         "actionType": "setContent",
-        "action": "C3_sunconsoles",
+        "action": "C2_hall2",
         "allowed" : true
     }
     }

@@ -10,15 +10,30 @@
     "elements" : {
         "text": {
             "type": "text",
-            "text": "dial_C4_S6",
-            "x": 435,
-            "y": 612,
+            "text": "dia_C4_2S7",
+            "x": 850,
+            "y": 200,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
+            "border": false,
+            "filter": null
+          },
+          "text2": {
+            "type": "text",
+            "text": "dia_C4_2S8",
+            "x": 850,
+            "y": 300,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "textBoxEnd": 400,
             "border": false,
             "filter": null
           }

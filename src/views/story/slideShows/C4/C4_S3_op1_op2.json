@@ -1,5 +1,5 @@
 {
-    "name" : "C4_S3",
+    "name" : "C4_S3_op1_op2",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
@@ -10,7 +10,7 @@
     "elements" : {
           "text1": {
             "type": "text",
-            "text": "dia_C4_1S3",
+            "text": "dia_C4_S3_op1_op2_1",
             "x": 60,
             "y": 460,
             "width": 70,
@@ -24,7 +24,7 @@
           },
           "text2": {
             "type": "text",
-            "text": "dia_C4_1S4",
+            "text": "dia_C4_S3_op1_op2_2",
             "x": 60,
             "y": 500,
             "width": 70,
@@ -38,11 +38,11 @@
           },    
           "question1": {
             "type": "button",
-            "text": "btn_C4_S3_q1",
+            "text": "btn_C4_S3_op1_op2_q1",
             "fx": "",
             "x": 60,
             "y": 600,
-            "width": 70,
+            "width": 200,
             "height": 20,
             "rotate": 0,
             "color": "white",
@@ -50,16 +50,16 @@
             "fontSize": 20,
             "border": false,
             "actionType": "setContent",
-            "action": "C4_S3_op1",
+            "action": "C4_S4",
             "filter": "appointable"
           },
           "question2": {
             "type": "button",
-            "text": "btn_C4_S3_q2",
+            "text": "btn_C4_S3_op1_op2_q2",
             "fx": "",
             "x": 60,
             "y": 640,
-            "width": 70,
+            "width": 200,
             "height": 20,
             "rotate": 0,
             "color": "white",
@@ -67,7 +67,7 @@
             "fontSize": 20,
             "border": false,
             "actionType": "setContent",
-            "action": "C4_S3_op2",
+            "action": "C4_S4",
             "filter": "appointable"
           }
     }
