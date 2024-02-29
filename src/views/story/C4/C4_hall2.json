@@ -34,7 +34,7 @@
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "C4_S2"
+            "action": "C4_S12"
         },
         "map": {
             "type": "button",

@@ -10,7 +10,7 @@
   "elements" : {   
         "question1": {
           "type": "button",
-          "text": "btn_C4_S3_q1",
+          "text": "btn_C4_S7_q1",
           "fx": "",
           "x": 60,
           "y": 600,
@@ -22,12 +22,12 @@
           "fontSize": 20,
           "border": false,
           "actionType": "setContent",
-          "action": "C4_S3_op1",
+          "action": "C4_S7_op1",
           "filter": "appointable"
         },
         "question2": {
           "type": "button",
-          "text": "btn_C4_S3_q2",
+          "text": "btn_C4_S7_q2",
           "fx": "",
           "x": 60,
           "y": 640,
@@ -39,7 +39,7 @@
           "fontSize": 20,
           "border": false,
           "actionType": "setContent",
-          "action": "C4_S3_op2",
+          "action": "C4_S7_op2",
           "filter": "appointable"
         }
   }
