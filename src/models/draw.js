@@ -11,6 +11,9 @@ var Draw = (function(){
     var spritesheet = new Image();
     var currentTimeString = "";
 
+    const carImage = new Image();
+    carImage.src = '../src/media/images/kiskep.png';
+
     const loadLanguage = function () {
         state = dataController.loadState();
         languageFile = dataController.loadLanguageFile(state);
@@ -34,8 +37,7 @@ var Draw = (function(){
         } else if (element[1].allowed === true) {
             context.lineWidth = 2;
             context.strokeStyle = "#dc3a15";
-    
-            drawCross(x, y, width, height);
+            drawCrosses(x, y, width, height);
         } else {
             context.strokeStyle = "red";
             context.lineWidth = 2;
@@ -46,8 +48,13 @@ var Draw = (function(){
         context.stroke();
         context.closePath();
     };
+
+    const drawCross = function (x, y) {
+        drawLine(x - 7, y, x + 7, y);
+        drawLine(x, y - 7, x, y + 7);
+    };
     
-    const drawCross = function (x, y, width, height) {
+    const drawCrosses = function (x, y, width, height) {
         drawLine(x - 7, y, x + 7, y);
         drawLine(x, y - 7, x, y + 7);
         drawLine(x + width - 7, y, x + width + 7, y);
@@ -126,14 +133,15 @@ var Draw = (function(){
             }
         }
 
-        const drawBackground = function(position, backgroundImage) {
-            var first = position / 20 % (backgroundImage.width);
-            drawImage(backgroundImage, first+700, 8, 2.2, 2.2);
+        const drawBackground = function(positionX, positionY, image) {
+            var positionXmod = positionX / 20 % (image.width);
+            var positionYmod = positionY / 20 % (image.height);
+            drawPrimImage(image, positionXmod + 700, positionYmod, 2.2, 2.2);
         }
 
         // Drawing primitive
-        const drawImage = function(image, x, y, scaleW, scaleH){
-            context.drawImage(image, x, 0, image.width, image.height, 0, 0, scaleW*image.width, scaleH*image.height);
+        const drawPrimImage = function(image, x, y, scaleW, scaleH){
+            context.drawImage(image, x, y, image.width, image.height, 0, 0, scaleW*image.width, scaleH*image.height);
         };
 
     // --------------------------
@@ -164,9 +172,9 @@ var Draw = (function(){
         var percent = ""+Math.round(absoluteIndex/(roadParam.length-render.depthOfField)*100)+"%";
 
         //draw dialoge things
-        currentDialogueImage.src = currentDialogueText.image;
+        if (!!currentDialogueText) currentDialogueImage.src = currentDialogueText.image;
         context.drawImage(currentDialogueImage, 959, 42, 310, 177);
-        writeText(currentDialogueText.text, (currentDialogueText.text.x + currentDialogueText.text.textBoxEnd));
+        if (!!currentDialogueText) writeText(currentDialogueText.text, (currentDialogueText.text.x + currentDialogueText.text.textBoxEnd));
 
         drawString(percent,{x: 287, y: 488});
 
@@ -199,6 +207,67 @@ var Draw = (function(){
         context.rect(30, 635, 750, 0);
         context.stroke();
     }
+
+    const drawRect = function(rotationAngle) {
+        var rectX = canvas.width / 2;
+        var rectY = canvas.height / 2;
+        var rectWidth = 50;
+        var rectHeight = 100;
+
+        //context.clearRect(0, 0, canvas.width, canvas.height);
+        context.fillStyle = "red";
+        context.translate(rectX + rectWidth / 2, rectY + rectHeight / 2);
+        context.rotate(rotationAngle);
+        context.fillRect(-rectWidth / 2, -rectHeight / 2, rectWidth, rectHeight);
+        context.rotate(-rotationAngle);
+        context.translate(-(rectX + rectWidth / 2), -(rectY + rectHeight / 2));
+    }
+
+    const renderMapHUD = function(circle, dot, targetPoint, angle) {
+        context.beginPath();
+        context.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
+        context.strokeStyle = "#dc3a15";
+        context.lineWidth = 3;
+        context.stroke();
+
+        context.translate(circle.x, circle.y); // Áthelyezés a kör közepére
+        context.rotate(angle + Math.PI / 2); // Elforgatás 90 fokkal
+        context.drawImage(carImage, -30, -30, 60, 60); // Középre rajzolás
+        context.rotate(-(angle + Math.PI / 2)); // Forgatás vissza
+        context.translate(-circle.x, -circle.y); // Áthelyezés vissza
+  
+        context.lineWidth = 2;
+        context.strokeStyle = "#dc3a15";
+        drawCross(targetPoint.x, targetPoint.y);
+        context.stroke();
+        context.closePath();
+  
+        const compassDot = calculateClosestPoint(targetPoint, circle);
+        context.fillStyle = "#dc3a15";
+        context.beginPath();
+        context.arc(compassDot.x, compassDot.y, 6, 0, Math.PI * 2);
+        context.fill();
+  
+        // context.beginPath();
+        // context.arc(dot.x, dot.y, 3, 0, Math.PI * 2);
+        // context.fillStyle = 'blue';
+        // context.fill();
+  
+        if (targetPoint.x >= circle.x - 30 && targetPoint.x <= circle.x + 30 && targetPoint.y >= circle.y - 30 && targetPoint.y <= circle.y + 30) {
+          context.fillStyle = 'black';
+          context.font = '16px Arial';
+          context.fillText('Hilépés', circle.x - 30, circle.y + 60);
+        }
+      }
+
+      function calculateClosestPoint(targetPoint, circle) {
+        const dx = targetPoint.x - circle.x;
+        const dy = targetPoint.y - circle.y;
+        const angleToPoint = Math.atan2(dy, dx);
+        const closestX = circle.x + Math.cos(angleToPoint) * circle.radius;
+        const closestY = circle.y + Math.sin(angleToPoint) * circle.radius;
+        return { x: closestX, y: closestY };
+      }
 
     const drawSprite = function(sprite){
         //if(sprite.y <= sprite.ymax){
@@ -258,17 +327,35 @@ var Draw = (function(){
             return renderHUD(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render);
         },
 
+        renderMapHUD: function(circle, dot, targetPoint, angle){
+            return renderMapHUD(circle, dot, targetPoint, angle);
+        },
+
         drawString: function(string, pos){
             loadLanguage();
             return drawString(string, pos);
         },
 
-        drawBackground: function(position, backgroundImage){
-            return drawBackground(position, backgroundImage);
+        drawBackground: function(positionX, backgroundImage){
+            var positionY = 8; 
+            return drawBackground(positionX, positionY, backgroundImage);
+        },
+
+        drawMapBackground: function(positionX, positionY, backgroundImage){
+            return drawBackground(positionX, positionY, backgroundImage);
+        },
+
+        drawSlideText: function(positionX, textImage){
+            var positionY = 8; 
+            return drawBackground(positionX, positionY, textImage);
         },
 
         sprite: function(sprite){
             return drawSprite(sprite);
+        },
+
+        carTop: function(rotationAngle){
+            return drawRect(rotationAngle);
         },
 
         }
