@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas Circle</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas" width="600" height="600"></canvas>
+
+  <script>
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const circle = {
+      x: canvas.width / 2,
+      y: canvas.height / 2,
+      radius: 200 // Nagyobb kör
+    };
+
+    let dot = {
+      x: circle.x + circle.radius,
+      y: circle.y
+    };
+
+    let greenPoint = {
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height
+    };
+
+    let angle = 0; // Kezdeti forgatási szög
+
+    const keysPressed = {};
+
+    function drawCircle() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.beginPath();
+      ctx.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
+      ctx.strokeStyle = 'red';
+      ctx.lineWidth = 3;
+      ctx.stroke();
+
+      // Kép középre rajzása és elforgatása
+      const image = new Image();
+      image.src = 'kiskep.png';
+      image.onload = function() {
+        ctx.translate(circle.x, circle.y); // Áthelyezés a kör közepére
+        ctx.rotate(angle + Math.PI / 2); // Elforgatás 90 fokkal
+        ctx.drawImage(image, -30, -30, 60, 60); // Középre rajzolás
+        ctx.rotate(-(angle + Math.PI / 2)); // Forgatás vissza
+        ctx.translate(-circle.x, -circle.y); // Áthelyezés vissza
+      };
+
+      // Zöld pont rajzolása
+      ctx.fillStyle = 'green';
+      ctx.beginPath();
+      ctx.arc(greenPoint.x, greenPoint.y, 5, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Sárga pötty rajzolása
+      const yellowDot = calculateClosestPoint();
+      ctx.fillStyle = 'yellow';
+      ctx.beginPath();
+      ctx.arc(yellowDot.x, yellowDot.y, 3, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(dot.x, dot.y, 3, 0, Math.PI * 2);
+      ctx.fillStyle = 'blue';
+      ctx.fill();
+
+      // Ellenőrizze, hogy a zöld pont érinti-e a képet
+      if (greenPoint.x >= circle.x - 30 && greenPoint.x <= circle.x + 30 && greenPoint.y >= circle.y - 30 && greenPoint.y <= circle.y + 30) {
+        ctx.fillStyle = 'black';
+        ctx.font = '16px Arial';
+        ctx.fillText('Hilépés', circle.x - 30, circle.y + 60);
+      }
+    }
+
+    function moveDot() {
+      const speed = 5;
+
+      const dx = dot.x - circle.x;
+      const dy = dot.y - circle.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance !== circle.radius) {
+        const factor = circle.radius / distance;
+        dot.x = circle.x + dx * factor;
+        dot.y = circle.y + dy * factor;
+      }
+
+      // Számítás a kép forgatási szögéhez
+      angle = Math.atan2(dot.y - circle.y, dot.x - circle.x);
+
+      drawCircle();
+    }
+
+    function calculateClosestPoint() {
+      const dx = greenPoint.x - circle.x;
+      const dy = greenPoint.y - circle.y;
+      const angleToPoint = Math.atan2(dy, dx);
+      const closestX = circle.x + Math.cos(angleToPoint) * circle.radius;
+      const closestY = circle.y + Math.sin(angleToPoint) * circle.radius;
+      return { x: closestX, y: closestY };
+    }
+
+    drawCircle();
+
+    document.addEventListener('keydown', function(event) {
+      keysPressed[event.key] = true;
+      moveDot();
+      moveGreenPoint(event.key);
+    });
+
+    document.addEventListener('keyup', function(event) {
+      delete keysPressed[event.key];
+    });
+
+    function moveGreenPoint(key) {
+      const speed = 5;
+      switch(key) {
+        case 'ArrowUp':
+          greenPoint.y += speed;
+          break;
+        case 'ArrowDown':
+          greenPoint.y -= speed;
+          break;
+        case 'ArrowLeft':
+          greenPoint.x += speed;
+          break;
+        case 'ArrowRight':
+          greenPoint.x -= speed;
+          break;
+      }
+      if (keysPressed['ArrowUp'] && keysPressed['ArrowLeft']) {
+        greenPoint.x -= speed / Math.sqrt(2);
+        greenPoint.y -= speed / Math.sqrt(2);
+      }
+      if (keysPressed['ArrowUp'] && keysPressed['ArrowRight']) {
+        greenPoint.x += speed / Math.sqrt(2);
+        greenPoint.y -= speed / Math.sqrt(2);
+      }
+      if (keysPressed['ArrowDown'] && keysPressed['ArrowLeft']) {
+        greenPoint.x -= speed / Math.sqrt(2);
+        greenPoint.y += speed / Math.sqrt(2);
+      }
+      if (keysPressed['ArrowDown'] && keysPressed['ArrowRight']) {
+        greenPoint.x += speed / Math.sqrt(2);
+        greenPoint.y += speed / Math.sqrt(2);
+      }
+      drawCircle();
+    }
+
+    setInterval(function() {
+      const speed = 5;
+      if (keysPressed['ArrowUp'] && dot.y > circle.y - circle.radius) dot.y -= speed;
+      if (keysPressed['ArrowDown'] && dot.y < circle.y + circle.radius) dot.y += speed;
+      if (keysPressed['ArrowLeft'] && dot.x > circle.x - circle.radius) dot.x -= speed;
+      if (keysPressed['ArrowRight'] && dot.x < circle.x + circle.radius) dot.x += speed;
+      moveDot();
+    }, 1000 / 60);
+  </script>
+</body>
+</html>

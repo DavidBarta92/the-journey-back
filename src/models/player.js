@@ -6,6 +6,7 @@ export const player = {
     breaking: 0.6,
     turning: 8.0,
     posx: 0,
+    posy: 0,
     maxSpeed: 5,
 
 

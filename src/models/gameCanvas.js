@@ -37,7 +37,6 @@ var gameCanvas = (function(){
         var mBlue = document.getElementById('mBlue');
         var feblue = document.getElementById('feblue');
 
-        console.log("chromaticAbberation");
         var colorMatrixRed = ['1.2 0 0 0 0 0 0.15 0 0 0 0 0 0.15 0 0 0 0 0 1 0','1.5 0 0 0 0 0 0.15 0 0 0 0 0 0.15 0 0 0 0 0 1 0'];
         var randomIndex = Math.floor(Math.random() * colorMatrixRed.length);
         
@@ -50,7 +49,6 @@ var gameCanvas = (function(){
         mBlue.setAttribute('values', colorMatrixBlue[randomIndex]);
         feblue.setAttribute('dx', getRandomBetween(-1, 2));
         var randomTime = Math.floor((Math.random() * 1000)*2);
-        console.log(randomTime);
         setTimeout(resetChanges, randomTime);
       }
     
