@@ -10,15 +10,12 @@
     "elements" : { 
         "batteryConnection" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_batteryConnection",
             "x": 304,
             "y": 162,
             "width": 200,
             "height": 400,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C1_batteryConnection"
         },

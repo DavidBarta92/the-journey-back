@@ -10,29 +10,23 @@
     "elements" : { 
         "go" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_electricity_and_battery",
             "x": 631,
             "y": 300,
             "width": 110,
             "height": 130,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
+            "filter" : "appointable",
             "actionType": "setContent",
             "action": "C1_electricity_and_battery"
         },
         "C1_startingbase_enter" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_startingbase_enter",
             "x": 119,
             "y": 345,
             "width": 90,
             "height": 120,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
+            "filter" : "appointable",
             "actionType": "setContent",
             "action": "C1_startingbase_enter"
         },

@@ -10,29 +10,23 @@
     "elements" : { 
         "C1_craterbase_from_enterance" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_craterbase_from_enterance",
             "x": 100,
             "y": 300,
             "width": 150,
             "height": 150,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
+            "filter" : "appointable",
             "actionType": "setContent",
             "action": "C1_craterbase_from_enterance"
         },
         "C1_waste_processor_halfway" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_waste_processor_halfway",
             "x": 930,
             "y": 300,
             "width": 150,
             "height": 150,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
+            "filter" : "appointable",
             "actionType": "setContent",
             "action": "C1_waste_processor_halfway"
         },

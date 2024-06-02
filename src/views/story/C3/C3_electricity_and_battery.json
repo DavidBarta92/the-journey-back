@@ -10,29 +10,23 @@
     "elements" : { 
         "battery" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_battery",
             "x": 812,
             "y": 368,
             "width": 96,
             "height": 200,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
+            "filter" : "appointable",
             "actionType": "setContent",
             "action": "C3_battery"
         },
         "electricity" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_electricity",
             "x": 252,
             "y": 331,
             "width": 117,
             "height": 100,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
+            "filter" : "appointable",
             "actionType": "setContent",
             "action": "C3_electricity"
         },       

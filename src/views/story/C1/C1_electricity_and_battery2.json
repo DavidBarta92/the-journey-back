@@ -10,29 +10,23 @@
     "elements" : { 
         "forward" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_craterbase_to_enterance",
             "x": 1000,
             "y": 300,
             "width": 100,
             "height": 180,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
+            "filter" : "appointable",
             "actionType": "setContent",
             "action": "C1_craterbase_to_enterance"
         },
         "battery" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_sunconsoles",
             "x": 500,
             "y": 300,
             "width": 100,
             "height": 180,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
+            "filter" : "appointable",
             "actionType": "setContent",
             "action": "C1_sunconsoles"
         },

@@ -10,29 +10,23 @@
     "elements" : { 
         "C3_waste_processor_halfway" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_waste_processor_halfway",
             "x": 761,
             "y": 301,
             "width": 96,
             "height": 58,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
+            "filter" : "appointable",
             "actionType": "setContent",
             "action": "C3_waste_processor_halfway"
         },
         "C3_startingbase_enter" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_startingbase_enter",
             "x": 995,
             "y": 295,
             "width": 96,
             "height": 160,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
+            "filter" : "appointable",
             "actionType": "setContent",
             "action": "C3_startingbase_enter"
         },

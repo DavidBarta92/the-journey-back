@@ -8,20 +8,6 @@
     "music" : "",
     "atmo" : "",
     "elements" : { 
-        "go" : {
-            "type": "activeArea",
-            "text": null,
-            "x": 790,
-            "y": 515,
-            "width": 58,
-            "height": 58,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
-            "actionType": "setContent",
-            "action": ""
-        },
         "back": {
             "type": "button",
             "text": "btn_back",

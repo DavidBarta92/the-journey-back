@@ -10,15 +10,12 @@
     "elements" : { 
         "battery" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_battery",
             "x": 812,
             "y": 368,
             "width": 96,
             "height": 200,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
+            "filter" : "appointable",
             "actionType": "setContent",
             "action": "C1_battery"
         },      

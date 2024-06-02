@@ -15,9 +15,6 @@
             "y": 207,
             "width": 70,
             "height": 200,
-            "color": "#e65939",
-            "font": "Arial",
-            "fontSize": 22,
             "filter": "appointable",
             "actionType": "setContent",
             "action": "C8_cockpit"
@@ -29,10 +26,6 @@
             "y": 230,
             "width": 150,
             "height": 300,
-            "color": "#e65939",
-            "font": "Arial",
-            "shadow": "#bf300f",
-            "fontSize": 22,
             "filter": "appointable",
             "actionType": "setContent",
             "action": "C8_bedroom"
@@ -44,10 +37,6 @@
             "y": 240,
             "width": 210,
             "height": 140,
-            "color": "#e65939",
-            "shadow": "#bf300f",
-            "font": "Arial",
-            "fontSize": 22,
             "actionType": "setContent",
             "action": "C8_window",
             "filter": "appointable"

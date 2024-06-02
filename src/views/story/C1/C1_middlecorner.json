@@ -10,29 +10,23 @@
     "elements" : { 
         "computer" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_computer",
             "x": 705,
             "y": 150,
             "width": 180,
             "height": 100,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
+            "filter" : "appointable",
             "actionType": "setContent",
             "action": "C1_computer"
         },
         "forward" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_hall",
             "x": 350,
             "y": 136,
             "width": 200,
             "height": 230,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
+            "filter" : "appointable",
             "actionType": "setContent",
             "action": "C1_hall1"
         },

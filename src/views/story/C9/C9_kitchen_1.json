@@ -10,29 +10,23 @@
     "elements" : { 
         "forward" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_mainCorridor",
             "x": 450,
             "y": 330,
             "width": 175,
             "height": 250,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
+            "filter" : "appointable",
             "actionType": "setContent",
             "action": "C9_mainCorridor_1"
         },
         "drawer" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_drawer",
             "x": 22,
             "y": 472,
             "width": 300,
             "height": 100,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
+            "filter" : "appointable",
             "actionType": "setContent",
             "action": "C9_drawer"
         },

@@ -18,11 +18,14 @@ var Draw = (function(){
 
     const activeArea = function (element) {
         const { x, y, width, height } = element[1];
-
         if(element[1].hasOwnProperty('appoint') 
         && element[1].appoint === true 
         && element[1].hasOwnProperty('text')){
-            writeText(element[1]);
+            var word = languageFile[element[1].text];
+            const textWidth = context.measureText(word).width;
+            context.fillStyle = "#797879";
+            context.fillRect(element[1].x, element[1].y-19, textWidth, 23);
+            writeText(element[1], 1000, "#dc3a15", 22, "Arial");
         }
     
         context.beginPath();
@@ -72,9 +75,11 @@ var Draw = (function(){
     const writeText = function (
         element,
         textBoxX = window.innerWidth,
-        color = element.color
+        color = element.color,
+        fontSize = element.fontSize,
+        font = element.font
     ) {
-        const { x, y, fontSize, font, text, shadow} = element;
+        const { x, y, text, shadow} = element;
         const fontString = fontSize + "px " + font;
         const words = languageFile[text]?.split(" ") || [text];
     
