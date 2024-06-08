@@ -108,23 +108,36 @@ var dataController = (function () {
 
     /**
      * Loads images from the media folder; if the path is null or "", returns an empty image.
-     * @param {string} imagePath The path of the image to load.
+     * @param {string} imagePath The path of the image to load. (needs to be b64, png or jpg image)
      * @return {Image} The loaded Image object.
      */
     loadImage: function (imagePath) {
-      var base64img
-      var image = new Image()
-      if (!imagePath) {
-        imagePath = '../src/media/images/black.b64'
-      }
+      var image = new Image();
+      var base64img;
+      if (!imagePath) imagePath = '../src/media/images/black.b64';
+      const extension = path.extname(imagePath);
       try {
-        base64img = fs.readFileSync(path.resolve(__dirname, imagePath), 'utf8')
+        if (extension === '.b64') {
+          base64img = fs.readFileSync(path.resolve(__dirname, imagePath), 'utf8')
+          image.src = base64img.slice(0);
+        } else if (extension === '.png' || extension === '.jpg') {
+          const objectURL = imagePath;
+          console.log("jóóó metódus");
+          image.src = objectURL;
+        } else {
+          throw new Error(`Unsupported image format: ${extension}`);
+        }
       } catch (error) {
-        console.warn('__dirname is not working!')
         const dirName = localStorage.getItem('dirName')
-        base64img = fs.readFileSync(path.resolve(dirName, imagePath), 'utf8')
+        if (extension === '.b64') {
+          console.warn('__dirname is not working!')
+          base64img = fs.readFileSync(path.resolve(dirName, imagePath), 'utf8')
+          image.src = base64img.slice(0)
+        } else if (extension === '.png' || extension === '.jpg') {
+          const objectURL = imagePath;
+          image.src = objectURL;
+        }
       }
-      image.src = base64img.slice(0)
       return image
     },
 
