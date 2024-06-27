@@ -122,7 +122,6 @@ var dataController = (function () {
           image.src = base64img.slice(0);
         } else if (extension === '.png' || extension === '.jpg') {
           const objectURL = imagePath;
-          console.log("jóóó metódus");
           image.src = objectURL;
         } else {
           throw new Error(`Unsupported image format: ${extension}`);

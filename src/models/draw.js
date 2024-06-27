@@ -21,16 +21,6 @@ var Draw = (function(){
 
     const activeArea = function (element) {
         const { x, y, width, height } = element[1];
-        if(element[1].hasOwnProperty('appoint') 
-        && element[1].appoint === true 
-        && element[1].hasOwnProperty('text')){
-            var word = languageFile[element[1].text];
-            const textWidth = context.measureText(word).width;
-            context.fillStyle = "#797879";
-            context.fillRect(element[1].x, element[1].y-19, textWidth, 23);
-            writeText(element[1], 1000, "#dc3a15", 22, "Arial");
-        }
-    
         context.beginPath();
     
         if (element[1].clicked === true) {
@@ -50,6 +40,16 @@ var Draw = (function(){
     
         context.stroke();
         context.closePath();
+
+        if(element[1].hasOwnProperty('appoint') 
+            && element[1].appoint === true 
+            && element[1].hasOwnProperty('text')){
+                var word = languageFile[element[1].text];
+                const textWidth = context.measureText(word).width;
+                context.fillStyle = "#F1F1F1";
+                context.fillRect(element[1].x+10, element[1].y-19, textWidth/2, 25);
+                writeText(element[1], 1500, "#dc3a15", 26, "Paskowy");
+            }
     };
 
     const drawCross = function (x, y) {
@@ -78,7 +78,41 @@ var Draw = (function(){
         context.lineTo(x2, y2);
     };
     
-    //write the given text in the chosen language
+    /**
+     * Draws text onto a canvas element with specified properties.
+     * 
+     * @param {Object} element - The object containing text properties and coordinates.
+     * @param {number} [textBoxX=window.innerWidth] - The maximum width of the text box.
+     * @param {string} [color=element.color] - The color of the text.
+     * @param {number} [fontSize=element.fontSize] - The size of the text font.
+     * @param {string} [font=element.font] - The font family of the text.
+     * 
+     * The function takes an element object which must have the following properties:
+     *  - x: The x-coordinate for the text position.
+     *  - y: The y-coordinate for the text position.
+     *  - text: The key to retrieve text from the language file or plain text to display.
+     *  - shadow: (optional) The shadow color to apply to the text.
+     *  - color: The color of the text.
+     *  - fontSize: The font size of the text.
+     *  - font: The font family of the text.
+     *  - vertical: (optional) If true, the text is drawn vertically.
+     * 
+     * The function supports both horizontal and vertical text drawing. For vertical text, it rotates
+     * the canvas and draws the text vertically. For horizontal text, it breaks the text into words and 
+     * wraps it within the specified text box width. It also applies a shadow effect if specified.
+     * 
+     * Example usage:
+     * writeText({
+     *   x: 10,
+     *   y: 20,
+     *   text: "helloWorld",
+     *   color: "black",
+     *   fontSize: 16,
+     *   font: "Arial",
+     *   shadow: "rgba(0,0,0,0.5)",
+     *   vertical: false
+     * });
+     */
     const writeText = function (
         element,
         textBoxX = window.innerWidth,
@@ -288,6 +322,48 @@ var Draw = (function(){
         //}
     };
 
+    const drawMiniElements = function(elementPositions) {
+    
+        elementPositions.elements.forEach(element => {
+            drawMiniElement(element);
+        });
+    // its for drwing path between grouped elements. it's not finished and i'm not shure its is neccessary
+        // let groupOfElements = groupElementsByGroupId(elementPositions.elements);
+    
+        // groupOfElements.forEach(group => {
+        //     for (let i = 0; i < group.length; i++) {
+        //         for (let j = i + 1; j < group.length; j++) {
+        //             context.beginPath();
+        //             context.moveTo(group[i].x, group[i].y);
+        //             context.lineTo(group[j].x, group[j].y);
+        //             context.strokeStyle = 'black';
+        //             context.stroke();
+        //         }
+        //     }
+        // });
+    }
+    
+    const drawMiniElement = function(element) {
+        context.beginPath();
+        if (element.shape === 'circle') {
+            context.arc(element.x, element.y, element.radius, 0, Math.PI * 2);
+        } else if (element.shape === 'square') {
+            context.rect(element.x - element.radius, element.y - element.radius, element.radius * 2, element.radius * 2);
+        } else if (element.shape === 'triangle') {
+            context.moveTo(element.x, element.y - element.radius);
+            context.lineTo(element.x - element.radius, element.y + element.radius);
+            context.lineTo(element.x + element.radius, element.y + element.radius);
+            context.closePath();
+        }
+        if (element.filled) {
+            context.fillStyle = element.color;
+            context.fill();
+        } else {
+            context.strokeStyle = element.color;
+            context.stroke();
+        }
+    }
+
     return {
         activeArea: function(element){
             return activeArea(element);
@@ -361,6 +437,10 @@ var Draw = (function(){
 
         carTop: function(rotationAngle){
             return drawRect(rotationAngle);
+        },
+
+        miniElements: function(elementPositions){
+            return drawMiniElements(elementPositions);
         },
 
         }

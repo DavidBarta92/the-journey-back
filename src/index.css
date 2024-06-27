@@ -43,3 +43,15 @@ code {
   font-style: normal;
   src: url('./fonts/Inconsolata_VariableFont_wdth.ttf') format('opentype');
 }
+
+@font-face {
+  font-family: 14SegmentLED;
+  font-style: normal;
+  src: url('./fonts/14SegmentLED.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: Paskowy;
+  font-style: normal;
+  src: url('./fonts/Paskowy.ttf') format('opentype');
+}

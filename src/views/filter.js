@@ -1,3 +1,4 @@
+import Draw from '../models/draw';
 import gameCanvas from '../models/gameCanvas'
 
 var Filter = (function () {
@@ -6,6 +7,8 @@ var Filter = (function () {
   var r = Math.random
 
   var dropPos = []
+
+  const canvas = gameCanvas.getCanvas();
 
   var render = gameCanvas.getParams()
   const offscreenContext = gameCanvas.getOffscreenContext()
@@ -238,6 +241,170 @@ var Filter = (function () {
     return ctxImage
   }
 
+  const elementsData = [
+    { shape: 'circle', filled: true, color: 'red', maxConnections: 1, collecting : false },
+    { shape: 'circle', filled: false, color: 'black', maxConnections: 1, collecting : false },
+    { shape: 'circle', filled: true, color: 'grey', maxConnections: 1, collecting : false },
+    { shape: 'circle', filled: true, color: 'black', maxConnections: 32, collecting : true },
+    { shape: 'circle', filled: false, color: 'red', maxConnections: 1, collecting : false },
+    { shape: 'circle', filled: true, color: 'grey', maxConnections: 1, collecting : false },
+];
+
+function safeStringify(obj) {
+    const cache = new Set();
+    const json = JSON.stringify(obj, (key, value) => {
+        if (typeof value === 'object' && value !== null) {
+            if (cache.has(value)) {
+                return '[Circular Reference]'; // Duplicate reference found, discard key
+            }
+            cache.add(value);
+        }
+        return value;
+    });
+    cache.clear();
+    return json;
+}
+
+canvas.addEventListener('click', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    const randomElementData = elementsData[Math.floor(Math.random() * elementsData.length)];
+    const newElement = createElement(randomElementData, x, y);
+
+    let elementPositions = JSON.parse(localStorage.getItem('elementPositions')) || null;
+    elementPositions = updateElementPositions(elementPositions, newElement);
+    let elementPositions2 = elementPositions;
+    localStorage.setItem('elementPositions', safeStringify(elementPositions));
+});
+
+  function createElement(data, x, y) {
+    return {
+        ...data,
+        x: x,
+        y: y,
+        radius: 15,
+        speedX: Math.random() * 2 - 1,
+        speedY: Math.random() * 2 - 1,
+        currentConnections: 0,
+        groupId: false
+    };
+}
+
+function updateElementPositions(elementPositions, newElement) {
+    if (!elementPositions) {
+        elementPositions = {
+            elements: [],
+            groups: []
+        };
+    }
+
+    if (newElement) {
+        elementPositions.elements.push(newElement);
+    }
+
+    elementPositions.elements.forEach(element => {
+        if (element) {
+            element.x += element.speedX;
+            element.y += element.speedY;
+
+            if (element.x < 0 || element.x > canvas.width) element.speedX *= -1;
+            if (element.y < 0 || element.y > canvas.height) element.speedY *= -1;
+        }
+    });
+
+    checkCollisions(elementPositions);
+
+    return elementPositions;
+}
+
+function groupElementsByGroupId(elements) {
+    const groupedElements = {};
+
+    elements.forEach(element => {
+        const groupId = element.groupId;
+        if (groupedElements[groupId]) {
+            groupedElements[groupId].push(element);
+        }
+    });
+
+    return Object.values(groupedElements);
+}
+
+  function checkCollisions(elementPositions) {
+    for (let i = 0; i < elementPositions.elements.length; i++) {
+        for (let j = i + 1; j < elementPositions.elements.length; j++) {
+            const element1 = elementPositions.elements[i];
+            const element2 = elementPositions.elements[j];
+            const dx = element1.x - element2.x;
+            const dy = element1.y - element2.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < element1.radius + element2.radius) {
+                handleCollision(element1, element2, elementPositions);
+            }
+        }
+    }
+}
+
+function decraseCurrentConnectionNumofGroupElements(elementPositions, elementGroup) {
+    elementPositions.elements.forEach(element => {
+        if (element.groupId === elementGroup) {
+            element.currentConnections--;
+        }
+    });
+}
+
+function handleCollision(element1, element2, elementPositions) {
+    if (element1.currentConnections < element1.maxConnections && element2.currentConnections < element2.maxConnections) {
+        if (element1.maxConnections > element2.maxConnections || (element1.maxConnections === element2.maxConnections && Math.random() > 0.5)) {
+            element2.speedX = element1.speedX;
+            element2.speedY = element1.speedY;
+            if (element2.groupId !== false) decraseCurrentConnectionNumofGroupElements(elementPositions, element2.groupId)
+        } else {
+            element1.speedX = element2.speedX;
+            element1.speedY = element2.speedY;
+            if (element1.groupId !== false) decraseCurrentConnectionNumofGroupElements(elementPositions, element1.groupId);
+        }
+        element1.currentConnections++;
+        element2.currentConnections++;
+
+        if (!element1.groupId && !element2.groupId || element1.groupId === null && element2.groupId === null) {
+            const newGroupId = Math.random().toString(36).substr(2, 5);
+            element1.groupId = newGroupId;
+            element2.groupId = newGroupId;
+        } else if (element1.groupId && !element2.groupId) {
+            element2.groupId = element1.groupId;
+        } else if (!element1.groupId && element2.groupId) {
+            element1.groupId = element2.groupId;
+        } else if (element1.groupId !== element2.groupId) {
+            if (element1.maxConnections > element2.maxConnections || (element1.maxConnections === element2.maxConnections && Math.random() > 0.5)) {
+                element2.groupId = element1.groupId;
+            } else {
+                element1.groupId = element2.groupId;
+            }
+        }
+    }
+}
+
+function findGroup(element, groups) {
+    return groups.find(group => group.includes(element));
+}
+
+function removeFromGroup(element, groups) {
+    const group = findGroup(element, groups);
+    if (group) {
+        const index = group.indexOf(element);
+        if (index !== -1) {
+            group.splice(index, 1);
+            if (group.length === 0) {
+                const groupIndex = groups.indexOf(group);
+                groups.splice(groupIndex, 1);
+            }
+        }
+    }
+}
+
   return {
     /**
      * Apply the Atkinson Dither filter to an image.
@@ -314,6 +481,13 @@ var Filter = (function () {
      */
     invertColors: function (imageData) {
       return invertColors(imageData)
+    },
+    showMiniElements: function (contentContainer) {
+      let elementPositions = JSON.parse(localStorage.getItem('elementPositions')) || null;
+      //if (contentContainer.miniElements === "atoms") 
+      elementPositions = updateElementPositions(elementPositions, null);
+      localStorage.setItem('elementPositions', safeStringify(elementPositions));
+      return Draw.miniElements(elementPositions);
     }
   }
 })()

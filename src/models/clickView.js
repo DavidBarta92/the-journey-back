@@ -607,11 +607,17 @@ export const Story = (function(){
             gameCanvas.clear();
             drawBackground();
             drawElements(contentContainer.elements);
+            //if (contentContainer.miniElements) 
+            Filter.showMiniElements(contentContainer);
+            console.log("new frame");
         } else {
             cancelAnimationFrame(animationId);
             gameCanvas.clear();
             drawBackground();
             drawElements(contentContainer.elements);
+            //if (contentContainer.miniElements) 
+            Filter.showMiniElements(contentContainer);
+            console.log("new frame");
         }
     }
 

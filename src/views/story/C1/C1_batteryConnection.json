@@ -16,7 +16,7 @@
           "height":20,
           "rotate":0,
           "color":"black",
-          "font":"Akira",
+          "font":"14SegmentLED",
           "fontSize":12,
           "border":false,
           "filter":null
