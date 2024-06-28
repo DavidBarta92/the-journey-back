@@ -412,7 +412,7 @@ const hitArea = function(element){
                 RenderManager.render();
                 window.close();
             }
-                        return;
+        return;
         }
             }
 }

@@ -8,6 +8,36 @@
     "music" : "",
     "atmo" : "../src/media/sounds/astronaut_suit.mp3",
     "elements" : { 
+        "chapter": {
+            "type": "text",
+            "text": "C1_title",
+            "x": 1175,
+            "y": 650,
+            "vertical" : true,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "black",
+            "font": "Akira",
+            "fontSize": 70,
+            "border": false,
+            "filter": null
+          },
+        "goal": {
+            "type": "text",
+            "text": "C1_goal",
+            "x": 1215,
+            "y": 650,
+            "vertical" : true,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "black",
+            "font": "Rounded",
+            "fontSize": 25,
+            "border": false,
+            "filter": null
+          },
         "battery" : {
             "type": "activeArea",
             "text": "lbl_battery",
