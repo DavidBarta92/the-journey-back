@@ -8,11 +8,11 @@
     "music" : "",
     "atmo" : "../src/media/sounds/mars_base_atmo.mp3",
     "elements" : { 
-        "goal": {
+        "chapter": {
             "type": "text",
-            "text": "FIND TEO",
-            "x": 1100,
-            "y": 640,
+            "text": "C1_title",
+            "x": 1175,
+            "y": 650,
             "vertical" : true,
             "width": 70,
             "height": 20,
@@ -20,6 +20,21 @@
             "color": "white",
             "font": "Akira",
             "fontSize": 70,
+            "border": false,
+            "filter": null
+          },
+        "goal": {
+            "type": "text",
+            "text": "C1_goal",
+            "x": 1215,
+            "y": 650,
+            "vertical" : true,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 25,
             "border": false,
             "filter": null
           },

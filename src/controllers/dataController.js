@@ -11,7 +11,6 @@ var dataController = (function () {
    * @return {string|null} The path of the found JSON file, or null if not found.
    */
   function findFileByParameter(startPath, parameterToFind) {
-    console.log(startPath);
     const files = fs.readdirSync(path.join(startPath));
     for (const file of files) {
       const filePath = path.join(startPath, file);
@@ -28,7 +27,6 @@ var dataController = (function () {
           const json = JSON.parse(content);
           try {
             if (json.name === parameterToFind) {
-              console.log('FOUND' + filePath);
               return filePath;
             }
           } catch (error) {
