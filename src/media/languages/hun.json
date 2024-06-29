@@ -271,7 +271,7 @@
     "journal_4" : "Dr. Bolyai hosszú éveken keresztül aktívan felszólalt az éghajlatváltozás és a növények alkalmazkodó képességeinek kapcsolatáról. Munkássága nem csak a tudományos közösségben, hanem a nagyközönség körében is jelentős elismerést szerzett. Azok a kutatók, akik közvetlenül együtt dolgoztak Dr. Teóval, mélyen megdöbbentek és értetlenül állnak a professzor döntése előtt.",
     "journal_5" : "Azonban vannak, akik Dr. Bolyai hosszú távú távollétét és a mostani történést is a kutatási projekt kudarcával magyarázzák. A név nélkül nyilatkozó kritikusok szerint a professzor talán nem érte el a várt eredményeket a Marsi kutatások során, és most a projekt hosszú távú sikertelensége miatt hozta meg ezt a drasztikus döntést.",
     "journal_6" : "Az eset továbbra is sok kérdést vet fel, de a tudományos közösség, és a közvélemény egyaránt figyelemmel kíséri, vajon Dr. Bolyai Teó visszatér-e valaha a marsi kutatásokhoz, vagy véglegesen hátrahagyja azt. Egyelőre a titokzatos körülmények és a kutatások jövője függőben van a Marson.",
-    "comp_diary" : "napló",
+    "comp_diary" : "./napló/",
     "note_1_title" : "5367. SOL",
     "note_2_title" : "5372. SOL",
     "note_3_title" : "5379. SOL",

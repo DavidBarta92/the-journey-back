@@ -55,3 +55,9 @@ code {
   font-style: normal;
   src: url('./fonts/Paskowy.ttf') format('opentype');
 }
+
+@font-face {
+  font-family: Larabie;
+  font-style: normal;
+  src: url('./fonts/larabiefont.otf') format('opentype');
+}

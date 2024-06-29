@@ -161,18 +161,6 @@ var Draw = (function(){
      * The function supports both horizontal and vertical text drawing. For vertical text, it rotates
      * the canvas and draws the text vertically. For horizontal text, it breaks the text into words and 
      * wraps it within the specified text box width. It also applies a shadow effect if specified.
-     * 
-     * Example usage:
-     * writeText({
-     *   x: 10,
-     *   y: 20,
-     *   text: "helloWorld",
-     *   color: "black",
-     *   fontSize: 16,
-     *   font: "Arial",
-     *   shadow: "rgba(0,0,0,0.5)",
-     *   vertical: false
-     * });
      */
     const writeText = function (
         element,
