@@ -45,9 +45,9 @@ code {
 }
 
 @font-face {
-  font-family: 14SegmentLED;
+  font-family: G7_Segment_7a;
   font-style: normal;
-  src: url('./fonts/14SegmentLED.ttf') format('opentype');
+  src: url('./fonts/G7_Segment_7a.ttf') format('opentype');
 }
 
 @font-face {

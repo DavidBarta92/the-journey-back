@@ -46,8 +46,8 @@
       "height":20,
       "rotate":0,
       "color":"black",
-      "font":"Akira",
-      "fontSize":12,
+      "font":"G7_Segment_7a",
+      "fontSize":18,
       "border":false,
       "filter" : ""
    },

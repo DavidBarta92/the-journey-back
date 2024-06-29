@@ -417,7 +417,7 @@
             "height": 20,
             "rotate": 0,
             "color": "white",
-            "font": "Larabie",
+            "font": "Rounded",
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
