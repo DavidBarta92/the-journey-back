@@ -20,7 +20,7 @@
       "font": "Akira",
       "fontSize": 70,
       "border": false,
-      "filter": null
+      "filter" : ""
     },
   "goal": {
       "type": "text",
@@ -35,7 +35,7 @@
       "font": "Rounded",
       "fontSize": 25,
       "border": false,
-      "filter": null
+      "filter" : ""
     },
     "nums_field":{
       "type":"text",
@@ -49,7 +49,7 @@
       "font":"Akira",
       "fontSize":12,
       "border":false,
-      "filter":null
+      "filter" : ""
    }
   },
   "timer" : {

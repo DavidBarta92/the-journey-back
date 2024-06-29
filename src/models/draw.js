@@ -41,15 +41,26 @@ var Draw = (function(){
         context.stroke();
         context.closePath();
 
-        if(element[1].hasOwnProperty('appoint') 
-            && element[1].appoint === true 
-            && element[1].hasOwnProperty('text')){
-                var word = languageFile[element[1].text];
-                const textWidth = context.measureText(word).width;
-                context.fillStyle = "#F1F1F1";
-                context.fillRect(element[1].x+10, element[1].y-19, textWidth/2, 25);
-                writeText(element[1], 1500, "#dc3a15", 26, "Paskowy");
+        if(element[1].hasOwnProperty('filter')
+            && element[1].filter === "appointable"){
+            if(element[1].hasOwnProperty('appoint') 
+                && element[1].appoint === true 
+                && element[1].hasOwnProperty('text')){
+                    context.beginPath();
+                    context.lineWidth = 1;
+                    context.strokeStyle = "#dc3a15";
+                    context.rect(x, y, width, height);
+                    context.stroke();
+                    var word = languageFile[element[1].text];
+                    const textWidth = context.measureText(word).width;
+                    context.fillStyle = "#F1F1F1";
+                    context.fillRect(element[1].x+10, element[1].y-19, textWidth/2, 25);
+                    writeText(element[1], 1500, "#dc3a15", 26, "Paskowy");
+                    drawDottedPathToActiveArea(false, element);
+            } else {
+                drawDottedPathToActiveArea(true, element);
             }
+        }
     };
 
     const drawCross = function (x, y) {
@@ -76,6 +87,56 @@ var Draw = (function(){
     const drawLine = function (x1, y1, x2, y2) {
         context.moveTo(x1, y1);
         context.lineTo(x2, y2);
+    };
+
+    const drawDottedPathToActiveArea = function (dotted = true, element) {
+
+    let endPoint = {"x": element[1].x, "y": element[1].y};
+
+    const startPoint = {
+        x: 0,
+        y: 600
+    };
+
+    const controlPoint1 = {
+        x: (startPoint.x + endPoint.x) / 2,
+        y: startPoint.y - 200
+    };
+
+    const controlPoint2 = {
+        x: (startPoint.x + endPoint.x) / 2,
+        y: endPoint.y + 20
+    };
+
+    const gradient = context.createLinearGradient(startPoint.x, startPoint.y, endPoint.x, endPoint.y);
+    if (!dotted) {
+        context.setLineDash([10, 0])
+        gradient.addColorStop(0, 'rgba(220,58,21,1)'); // alul
+        gradient.addColorStop(1, 'rgba(220,58,21,1)'); // felül #dc3a15
+    } else {
+        context.setLineDash([10, 10])
+        gradient.addColorStop(0, 'rgba(0,0,0,0.02)'); // alul
+        gradient.addColorStop(1, 'rgba(220,58,21,1)'); // felül #dc3a15
+    }
+    context.strokeStyle = gradient;
+    
+    // Draw step by step by reducing the line thickness
+    const steps = 10; // it was 100
+    for (let i = 0; i <= steps; i++) {
+        const t = i / steps;
+        const x = (1 - t) * (1 - t) * (1 - t) * startPoint.x + 3 * (1 - t) * (1 - t) * t * controlPoint1.x + 3 * (1 - t) * t * t * controlPoint2.x + t * t * t * endPoint.x;
+        const y = (1 - t) * (1 - t) * (1 - t) * startPoint.y + 3 * (1 - t) * (1 - t) * t * controlPoint1.y + 3 * (1 - t) * t * t * controlPoint2.y + t * t * t * endPoint.y;
+        context.lineWidth = 4 - 3 * t;
+        if (i === 0) {
+            context.beginPath();
+            context.moveTo(x, y);
+        } else {
+            context.lineTo(x, y);
+        }
+    }
+    context.stroke();
+    context.setLineDash([])
+    context.closePath();
     };
     
     /**

@@ -62,8 +62,7 @@
      "font": "Arial",
      "fontSize": 50,
      "actionType":"setContent",
-     "action":"C1_batteryConnectionWrongnum",
-     "filter":"appointable"
+     "action":"C1_batteryConnectionWrongnum"
    },
    "2":{
      "type": "activeArea",
@@ -76,8 +75,7 @@
      "font": "Arial",
      "fontSize": 50,
      "actionType":"setContent",
-     "action":"C1_batteryConnectionWrongnum",
-     "filter":"appointable"
+     "action":"C1_batteryConnectionWrongnum"
    },
    "3":{
      "type": "activeArea",
@@ -90,8 +88,7 @@
      "font": "Arial",
      "fontSize": 50,
      "actionType":"setContent",
-     "action":"C1_batteryConnectionWrongnum",
-     "filter":"appointable"
+     "action":"C1_batteryConnectionWrongnum"
    },
    "4":{
      "type": "activeArea",
@@ -104,8 +101,7 @@
      "font": "Arial",
      "fontSize": 50,
      "actionType":"setContent",
-     "action":"C1_batteryConnectionWrongnum",
-     "filter":"appointable"
+     "action":"C1_batteryConnectionWrongnum"
    },
    "5":{
      "type": "activeArea",
@@ -118,8 +114,7 @@
      "font": "Arial",
      "fontSize": 50,
      "actionType":"setContent",
-     "action":"C1_batteryConnectionWrongnum",
-     "filter":"appointable"
+     "action":"C1_batteryConnectionWrongnum"
    },
    "6":{
      "type": "activeArea",
@@ -132,8 +127,7 @@
      "font": "Arial",
      "fontSize": 50,
      "actionType":"setContent",
-     "action":"C1_batteryConnectionWrongnum",
-     "filter":"appointable"
+     "action":"C1_batteryConnectionWrongnum"
    },
    "7":{
      "type": "activeArea",
@@ -146,8 +140,7 @@
      "font": "Arial",
      "fontSize": 50,
      "actionType":"setContent",
-     "action":"C1_batteryConnectionWrongnum",
-     "filter":"appointable"
+     "action":"C1_batteryConnectionWrongnum"
    },
    "8":{
      "type": "activeArea",
@@ -160,8 +153,7 @@
      "font": "Arial",
      "fontSize": 50,
      "actionType":"setContent",
-     "action":"C1_batteryConnectionWrongnum",
-     "filter":"appointable"
+     "action":"C1_batteryConnectionWrongnum"
    },
    "9":{
      "type": "activeArea",
@@ -174,8 +166,7 @@
      "font": "Arial",
      "fontSize": 50,
      "actionType":"setContent",
-     "action":"C1_batteryConnection299num",
-     "filter":"appointable"
+     "action":"C1_batteryConnection299num"
   },
   "0":{
      "type": "activeArea",
@@ -188,8 +179,7 @@
      "font": "Arial",
      "fontSize": 50,
      "actionType":"setContent",
-     "action":"C1_batteryConnectionWrongnum",
-     "filter":"appointable"
+     "action":"C1_batteryConnectionWrongnum"
   },
   "back": {
      "type": "button",
@@ -204,8 +194,7 @@
      "fontSize": 24,
      "border": false,
      "actionType": "setContent",
-     "action": "C1_battery",
-     "filter": "appointable"
+     "action": "C1_battery"
    }
   }
 }
