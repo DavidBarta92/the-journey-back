@@ -40,7 +40,7 @@
           },
         "forward" : {
             "type": "activeArea",
-            "text": null,
+            "text": "startingbase_enter",
             "x": 617,
             "y": 315,
             "width": 150,
@@ -48,7 +48,7 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C4_startingbase_enter"
         },

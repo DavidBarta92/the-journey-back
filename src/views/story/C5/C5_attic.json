@@ -40,7 +40,7 @@
           },
         "computer" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_computer",
             "x": 880,
             "y": 270,
             "width": 160,
@@ -48,7 +48,7 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C5_computer"
         },

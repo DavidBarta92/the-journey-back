@@ -40,7 +40,7 @@
           },
         "C4_waste_processor_halfway" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_waste_processor_halfway",
             "x": 761,
             "y": 301,
             "width": 96,
@@ -48,13 +48,13 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C4_waste_processor_halfway"
         },
         "C4_startingbase_enter" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_startingbase_enter",
             "x": 995,
             "y": 295,
             "width": 96,
@@ -62,7 +62,7 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C4_startingbase_enter"
         },

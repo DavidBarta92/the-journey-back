@@ -40,7 +40,7 @@
           },
         "go" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_turn_off",
             "x": 790,
             "y": 515,
             "width": 58,
@@ -48,7 +48,7 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C5_S1"
         },

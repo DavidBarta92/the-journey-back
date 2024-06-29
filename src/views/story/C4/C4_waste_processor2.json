@@ -40,7 +40,7 @@
           },
         "forward" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_waste_processor",
             "x": 500,
             "y": 354,
             "width": 300,
@@ -48,7 +48,7 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C4_waste_processor_halfway2"
         },

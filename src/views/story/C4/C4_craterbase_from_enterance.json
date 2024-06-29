@@ -40,7 +40,7 @@
           },
         "craterbase_to_enterance" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_craterbase_to_enterance",
             "x": 200,
             "y": 300,
             "width": 100,
@@ -48,13 +48,13 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C4_electricity_and_battery"
         },
         "C4_sunconsoles" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_sunconsoles",
             "x": 900,
             "y": 300,
             "width": 100,
@@ -62,7 +62,7 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C4_sunconsoles"
         },

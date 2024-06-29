@@ -40,7 +40,7 @@
           },
         "forward" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_room",
             "x": 797,
             "y": 214,
             "width": 180,
@@ -48,7 +48,7 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C4_room"
         },

@@ -40,7 +40,7 @@
           },
         "forward" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_craterbase_to_enterance",
             "x": 1000,
             "y": 300,
             "width": 100,
@@ -48,7 +48,7 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C4_craterbase_to_enterance"
         },

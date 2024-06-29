@@ -48,13 +48,13 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C4_electricity_and_battery"
         },
         "C4_startingbase_enter" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_startingbase_enter",
             "x": 119,
             "y": 345,
             "width": 90,
@@ -62,7 +62,7 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C4_startingbase_enter"
         },

@@ -40,7 +40,7 @@
           },
         "forward" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_drive",
             "x": 560,
             "y": 250,
             "width": 160,
@@ -48,7 +48,7 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C6_S1"
         },

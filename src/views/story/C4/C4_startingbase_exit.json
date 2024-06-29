@@ -48,13 +48,13 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C4_craterbase_from_enterance"
         },
         "C4_waste_processor_halfway" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_waste_processor_halfway",
             "x": 930,
             "y": 300,
             "width": 150,
@@ -62,7 +62,7 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C4_waste_processor_halfway"
         },

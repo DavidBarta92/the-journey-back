@@ -47,7 +47,7 @@
           "rotate":0,
           "color":"black",
           "font":"G7_Segment_7a",
-          "fontSize":16,
+          "fontSize":18,
           "border":false,
           "filter":null
        },

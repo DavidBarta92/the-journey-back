@@ -54,7 +54,7 @@
         },
         "electricity" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_electricity",
             "x": 252,
             "y": 331,
             "width": 117,
@@ -62,7 +62,7 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C4_electricity"
         },       

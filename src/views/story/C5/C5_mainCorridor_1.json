@@ -48,13 +48,13 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C5_consoleRoom_1"
         },
         "ladder" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_attic",
             "x": 1122,
             "y": 130,
             "width": 150,
@@ -62,7 +62,7 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C5_attic"
         },

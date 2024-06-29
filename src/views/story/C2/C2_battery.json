@@ -45,7 +45,7 @@
             "y": 162,
             "width": 200,
             "height": 400,
-            "filter" : "",
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C2_batteryConnection"
         },

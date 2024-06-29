@@ -349,6 +349,10 @@
     "lbl_drawer" : "    szekreny",
     "lbl_consoleRoom" : "     kommunikacios egyseg",
     "lbl_drive" : "    vezetes",
+    "lbl_attic" : "   felso szint",
+    "lbl_workshop" : "   muhely",
+    "lbl_turn_off" : "   energia lekapcsolas",
+
 
     "dia_C_S1": "Ismertem egy embert. Úgy hívták, Terry. Nem tudom, hogy mit mondhatnék a kétségbeesésről. Annak örülnék a legjobban ha boldog lennél. Én a madarakra gondolokmikor meg szeretném magam nyugtatni. A földön élnek madarak...",
     "dia_C_S2": "Lehunyom a szemem és az erdőbe képzelem magam. Tiszta a levegő, nincs rajtam szkafander és az arcomon érzem a nap melegét.",
