@@ -227,6 +227,12 @@ var Draw = (function(){
             drawPrimImage(image, positionXmod + 700, positionYmod, 2.2, 2.2);
         }
 
+        const drawMapBackground = function(positionX, positionY, image) {
+            var positionXmod = positionX / 20 % (image.width);
+            var positionYmod = positionY / 20 % (image.height);
+            drawPrimImage(image, positionXmod + 700, positionYmod, 2.2, 2.2);
+        }
+
         // Drawing primitive
         const drawPrimImage = function(image, x, y, scaleW, scaleH){
             context.drawImage(image, x, y, image.width, image.height, 0, 0, scaleW*image.width, scaleH*image.height);
@@ -311,7 +317,8 @@ var Draw = (function(){
         context.translate(-(rectX + rectWidth / 2), -(rectY + rectHeight / 2));
     }
 
-    const renderMapHUD = function(circle, dot, targetPoint, angle) {
+    const renderMapHUD = function(hud, circle, dot, targetPoint, angle) {
+        context.drawImage(hud, 0, 0, canvas.width, canvas.height);
         context.beginPath();
         context.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
         context.strokeStyle = "#dc3a15";
@@ -457,8 +464,8 @@ var Draw = (function(){
             return renderHUD(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render);
         },
 
-        renderMapHUD: function(circle, dot, targetPoint, angle){
-            return renderMapHUD(circle, dot, targetPoint, angle);
+        renderMapHUD: function(hud, circle, dot, targetPoint, angle){
+            return renderMapHUD(hud, circle, dot, targetPoint, angle);
         },
 
         drawString: function(string, pos){

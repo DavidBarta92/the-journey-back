@@ -125,11 +125,11 @@ export const Map = (function(){
         Draw.drawMapBackground(+((player.posx)*3.5), +((player.posy)*3.5),backgroundImage);
 
         //dithetring
-        var ctxForDither = context.getImageData(squareTopLeftX, squareTopLeftY, render.width, render.height);
-        var ctxFromD = Filter.dither(ctxForDither, ditherParams);
-        context.putImageData(ctxFromD, squareTopLeftX, squareTopLeftY);
+        // var ctxForDither = context.getImageData(squareTopLeftX, squareTopLeftY, render.width, render.height);
+        // var ctxFromD = Filter.dither(ctxForDither, ditherParams);
+        // context.putImageData(ctxFromD, squareTopLeftX, squareTopLeftY);
 
-        Draw.renderMapHUD(circle, dot, {x: ((targetPoint.x)*3.5)/20%backgroundImage.width, y: ((targetPoint.y)*3.5)/20%backgroundImage.height}, angle);
+        Draw.renderMapHUD(hud, circle, dot, {x: ((targetPoint.x)*3.5)/20%backgroundImage.width, y: ((targetPoint.y)*3.5)/20%backgroundImage.height}, angle);
 
         if (targetPoint.x >= circle.x - 30 
             && targetPoint.x <= circle.x + 30 
