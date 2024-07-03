@@ -221,16 +221,10 @@ var Draw = (function(){
             }
         }
 
-        const drawBackground = function(positionX, positionY, image) {
+        const drawBackground = function(positionX, positionY, image, w = 1, h = 1) {
             var positionXmod = positionX / 20 % (image.width);
             var positionYmod = positionY / 20 % (image.height);
-            drawPrimImage(image, positionXmod + 700, positionYmod, 2.2, 2.2);
-        }
-
-        const drawMapBackground = function(positionX, positionY, image) {
-            var positionXmod = positionX / 20 % (image.width);
-            var positionYmod = positionY / 20 % (image.height);
-            drawPrimImage(image, positionXmod + 700, positionYmod, 2.2, 2.2);
+            drawPrimImage(image, positionXmod + 700, positionYmod, w, h);
         }
 
         // Drawing primitive
@@ -318,6 +312,12 @@ var Draw = (function(){
     }
 
     const renderMapHUD = function(hud, circle, dot, targetPoint, angle) {
+        context.lineWidth = 2;
+        context.strokeStyle = "#dc3a15";
+        drawCross(targetPoint.x, targetPoint.y);
+        context.stroke();
+        context.closePath();
+
         context.drawImage(hud, 0, 0, canvas.width, canvas.height);
         context.beginPath();
         context.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
@@ -330,12 +330,6 @@ var Draw = (function(){
         context.drawImage(carImage, -30, -30, 60, 60); // Középre rajzolás
         context.rotate(-(angle + Math.PI / 2)); // Forgatás vissza
         context.translate(-circle.x, -circle.y); // Áthelyezés vissza
-  
-        context.lineWidth = 2;
-        context.strokeStyle = "#dc3a15";
-        drawCross(targetPoint.x, targetPoint.y);
-        context.stroke();
-        context.closePath();
   
         const compassDot = calculateClosestPoint(targetPoint, circle);
         context.fillStyle = "#dc3a15";
@@ -355,14 +349,14 @@ var Draw = (function(){
         }
       }
 
-      function calculateClosestPoint(targetPoint, circle) {
+    function calculateClosestPoint(targetPoint, circle) {
         const dx = targetPoint.x - circle.x;
         const dy = targetPoint.y - circle.y;
         const angleToPoint = Math.atan2(dy, dx);
         const closestX = circle.x + Math.cos(angleToPoint) * circle.radius;
         const closestY = circle.y + Math.sin(angleToPoint) * circle.radius;
         return { x: closestX, y: closestY };
-      }
+    }
 
     const drawSprite = function(sprite){
         //if(sprite.y <= sprite.ymax){
@@ -475,7 +469,7 @@ var Draw = (function(){
 
         drawBackground: function(positionX, backgroundImage){
             var positionY = 8; 
-            return drawBackground(positionX, positionY, backgroundImage);
+            return drawBackground(positionX, positionY, backgroundImage, 2.2, 2.2);
         },
 
         drawMapBackground: function(positionX, positionY, backgroundImage){
@@ -484,7 +478,7 @@ var Draw = (function(){
 
         drawSlideText: function(positionX, textImage){
             var positionY = 8; 
-            return drawBackground(positionX, positionY, textImage);
+            return drawBackground(positionX, positionY, textImage, 2.2, 2.2);
         },
 
         sprite: function(sprite){

@@ -3,8 +3,6 @@ import RenderManager from "../controllers/renderManager.js";
 import stateManager from "../controllers/stateManager.js";
 import { player } from "./player.js";
 import inputController from "../controllers/inputController.js";
-import {tree, rock, cross, background } from "./sprites.js";
-import Filter from "../views/filter.js";
 import dataController from "../controllers/dataController.js";
 import Timer from "./timer.js";
 import Draw from "./draw.js";
@@ -17,27 +15,8 @@ var currentDialogueImage = new Image();
 var contentContainer;
 
 export const Map = (function(){
-    var pause = false;
-
-    let ditherParams = {
-        greyscaleMethod: false,
-        replaceColours: true,
-        replaceColourMap: {
-            black: {
-                r: 10,
-                g: 0,
-                b: 32,
-                a: 0,
-            },
-            white: {
-                r: 0,
-                g: 133,
-                b: 120,
-                a: 255,
-            },
-        }
-    }
-
+    var pause = true;
+    let animationId;
     var state = state;
     var canvas = gameCanvas.getCanvas();
     var context;
@@ -124,22 +103,18 @@ export const Map = (function(){
 
         Draw.drawMapBackground(+((player.posx)*3.5), +((player.posy)*3.5),backgroundImage);
 
-        //dithetring
-        // var ctxForDither = context.getImageData(squareTopLeftX, squareTopLeftY, render.width, render.height);
-        // var ctxFromD = Filter.dither(ctxForDither, ditherParams);
-        // context.putImageData(ctxFromD, squareTopLeftX, squareTopLeftY);
+        let targetPointRecalculated = {x: ((targetPoint.x)*3.5)/20%backgroundImage.width, y: ((targetPoint.y)*3.5)/20%backgroundImage.height};
 
-        Draw.renderMapHUD(hud, circle, dot, {x: ((targetPoint.x)*3.5)/20%backgroundImage.width, y: ((targetPoint.y)*3.5)/20%backgroundImage.height}, angle);
+        Draw.renderMapHUD(hud, circle, dot, targetPointRecalculated, angle);
 
-        if (targetPoint.x >= circle.x - 30 
-            && targetPoint.x <= circle.x + 30 
-            && targetPoint.y >= circle.y - 30 
-            && targetPoint.y <= circle.y + 30) {
+        if (targetPointRecalculated.x >= circle.x - 30 
+            && targetPointRecalculated.x <= circle.x + 30 
+            && targetPointRecalculated.y >= circle.y - 30 
+            && targetPointRecalculated.y <= circle.y + 30) {
             setState();
         }
 
-        // Draw.renderHUD(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render);
-        // drawElements(contentContainer.elements);
+        drawElements(contentContainer.elements);
     }
 
     ///////////////////////////////////////////////////////////////////////
@@ -218,16 +193,10 @@ export const Map = (function(){
     const drawElements = function(elements) {
         document.fonts.ready.then(function () {
             Object.entries(elements).forEach(element => {
-                if (element[1].type === 'rock') {
-                    
-                }
-                if (element[1].type === 'tree') {
-                    
-                }
                 if (element[1].type === 'button' || element[1].type === 'text'){
                     //if (element[1].hasOwnProperty('buttonKey')) drawPessKey(element[1].buttonKey);
 
-                    Draw.writeText(element[1], (element[1].x + element[1].textBoxEnd));
+                    Draw.writeText(element, (element[1].x + element[1].textBoxEnd));
                     
                     //only buttons have border
                     if(element[1].hasOwnProperty('border') && element[1].border){
@@ -258,11 +227,11 @@ export const Map = (function(){
         start: function(state){
             var state = state;
             init(state);
-            if (!pause){
-                gameInterval = setInterval(renderGameFrame, 1);
-            } else {
-                gameInterval = setInterval(renderGameFrame, 1);
-            }
+            function animate() {
+                renderGameFrame();
+                if(stateManager.loadState().view === "map") animationId = requestAnimationFrame(animate);
+            }           
+            if(stateManager.loadState().view === "map") animationId = requestAnimationFrame(animate);
         },
         exit: function(){
             exit();

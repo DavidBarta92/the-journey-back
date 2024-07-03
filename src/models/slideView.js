@@ -162,7 +162,7 @@ export const Slide = (function(){
                 if (element[1].type === 'button' || element[1].type === 'text'){
                     //if (element[1].hasOwnProperty('buttonKey')) drawPessKey(element[1].buttonKey);
 
-                    Draw.writeText(element[1], (element[1].x + element[1].textBoxEnd));
+                    Draw.writeText(element, (element[1].x + element[1].textBoxEnd));
                     
                     //only buttons have border
                     if(element[1].hasOwnProperty('border') && element[1].border){
