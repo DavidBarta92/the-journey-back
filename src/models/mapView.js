@@ -6,6 +6,7 @@ import inputController from "../controllers/inputController.js";
 import dataController from "../controllers/dataController.js";
 import Timer from "./timer.js";
 import Draw from "./draw.js";
+import Filter from "../views/filter";
 
 var backgroundImage = new Image();
 var textImage = new Image();
@@ -48,10 +49,7 @@ export const Map = (function(){
         y: circle.y
     };
   
-    let targetPoint = {
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height
-      };
+    let targetPoint;
 
     let angle = 0; // Kezdeti forgatási szög 
 
@@ -83,6 +81,7 @@ export const Map = (function(){
         squareTopLeftY = (canvas.height - render.height)/2; 
         
         contentContainer = dataController.loadContent(state);
+        targetPoint = contentContainer.targetPoint;
         spritesheet.src = contentContainer.spritesPath;
         backgroundImage.src = contentContainer.backgroundPath;
         textImage.src = contentContainer.textPath;
@@ -93,19 +92,50 @@ export const Map = (function(){
 
     //renders one frame
     const renderGameFrame = function(){
-        // Wait for 41 ms to maintain 24 fps
-        Timer.wait(41);
+        gameCanvas.clear();
         keys = inputController.getKeys();
 
         gameCanvas.clear();
         const delta = player.updateCarState(baseOffset);
         handleSpeedAndPosition(keys, delta);
-
         Draw.drawMapBackground(+((player.posx)*3.5), +((player.posy)*3.5),backgroundImage);
 
-        let targetPointRecalculated = {x: ((targetPoint.x)*3.5)/20%backgroundImage.width, y: ((targetPoint.y)*3.5)/20%backgroundImage.height};
+        if (contentContainer.blur === true) {
+            const radius = 200;
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            
+            const offscreenCanvas = document.createElement('canvas');
+            const offscreenCtx = offscreenCanvas.getContext('2d');
+            offscreenCanvas.width = canvas.width;
+            offscreenCanvas.height = canvas.height;
+    
+            offscreenCtx.drawImage(canvas, 0, 0);
+    
+            offscreenCtx.globalCompositeOperation = 'destination-in';
+            offscreenCtx.beginPath();
+            offscreenCtx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+            offscreenCtx.closePath();
+            offscreenCtx.fill();
 
-        Draw.renderMapHUD(hud, circle, dot, targetPointRecalculated, angle);
+            var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+            var bluredimageData = Filter.imageDataBlur(imageData);
+            context.putImageData(bluredimageData, 0, 0);
+
+            context.save();
+            context.beginPath();
+            context.arc(centerX, centerY, radius, 0, Math.PI * 2);
+            context.closePath();
+            context.clip();
+                    
+            context.drawImage(offscreenCanvas, 0, 0);
+            context.restore();
+        }
+
+        let targetPointRecalculated = {x: ((targetPoint.x)*3.5)/20%backgroundImage.width, y: ((targetPoint.y)*3.5)/20%backgroundImage.height};
+        let carTriangle;
+        contentContainer.carVisible ? carTriangle = true : carTriangle = false;
+        Draw.renderMapHUD(hud, circle, dot, targetPointRecalculated, angle, carTriangle);
 
         if (targetPointRecalculated.x >= circle.x - 30 
             && targetPointRecalculated.x <= circle.x + 30 
@@ -118,7 +148,7 @@ export const Map = (function(){
     }
 
     ///////////////////////////////////////////////////////////////////////
-      
+
     const handleSpeedAndPosition = function(keys, delta) {
         const ArrowUp = keys[38] ;
         const ArrowDown = keys[39]
@@ -184,6 +214,12 @@ export const Map = (function(){
             stateManager.setContent(contentContainer.end.action);
             gameCanvas.clear();
             clearInterval(gameInterval);
+            RenderManager.render();
+            return;
+        }
+        if (contentContainer.end.actionType === "setContent") {
+            stateManager.setContent(contentContainer.end.action);
+            gameCanvas.clear();
             RenderManager.render();
             return;
         }

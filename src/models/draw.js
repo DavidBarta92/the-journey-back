@@ -13,6 +13,8 @@ var Draw = (function(){
 
     const carImage = new Image();
     carImage.src = '../src/media/images/kiskep.png';
+    const triangleImage = new Image();
+    triangleImage.src = '../src/media/images/kisharomszog.png';
 
     const loadLanguage = function () {
         state = dataController.loadState();
@@ -302,7 +304,6 @@ var Draw = (function(){
         var rectWidth = 50;
         var rectHeight = 100;
 
-        //context.clearRect(0, 0, canvas.width, canvas.height);
         context.fillStyle = "red";
         context.translate(rectX + rectWidth / 2, rectY + rectHeight / 2);
         context.rotate(rotationAngle);
@@ -311,41 +312,44 @@ var Draw = (function(){
         context.translate(-(rectX + rectWidth / 2), -(rectY + rectHeight / 2));
     }
 
-    const renderMapHUD = function(hud, circle, dot, targetPoint, angle) {
+    const renderMapHUD = function(hud, circle, dot, targetPoint, angle, carTriangle) {
         context.lineWidth = 2;
         context.strokeStyle = "#dc3a15";
         drawCross(targetPoint.x, targetPoint.y);
         context.stroke();
         context.closePath();
 
-        context.drawImage(hud, 0, 0, canvas.width, canvas.height);
+        //if (!!hud) context.drawImage(hud, 0, 0, canvas.width, canvas.height);
         context.beginPath();
         context.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
         context.strokeStyle = "#dc3a15";
         context.lineWidth = 3;
         context.stroke();
-
-        context.translate(circle.x, circle.y); // Áthelyezés a kör közepére
-        context.rotate(angle + Math.PI / 2); // Elforgatás 90 fokkal
-        context.drawImage(carImage, -30, -30, 60, 60); // Középre rajzolás
-        context.rotate(-(angle + Math.PI / 2)); // Forgatás vissza
-        context.translate(-circle.x, -circle.y); // Áthelyezés vissza
   
         const compassDot = calculateClosestPoint(targetPoint, circle);
         context.fillStyle = "#dc3a15";
         context.beginPath();
         context.arc(compassDot.x, compassDot.y, 6, 0, Math.PI * 2);
         context.fill();
-  
-        // context.beginPath();
-        // context.arc(dot.x, dot.y, 3, 0, Math.PI * 2);
-        // context.fillStyle = 'blue';
-        // context.fill();
-  
-        if (targetPoint.x >= circle.x - 30 && targetPoint.x <= circle.x + 30 && targetPoint.y >= circle.y - 30 && targetPoint.y <= circle.y + 30) {
-          context.fillStyle = 'black';
-          context.font = '16px Arial';
-          context.fillText('Hilépés', circle.x - 30, circle.y + 60);
+
+        context.translate(dot.x, dot.y); 
+        context.rotate(angle + Math.PI / 2); 
+        context.drawImage(triangleImage, -30, -30, 60, 60); 
+        context.rotate(-(angle + Math.PI / 2)); 
+        context.translate(-dot.x, -dot.y);
+
+        if (carTriangle) {
+            context.translate(circle.x, circle.y); 
+            context.rotate(angle + Math.PI / 2); 
+            context.drawImage(carImage, -30, -30, 60, 60); 
+            context.rotate(-(angle + Math.PI / 2)); 
+            context.translate(-circle.x, -circle.y);   
+        } else {
+            context.beginPath();
+            context.arc(circle.x, circle.y, 4, 0, Math.PI * 2);
+            context.strokeStyle = "#dc3a15";
+            context.lineWidth = 3;
+            context.stroke();
         }
       }
 
@@ -458,8 +462,8 @@ var Draw = (function(){
             return renderHUD(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render);
         },
 
-        renderMapHUD: function(hud, circle, dot, targetPoint, angle){
-            return renderMapHUD(hud, circle, dot, targetPoint, angle);
+        renderMapHUD: function(hud, circle, dot, targetPoint, angle, carTriangle){
+            return renderMapHUD(hud, circle, dot, targetPoint, angle, carTriangle);
         },
 
         drawString: function(string, pos){

@@ -1,7 +1,7 @@
 {
-    "name" : "C14_desert",
+    "name" : "C15_desert",
     "cursor" : "fasle",
-    "blur" : true,
+    "blur" : false,
     "backgroundPath" : "../src/media/images/mp.png",
     "textPath" : "../src/media/images/driver-text.png",
     "spritesPath" : "../src/media/images/spritesheet.high.png",
@@ -9,10 +9,10 @@
     "itemsPath" : "",
     "dialogue" : "david",
     "targetPoint" : {
-        "x": 1500,
-        "y": 5800
+        "x": 2000,
+        "y": 600
     },
-    "carVisible" : true,
+    "carVisible" : false,
     "filter" : "",
     "music" : "",
     "elements" : {
@@ -33,7 +33,7 @@
           }
     },
     "end" : {
-        "actionType": "setContent",
-        "action": "C15_desert"
+        "actionType": "setToClickView",
+        "action": "C7_S1"
     }
     }

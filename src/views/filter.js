@@ -435,7 +435,7 @@ function removeFromGroup(element, groups) {
     /**
      * Blur for HTML img elements
      * @param {imgElement} imgElem The image data to be processed.
-     * @return {imgElement|null} The processed image data, or null if an error occurs.
+     * @return {imgElement|null} The processed image element, or null if an error occurs.
      */
     imgElementBlur: function (imgElem) {
       var base64ScreenImg = imgElem.replace('', '')
