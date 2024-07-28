@@ -1,37 +1,37 @@
 {
-    "name" : "C1_S4",
-    "backgroundPath" : "../src/media/images/C1_S4_bg.b64",
+    "name" : "C5_S6",
+    "backgroundPath" : "../src/media/images/C5_S5_bg.b64",
     "spritesPath" : "",
     "itemsPath" : "",
-    "dialogue" : "C1_S4",
+    "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/inclusion.mp3",
+    "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "",
     "elements" : {
-        "Eva": {
+        "dial1": {
             "type": "text",
-            "text": "dia_C1_S4_1",
-            "x": 138,
-            "y": 160,
+            "text": "dia_C5_S5_1",
+            "x": 81,
+            "y": 300,
             "width": 70,
             "height": 20,
             "rotate": 0,
-            "textBoxEnd": 320,
-            "color": "DarkSalmon",
+            "textBoxEnd": 250,
+            "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
             "border": false,
             "filter": null
           },
-        "David": {
+          "dial2": {
             "type": "text",
-            "text": "dia_C1_S4_2",
-            "x": 138,
-            "y": 350,
+            "text": "dia_C5_S5_2",
+            "x": 956,
+            "y": 300,
             "width": 70,
             "height": 20,
             "rotate": 0,
-            "textBoxEnd": 320,
+            "textBoxEnd": 250,
             "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
@@ -40,9 +40,9 @@
           }
     },
     "timer" : {
-        "time": 12000,
-        "actionType": "setContent",
-        "action": "C1_S5",
+        "time": 10000,
+        "actionType": "setToSlide",
+        "action": "C5_desert",
         "allowed" : true
     }
-}
+    }

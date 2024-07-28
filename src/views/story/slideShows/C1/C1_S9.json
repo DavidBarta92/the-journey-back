@@ -5,7 +5,7 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "",
+    "music" : "../src/media/sounds/inclusion.mp3",
     "atmo" : "",
     "elements" : {
         "title": {
@@ -25,9 +25,9 @@
           }
     },
     "timer" : {
-        "time": 8000,
+        "time": 7000,
         "actionType": "setContent",
         "action": "C1_S10",
         "allowed" : true
     }
-    }
+}

@@ -316,6 +316,24 @@ const hitArea = function(element){
                 RenderManager.render();
                 return;
             }
+            if (element[1].actionType === "setToSlide") {
+                stateManager.setView('slide');
+                stateManager.setContent(element[1].action);
+                gameCanvas.clear();
+                counterTimer = null;
+                cancelAnimationFrame(animationId);
+                RenderManager.render();
+                return;
+            }
+            if (element[1].actionType === "setToMap") {
+                stateManager.setView('map');
+                stateManager.setContent(element[1].action);
+                gameCanvas.clear();
+                counterTimer = null;
+                cancelAnimationFrame(animationId);
+                RenderManager.render();
+                return;
+            }
             if (element[1].actionType === "setView") {
                 stateManager.setView(element[1].action);
                 gameCanvas.clear();
@@ -383,7 +401,7 @@ const hitArea = function(element){
                 if(element[1].action === 'start'){
                     if (stateManager.loadState().init){
                         stateManager.setView('story');
-                        stateManager.setContent('C1_S1');
+                        stateManager.setContent('C1_intro1');
                         stateManager.setInitFalse();
                         stateManager.resetLevelChapterScene();
                         stateManager.resetItems();
@@ -393,7 +411,7 @@ const hitArea = function(element){
                 } 
                 if(element[1].action === 'new'){
                     stateManager.setView('story');
-                    stateManager.setContent('C1_S1');
+                    stateManager.setContent('C1_intro1');
                     stateManager.setInitFalse();
                     stateManager.resetLevelChapterScene();
                     stateManager.resetItems();

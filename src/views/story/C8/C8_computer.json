@@ -5,7 +5,7 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/i_am_you_am.mp3",
+    "music" : "",
     "atmo" : "../src/media/sounds/astronaut_suit.mp3",
     "elements" : {
         "radio" : {

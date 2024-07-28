@@ -41,8 +41,8 @@
     },
     "timer" : {
         "time": 10000,
-        "actionType": "setContent",
-        "action": "C5_mainCorridor_1",
+        "actionType": "setToSlide",
+        "action": "C5_desert",
         "allowed" : true
     }
     }

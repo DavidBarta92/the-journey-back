@@ -4,7 +4,7 @@
     "spritesPath":null,
     "dialogue":null,
     "filter":"",
-    "music":"",
+    "music" : "../src/media/sounds/inclusion.mp3",
     "atmo" : "../src/media/sounds/astronaut_suit.mp3",
     "elements":{
       "chapter": {

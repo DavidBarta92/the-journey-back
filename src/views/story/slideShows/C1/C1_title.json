@@ -5,7 +5,7 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "",
+    "music" : "../src/media/sounds/inclusion.mp3",
     "atmo" : "",
     "elements" : {
         "title": {
@@ -24,9 +24,9 @@
           }
     },
     "timer" : {
-        "time": 10000,
+        "time": 8000,
         "actionType": "setContent",
-        "action": "C1_S9",
+        "action": "C1_craterbase_from_enterance",
         "allowed" : true
     }
-    }
+}

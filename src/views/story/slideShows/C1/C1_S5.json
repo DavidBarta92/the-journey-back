@@ -5,7 +5,7 @@
     "itemsPath" : "",
     "dialogue" : "C1_S5",
     "filter" : "fadeOn",
-    "music" : "",
+    "music" : "../src/media/sounds/inclusion.mp3",
     "atmo" : "",
     "elements" : {
         "Eva": {
