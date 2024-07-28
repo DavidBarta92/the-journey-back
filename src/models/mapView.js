@@ -49,7 +49,7 @@ export const Map = (function(){
         y: circle.y
     };
   
-    let targetPoint;
+    let targetPoints;
 
     let angle = 0; // Kezdeti forgatási szög 
 
@@ -81,7 +81,7 @@ export const Map = (function(){
         squareTopLeftY = (canvas.height - render.height)/2; 
         
         contentContainer = dataController.loadContent(state);
-        targetPoint = contentContainer.targetPoint;
+        targetPoints = Object.values(contentContainer.targetPoints);
         spritesheet.src = contentContainer.spritesPath;
         backgroundImage.src = contentContainer.backgroundPath;
         textImage.src = contentContainer.textPath;
@@ -132,16 +132,37 @@ export const Map = (function(){
             context.restore();
         }
 
-        let targetPointRecalculated = {x: ((targetPoint.x)*3.5)/20%backgroundImage.width, y: ((targetPoint.y)*3.5)/20%backgroundImage.height};
+        let targetPointsRecalculated = [];
+
+        for (let i = 0; i < targetPoints.length; i++) {
+            let point = targetPoints[i];
+            let recalculatedPoint = {
+                x: ((point.x) * 3.5) / 20 % backgroundImage.width,
+                y: ((point.y) * 3.5) / 20 % backgroundImage.height,
+                action: point.action,
+                actionType: point.actionType,
+                color: point.color,
+                font: point.font,
+                height: point.height,
+                text: point.text,
+                textBoxEnd: point.textBoxEnd,
+                width: point.width
+            };
+            targetPointsRecalculated.push(recalculatedPoint);
+        }
         let carTriangle;
         contentContainer.carVisible ? carTriangle = true : carTriangle = false;
-        Draw.renderMapHUD(hud, circle, dot, targetPointRecalculated, angle, carTriangle);
+        Draw.renderMapHUD(hud, circle, dot, targetPointsRecalculated, angle, carTriangle);
 
-        if (targetPointRecalculated.x >= circle.x - 30 
-            && targetPointRecalculated.x <= circle.x + 30 
-            && targetPointRecalculated.y >= circle.y - 30 
-            && targetPointRecalculated.y <= circle.y + 30) {
-            setState();
+        for (let i = 0; i < targetPointsRecalculated.length; i++) {
+            let point = targetPointsRecalculated[i];
+            if (point.x >= circle.x - 30 
+                && point.x <= circle.x + 30 
+                && point.y >= circle.y - 30 
+                && point.y <= circle.y + 30) {
+                setState(point);
+                break; 
+            }
         }
 
         drawElements(contentContainer.elements);
@@ -191,34 +212,43 @@ export const Map = (function(){
       
     const carMoving = function(keys, delta) {
         if (keys[37] && player.speed > 0) {
-            player.posx -= 2*player.speed;
-            targetPoint.x += 2*player.speed;
+            player.posx -= 2 * player.speed;
+            targetPoints.forEach(point => {
+                point.x += 2 * player.speed;
+            });
         }
         if (keys[38] && player.speed > 0) {
-            player.posy -= 2*player.speed;
-            targetPoint.y += 2*player.speed;
+            player.posy -= 2 * player.speed;
+            targetPoints.forEach(point => {
+                point.y += 2 * player.speed;
+            });
         }
         if (keys[39] && player.speed > 0) {
-            player.posx += 2*player.speed;
-            targetPoint.x -= 2*player.speed;
+            player.posx += 2 * player.speed;
+            targetPoints.forEach(point => {
+                point.x -= 2 * player.speed;
+            });
         }
         if (keys[40] && player.speed > 0) {
-            player.posy += 2*player.speed;
-            targetPoint.y -= 2*player.speed;
+            player.posy += 2 * player.speed;
+            targetPoints.forEach(point => {
+                point.y -= 2 * player.speed;
+            });
         }
     }
+    
 
-    const setState = function(){
-        if (contentContainer.end.actionType === "setToClickView") {
+    const setState = function(point){
+        if (point.actionType === "setToClickView") {
             stateManager.setView('story');
-            stateManager.setContent(contentContainer.end.action);
+            stateManager.setContent(point.action);
             gameCanvas.clear();
             clearInterval(gameInterval);
             RenderManager.render();
             return;
         }
-        if (contentContainer.end.actionType === "setContent") {
-            stateManager.setContent(contentContainer.end.action);
+        if (point.actionType === "setContent") {
+            stateManager.setContent(point.action);
             gameCanvas.clear();
             RenderManager.render();
             return;

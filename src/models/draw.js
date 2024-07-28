@@ -312,25 +312,43 @@ var Draw = (function(){
         context.translate(-(rectX + rectWidth / 2), -(rectY + rectHeight / 2));
     }
 
-    const renderMapHUD = function(hud, circle, dot, targetPoint, angle, carTriangle) {
-        context.lineWidth = 2;
-        context.strokeStyle = "#dc3a15";
-        drawCross(targetPoint.x, targetPoint.y);
+    const renderMapHUD = function(hud, circle, dot, targetPoints, angle, carTriangle) {
+    context.lineWidth = 2;
+    context.strokeStyle = "#dc3a15";
+    
+    targetPoints.forEach(point => {
+        context.beginPath();
+        drawCross(point.x, point.y);
         context.stroke();
         context.closePath();
+    });
 
-        //if (!!hud) context.drawImage(hud, 0, 0, canvas.width, canvas.height);
+        if (!!hud) context.drawImage(hud, 0, 0, canvas.width, canvas.height);
         context.beginPath();
         context.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
         context.strokeStyle = "#dc3a15";
         context.lineWidth = 3;
         context.stroke();
-  
-        const compassDot = calculateClosestPoint(targetPoint, circle);
+    
+        targetPoints.forEach(point => {
+        const compassDot = calculateClosestPoint(point, circle);
         context.fillStyle = "#dc3a15";
         context.beginPath();
         context.arc(compassDot.x, compassDot.y, 6, 0, Math.PI * 2);
         context.fill();
+        context.closePath();
+        if(isPointInCircle(circle, point)) {
+            context.beginPath();
+            context.lineWidth = 1;
+            context.moveTo(point.x, point.y);
+            context.lineTo(compassDot.x, compassDot.y);
+            context.stroke();
+        }
+        const textPoint = point;
+        textPoint.x = compassDot.x;
+        textPoint.y = compassDot.y;
+        writeText(textPoint);
+        });
 
         context.translate(dot.x, dot.y); 
         context.rotate(angle + Math.PI / 2); 
@@ -361,6 +379,17 @@ var Draw = (function(){
         const closestY = circle.y + Math.sin(angleToPoint) * circle.radius;
         return { x: closestX, y: closestY };
     }
+
+    function isPointInCircle(circle, point) {
+        // Számold ki a pont és a kör középpontja közötti távolságot
+        const dx = point.x - circle.x;
+        const dy = point.y - circle.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+    
+        // Ellenőrizd, hogy a távolság kisebb-e vagy egyenlő-e a kör sugarával
+        return distance <= circle.radius;
+    }
+    
 
     const drawSprite = function(sprite){
         //if(sprite.y <= sprite.ymax){
@@ -462,8 +491,8 @@ var Draw = (function(){
             return renderHUD(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render);
         },
 
-        renderMapHUD: function(hud, circle, dot, targetPoint, angle, carTriangle){
-            return renderMapHUD(hud, circle, dot, targetPoint, angle, carTriangle);
+        renderMapHUD: function(hud, circle, dot, targetPoints, angle, carTriangle){
+            return renderMapHUD(hud, circle, dot, targetPoints, angle, carTriangle);
         },
 
         drawString: function(string, pos){
