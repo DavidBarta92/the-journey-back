@@ -5,26 +5,17 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/i_am_you_am.mp3",
+    "music" : "../src/media/sounds/ending.mp3",
     "atmo" : "",
     "elements" : {
-        "text": {
-            "type": "text",
-            "text": "dia_C11_S7",
-            "x": 100,
-            "y": 612,
-            "width": 70,
-            "height": 20,
-            "rotate": 0,
-            "color": "white",
-            "font": "Inconsolata",
-            "fontSize": 20,
+        "empty_object": {
+            "type": "empty_object",
             "border": false,
             "filter": null
           }
     },
     "timer" : {
-        "time": 10000,
+        "time": 13000,
         "actionType": "setContent",
         "action": "C11_S8",
         "allowed" : true

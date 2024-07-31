@@ -6,7 +6,7 @@
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "",
-    "atmo" : "../src/media/sounds/astronaut_suit.mp3",
+    "atmo" : "../src/media/sounds/car_atmo.mp3",
     "elements" : {
         "back": {
             "type": "button",

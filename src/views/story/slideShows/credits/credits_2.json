@@ -5,7 +5,7 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/i_am_you_am.mp3",
+    "music" : "../src/media/sounds/ending.mp3",
     "atmo" : "",
     "elements" : {
         "dial1": {
@@ -38,8 +38,8 @@
           }
     },
     "timer" : {
-        "time": 10000,
-        "actionType": "setContent",
+      "time": 13000,
+      "actionType": "setContent",
         "action": "credits_S3",
         "allowed" : true
     }
