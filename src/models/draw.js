@@ -298,6 +298,29 @@ var Draw = (function(){
         context.stroke();
     }
 
+    const renderSlideHUD = function(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render){
+        context.drawImage(hud, 0, 0, canvas.width, canvas.height);
+
+        var now = new Date();
+        var diff = now.getTime() - startTime.getTime();
+        
+        var min = Math.floor(diff / 60000);
+        
+        var sec = Math.floor((diff - min * 60000) / 1000); 
+        if(sec < 10) sec = "0" + sec;
+        
+        var mili = Math.floor(diff - min * 60000 - sec * 1000);
+        if(mili < 100) mili = "0" + mili;
+        if(mili < 10) mili = "0" + mili;
+        
+        currentTimeString = ""+min+":"+sec+":"+mili;
+
+        drawString(currentTimeString, {x: 30, y: 500});
+
+        var speed = Math.round((player.speed / player.maxSpeed * 200) / 6 );
+        drawString(""+speed+"mph", {x: 30, y: 488});
+    }
+
     const drawRect = function(rotationAngle) {
         var rectX = canvas.width / 2;
         var rectY = canvas.height / 2;
@@ -490,6 +513,12 @@ var Draw = (function(){
             loadLanguage();
             return renderHUD(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render);
         },
+
+        renderSlideHUD: function(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render){
+            loadLanguage();
+            return renderSlideHUD(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render);
+        },
+
 
         renderMapHUD: function(hud, circle, dot, targetPoints, angle, carTriangle){
             return renderMapHUD(hud, circle, dot, targetPoints, angle, carTriangle);

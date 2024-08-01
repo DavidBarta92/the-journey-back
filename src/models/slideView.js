@@ -110,8 +110,10 @@ export const Slide = (function(){
         context.putImageData(ctxFromD, 0, 0);
 
         Draw.drawSlideText(+((player.posx)*10),textImage);
+
+        setActionByAbsoluteIndex();
  
-        // Draw.renderHUD(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render);
+        Draw.renderSlideHUD(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render);
         // drawElements(contentContainer.elements);
     }
 
@@ -180,6 +182,12 @@ export const Slide = (function(){
             });
         });
 
+    }
+
+    const setActionByAbsoluteIndex = function(){
+        if(player.posx < -4000){
+            setState();
+        }
     }
 
     const exit = function() {
