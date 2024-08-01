@@ -1,6 +1,6 @@
 {
-    "name" : "C6_S3",
-    "backgroundPath" : "../src/media/images/C6_S3_bg.b64",
+    "name" : "C5_S7",
+    "backgroundPath" : "../src/media/images/C6_S2_bg.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -10,24 +10,24 @@
     "elements" : {
         "text": {
             "type": "text",
-            "text": "dia_C6_S3",
-            "x": 610,
-            "y": 495,
+            "text": "dia_C5_S7",
+            "x": 135,
+            "y": 85,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
             "font": "Inconsolata",
-            "textBoxEnd": 500,
+            "textBoxEnd": 1000,
             "fontSize": 20,
             "border": false,
             "filter": null
           }
     },
     "timer" : {
-        "time": 12000,
+        "time": 10000,
         "actionType": "setContent",
-        "action": "C6_S4",
+        "action": "C5_S8",
         "allowed" : true
     }
     }

@@ -1,5 +1,5 @@
 {
-    "name" : "C5_desert",
+    "name" : "C5_desert_slide",
     "cursor" : "fasle",
     "backgroundPath" : "../src/media/images/driver-background.png",
     "textPath" : "../src/media/images/driver-text.png",
@@ -329,6 +329,6 @@
     },
     "end" : {
         "actionType": "setToClickView",
-        "action": "C7_S1"
+        "action": "C6_S1"
     }
     }

@@ -1,0 +1,63 @@
+{
+    "name" : "C5_S11",
+    "backgroundPath" : "",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "../src/media/sounds/mars_for_the_rich.mp3",
+    "atmo" : "",
+    "elements" : {
+        "dia_C5_S11_1": {
+            "type": "text",
+            "text": "dia_C5_S11_1",
+            "x": 160,
+            "y": 170,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "white",
+            "font": "Larabie",
+            "fontSize": 30,
+            "border": false,
+            "filter": null
+        },
+        "dia_C5_S11_2": {
+            "type": "text",
+            "text": "dia_C5_S11_2",
+            "x": 160,
+            "y": 230,
+            "textBoxEnd": 750,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Larabie",
+            "fontSize": 16,
+            "border": false,
+            "filter": null
+        },
+        "next": {
+            "type": "button",
+            "text": "btn_next",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C5_S12",
+            "filter": "appointable"
+          }
+    },
+    "timer" : {
+        "time": 1000,
+        "actionType": "setContent",
+        "action": "C5_S12",
+        "allowed" : false
+    }
+    }

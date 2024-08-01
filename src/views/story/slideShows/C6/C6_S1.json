@@ -1,6 +1,6 @@
 {
     "name" : "C6_S1",
-    "backgroundPath" : "../src/media/images/C6_S1_bg.b64",
+    "backgroundPath" : "../src/media/images/C5_S1_bg.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -8,32 +8,30 @@
     "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "",
     "elements" : {
-        "text": {
+        "dial1": {
             "type": "text",
-            "text": "dia_C6_S1_1",
-            "x": 50,
-            "y": 418,
+            "text": "dia_C5_S1_1",
+            "x": 219,
+            "y": 470,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
             "font": "Inconsolata",
-            "textBoxEnd": 200,
             "fontSize": 20,
             "border": false,
             "filter": null
           },
-          "text2": {
+          "dial2": {
             "type": "text",
-            "text": "dia_C6_S1_2",
-            "x": 1035,
-            "y": 150,
+            "text": "dia_C5_S1_2",
+            "x": 219,
+            "y": 612,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
             "font": "Inconsolata",
-            "textBoxEnd": 200,
             "fontSize": 20,
             "border": false,
             "filter": null

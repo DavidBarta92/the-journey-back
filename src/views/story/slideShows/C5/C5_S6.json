@@ -1,6 +1,6 @@
 {
     "name" : "C5_S6",
-    "backgroundPath" : "../src/media/images/C5_S5_bg.b64",
+    "backgroundPath" : "../src/media/images/C6_S1_bg.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -8,32 +8,32 @@
     "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "",
     "elements" : {
-        "dial1": {
+        "text": {
             "type": "text",
-            "text": "dia_C5_S5_1",
-            "x": 81,
-            "y": 300,
+            "text": "dia_C5_S6_1",
+            "x": 50,
+            "y": 418,
             "width": 70,
             "height": 20,
             "rotate": 0,
-            "textBoxEnd": 250,
             "color": "white",
             "font": "Inconsolata",
+            "textBoxEnd": 200,
             "fontSize": 20,
             "border": false,
             "filter": null
           },
-          "dial2": {
+          "text2": {
             "type": "text",
-            "text": "dia_C5_S5_2",
-            "x": 956,
-            "y": 300,
+            "text": "dia_C5_S6_2",
+            "x": 1035,
+            "y": 150,
             "width": 70,
             "height": 20,
             "rotate": 0,
-            "textBoxEnd": 250,
             "color": "white",
             "font": "Inconsolata",
+            "textBoxEnd": 200,
             "fontSize": 20,
             "border": false,
             "filter": null
@@ -41,8 +41,8 @@
     },
     "timer" : {
         "time": 10000,
-        "actionType": "setToSlide",
-        "action": "C5_desert",
+        "actionType": "setContent",
+        "action": "C5_S7",
         "allowed" : true
     }
     }
