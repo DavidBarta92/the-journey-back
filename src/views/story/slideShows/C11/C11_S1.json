@@ -1,12 +1,12 @@
 {
     "name" : "C11_S1",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/C11_S1_bg.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "../src/media/sounds/ending.mp3",
-    "atmo" : "",
+    "atmo" : "../src/media/sounds/C11_S1noise.mp3",
     "elements" : {
         "empty_object": {
             "type": "empty_object",

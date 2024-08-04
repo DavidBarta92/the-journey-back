@@ -1,6 +1,6 @@
 {
     "name" : "C11_S23",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/C11_S23_bg.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

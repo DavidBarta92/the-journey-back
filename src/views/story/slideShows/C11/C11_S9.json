@@ -1,6 +1,6 @@
 {
     "name" : "C11_S9",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/C11_S9_bg.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -16,7 +16,7 @@
             "width": 70,
             "height": 20,
             "rotate": 0,
-            "textBoxEnd": 1100,
+            "textBoxEnd": 1000,
             "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,

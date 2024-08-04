@@ -1,6 +1,6 @@
 {
     "name" : "credits_4",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/C11_S34_bg.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -8,11 +8,25 @@
     "music" : "../src/media/sounds/ending.mp3",
     "atmo" : "",
     "elements" : {
-        "dial": {
+        "dial1": {
             "type": "text",
-            "text": "dia_credits_S4",
-            "x": 435,
-            "y": 612,
+            "text": "dia_credits_4_1",
+            "x": 200,
+            "y": 300,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          },
+          "dial2": {
+            "type": "text",
+            "text": "dia_credits_4_2",
+            "x": 200,
+            "y": 330,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -26,7 +40,7 @@
     "timer" : {
         "time": 13000,
         "actionType": "setContent",
-        "action": "credits_S5",
+        "action": "credits_5",
         "allowed" : true
     }
-    }
+}
