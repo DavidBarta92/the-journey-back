@@ -8,6 +8,7 @@ const Sound = (function(){
     
     var noise = new Audio();
     noise.type = "noise";
+    noise.loop = true;
     
     var atmo = new Audio();
     atmo.type = "atmo";
@@ -26,11 +27,24 @@ const Sound = (function(){
         fx.play();
     }
 
-    const playNoise = function(path, max = 5000){
-        noise.src = path;
-        Timer.wait(Math.floor(Math.random() * max));
-        noise.volume = stateManager.loadState().volume;
-        noise.play();
+    const playNoise = function(path, volume){
+        var pathFileName = path.replace(/^.*[\\\/]/, '');
+        var srcFileName = noise.src.slice(-pathFileName.length);
+    
+        if (volume < stateManager.loadState().volume) {
+            noise.volume = volume;
+        } else {
+            noise.volume = stateManager.loadState().volume;
+        }
+    
+        if(srcFileName !== pathFileName || noise.paused){
+            noise.src = path;
+            noise.play();
+        }
+    }
+
+    const stopNoise = function(volume){
+        noise.pause();
     }
 
     const playAtmo = function(path, lowPass = 2000){
@@ -74,8 +88,11 @@ const Sound = (function(){
         fx: function(path){
             playFx(path);
         },
-        noise: function(path){
-            playNoise(path);
+        noise: function(path, volume){
+            playNoise(path, volume);   
+        },
+        noiseStop: function(){
+            stopNoise();
         },
         atmo: function(path){
             playAtmo(path);

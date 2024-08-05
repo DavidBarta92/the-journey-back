@@ -9,6 +9,7 @@ import Anim from "../views/anim";
 import dataController from "../controllers/dataController";
 import Timer from "./timer";
 import Draw from "./draw";
+import Sound from "./sound.js";
 
 var dialogueOptionClicked;
 var backgroundImage = new Image();
@@ -21,6 +22,7 @@ var languageFile;
 var dialogueFile;
 var spokenSpeeches = [];
 var interactives;
+var noiseVolume = 0;
 
 var requestNewFrame = false;
 
@@ -129,6 +131,11 @@ export const Driver = (function(){
     }
 
     ///////////////////////////////////////////////////////////////////////
+
+    function roundNumber(num, decimals) {
+        let factor = Math.pow(10, decimals);
+        return Math.round(num * factor) / factor;
+    }
       
     const handleSpeedAndPosition = function(keys, delta) {
         if (keys[38]) {
@@ -140,7 +147,8 @@ export const Driver = (function(){
         } else {
           player.speed -= player.deceleration;
         }
-      
+        Sound.noise('../src/media/sounds/rover_noise.mp3', roundNumber(noiseVolume, 3));
+        noiseVolume = roundNumber(player.speed, 0) > 0.001 ? roundNumber(player.speed, 3) * 2 / 10 : 0;
         player.speed = Math.max(0, player.speed); // Cannot go in reverse
         player.speed = Math.min(player.speed, player.maxSpeed); // Maximum speed
         player.position += player.speed;
@@ -342,6 +350,7 @@ export const Driver = (function(){
 
     const setState = function(){
         if (contentContainer.end.actionType === "setToClickView") {
+            Sound.noiseStop();
             stateManager.setView('story');
             stateManager.setContent(contentContainer.end.action);
             gameCanvas.clear();
@@ -538,6 +547,8 @@ export const Driver = (function(){
         start: function(state){
             var state = state;
             init(state);
+            Sound.atmo(contentContainer.atmo);
+            Sound.music(contentContainer.music);
             if (!pause){
                 gameInterval = setInterval(renderGameFrame, 1);
                 generateRoad();
