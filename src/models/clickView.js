@@ -509,9 +509,13 @@ const setPause = function() {
 //tracking cursor
 const trackInput = function(){
     keys = inputController.getKeys();
+    var activeArea = getArea(interactives);
+    if(activeArea !== null){
+        if(activeArea[1].type == 'activeArea') Sound.fx('../src/media/sounds/active_area.wav', getArea(interactives)[0]);
+        if(activeArea[1].type == 'button') Sound.fx('../src/media/sounds/button.wav', getArea(interactives)[0]);
+    }
     if(inputController.getCursor().click){
         requestNewFrame = true;
-        var activeArea = getArea(interactives);
         if (!!activeArea && activeArea[1].allowed === true) clickAnimate(activeArea);
         const clicking = new Promise((resolve) => {
             setTimeout(() => {

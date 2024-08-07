@@ -5,6 +5,7 @@ const Sound = (function(){
 
     var fx = new Audio();
     fx.type = "fx";
+    let isPlaying = false;
     
     var noise = new Audio();
     noise.type = "noise";
@@ -21,11 +22,23 @@ const Sound = (function(){
     const audioContext = new AudioContext();
     let source;
 
-    const playFx = function(path){
+    const playFx = function(path, id) {
+        if (id === null && isPlaying) return;
+        if (fx.id === id) return;
+        
+        fx.id = id;
         fx.src = path;
         fx.volume = stateManager.loadState().volume;
-        fx.play();
+        isPlaying = true;
+        fx.play().catch(error => {
+            console.error('Hiba történt a hang lejátszása közben:', error);
+            isPlaying = false;
+        });
     }
+
+    fx.addEventListener('ended', () => {
+        isPlaying = false;
+    });
 
     const playNoise = function(path, volume){
         var pathFileName = path.replace(/^.*[\\\/]/, '');
@@ -85,8 +98,8 @@ const Sound = (function(){
     }
         
     return {
-        fx: function(path){
-            playFx(path);
+        fx: function(path, id){
+            playFx(path, id);
         },
         noise: function(path, volume){
             playNoise(path, volume);   
