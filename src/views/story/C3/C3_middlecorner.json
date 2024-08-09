@@ -5,7 +5,7 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/i_am_you_am.mp3",
+    "music" : "../src/media/sounds/inclusion.mp3",
     "atmo" : "../src/media/sounds/mars_base_atmo.mp3",
     "elements" : { 
         "chapter": {
@@ -38,6 +38,17 @@
             "border": false,
             "filter": null
           },
+        "computer" : {
+            "type": "activeArea",
+            "text": "lbl_computer",
+            "x": 705,
+            "y": 150,
+            "width": 180,
+            "height": 100,
+            "filter" : "appointable",
+            "actionType": "setContent",
+            "action": "C3_computer"
+        },
         "forward" : {
             "type": "activeArea",
             "text": "lbl_hall",
@@ -63,6 +74,22 @@
             "border": false,
             "actionType": "setContent",
             "action": "C3_map",
+            "filter": "appointable"
+        },
+        "turn": {
+            "type": "button",
+            "text": "btn_turn_left_and_go_to_mainhall",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C3_mainhall",
             "filter": "appointable"
         }
     }

@@ -5,7 +5,7 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "",
+    "music" : "../src/media/sounds/inclusion.mp3",
     "atmo" : "../src/media/sounds/mars_base_atmo.mp3",
     "elements" : { 
         "chapter": {
@@ -38,6 +38,17 @@
             "border": false,
             "filter": null
           },
+          "forward" : {
+            "type": "activeArea",
+            "text": "lbl_roundroom",
+            "x": 700,
+            "y": 200,
+            "width": 250,
+            "height": 250,
+            "filter" : "appointable",
+            "actionType": "setContent",
+            "action": "C4_roundroom"
+        },
         "map": {
             "type": "button",
             "text": "btn_map",

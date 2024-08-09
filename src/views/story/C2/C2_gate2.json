@@ -38,6 +38,17 @@
             "border": false,
             "filter": null
           },
+          "forward" : {
+            "type": "activeArea",
+            "text": "lbl_mainhall",
+            "x": 800,
+            "y": 250,
+            "width": 250,
+            "height": 250,
+            "filter" : "appointable",
+            "actionType": "setContent",
+            "action": "C2_mainhall"
+        },
         "map": {
             "type": "button",
             "text": "btn_map",

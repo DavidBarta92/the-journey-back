@@ -38,6 +38,17 @@
             "border": false,
             "filter": null
           },
+          "forward" : {
+            "type": "activeArea",
+            "text": "lbl_roundroom",
+            "x": 520,
+            "y": 220,
+            "width": 180,
+            "height": 300,
+            "filter" : "appointable",
+            "actionType": "setContent",
+            "action": "C1_roundroom"
+        },
         "map": {
             "type": "button",
             "text": "btn_map",
@@ -53,6 +64,38 @@
             "actionType": "setContent",
             "action": "C1_map",
             "filter": "appointable"
-        }
+        },
+        "turn_left": {
+          "type": "button",
+          "text": "btn_turn_left_and_go_to_the_mainCorrigor",
+          "x": 346,
+          "y": 650,
+          "width": 70,
+          "height": 20,
+          "rotate": 0,
+          "color": "white",
+          "font": "Rounded",
+          "fontSize": 24,
+          "border": false,
+          "actionType": "setContent",
+          "action": "C1_middlecorner",
+          "filter": "appointable"
+      },
+      "turn_right": {
+        "type": "button",
+        "text": "btn_turn_right_and_got_to_the_gate",
+        "x": 800,
+        "y": 650,
+        "width": 70,
+        "height": 20,
+        "rotate": 0,
+        "color": "white",
+        "font": "Rounded",
+        "fontSize": 24,
+        "border": false,
+        "actionType": "setContent",
+        "action": "C1_gate1",
+        "filter": "appointable"
+    }
     }
 }

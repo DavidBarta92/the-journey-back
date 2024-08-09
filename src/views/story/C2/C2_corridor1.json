@@ -41,13 +41,24 @@
         "forward" : {
             "type": "activeArea",
             "text": "lbl_gate",
-            "x": 2,
-            "y": 3,
-            "width": 96,
-            "height": 58,
+            "x": 520,
+            "y": 250,
+            "width": 140,
+            "height": 200,
             "filter" : "appointable",
             "actionType": "setContent",
             "action": "C2_gate1"
+        },
+        "journal" : {
+            "type": "activeArea",
+            "text": "lbl_see",
+            "x": 174,
+            "y": 180,
+            "width": 90,
+            "height": 110,
+            "filter" : "appointable",
+            "actionType": "setContent",
+            "action": "C1_journal"
         },
         "map": {
             "type": "button",
