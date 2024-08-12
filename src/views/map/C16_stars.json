@@ -23,7 +23,7 @@
         },
         "b" : {
             "x": 1000,
-            "y": 600,
+            "y": 6000,
             "actionType": "setToClickView",
             "action": "C7_S1",
             "text": "dia_C1_S1",

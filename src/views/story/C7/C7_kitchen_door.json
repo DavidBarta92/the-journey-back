@@ -1,16 +1,16 @@
 {
-    "name" : "C5_computer",
+    "name" : "C7_kitchen_door",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "",
-    "atmo" : "../src/media/sounds/astronaut_suit.mp3",
+    "atmo" : "../src/media/sounds/car_atmo.mp3",
     "elements" : {
         "chapter": {
             "type": "text",
-            "text": "C5_title",
+            "text": "C7_title",
             "x": 1175,
             "y": 650,
             "vertical" : true,
@@ -25,7 +25,7 @@
           },
         "goal": {
             "type": "text",
-            "text": "C5_goal",
+            "text": "C7_goal",
             "x": 1215,
             "y": 650,
             "vertical" : true,
@@ -51,7 +51,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C5_attic",
+            "action": "C7_mainCorridor_1",
             "filter": "appointable"
         }
     }

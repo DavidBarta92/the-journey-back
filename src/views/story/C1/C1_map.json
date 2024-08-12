@@ -10,7 +10,7 @@
     "elements" : {
         "draw": {
             "type": "text",
-            "text": "C1_map_isnside_title",
+            "text": "map_isnside_title",
             "x": 30,
             "y": 76,
             "width": 70,

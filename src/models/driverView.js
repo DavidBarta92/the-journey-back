@@ -147,14 +147,23 @@ export const Driver = (function(){
         } else {
           player.speed -= player.deceleration;
         }
-        Sound.noise('../src/media/sounds/rover_noise.mp3', roundNumber(noiseVolume, 3));
-        noiseVolume = roundNumber(player.speed, 0) > 0.001 ? roundNumber(player.speed, 3) * 2 / 10 : 0;
+        soundPlaying();
         player.speed = Math.max(0, player.speed); // Cannot go in reverse
         player.speed = Math.min(player.speed, player.maxSpeed); // Maximum speed
         player.position += player.speed;
       
         handleCarTurning(keys, delta);
       }
+
+    const soundPlaying = function() {
+        noiseVolume = roundNumber(player.speed, 0) > 0.001 ? roundNumber(player.speed, 3) * 2 / 10 : 0;
+        Sound.noise('../src/media/sounds/rover_noise.mp3', roundNumber(noiseVolume, 3));
+
+        if (Math.abs(player.delta) > 130 && player.speed > 3) {
+            Sound.fx('../src/media/sounds/alarm.mp3');
+            player.speed -= 0.2;
+          }
+    }
       
     const handleDialogueOptionClick = function(keys) {
         if (keys[49]) {
@@ -567,36 +576,3 @@ export const Driver = (function(){
 }
 ());
 
-export const Driver2 = (function(){
-    const init = function(state){
-
-    }
-
-    //render one frame of the menu
-    const renderMenuFrame = function(){
-
-    }
-
-    //tracking cursor
-    const trackInput = function(){
-
-    }
-
-    const trackAnimation = function(){
-
-    }
-
-    return {
-        render: function(state){
-
-            },
-
-        //its only for th first screen rendering at the game starting (this preload pictures, fonts for the clickview)
-        preRender: function(state){
-
-            }
-        }
-    }
-());
-
-//export default Driver;

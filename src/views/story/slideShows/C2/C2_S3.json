@@ -6,7 +6,7 @@
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "../src/media/sounds/i_am_you_am.mp3",
-    "atmo" : "",
+    "atmo" : "../src/media/sounds/mars_base_atmo.mp3",
     "elements" : {
         "aiza": {
             "type": "text",

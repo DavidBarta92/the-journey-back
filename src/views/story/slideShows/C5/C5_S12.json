@@ -5,7 +5,7 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/mars_for_the_rich.mp3",
+    "music" : "../src/media/sounds/vents_magnetiques.mp3",
     "atmo" : "",
     "elements" : {
         "dia_C5_S12_1": {

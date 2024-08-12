@@ -6,11 +6,11 @@
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "",
-    "atmo" : "",
+    "atmo" : "../src/media/sounds/mars_base_atmo2.mp3",
     "elements" : {
         "text1": {
             "type": "text",
-            "text": "dia_C4_3S4",
+            "text": "dia_C4_S9_1",
             "x": 600,
             "y": 200,
             "width": 70,
@@ -24,7 +24,7 @@
           },
           "text2": {
             "type": "text",
-            "text": "dia_C4_3S5",
+            "text": "dia_C4_S9_2",
             "x": 600,
             "y": 250,
             "width": 70,
@@ -38,7 +38,7 @@
           },
           "text3": {
             "type": "text",
-            "text": "dia_C4_3S6",
+            "text": "dia_C4_S9_3",
             "x": 600,
             "y": 300,
             "width": 70,
@@ -52,7 +52,7 @@
           },
           "text4": {
             "type": "text",
-            "text": "dia_C4_3S7",
+            "text": "dia_C4_S9_4",
             "x": 600,
             "y": 350,
             "width": 70,
@@ -66,7 +66,7 @@
           },
           "text5": {
             "type": "text",
-            "text": "dia_C4_3S8",
+            "text": "dia_C4_S9_5",
             "x": 600,
             "y": 400,
             "width": 70,
@@ -80,7 +80,7 @@
           }
     },
     "timer" : {
-        "time": 10000,
+        "time": 16000,
         "actionType": "setContent",
         "action": "C4_S10",
         "allowed" : true

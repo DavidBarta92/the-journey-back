@@ -5,8 +5,8 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "",
-    "atmo" : "",
+    "music" : "../src/media/sounds/base_alarm.wav",
+    "atmo" : "../src/media/sounds/mars_base_atmo2.mp3",
     "elements" : {
           "text1": {
             "type": "text",

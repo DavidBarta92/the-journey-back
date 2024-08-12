@@ -1,16 +1,16 @@
 {
-    "name" : "C5_bedroom",
-    "backgroundPath" : "../src/media/images/bedroom.b64",
+    "name" : "C7_drawer",
+    "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "",
-    "atmo" : "../src/media/sounds/astronaut_suit.mp3",
-    "elements" : { 
+    "atmo" : "../src/media/sounds/car_atmo.mp3",
+    "elements" : {
         "chapter": {
             "type": "text",
-            "text": "C5_title",
+            "text": "C7_title",
             "x": 1175,
             "y": 650,
             "vertical" : true,
@@ -25,7 +25,7 @@
           },
         "goal": {
             "type": "text",
-            "text": "C5_goal",
+            "text": "C7_goal",
             "x": 1215,
             "y": 650,
             "vertical" : true,
@@ -38,6 +38,20 @@
             "border": false,
             "filter": null
           },
+          "C7_2_drawer" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 450,
+            "y": 180,
+            "width": 350,
+            "height": 300,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter": "appointable",
+            "actionType": "setContent",
+            "action": "C7_2_drawer"
+        },
         "back": {
             "type": "button",
             "text": "btn_back",
@@ -51,8 +65,8 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C5_consoleRoom_2",
+            "action": "C7_kitchen_1",
             "filter": "appointable"
-          }
+        }
     }
 }

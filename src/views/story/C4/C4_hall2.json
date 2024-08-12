@@ -6,7 +6,7 @@
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "",
-    "atmo" : "../src/media/sounds/mars_base_atmo.mp3",
+    "atmo" : "../src/media/sounds/mars_base_atmo2.mp3",
     "elements" : { 
         "chapter": {
             "type": "text",
@@ -64,7 +64,7 @@
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "C4_S12"
+            "action": "C4_TEO"
         },
         "map": {
             "type": "button",

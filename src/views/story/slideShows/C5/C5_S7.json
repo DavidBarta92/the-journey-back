@@ -5,7 +5,7 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/i_am_you_am.mp3",
+    "music" : "../src/media/sounds/vents_magnetiques.mp3",
     "atmo" : "",
     "elements" : {
         "text": {
@@ -25,7 +25,7 @@
           }
     },
     "timer" : {
-        "time": 10000,
+        "time": 13000,
         "actionType": "setContent",
         "action": "C5_S8",
         "allowed" : true

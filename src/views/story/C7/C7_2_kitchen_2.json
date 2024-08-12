@@ -1,16 +1,16 @@
 {
-    "name" : "C5_attic",
-    "backgroundPath" : "",
+    "name" : "C7_2_kitchen_2",
+    "backgroundPath" : "../src/media/images/kitchen_2.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "",
-    "atmo" : "../src/media/sounds/astronaut_suit.mp3",
-    "elements" : {
+    "atmo" : "../src/media/sounds/car_atmo.mp3",
+    "elements" : { 
         "chapter": {
             "type": "text",
-            "text": "C5_title",
+            "text": "C7_title",
             "x": 1175,
             "y": 650,
             "vertical" : true,
@@ -25,7 +25,7 @@
           },
         "goal": {
             "type": "text",
-            "text": "C5_goal",
+            "text": "C7_goal",
             "x": 1215,
             "y": 650,
             "vertical" : true,
@@ -38,23 +38,9 @@
             "border": false,
             "filter": null
           },
-        "computer" : {
-            "type": "activeArea",
-            "text": "lbl_computer",
-            "x": 880,
-            "y": 270,
-            "width": 160,
-            "height": 200,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter": "appointable",
-            "actionType": "setContent",
-            "action": "C5_computer"
-        },
-        "back": {
+        "turn": {
             "type": "button",
-            "text": "btn_back",
+            "text": "btn_turn",
             "x": 346,
             "y": 650,
             "width": 70,
@@ -65,7 +51,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C5_mainCorridor_1",
+            "action": "C7_2_kitchen_1",
             "filter": "appointable"
         }
     }

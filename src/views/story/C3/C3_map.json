@@ -5,12 +5,12 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/inclusion.mp3",
+    "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "../src/media/sounds/mars_base_atmo.mp3",
     "elements" : {
         "draw": {
             "type": "text",
-            "text": "C3_map_isnside_title",
+            "text": "map_isnside_title",
             "x": 30,
             "y": 76,
             "width": 70,

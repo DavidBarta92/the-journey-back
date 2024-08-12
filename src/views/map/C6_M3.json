@@ -1,5 +1,5 @@
 {
-    "name" : "C15_desert",
+    "name" : "C6_M3",
     "cursor" : "fasle",
     "blur" : false,
     "backgroundPath" : "../src/media/images/mp.png",
@@ -8,13 +8,24 @@
     "hud" : "../src/media/images/mpHUD.png",
     "itemsPath" : "",
     "dialogue" : "david",
-    "targetPoint" : {
-        "x": 2000,
-        "y": 600
+    "targetPoints" : {
+        "a" : {
+            "x": 2000,
+            "y": 600,
+            "actionType": "setContent",
+            "action": "C6_M3",
+            "text": "dia_C1_S1",
+            "width": 70,
+            "height": 20,
+            "textBoxEnd": 251,
+            "color": "DarkSalmon",
+            "font": "Inconsolata"
+        }
     },
-    "carVisible" : false,
+    "carVisible" : true,
     "filter" : "",
-    "music" : "",
+    "music" : "../src/media/sounds/oltre_terra.mp3",
+    "atmo" : "../src/media/sounds/wind.mp3",
     "elements" : {
         "Eva": {
             "type": "text",

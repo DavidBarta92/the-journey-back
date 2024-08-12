@@ -8,7 +8,7 @@
     "itemsPath" : "",
     "dialogue" : "david",
     "filter" : "",
-    "music" : "",
+    "music" : "../src/media/sounds/vents_magnetiques.mp3",
     "roadParam" : {
         "maxHeight" : 900,
         "maxCurve" : 700,

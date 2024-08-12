@@ -1,0 +1,91 @@
+{
+    "name" : "C7_2_consoleRoom_1",
+    "backgroundPath" : "../src/media/images/consoleRoom_1.b64",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "../src/media/sounds/car_atmo.mp3",
+    "elements" : { 
+        "chapter": {
+            "type": "text",
+            "text": "C7_title",
+            "x": 1175,
+            "y": 650,
+            "vertical" : true,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "white",
+            "font": "Akira",
+            "fontSize": 70,
+            "border": false,
+            "filter": null
+          },
+        "goal": {
+            "type": "text",
+            "text": "C7_goal",
+            "x": 1215,
+            "y": 650,
+            "vertical" : true,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 25,
+            "border": false,
+            "filter": null
+          },
+        "kockpit" : {
+            "type": "activeArea",
+            "text": "lbl_cockpit",
+            "x": 361,
+            "y": 207,
+            "width": 70,
+            "height": 200,
+            "filter": "appointable",
+            "actionType": "setContent",
+            "action": "C7_2_cockpit"
+        },
+        "bedroom" : {
+            "type": "activeArea",
+            "text": "lbl_bedroom",
+            "x": 1100,
+            "y": 230,
+            "width": 150,
+            "height": 300,
+            "filter": "appointable",
+            "actionType": "setContent",
+            "action": "C7_S1"
+        },
+        "window" : {
+            "type": "activeArea",
+            "text": "lbl_window",
+            "x": 638,
+            "y": 240,
+            "width": 210,
+            "height": 140,
+            "filter": "appointable",
+            "actionType": "setContent",
+            "action": "C7_2_window"
+        },
+        "turn_right": {
+            "type": "button",
+            "text": "btn_turn_right",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C7_2_mainCorridor_2",
+            "filter": "appointable"
+        }
+    }
+}
