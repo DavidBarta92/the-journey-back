@@ -17,7 +17,7 @@
             "height": 20,
             "rotate": 0,
             "color": "white",
-            "font": "Inconsolata",
+            "font": "Larabie",
             "textBoxEnd": 500,
             "fontSize": 20,
             "border": false,
@@ -25,7 +25,7 @@
           }
     },
     "timer" : {
-        "time": 15000,
+        "time": 17000,
         "actionType": "setContent",
         "action": "C5_S9",
         "allowed" : true

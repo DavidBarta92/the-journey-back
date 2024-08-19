@@ -50,7 +50,7 @@
             "fontSize": 20,
             "border": false,
             "actionType": "setContent",
-            "action": "C6_S5",
+            "action": "C6_S4_op1_op1_op1",
             "filter": "appointable"
           },
           "question2": {
@@ -67,7 +67,7 @@
             "fontSize": 20,
             "border": false,
             "actionType": "setContent",
-            "action": "C6_S5",
+            "action": "C6_S4_op1_op1_op2",
             "filter": "appointable"
           }
     }

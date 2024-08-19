@@ -556,8 +556,8 @@ export const Driver = (function(){
         start: function(state){
             var state = state;
             init(state);
-            Sound.atmo(contentContainer.atmo);
-            Sound.music(contentContainer.music);
+            //Sound.atmo(contentContainer.atmo);
+            //Sound.music(contentContainer.music);
             if (!pause){
                 gameInterval = setInterval(renderGameFrame, 1);
                 generateRoad();

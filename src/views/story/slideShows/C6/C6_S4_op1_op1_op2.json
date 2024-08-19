@@ -1,5 +1,5 @@
 {
-    "name" : "C6_S4_op2_op2",
+    "name" : "C6_S4_op1_op1_op2",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
@@ -10,7 +10,7 @@
     "elements" : {
           "text1": {
             "type": "text",
-            "text": "dia_C6_S4_op2_op2_1",
+            "text": "dia_C6_S4_op1_op1_op2_1",
             "x": 60,
             "y": 460,
             "width": 70,
@@ -24,7 +24,7 @@
           },
           "text2": {
             "type": "text",
-            "text": "dia_C6_S4_op2_op2_2",
+            "text": "dia_C6_S4_op1_op1_op2_2",
             "x": 60,
             "y": 500,
             "width": 70,
@@ -38,7 +38,7 @@
           },    
           "question1": {
             "type": "button",
-            "text": "btn_C6_S4_op2_op2_q1",
+            "text": "btn_C6_S4_op1_op1_op2_q1",
             "fx": "",
             "x": 60,
             "y": 600,
@@ -50,12 +50,12 @@
             "fontSize": 20,
             "border": false,
             "actionType": "setContent",
-            "action": "C6_S4_op2_op2_op1",
+            "action": "C6_S5_op1_op1_op2_op1",
             "filter": "appointable"
           },
           "question2": {
             "type": "button",
-            "text": "btn_C6_S4_op2_op2_q2",
+            "text": "btn_C6_S4_op1_op1_op2_q2",
             "fx": "",
             "x": 60,
             "y": 640,
@@ -67,7 +67,7 @@
             "fontSize": 20,
             "border": false,
             "actionType": "setContent",
-            "action": "C6_S4_op2_op2_op2",
+            "action": "C6_S5_op1_op1_op2_op2",
             "filter": "appointable"
           }
     }

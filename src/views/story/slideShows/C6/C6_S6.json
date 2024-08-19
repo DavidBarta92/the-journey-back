@@ -1,33 +1,32 @@
 {
-    "name" : "C5_S9",
-    "backgroundPath" : "../src/media/images/C6_S4_bg.b64",
+    "name" : "C6_S6",
+    "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/vents_magnetiques.mp3",
-    "atmo" : "",
+    "music" : "",
+    "atmo" : "../src/media/sounds/car_atmo.mp3",
     "elements" : {
-        "text": {
+        "dial1": {
             "type": "text",
-            "text": "dia_C5_S9",
-            "x": 350,
-            "y": 509,
+            "text": "dia_C6_S6",
+            "x": 219,
+            "y": 470,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
-            "font": "Larabie",
-            "textBoxEnd": 620,
-            "fontSize": 18,
+            "font": "Inconsolata",
+            "fontSize": 20,
             "border": false,
             "filter": null
           }
     },
     "timer" : {
-        "time": 15000,
+        "time": 10000,
         "actionType": "setContent",
-        "action": "C5_S10",
+        "action": "C7_cockpit",
         "allowed" : true
     }
     }

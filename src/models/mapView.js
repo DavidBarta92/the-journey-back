@@ -101,35 +101,35 @@ export const Map = (function(){
         Draw.drawMapBackground(+((player.posx)*3.5), +((player.posy)*3.5),backgroundImage);
 
         if (contentContainer.blur === true) {
-            const radius = 200;
-            const centerX = canvas.width / 2;
-            const centerY = canvas.height / 2;
+            // const radius = 200;
+            // const centerX = canvas.width / 2;
+            // const centerY = canvas.height / 2;
             
-            const offscreenCanvas = document.createElement('canvas');
-            const offscreenCtx = offscreenCanvas.getContext('2d');
-            offscreenCanvas.width = canvas.width;
-            offscreenCanvas.height = canvas.height;
+            // const offscreenCanvas = document.createElement('canvas');
+            // const offscreenCtx = offscreenCanvas.getContext('2d');
+            // offscreenCanvas.width = canvas.width;
+            // offscreenCanvas.height = canvas.height;
     
-            offscreenCtx.drawImage(canvas, 0, 0);
+            // offscreenCtx.drawImage(canvas, 0, 0);
     
-            offscreenCtx.globalCompositeOperation = 'destination-in';
-            offscreenCtx.beginPath();
-            offscreenCtx.arc(centerX, centerY, radius, 0, Math.PI * 2);
-            offscreenCtx.closePath();
-            offscreenCtx.fill();
+            // offscreenCtx.globalCompositeOperation = 'destination-in';
+            // offscreenCtx.beginPath();
+            // offscreenCtx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+            // offscreenCtx.closePath();
+            // offscreenCtx.fill();
 
-            var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-            var bluredimageData = Filter.imageDataBlur(imageData);
-            context.putImageData(bluredimageData, 0, 0);
+            // var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+            // var bluredimageData = Filter.imageDataBlur(imageData);
+            // context.putImageData(bluredimageData, 0, 0);
 
-            context.save();
-            context.beginPath();
-            context.arc(centerX, centerY, radius, 0, Math.PI * 2);
-            context.closePath();
-            context.clip();
+            // context.save();
+            // context.beginPath();
+            // context.arc(centerX, centerY, radius, 0, Math.PI * 2);
+            // context.closePath();
+            // context.clip();
                     
-            context.drawImage(offscreenCanvas, 0, 0);
-            context.restore();
+            // context.drawImage(offscreenCanvas, 0, 0);
+            // context.restore();
         }
 
         let targetPointsRecalculated = [];
@@ -150,9 +150,6 @@ export const Map = (function(){
             };
             targetPointsRecalculated.push(recalculatedPoint);
         }
-        let carTriangle;
-        contentContainer.carVisible ? carTriangle = true : carTriangle = false;
-        Draw.renderMapHUD(hud, circle, dot, targetPointsRecalculated, angle, carTriangle);
 
         for (let i = 0; i < targetPointsRecalculated.length; i++) {
             let point = targetPointsRecalculated[i];
@@ -164,6 +161,10 @@ export const Map = (function(){
                 break; 
             }
         }
+
+        let carTriangle;
+        contentContainer.carVisible ? carTriangle = true : carTriangle = false;
+        Draw.renderMapHUD(hud, circle, dot, targetPointsRecalculated, angle, carTriangle);
 
         drawElements(contentContainer.elements);
     }

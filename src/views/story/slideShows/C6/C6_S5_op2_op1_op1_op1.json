@@ -1,5 +1,5 @@
 {
-    "name" : "C6_S5",
+    "name" : "C6_S5_op2_op1_op1_op1",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
@@ -93,7 +93,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setToMap",
-            "action": "C6_M1",
+            "action": "C6_M1_op2_op1_op1_op1",
             "filter": "appointable"
           }
     },

@@ -10,7 +10,7 @@
     "elements" : {
         "dial1": {
             "type": "text",
-            "text": "dia_C5_S1_1",
+            "text": "dia_C6_S3_1",
             "x": 219,
             "y": 470,
             "width": 70,
@@ -24,7 +24,7 @@
           },
           "dial2": {
             "type": "text",
-            "text": "dia_C5_S1_2",
+            "text": "dia_C6_S3_2",
             "x": 219,
             "y": 612,
             "width": 70,
