@@ -22,6 +22,20 @@
             "actionType": "setContent",
             "action": "C8_computer"
         },
+        "window" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 200,
+            "y": 120,
+            "width": 160,
+            "height": 200,
+            "color": "#e65939",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter": "appointable",
+            "actionType": "setContent",
+            "action": "C8_S1"
+        },
         "back": {
             "type": "button",
             "text": "btn_back",

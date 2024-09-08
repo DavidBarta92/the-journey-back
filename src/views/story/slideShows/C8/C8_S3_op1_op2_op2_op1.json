@@ -1,0 +1,46 @@
+{
+    "name" : "C8_S3_op1_op2_op2_op1",
+    "backgroundPath" : "",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "../src/media/sounds/car_atmo.mp3",
+    "elements" : {
+      "dial1": {
+        "type": "text",
+        "text": "dia_C8_S3_op1_op2_op2_op1",
+        "x": 219,
+        "y": 470,
+        "width": 70,
+        "height": 20,
+        "rotate": 0,
+        "color": "white",
+        "font": "Inconsolata",
+        "fontSize": 20,
+        "border": false,
+        "filter": null
+      },
+      "dial2": {
+        "type": "text",
+        "text": "dia_C8_S3_2",
+        "x": 219,
+        "y": 612,
+        "width": 70,
+        "height": 20,
+        "rotate": 0,
+        "color": "white",
+        "font": "Inconsolata",
+        "fontSize": 20,
+        "border": false,
+        "filter": null
+      }
+    },
+    "timer" : {
+        "time": 10000,
+        "actionType": "setContent",
+        "action": "C9_S2_negative",
+        "allowed" : true
+    }
+    }

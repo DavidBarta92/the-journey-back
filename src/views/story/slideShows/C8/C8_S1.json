@@ -1,18 +1,18 @@
 {
-    "name" : "C9_S6",
+    "name" : "C8_S1",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "",
-    "atmo" : "",
+    "atmo" : "../src/media/sounds/car_atmo.mp3",
     "elements" : {
-        "text": {
+        "dial1": {
             "type": "text",
-            "text": "dia_C9_S6",
-            "x": 100,
-            "y": 612,
+            "text": "dia_C8_S1_1",
+            "x": 219,
+            "y": 470,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -22,10 +22,10 @@
             "border": false,
             "filter": null
           },
-          "text2": {
+          "dial2": {
             "type": "text",
-            "text": "dia_C9_S7",
-            "x": 500,
+            "text": "dia_C8_S1_2",
+            "x": 219,
             "y": 612,
             "width": 70,
             "height": 20,
@@ -40,7 +40,7 @@
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C9_bedroom",
+        "action": "C8_S2",
         "allowed" : true
     }
     }

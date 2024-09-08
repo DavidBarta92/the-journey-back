@@ -1,5 +1,5 @@
 {
-    "name" : "C9_S4",
+    "name" : "C9_S3_positive",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
@@ -8,17 +8,8 @@
     "music" : "",
     "atmo" : "",
     "elements" : {
-        "text": {
-            "type": "text",
-            "text": "dia_C9_S4",
-            "x": 100,
-            "y": 612,
-            "width": 70,
-            "height": 20,
-            "rotate": 0,
-            "color": "white",
-            "font": "Inconsolata",
-            "fontSize": 20,
+        "empty_object": {
+            "type": "empty_object",
             "border": false,
             "filter": null
           }
@@ -26,7 +17,7 @@
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C9_S5",
+        "action": "C9_S4_positive",
         "allowed" : true
     }
     }

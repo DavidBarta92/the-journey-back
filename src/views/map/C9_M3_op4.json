@@ -1,0 +1,49 @@
+{
+    "name" : "C9_M3_op4",
+    "cursor" : "fasle",
+    "blur" : false,
+    "backgroundPath" : "../src/media/images/strmp.png",
+    "textPath" : "../src/media/images/driver-text.png",
+    "spritesPath" : "../src/media/images/spritesheet.high.png",
+    "hud" : "../src/media/images/mpHUD.png",
+    "itemsPath" : "",
+    "dialogue" : "david",
+    "targetPoints" : {
+        "a" : {
+            "x": 2000,
+            "y": 600,
+            "actionType": "setToClickView",
+            "action": "C10_S1_negative",
+            "text": "lbl_C9_M3_op4_q1",
+            "width": 70,
+            "height": 20,
+            "textBoxEnd": 251,
+            "color": "DarkSalmon",
+            "font": "Inconsolata"
+        }
+    },
+    "carVisible" : false,
+    "filter" : "",
+    "music" : "",
+    "elements" : {
+        "text1": {
+            "type": "text",
+            "text": "dia_C9_M3_op4_1",
+            "x": 30,
+            "y": 70,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "textBoxEnd": 1100,
+            "color": "black",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          }
+    },
+    "end" : {
+        "actionType": "setToClickView",
+        "action": "C7_S1"
+    }
+    }

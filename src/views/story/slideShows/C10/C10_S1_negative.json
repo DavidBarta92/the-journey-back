@@ -1,11 +1,11 @@
 {
-    "name" : "C10_S4",
+    "name" : "C10_S1_negative",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "",
+    "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "",
     "elements" : {
         "empty_object": {
@@ -16,8 +16,8 @@
     },
     "timer" : {
         "time": 10000,
-        "actionType": "setToDrive",
-        "action": "C10_night",
+        "actionType": "setContent",
+        "action": "C10_S2_negative",
         "allowed" : true
     }
     }
