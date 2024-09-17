@@ -1,5 +1,5 @@
 {
-    "name" : "C2_S2",
+    "name" : "C2_S5",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
@@ -8,11 +8,11 @@
     "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "../src/media/sounds/mars_base_atmo.mp3",
     "elements" : {
-        "teo": {
+        "aiza": {
             "type": "text",
-            "text": "dia_C2_S2",
-            "x": 450,
-            "y": 600,
+            "text": "dia_C2_S5",
+            "x": 170,
+            "y": 90,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -20,13 +20,14 @@
             "font": "Inconsolata",
             "fontSize": 20,
             "border": false,
+            "textBoxEnd": 350,
             "filter": null
           }
     },
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C2_S3",
+        "action": "C2_S6",
         "allowed" : true
     }
     }

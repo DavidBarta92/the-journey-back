@@ -12,11 +12,11 @@
             "type": "text",
             "text": "dia_C5_S2_1",
             "x": 855,
-            "y": 110,
+            "y": 160,
             "width": 70,
             "height": 20,
             "rotate": 0,
-            "textBoxEnd": 250,
+            "textBoxEnd": 330,
             "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
@@ -31,7 +31,7 @@
             "width": 70,
             "height": 20,
             "rotate": 0,
-            "textBoxEnd": 250,
+            "textBoxEnd": 330,
             "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
@@ -40,7 +40,7 @@
           }
     },
     "timer" : {
-        "time": 10000,
+        "time": 12000,
         "actionType": "setContent",
         "action": "C5_S3",
         "allowed" : true

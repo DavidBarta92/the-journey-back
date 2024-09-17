@@ -1,5 +1,5 @@
 {
-    "name" : "C2_S2",
+    "name" : "C2_S6",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
@@ -10,7 +10,7 @@
     "elements" : {
         "teo": {
             "type": "text",
-            "text": "dia_C2_S2",
+            "text": "dia_C2_S4",
             "x": 450,
             "y": 600,
             "width": 70,
@@ -26,7 +26,7 @@
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C2_S3",
+        "action": "C2_S7",
         "allowed" : true
     }
     }

@@ -10,9 +10,9 @@
     "elements" : {
         "aiza": {
             "type": "text",
-            "text": "dia_C2_S5",
-            "x": 670,
-            "y": 190,
+            "text": "dia_C2_S3_1",
+            "x": 170,
+            "y": 90,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -25,8 +25,8 @@
           },
         "teo": {
             "type": "text",
-            "text": "dia_C2_S6",
-            "x": 670,
+            "text": "dia_C2_S3_2",
+            "x": 170,
             "y": 330,
             "width": 70,
             "height": 20,
@@ -40,8 +40,8 @@
           },
           "aiza2": {
             "type": "text",
-            "text": "dia_C2_S7",
-            "x": 670,
+            "text": "dia_C2_S3_3",
+            "x": 170,
             "y": 570,
             "width": 70,
             "height": 20,
@@ -50,14 +50,29 @@
             "font": "Inconsolata",
             "fontSize": 20,
             "border": false,
-            "textBoxEnd": 350,
+            "textBoxEnd" : 350,
+            "filter": null
+          },
+          "aiza3": {
+            "type": "text",
+            "text": "dia_C2_S3_4",
+            "x": 170,
+            "y": 670,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "textBoxEnd" : 350,
             "filter": null
           }
     },
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C2_hall2",
+        "action": "C2_S4",
         "allowed" : true
     }
     }

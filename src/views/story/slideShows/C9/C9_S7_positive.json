@@ -16,7 +16,7 @@
     },
     "timer" : {
         "time": 10000,
-        "actionType": "setContent",
+        "actionType": "setToDrive",
         "action": "positive_C9_desert",
         "allowed" : true
     }

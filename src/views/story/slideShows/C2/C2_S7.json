@@ -1,18 +1,18 @@
 {
-    "name" : "C4_S6",
+    "name" : "C2_S7",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "",
-    "atmo" : "../src/media/sounds/mars_base_atmo2.mp3",
+    "music" : "../src/media/sounds/i_am_you_am.mp3",
+    "atmo" : "../src/media/sounds/mars_base_atmo.mp3",
     "elements" : {
-        "text": {
+        "aiza": {
             "type": "text",
-            "text": "dia_C4_2S7",
-            "x": 850,
-            "y": 200,
+            "text": "dia_C2_S7_1",
+            "x": 670,
+            "y": 190,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -20,28 +20,29 @@
             "font": "Inconsolata",
             "fontSize": 20,
             "border": false,
+            "textBoxEnd": 350,
             "filter": null
           },
-          "text2": {
+        "teo": {
             "type": "text",
-            "text": "dia_C4_2S8",
-            "x": 850,
-            "y": 260,
+            "text": "dia_C2_S7_2",
+            "x": 670,
+            "y": 330,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
-            "textBoxEnd": 400,
             "border": false,
+            "textBoxEnd": 350,
             "filter": null
           }
     },
     "timer" : {
-        "time": 50000,
+        "time": 10000,
         "actionType": "setContent",
-        "action": "C4_S7",
+        "action": "C2_hall2",
         "allowed" : true
     }
     }
