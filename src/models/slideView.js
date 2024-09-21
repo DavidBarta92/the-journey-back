@@ -141,6 +141,7 @@ export const Slide = (function(){
     }
 
     const setState = function(){
+        player.posx = 0;
         if (contentContainer.end.actionType === "setToClickView") {
             stateManager.setView('story');
             stateManager.setContent(contentContainer.end.action);

@@ -493,6 +493,11 @@ var Draw = (function(){
                 element[1].shadow = null;
                 element[1].color = color;
                 return;
+            } 
+            if (element[1].type === 'button') {
+
+                writeText(element[1], textBoxX, "#e65939");
+                return;
             } else {
                 writeText(element[1], textBoxX, color);
                 return;
