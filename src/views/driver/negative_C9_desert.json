@@ -1,0 +1,428 @@
+{
+    "name" : "negative_C9_desert",
+    "cursor" : "fasle",
+    "backgroundPath" : "../src/media/images/driver-background.png",
+    "spritesPath" : "../src/media/images/spritesheet.high.png",
+    "itemsPath" : "",
+    "dialogue" : "david",
+    "filter" : "",
+    "music" : "",
+    "atmo" : "../src/media/sounds/car_atmo.mp3",
+    "roadParam" : {
+        "maxHeight" : 900,
+        "maxCurve" : 700,
+        "length": 8,
+        "curvy" : 0.9,
+        "mountainy" : 0.8,
+        "zoneSize" : 100
+    },
+    "elements" : {
+        "dialogue" : {
+            "type": "dialogue",
+                "processed" : false,
+                "x": 960,
+                "y": 311,
+                "w": 300,
+                "h": 350,
+                "padding" : 10,
+                "textX" : 22,
+                "textY" : 39,
+                "textW" : 330,
+                "textH" : 320,
+                "bgcolor": "white",
+                "colorOfTitle": "black",
+                "fontOfTitle": "Akira",
+                "fontSizeOfTitle": 25,
+                "colorOfSpeech": "black",
+                "fontOfSpeech": "Rounded",
+                "fontSizeOfSpeech": 18,
+                "colorOfButtons": "black",
+                "fontOfButtons": "Rounded",
+                "fontSizeOfButtons": 20,
+                "border": false,
+                "actionType": "",
+                "action": "",
+                "filter" : null,
+                "contents" : {
+                    "1" : {
+                        "text": {
+                            "type": "text",
+                            "text": "",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "1050" : {
+                        "text": {
+                            "type": "text",
+                            "text": "negative_dia_C9_driver1",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/de_serious.png"
+                    },
+                    "1110" : {
+                        "text": {
+                            "type": "text",
+                            "text": "negative_dia_C9_driver2",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/dd_serious.png"
+                    },
+                    "1180" : {
+                        "text": {
+                            "type": "text",
+                            "text": "",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "1280" : {
+                        "text": {
+                            "type": "text",
+                            "text": "negative_dia_C9_driver3",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/de_serious.png"
+                    },
+                    "1410" : {
+                        "text": {
+                            "type": "text",
+                            "text": "",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "1510" : {
+                        "text": {
+                            "type": "text",
+                            "text": "negative_dia_C9_driver4",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/dd_serious.png"
+                    },
+                    "1700" : {
+                        "text": {
+                            "type": "text",
+                            "text": "negative_dia_C9_driver5",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/de_serious.png"
+                    },
+                    "1950" : {
+                        "text": {
+                            "type": "text",
+                            "text": "negative_dia_C9_driver6",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/dd_serious.png"
+                    },
+                    "1995" : {
+                        "text": {
+                            "type": "text",
+                            "text": "",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "2050" : {
+                        "text": {
+                            "type": "text",
+                            "text": "negative_dia_C9_driver7",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/de_serious.png"
+                    },
+                    "2170" : {
+                        "text": {
+                            "type": "text",
+                            "text": "",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "2260" : {
+                        "text": {
+                            "type": "text",
+                            "text": "negative_dia_C9_driver8",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/de_serious.png"
+                    },
+                    "2320" : {
+                        "text": {
+                            "type": "text",
+                            "text": "negative_dia__C9_driver9",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/de_serious.png"
+                    },
+                    "2420" : {
+                        "text": {
+                            "type": "text",
+                            "text": "negative_dia_C9_driver10",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/de_serious.png"
+                    },
+                    "2500" : {
+                        "text": {
+                            "type": "text",
+                            "text": "",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "2570" : {
+                        "text": {
+                            "type": "text",
+                            "text": "negative_dia_C9_driver11",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "2610" : {
+                        "text": {
+                            "type": "text",
+                            "text": "negative_dia_C9_driver12",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    }
+                }
+        },
+        "rock" : {
+            "type": "sprite",
+            "x": null,
+            "y": null,
+            "w": null,
+            "h": null,
+            "sourceX" : 345,
+            "sourceY" : 9,
+            "sourceW" : 11,
+            "sourceH" : 14
+        },
+        "tree" : {
+            "type": "sprite",
+            "x": null,
+            "y": null,
+            "w": null,
+            "h": null,
+            "sourceX" : 321,
+            "sourceY" : 9,
+            "sourceW" : 23,
+            "sourceH" : 50
+        },
+        "speedCounter" : {
+            "type": "activeArea",
+            "text": "0 mph",
+            "x": 33,
+            "y": 553,
+            "width": 96,
+            "height": 58,
+            "color": "#dc3a15",
+            "font": "Akira",
+            "fontSize": 60,
+            "filter" : null,
+            "actionType": "setView",
+            "action": "driver"
+        },
+        "percentCounter" : {
+            "type": "activeArea",
+            "text": "0%",
+            "x": 30,
+            "y": 600,
+            "width": 96,
+            "height": 58,
+            "color": "#dc3a15",
+            "font": "Akira",
+            "fontSize": 30,
+            "filter" : null,
+            "actionType": "setView",
+            "action": "driver"
+        }
+    },
+    "end" : {
+        "actionType": "setToClickView",
+        "action": "C9_S8_negative"
+    }
+    }

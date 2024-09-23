@@ -1,12 +1,12 @@
 {
     "name" : "C11_S8",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/C11_S8_bg.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/i_am_you_am.mp3",
-    "atmo" : "",
+    "music" : "../src/media/sounds/ending.mp3",
+    "atmo" : "../src/media/sounds/C11_S1noise.mp3",
     "elements" : {
         "text": {
             "type": "text",
@@ -16,6 +16,7 @@
             "width": 70,
             "height": 20,
             "rotate": 0,
+            "textBoxEnd": 1100,
             "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
@@ -24,7 +25,7 @@
           }
     },
     "timer" : {
-        "time": 10000,
+        "time": 13000,
         "actionType": "setContent",
         "action": "C11_S9",
         "allowed" : true

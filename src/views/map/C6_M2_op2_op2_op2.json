@@ -1,0 +1,65 @@
+{
+    "name" : "C6_M2_op2_op2_op2",
+    "cursor" : "fasle",
+    "blur" : false,
+    "backgroundPath" : "../src/media/images/mp.png",
+    "textPath" : "../src/media/images/driver-text.png",
+    "spritesPath" : "../src/media/images/spritesheet.high.png",
+    "hud" : "../src/media/images/mpHUD.png",
+    "itemsPath" : "",
+    "dialogue" : "david",
+    "targetPoints" : {
+        "a" : {
+            "x": 600,
+            "y": 5000,
+            "actionType": "setContent",
+            "action": "C6_M3_op2_op2",
+            "text": "",
+            "width": 70,
+            "height": 20,
+            "textBoxEnd": 251,
+            "color": "DarkSalmon",
+            "font": "Inconsolata"
+        }
+    },
+    "carVisible" : true,
+    "filter" : "",
+    "music" : "../src/media/sounds/oltre_terra.mp3",
+    "atmo" : "../src/media/sounds/wind.mp3",
+    "elements" : {
+        "text1": {
+            "type": "text",
+            "text": "dia_C6_M2_op2_op2_op2_1",
+            "x": 30,
+            "y": 70,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "textBoxEnd": 1100,
+            "color": "black",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          },
+        "text2": {
+            "type": "text",
+            "text": "dia_C6_M2_op2_op2_op2_2",
+            "x": 30,
+            "y": 600,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "textBoxEnd": 1100,
+            "color": "black",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+        }
+    },
+    "end" : {
+        "actionType": "setToClickView",
+        "action": "C7_S1"
+    }
+    }

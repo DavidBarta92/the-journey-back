@@ -1,0 +1,76 @@
+{
+    "name" : "C9_M2_op2",
+    "cursor" : "fasle",
+    "blur" : false,
+    "backgroundPath" : "../src/media/images/strmp.png",
+    "textPath" : "../src/media/images/driver-text.png",
+    "spritesPath" : "../src/media/images/spritesheet.high.png",
+    "hud" : "../src/media/images/mpHUD.png",
+    "itemsPath" : "",
+    "dialogue" : "david",
+    "targetPoints" : {
+        "a" : {
+            "x": 4000,
+            "y": 2000,
+            "actionType": "setContent",
+            "action": "C9_M3_op2",
+            "text": "lbl_C9_M2_op2_q1",
+            "width": 70,
+            "height": 20,
+            "textBoxEnd": 251,
+            "color": "DarkSalmon",
+            "font": "Inconsolata"
+        },
+        "b" : {
+            "x": 2000,
+            "y": 4000,
+            "actionType": "setContent",
+            "action": "C9_M3_op3",
+            "text": "lbl_C9_M2_op2_q2",
+            "width": 70,
+            "height": 20,
+            "textBoxEnd": 251,
+            "color": "DarkSalmon",
+            "font": "Inconsolata"
+        }
+    },
+    "carVisible" : false,
+    "filter" : "",
+    "music" : "",
+    "elements" : {
+        "text1": {
+            "type": "text",
+            "text": "dia_C9_M2_op2_1",
+            "x": 30,
+            "y": 70,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "textBoxEnd": 1100,
+            "color": "black",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          },
+        "text2": {
+            "type": "text",
+            "text": "dia_C9_M2_op2_2",
+            "x": 30,
+            "y": 600,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "textBoxEnd": 1100,
+            "color": "black",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+        }
+    },
+    "end" : {
+        "actionType": "setToClickView",
+        "action": "C7_S1"
+    }
+    }

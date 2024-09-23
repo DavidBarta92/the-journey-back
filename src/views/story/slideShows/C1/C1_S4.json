@@ -5,7 +5,7 @@
     "itemsPath" : "",
     "dialogue" : "C1_S4",
     "filter" : "fadeOn",
-    "music" : "",
+    "music" : "../src/media/sounds/inclusion.mp3",
     "atmo" : "",
     "elements" : {
         "Eva": {
@@ -40,7 +40,7 @@
           }
     },
     "timer" : {
-        "time": 13000,
+        "time": 12000,
         "actionType": "setContent",
         "action": "C1_S5",
         "allowed" : true

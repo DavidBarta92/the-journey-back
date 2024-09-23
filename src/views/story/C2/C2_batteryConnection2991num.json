@@ -7,6 +7,36 @@
   "music" : "../src/media/sounds/i_am_you_am.mp3",
   "atmo" : "../src/media/sounds/astronaut_suit.mp3",
   "elements": {
+    "chapter": {
+      "type": "text",
+      "text": "C2_title",
+      "x": 1175,
+      "y": 650,
+      "vertical" : true,
+      "width": 70,
+      "height": 20,
+      "rotate": 2,
+      "color": "black",
+      "font": "Akira",
+      "fontSize": 70,
+      "border": false,
+      "filter" : ""
+    },
+  "goal": {
+      "type": "text",
+      "text": "C2_goal",
+      "x": 1215,
+      "y": 650,
+      "vertical" : true,
+      "width": 70,
+      "height": 20,
+      "rotate": 2,
+      "color": "black",
+      "font": "Rounded",
+      "fontSize": 25,
+      "border": false,
+      "filter" : ""
+    },
     "nums_field":{
       "type":"text",
       "text":"O P E N",
@@ -16,10 +46,10 @@
       "height":20,
       "rotate":0,
       "color":"black",
-      "font":"Akira",
-      "fontSize":12,
+      "font":"G7_Segment_7a",
+      "fontSize":18,
       "border":false,
-      "filter":null
+      "filter" : ""
    }
   },
   "timer" : {

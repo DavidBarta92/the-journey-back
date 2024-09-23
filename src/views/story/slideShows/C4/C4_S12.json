@@ -6,27 +6,28 @@
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "",
-    "atmo" : "",
+    "atmo" : "../src/media/sounds/mars_base_atmo2.mp3",
     "elements" : {
-          "text1": {
+        "text1": {
             "type": "text",
-            "text": "dia_C4_1S3",
-            "x": 60,
-            "y": 460,
+            "text": "dia_C4_S12_1",
+            "x": 850,
+            "y": 200,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
+            "textBoxEnd" : 350,
             "border": false,
             "filter": null
           },
           "text2": {
             "type": "text",
-            "text": "dia_C4_1S4",
-            "x": 60,
-            "y": 500,
+            "text": "dia_C4_S12_2",
+            "x": 850,
+            "y": 350,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -35,40 +36,26 @@
             "fontSize": 20,
             "border": false,
             "filter": null
-          },    
-          "question1": {
-            "type": "button",
-            "text": "btn_C4_S3_q1",
-            "fx": "",
-            "x": 60,
-            "y": 600,
-            "width": 70,
-            "height": 20,
-            "rotate": 0,
-            "color": "white",
-            "font": "Rounded",
-            "fontSize": 20,
-            "border": false,
-            "actionType": "setContent",
-            "action": "C4_S3_op1",
-            "filter": "appointable"
           },
-          "question2": {
-            "type": "button",
-            "text": "btn_C4_S3_q2",
-            "fx": "",
-            "x": 60,
-            "y": 640,
+          "text3": {
+            "type": "text",
+            "text": "dia_C4_S12_3",
+            "x": 850,
+            "y": 400,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
-            "font": "Rounded",
+            "font": "Inconsolata",
             "fontSize": 20,
             "border": false,
-            "actionType": "setContent",
-            "action": "C4_S3_op2",
-            "filter": "appointable"
+            "filter": null
           }
+    },
+    "timer" : {
+        "time": 9000,
+        "actionType": "setContent",
+        "action": "C4_hall2",
+        "allowed" : true
     }
     }

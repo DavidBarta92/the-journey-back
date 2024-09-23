@@ -1,6 +1,11 @@
 {
   "name": "starslider",
-  "version": "0.7.0",
+  "version": "0.8.0",
+  "description": "This is a small story-telling game.",
+  "author": {
+    "name": "David Barta",
+    "email": "barta.david@live.com"
+  },
   "main": "public/electron.js",
   "homepage": "./",
   "private": true,
@@ -10,7 +15,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "electron-builder": "^23.6.0",
+    "asar": "^3.2.0",
     "electron-redux": "^1.5.4",
     "expect.js": "^0.3.1",
     "gif.js": "^0.2.0",
@@ -29,9 +34,8 @@
     "build": "craco build",
     "start": "electron .",
     "test": "react-scripts test",
-    "electron-dist": "electron-builder",
-    "electron-packer": "electron-builder --dir",
-    "make": "electron-forge make"
+    "dist:win": "electron-builder --windows",
+    "dist:linux": "electron-builder --linux"
   },
   "eslintConfig": {
     "extends": [
@@ -54,6 +58,32 @@
   "devDependencies": {
     "@redux-devtools/core": "^3.13.1",
     "electron": "^21.2.0",
+    "electron-builder": "^24.13.3",
     "webpack-node-externals": "^3.0.0"
+  },
+  "build": {
+    "appId": "com.the-journey-back.app",
+    "productName": "The Journey Back",
+    "directories": {
+      "buildResources": "assets"
+    },
+    "files": [
+      "build/**/*",
+      "public/electron.js",
+      "assets/**/*",
+      "src/**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility",
+      "maintainer": "David Barta barta.david@live.com"
+    },
+    "icon": "assets/icon.png"
   }
 }

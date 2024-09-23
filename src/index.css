@@ -43,3 +43,21 @@ code {
   font-style: normal;
   src: url('./fonts/Inconsolata_VariableFont_wdth.ttf') format('opentype');
 }
+
+@font-face {
+  font-family: G7_Segment_7a;
+  font-style: normal;
+  src: url('./fonts/G7_Segment_7a.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: Paskowy;
+  font-style: normal;
+  src: url('./fonts/Paskowy.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: Larabie;
+  font-style: normal;
+  src: url('./fonts/larabiefont.otf') format('opentype');
+}

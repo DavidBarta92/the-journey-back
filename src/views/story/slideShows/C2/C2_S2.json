@@ -6,11 +6,11 @@
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "../src/media/sounds/i_am_you_am.mp3",
-    "atmo" : "",
+    "atmo" : "../src/media/sounds/mars_base_atmo.mp3",
     "elements" : {
         "teo": {
             "type": "text",
-            "text": "dia_C2_S4",
+            "text": "dia_C2_S2",
             "x": 450,
             "y": 600,
             "width": 70,

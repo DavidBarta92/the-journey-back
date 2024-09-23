@@ -1,0 +1,33 @@
+{
+    "name" : "C5_S8",
+    "backgroundPath" : "../src/media/images/C6_S3_bg.b64",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "../src/media/sounds/vents_magnetiques.mp3",
+    "atmo" : "",
+    "elements" : {
+        "text": {
+            "type": "text",
+            "text": "dia_C5_S8",
+            "x": 610,
+            "y": 495,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Larabie",
+            "textBoxEnd": 500,
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          }
+    },
+    "timer" : {
+        "time": 17000,
+        "actionType": "setContent",
+        "action": "C5_S9",
+        "allowed" : true
+    }
+    }

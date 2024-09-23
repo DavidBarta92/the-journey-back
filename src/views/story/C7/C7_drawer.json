@@ -1,0 +1,72 @@
+{
+    "name" : "C7_drawer",
+    "backgroundPath" : "../src/media/images/drawer.png",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "../src/media/sounds/car_atmo.mp3",
+    "elements" : {
+        "chapter": {
+            "type": "text",
+            "text": "C7_title",
+            "x": 1175,
+            "y": 650,
+            "vertical" : true,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "white",
+            "font": "Akira",
+            "fontSize": 70,
+            "border": false,
+            "filter": null
+          },
+        "goal": {
+            "type": "text",
+            "text": "C7_goal",
+            "x": 1215,
+            "y": 650,
+            "vertical" : true,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 25,
+            "border": false,
+            "filter": null
+          },
+          "C7_2_drawer" : {
+            "type": "activeArea",
+            "text": null,
+            "x": 713,
+            "y": 154,
+            "width": 84,
+            "height": 300,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter": "appointable",
+            "actionType": "setContent",
+            "action": "C7_2_drawer"
+        },
+        "back": {
+            "type": "button",
+            "text": "btn_back",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C7_kitchen_1",
+            "filter": "appointable"
+        }
+    }
+}

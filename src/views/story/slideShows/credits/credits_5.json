@@ -1,45 +1,45 @@
 {
     "name" : "credits_5",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/C11_S35_bg.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/i_am_you_am.mp3",
+    "music" : "../src/media/sounds/ending.mp3",
     "atmo" : "",
     "elements" : {
-        "dial1": {
-            "type": "text",
-            "text": "dia_credits_S5_1",
-            "x": 435,
-            "y": 612,
-            "width": 70,
-            "height": 20,
-            "rotate": 0,
-            "color": "white",
-            "font": "Inconsolata",
-            "fontSize": 20,
-            "border": false,
-            "filter": null
-          },
-          "dial2": {
-            "type": "text",
-            "text": "dia_credits_S5_2",
-            "x": 435,
-            "y": 612,
-            "width": 70,
-            "height": 20,
-            "rotate": 0,
-            "color": "white",
-            "font": "Inconsolata",
-            "fontSize": 20,
-            "border": false,
-            "filter": null
-          }
+      "dial1": {
+        "type": "text",
+        "text": "dia_credits_5_1",
+        "x": 200,
+        "y": 300,
+        "width": 70,
+        "height": 20,
+        "rotate": 0,
+        "color": "white",
+        "font": "Inconsolata",
+        "fontSize": 20,
+        "border": false,
+        "filter": null
+      },
+      "dial2": {
+        "type": "text",
+        "text": "dia_credits_5_2",
+        "x": 200,
+        "y": 330,
+        "width": 70,
+        "height": 20,
+        "rotate": 0,
+        "color": "white",
+        "font": "Inconsolata",
+        "fontSize": 20,
+        "border": false,
+        "filter": null
+      }
     },
     "timer" : {
-        "time": 10000,
-        "actionType": "setContent",
+      "time": 13000,
+      "actionType": "setContent",
         "action": "",
         "allowed" : true
     }

@@ -9,6 +9,7 @@ import Anim from "../views/anim";
 import dataController from "../controllers/dataController";
 import Timer from "./timer";
 import Draw from "./draw";
+import Sound from "./sound.js";
 
 var dialogueOptionClicked;
 var backgroundImage = new Image();
@@ -21,6 +22,7 @@ var languageFile;
 var dialogueFile;
 var spokenSpeeches = [];
 var interactives;
+var noiseVolume = 0;
 
 var requestNewFrame = false;
 
@@ -129,6 +131,11 @@ export const Driver = (function(){
     }
 
     ///////////////////////////////////////////////////////////////////////
+
+    function roundNumber(num, decimals) {
+        let factor = Math.pow(10, decimals);
+        return Math.round(num * factor) / factor;
+    }
       
     const handleSpeedAndPosition = function(keys, delta) {
         if (keys[38]) {
@@ -140,13 +147,23 @@ export const Driver = (function(){
         } else {
           player.speed -= player.deceleration;
         }
-      
+        soundPlaying();
         player.speed = Math.max(0, player.speed); // Cannot go in reverse
         player.speed = Math.min(player.speed, player.maxSpeed); // Maximum speed
         player.position += player.speed;
       
         handleCarTurning(keys, delta);
       }
+
+    const soundPlaying = function() {
+        noiseVolume = roundNumber(player.speed, 0) > 0.001 ? roundNumber(player.speed, 3) * 2 / 10 : 0;
+        Sound.noise('../src/media/sounds/rover_noise.mp3', roundNumber(noiseVolume, 3));
+
+        if (Math.abs(player.delta) > 130 && player.speed > 3) {
+            Sound.fx('../src/media/sounds/alarm.mp3');
+            player.speed -= 0.2;
+          }
+    }
       
     const handleDialogueOptionClick = function(keys) {
         if (keys[49]) {
@@ -342,6 +359,7 @@ export const Driver = (function(){
 
     const setState = function(){
         if (contentContainer.end.actionType === "setToClickView") {
+            Sound.noiseStop();
             stateManager.setView('story');
             stateManager.setContent(contentContainer.end.action);
             gameCanvas.clear();
@@ -538,6 +556,8 @@ export const Driver = (function(){
         start: function(state){
             var state = state;
             init(state);
+            //Sound.atmo(contentContainer.atmo);
+            //Sound.music(contentContainer.music);
             if (!pause){
                 gameInterval = setInterval(renderGameFrame, 1);
                 generateRoad();
@@ -556,36 +576,3 @@ export const Driver = (function(){
 }
 ());
 
-export const Driver2 = (function(){
-    const init = function(state){
-
-    }
-
-    //render one frame of the menu
-    const renderMenuFrame = function(){
-
-    }
-
-    //tracking cursor
-    const trackInput = function(){
-
-    }
-
-    const trackAnimation = function(){
-
-    }
-
-    return {
-        render: function(state){
-
-            },
-
-        //its only for th first screen rendering at the game starting (this preload pictures, fonts for the clickview)
-        preRender: function(state){
-
-            }
-        }
-    }
-());
-
-//export default Driver;

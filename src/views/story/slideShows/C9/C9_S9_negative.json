@@ -1,0 +1,23 @@
+{
+    "name" : "C9_S9_negative",
+    "backgroundPath" : "",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "",
+    "elements" : {
+        "empty_object": {
+            "type": "empty_object",
+            "border": false,
+            "filter": null
+          }
+    },
+    "timer" : {
+        "time": 10000,
+        "actionType": "setToMap",
+        "action": "C9_M1_op2",
+        "allowed" : true
+    }
+    }

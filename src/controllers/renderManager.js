@@ -3,6 +3,8 @@ import { Menu, Story } from '../models/clickView';
 import { Driver } from '../models/driverView';
 import inputController from './inputController';
 import stateManager from './stateManager';
+import { Slide } from '../models/slideView';
+import { Map } from '../models/mapView';
 
     inputController.init();
 
@@ -24,6 +26,12 @@ var RenderManager = (function(){
             break;
           case 'driver':
             Driver.start(state);
+            break;
+          case 'slide':
+            Slide.start(state);
+            break;
+          case 'map':
+            Map.start(state);
             break;
           case 'story':
             Story.render(state);

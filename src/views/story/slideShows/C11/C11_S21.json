@@ -1,0 +1,23 @@
+{
+    "name" : "C11_S21",
+    "backgroundPath" : "../src/media/images/C11_S21_bg.png",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "../src/media/sounds/ending.mp3",
+    "atmo" : "../src/media/sounds/C11_S16noise.mp3",
+    "elements" : {
+"empty_object": {
+            "type": "empty_object",
+            "border": false,
+            "filter": null
+          }
+    },
+    "timer" : {
+        "time": 13000,
+        "actionType": "setContent",
+        "action": "C11_S22",
+        "allowed" : true
+    }
+    }

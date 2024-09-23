@@ -1,0 +1,72 @@
+{
+    "name" : "C7_attic",
+    "backgroundPath" : "",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "../src/media/sounds/car_atmo.mp3",
+    "elements" : {
+        "chapter": {
+            "type": "text",
+            "text": "C7_title",
+            "x": 1175,
+            "y": 650,
+            "vertical" : true,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "white",
+            "font": "Akira",
+            "fontSize": 70,
+            "border": false,
+            "filter": null
+          },
+        "goal": {
+            "type": "text",
+            "text": "C7_goal",
+            "x": 1215,
+            "y": 650,
+            "vertical" : true,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 25,
+            "border": false,
+            "filter": null
+          },
+        "computer" : {
+            "type": "activeArea",
+            "text": "lbl_computer",
+            "x": 880,
+            "y": 270,
+            "width": 160,
+            "height": 200,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter": "appointable",
+            "actionType": "setContent",
+            "action": "C7_computer"
+        },
+        "back": {
+            "type": "button",
+            "text": "btn_back",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C7_mainCorridor_1",
+            "filter": "appointable"
+        }
+    }
+}

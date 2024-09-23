@@ -5,7 +5,7 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "",
+    "music" : "../src/media/sounds/inclusion.mp3",
     "atmo" : "",
     "elements" : {
         "Aiza": {
@@ -38,9 +38,9 @@
           }
     },
     "timer" : {
-        "time": 9000,
+        "time": 8000,
         "actionType": "setContent",
-        "action": "C1_craterbase_from_enterance",
+        "action": "C1_title",
         "allowed" : true
     }
     }

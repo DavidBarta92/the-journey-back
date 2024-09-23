@@ -5,9 +5,11 @@ const Sound = (function(){
 
     var fx = new Audio();
     fx.type = "fx";
+    let isPlaying = false;
     
     var noise = new Audio();
     noise.type = "noise";
+    noise.loop = true;
     
     var atmo = new Audio();
     atmo.type = "atmo";
@@ -20,17 +22,42 @@ const Sound = (function(){
     const audioContext = new AudioContext();
     let source;
 
-    const playFx = function(path){
+    const playFx = function(path, id) {
+        if (id === null && isPlaying) return;
+        if (fx.id === id) return;
+        
+        fx.id = id;
         fx.src = path;
         fx.volume = stateManager.loadState().volume;
-        fx.play();
+        isPlaying = true;
+        fx.play().catch(error => {
+            console.error('Hiba történt a hang lejátszása közben:', error);
+            isPlaying = false;
+        });
     }
 
-    const playNoise = function(path, max = 5000){
-        noise.src = path;
-        Timer.wait(Math.floor(Math.random() * max));
-        noise.volume = stateManager.loadState().volume;
-        noise.play();
+    fx.addEventListener('ended', () => {
+        isPlaying = false;
+    });
+
+    const playNoise = function(path, volume){
+        var pathFileName = path.replace(/^.*[\\\/]/, '');
+        var srcFileName = noise.src.slice(-pathFileName.length);
+    
+        if (volume < stateManager.loadState().volume) {
+            noise.volume = volume;
+        } else {
+            noise.volume = stateManager.loadState().volume;
+        }
+    
+        if(srcFileName !== pathFileName || noise.paused){
+            noise.src = path;
+            noise.play();
+        }
+    }
+
+    const stopNoise = function(volume){
+        noise.pause();
     }
 
     const playAtmo = function(path, lowPass = 2000){
@@ -71,11 +98,14 @@ const Sound = (function(){
     }
         
     return {
-        fx: function(path){
-            playFx(path);
+        fx: function(path, id){
+            playFx(path, id);
         },
-        noise: function(path){
-            playNoise(path);
+        noise: function(path, volume){
+            playNoise(path, volume);   
+        },
+        noiseStop: function(){
+            stopNoise();
         },
         atmo: function(path){
             playAtmo(path);

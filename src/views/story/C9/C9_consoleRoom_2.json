@@ -5,20 +5,17 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/i_am_you_am.mp3",
+    "music" : "",
     "atmo" : "../src/media/sounds/astronaut_suit.mp3",
     "elements" : { 
         "forward" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_mainCorridor",
             "x": 140,
             "y": 180,
             "width": 200,
             "height": 320,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
+            "filter" : "appointable",
             "actionType": "setContent",
             "action": "C9_mainCorridor_2"
         },

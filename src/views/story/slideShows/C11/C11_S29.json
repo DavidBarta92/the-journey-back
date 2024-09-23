@@ -1,0 +1,23 @@
+{
+    "name" : "C11_S29",
+    "backgroundPath" : "../src/media/images/C11_S29_bg.png",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "../src/media/sounds/ending.mp3",
+    "atmo" : "",
+    "elements" : {
+        "empty_object": {
+            "type": "empty_object",
+            "border": false,
+            "filter": null
+          }
+    },
+    "timer" : {
+        "time": 13000,
+        "actionType": "setContent",
+        "action": "C11_S30",
+        "allowed" : true
+    }
+    }

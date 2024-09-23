@@ -6,7 +6,7 @@
   "dialogue" : "",
   "filter" : "fadeOn",
   "music" : "",
-  "atmo" : "",
+  "atmo" : "../src/media/sounds/mars_base_atmo2.mp3",
   "elements" : {   
         "question1": {
           "type": "button",

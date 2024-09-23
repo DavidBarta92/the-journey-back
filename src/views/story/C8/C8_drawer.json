@@ -1,12 +1,12 @@
 {
     "name" : "C8_drawer",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/drawer_empty.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/i_am_you_am.mp3",
-    "atmo" : "../src/media/sounds/astronaut_suit.mp3",
+    "music" : "",
+    "atmo" : "../src/media/sounds/car_atmo.mp3",
     "elements" : {
         "back": {
             "type": "button",

@@ -5,18 +5,18 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/i_am_you_am.mp3",
-    "atmo" : "",
+    "music" : "../src/media/sounds/vents_magnetiques.mp3",
+    "atmo" : "../src/media/sounds/mars_base_atmo2.mp3",
     "elements" : {
         "dial": {
             "type": "text",
             "text": "dia_C5_S4",
-            "x": 82,
-            "y": 190,
+            "x": 78,
+            "y": 180,
             "width": 70,
             "height": 20,
             "rotate": 0,
-            "textBoxEnd": 250,
+            "textBoxEnd": 210,
             "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
@@ -25,7 +25,7 @@
           }
     },
     "timer" : {
-        "time": 10000,
+        "time": 17000,
         "actionType": "setContent",
         "action": "C5_S5",
         "allowed" : true

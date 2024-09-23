@@ -8,6 +8,47 @@
     "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "../src/media/sounds/mars_base_atmo.mp3",
     "elements" : {
+        "chapter": {
+            "type": "text",
+            "text": "C3_title",
+            "x": 1175,
+            "y": 650,
+            "vertical" : true,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "white",
+            "font": "Akira",
+            "fontSize": 70,
+            "border": false,
+            "filter": null
+          },
+        "goal": {
+            "type": "text",
+            "text": "C3_goal",
+            "x": 1215,
+            "y": 650,
+            "vertical" : true,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 25,
+            "border": false,
+            "filter": null
+          },
+          "forward" : {
+            "type": "activeArea",
+            "text": "lbl_mainhall",
+            "x": 800,
+            "y": 250,
+            "width": 250,
+            "height": 250,
+            "filter" : "appointable",
+            "actionType": "setContent",
+            "action": "C3_mainhall"
+        },
         "map": {
             "type": "button",
             "text": "btn_map",

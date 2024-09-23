@@ -1,0 +1,33 @@
+{
+    "name" : "C2_S5",
+    "backgroundPath" : "",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "../src/media/sounds/i_am_you_am.mp3",
+    "atmo" : "../src/media/sounds/mars_base_atmo.mp3",
+    "elements" : {
+        "aiza": {
+            "type": "text",
+            "text": "dia_C2_S5",
+            "x": 170,
+            "y": 90,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "textBoxEnd": 350,
+            "filter": null
+          }
+    },
+    "timer" : {
+        "time": 10000,
+        "actionType": "setContent",
+        "action": "C2_S6",
+        "allowed" : true
+    }
+    }

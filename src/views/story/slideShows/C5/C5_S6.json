@@ -1,0 +1,48 @@
+{
+    "name" : "C5_S6",
+    "backgroundPath" : "../src/media/images/C6_S1_bg.b64",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "../src/media/sounds/vents_magnetiques.mp3",
+    "atmo" : "",
+    "elements" : {
+        "text": {
+            "type": "text",
+            "text": "dia_C5_S6_1",
+            "x": 50,
+            "y": 418,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Larabie",
+            "textBoxEnd": 200,
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          },
+          "text2": {
+            "type": "text",
+            "text": "dia_C5_S6_2",
+            "x": 1035,
+            "y": 150,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "textBoxEnd": 200,
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          }
+    },
+    "timer" : {
+        "time": 11000,
+        "actionType": "setContent",
+        "action": "C5_S7",
+        "allowed" : true
+    }
+    }

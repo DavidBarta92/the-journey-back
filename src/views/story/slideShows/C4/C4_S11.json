@@ -6,11 +6,11 @@
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "",
-    "atmo" : "",
+    "atmo" : "../src/media/sounds/mars_base_atmo2.mp3",
     "elements" : {
         "text1": {
             "type": "text",
-            "text": "dia_C4_3S11",
+            "text": "dia_C4_S11_1",
             "x": 150,
             "y": 612,
             "width": 70,
@@ -26,7 +26,7 @@
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C4_hall2",
+        "action": "C4_S12",
         "allowed" : true
     }
     }

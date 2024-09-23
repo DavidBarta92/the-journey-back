@@ -5,8 +5,8 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/i_am_you_am.mp3",
-    "atmo" : "",
+    "music" : "",
+    "atmo" : "../src/media/sounds/mars_base_atmo2.mp3",
     "elements" : {
         "text": {
             "type": "text",
@@ -26,7 +26,7 @@
             "type": "text",
             "text": "dia_C4_2S8",
             "x": 850,
-            "y": 300,
+            "y": 260,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -39,7 +39,7 @@
           }
     },
     "timer" : {
-        "time": 10000,
+        "time": 50000,
         "actionType": "setContent",
         "action": "C4_S7",
         "allowed" : true
