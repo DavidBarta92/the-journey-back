@@ -1,6 +1,6 @@
 {
     "name" : "C8_S2_op2_op2_op1",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/teo_window.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
