@@ -91,7 +91,7 @@ var Draw = (function(){
         context.lineTo(x2, y2);
     };
 
-    const drawDottedPathToActiveArea = function (dotted = true, element, startPoint = {x: 15, y: 630}) {
+    const drawDottedPathToActiveArea = function (dotted = true, element, startPoint = {x: 21, y: 629}) {
 
     let endPoint = {"x": element[1].x, "y": element[1].y};
 
@@ -110,6 +110,12 @@ var Draw = (function(){
         context.setLineDash([10, 0])
         gradient.addColorStop(0, 'rgba(220,58,21,1)'); // alul
         gradient.addColorStop(1, 'rgba(220,58,21,1)'); // felül #dc3a15
+
+        context.beginPath();
+        context.arc(startPoint.x, startPoint.y, 5, 0, Math.PI * 2);
+        context.strokeStyle = "#dc3a15";
+        context.lineWidth = 6;
+        context.stroke();
     } else {
         context.setLineDash([10, 10])
         gradient.addColorStop(0, 'rgba(0,0,0,0.02)'); // alul
