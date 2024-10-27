@@ -1,6 +1,6 @@
 {
     "name" : "C1_hall1",
-    "backgroundPath" : "../src/media/images/hall1.b64",
+    "backgroundPath" : "../src/media/images/hall1.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

@@ -1,7 +1,7 @@
 {
   "name": "main",
   "backgroundPath": null,
-  "middlegroundPath": "../src/media/images/black.b64",
+  "middlegroundPath": "../src/media/images/menu.png",
   "spritesPath": null,
   "dialogue": null,
   "filter" : "",

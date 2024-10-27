@@ -91,14 +91,9 @@ var Draw = (function(){
         context.lineTo(x2, y2);
     };
 
-    const drawDottedPathToActiveArea = function (dotted = true, element) {
+    const drawDottedPathToActiveArea = function (dotted = true, element, startPoint = {x: 15, y: 630}) {
 
     let endPoint = {"x": element[1].x, "y": element[1].y};
-
-    const startPoint = {
-        x: 0,
-        y: 600
-    };
 
     const controlPoint1 = {
         x: (startPoint.x + endPoint.x) / 2,
@@ -481,6 +476,16 @@ var Draw = (function(){
             && element[1].clicked === true 
             && element[1].type === 'button'){
                 writeText(element[1], (element[1].x + element[1].textBoxEnd), "#dc3a15");
+                context.beginPath();
+                context.lineWidth = 2;
+                context.strokeStyle = "#dc3a15";
+                drawCross(element[1].x, element[1].y);
+                context.stroke();
+                context.closePath();
+                if(element[1].hasOwnProperty('pointer') 
+                && element[1].pointer === true){
+                    drawDottedPathToActiveArea(false, element, {x: element[1].pointerX,y: element[1].pointerY});
+                }
                 return;
             } 
             if(element[1].hasOwnProperty('appoint') 
@@ -492,11 +497,30 @@ var Draw = (function(){
                 writeText(element[1], (element[1].x + element[1].textBoxEnd), "#e65939");
                 element[1].shadow = null;
                 element[1].color = color;
+                context.beginPath();
+                context.lineWidth = 2;
+                context.strokeStyle = "#dc3a15";
+                drawCross(element[1].x, element[1].y);
+                context.stroke();
+                context.closePath();
+                if(element[1].hasOwnProperty('pointer') 
+                    && element[1].pointer === true){
+                        drawDottedPathToActiveArea(false, element, {x: element[1].pointerX,y: element[1].pointerY});
+                    }
                 return;
             } 
             if (element[1].type === 'button') {
-
-                writeText(element[1], textBoxX, "#e65939");
+                writeText(element[1], textBoxX, "#dc3a15");
+                context.beginPath();
+                context.lineWidth = 2;
+                context.strokeStyle = "#dc3a15";
+                drawCross(element[1].x, element[1].y);
+                context.stroke();
+                context.closePath();
+                if(element[1].hasOwnProperty('pointer') 
+                    && element[1].pointer === true){
+                        drawDottedPathToActiveArea(true, element, {x: element[1].pointerX,y: element[1].pointerY});
+                    }
                 return;
             } else {
                 writeText(element[1], textBoxX, color);
