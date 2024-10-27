@@ -26,7 +26,7 @@
         "goal": {
             "type": "text",
             "text": "C1_goal",
-            "x": 1215,
+            "x": 65,
             "y": 650,
             "vertical" : true,
             "width": 70,
