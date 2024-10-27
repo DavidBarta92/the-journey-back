@@ -1,6 +1,6 @@
 {
     "name" : "C2_corridor2",
-    "backgroundPath" : "../src/media/images/corridor2.b64",
+    "backgroundPath" : "../src/media/images/corridor2.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

@@ -1,6 +1,6 @@
 {
     "name" : "C4_sunconsoles",
-    "backgroundPath" : "../src/media/images/sunconsoles.b64",
+    "backgroundPath" : "../src/media/images/sunconsoles.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

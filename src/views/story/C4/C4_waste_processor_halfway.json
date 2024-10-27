@@ -1,6 +1,6 @@
 {
     "name" : "C4_waste_processor_halfway",
-    "backgroundPath" : "../src/media/images/waste_processor_halfway.b64",
+    "backgroundPath" : "../src/media/images/waste_processor_halfway.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

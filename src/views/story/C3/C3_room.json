@@ -1,6 +1,6 @@
 {
     "name" : "C3_room",
-    "backgroundPath" : "../src/media/images/room.b64",
+    "backgroundPath" : "../src/media/images/room.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

@@ -1,6 +1,6 @@
 {
   "name" : "C2_mainhall",
-  "backgroundPath" : "../src/media/images/mainhall.b64",
+  "backgroundPath" : "../src/media/images/mainhall.png",
   "spritesPath" : "",
   "itemsPath" : "",
   "dialogue" : "",

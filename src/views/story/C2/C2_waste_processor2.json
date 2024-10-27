@@ -1,6 +1,6 @@
 {
     "name" : "C2_waste_processor2",
-    "backgroundPath" : "../src/media/images/waste_processor2.b64",
+    "backgroundPath" : "../src/media/images/waste_processor2.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

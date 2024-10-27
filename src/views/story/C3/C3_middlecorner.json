@@ -1,6 +1,6 @@
 {
     "name" : "C3_middlecorner",
-    "backgroundPath" : "../src/media/images/middlecorner.b64",
+    "backgroundPath" : "../src/media/images/middlecorner.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

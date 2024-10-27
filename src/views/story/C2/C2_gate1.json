@@ -1,6 +1,6 @@
 {
     "name" : "C2_gate1",
-    "backgroundPath" : "../src/media/images/gate1.b64",
+    "backgroundPath" : "../src/media/images/gate1.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

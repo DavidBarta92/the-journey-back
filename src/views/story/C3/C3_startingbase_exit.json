@@ -1,6 +1,6 @@
 {
     "name" : "C3_startingbase_exit",
-    "backgroundPath" : "../src/media/images/startingbase_exit.b64",
+    "backgroundPath" : "../src/media/images/startingbase_exit.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
