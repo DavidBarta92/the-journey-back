@@ -26,7 +26,7 @@
         "goal": {
             "type": "text",
             "text": "C1_goal",
-            "x": 65,
+            "x": 1215,
             "y": 650,
             "vertical" : true,
             "width": 70,
@@ -41,7 +41,7 @@
         "map": {
             "type": "button",
             "text": "btn_map",
-            "x": 30,
+            "x": 65,
             "y": 650,
             "width": 70,
             "height": 20,

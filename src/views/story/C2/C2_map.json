@@ -66,7 +66,10 @@
             "border": false,
             "actionType": "setContent",
             "action": "C2_corridor1",
-            "filter": "appointable"
+            "filter": "appointable",
+            "pointer": true,
+            "pointerX": 703,
+            "pointerY": 435
         },
         "gate1": {
             "type": "button",
@@ -82,7 +85,10 @@
             "border": false,
             "actionType": "setContent",
             "action": "C2_gate1",
-            "filter": "appointable"
+            "filter": "appointable",
+            "pointer": true,
+            "pointerX": 703,
+            "pointerY": 435
         },
         "mainhall": {
             "type": "button",
@@ -98,7 +104,10 @@
             "border": false,
             "actionType": "setContent",
             "action": "C2_mainhall",
-            "filter": "appointable"
+            "filter": "appointable",
+            "pointer": true,
+            "pointerX": 703,
+            "pointerY": 435
         },
         "middlecorner": {
             "type": "button",
@@ -114,7 +123,10 @@
             "border": false,
             "actionType": "setContent",
             "action": "C2_middlecorner",
-            "filter": "appointable"
+            "filter": "appointable",
+            "pointer": true,
+            "pointerX": 703,
+            "pointerY": 435
         },
         "roundroom": {
             "type": "button",
@@ -130,7 +142,10 @@
             "border": false,
             "actionType": "setContent",
             "action": "C2_roundroom",
-            "filter": "appointable"
+            "filter": "appointable",
+            "pointer": true,
+            "pointerX": 703,
+            "pointerY": 435
         },
         "hall1": {
             "type": "button",
@@ -146,7 +161,10 @@
             "border": false,
             "actionType": "setContent",
             "action": "C2_hall1",
-            "filter": "appointable"
+            "filter": "appointable",
+            "pointer": true,
+            "pointerX": 703,
+            "pointerY": 435
         },
         "room": {
             "type": "button",
@@ -162,7 +180,10 @@
             "border": false,
             "actionType": "setContent",
             "action": "C2_room",
-            "filter": "appointable"
+            "filter": "appointable",
+            "pointer": true,
+            "pointerX": 703,
+            "pointerY": 435
         }
     }
 }
