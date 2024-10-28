@@ -87,8 +87,8 @@
             "action": "C2_gate1",
             "filter": "appointable",
             "pointer": true,
-            "pointerX": 703,
-            "pointerY": 435
+            "pointerX": 539,
+            "pointerY": 465
         },
         "mainhall": {
             "type": "button",
@@ -106,8 +106,8 @@
             "action": "C2_mainhall",
             "filter": "appointable",
             "pointer": true,
-            "pointerX": 703,
-            "pointerY": 435
+            "pointerX": 643,
+            "pointerY": 378
         },
         "middlecorner": {
             "type": "button",
@@ -125,8 +125,8 @@
             "action": "C2_middlecorner",
             "filter": "appointable",
             "pointer": true,
-            "pointerX": 703,
-            "pointerY": 435
+            "pointerX": 518,
+            "pointerY": 361
         },
         "roundroom": {
             "type": "button",
@@ -144,8 +144,8 @@
             "action": "C2_roundroom",
             "filter": "appointable",
             "pointer": true,
-            "pointerX": 703,
-            "pointerY": 435
+            "pointerX": 900,
+            "pointerY": 390
         },
         "hall1": {
             "type": "button",
@@ -163,8 +163,8 @@
             "action": "C2_hall1",
             "filter": "appointable",
             "pointer": true,
-            "pointerX": 703,
-            "pointerY": 435
+            "pointerX": 555,
+            "pointerY": 310
         },
         "room": {
             "type": "button",
@@ -182,8 +182,8 @@
             "action": "C2_room",
             "filter": "appointable",
             "pointer": true,
-            "pointerX": 703,
-            "pointerY": 435
+            "pointerX": 737,
+            "pointerY": 302
         }
     }
 }
