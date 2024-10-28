@@ -1,6 +1,6 @@
 {
     "name" : "C2_S4",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/C2_S4.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -10,13 +10,27 @@
     "elements" : {
         "teo": {
             "type": "text",
-            "text": "dia_C2_S4",
+            "text": "dia_C2_S4_1",
             "x": 450,
-            "y": 600,
+            "y": 670,
             "width": 70,
             "height": 20,
             "rotate": 0,
-            "color": "white",
+            "color": "#dc3a15",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          },
+          "aiza": {
+            "type": "text",
+            "text": "dia_C2_S4_2",
+            "x": 450,
+            "y": 690,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "#dc3a15",
             "font": "Inconsolata",
             "fontSize": 20,
             "border": false,

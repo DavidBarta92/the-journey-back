@@ -1,7 +1,7 @@
 {
     "btn_yes": "Yes",
     "btn_no": "No",
-    "txt_beta": "RETURN JOURNEY - BETA",
+    "txt_beta": "BETA",
     "btn_start": "START",
     "btn_newGame": "New Game",
     "btn_continue": "Continue",
@@ -124,10 +124,10 @@
     "dia_C2_S3_2" : "Aiza: What?",
     "dia_C2_S3_3" : "Teo: The leaving. I’ve been here too long.",
     "dia_C2_S3_4" : "Aiza: That's why we should get it over with quickly. I need to switch the power to the rover, but I don’t know the code.",
-    "dia_C2_S4" : "Teo: The code… wait a moment. I seem to recall... 2…8…",
-    "dia_C2_S5" : "Aiza: Didn’t you write it down somewhere?",
-    "dia_C2_S7_1" : "Teo: It’s in the computer. When the code last changed, I logged it in the journal. That wasn’t too long ago. Around the fifty-four hundred... almost the fifty-five hundredth SOL.",
-    "dia_C2_S7_2" : "Aiza: I’ll switch the power, meanwhile please start getting ready.",
+    "dia_C2_S4_1" : "Teo: The code… wait a moment. I seem to recall... 2…8…",
+    "dia_C2_S4_2" : "Aiza: Didn’t you write it down somewhere?",
+    "dia_C2_S5_1" : "Teo: It’s in the computer. When the code last changed, I logged it in the journal. That wasn’t too long ago. Around the fifty-four hundred... almost the fifty-five hundredth SOL.",
+    "dia_C2_S5_2" : "Aiza: I’ll switch the power, meanwhile please start getting ready.",
 
     "button1_C2_OP1": "Szeretnél kicsit beszélgetni?",
     "dial_C2_OP2_1": "Aiza: Papa, mit gondolsz a tudományról?",
