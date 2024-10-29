@@ -809,6 +809,7 @@
     "lbl_turn_off" : "   energia lekapcsolas",
     "lbl_roundroom" : "    csillagvizsgalo",
     "lbl_mainhall" : "    orvosi szoba",
+    "lbl_way_to_base" : "    vissza a bazisra",
     "map_isnside_title" : "alaprajz"
 
 }

@@ -49,7 +49,7 @@
             "actionType": "setContent",
             "action": "C3_craterbase_from_enterance"
         },
-        "C3_waste_processor_halfway" : {
+        "C3_end_of_building1" : {
             "type": "activeArea",
             "text": "lbl_waste_processor_halfway",
             "x": 930,
@@ -58,7 +58,7 @@
             "height": 150,
             "filter" : "appointable",
             "actionType": "setContent",
-            "action": "C3_waste_processor_halfway"
+            "action": "C3_end_of_building1"
         },
         "turn": {
             "type": "button",

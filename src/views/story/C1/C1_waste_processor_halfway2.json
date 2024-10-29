@@ -47,7 +47,7 @@
             "height": 150,
             "filter" : "appointable",
             "actionType": "setContent",
-            "action": "C1_startingbase_enter"
+            "action": "C1_end_of_building2"
         },
         "turn": {
             "type": "button",

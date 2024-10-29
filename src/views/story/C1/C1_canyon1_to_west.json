@@ -1,16 +1,16 @@
 {
-    "name" : "C4_craterbase_to_enterance",
-    "backgroundPath" : "../src/media/images/craterbase_to_enterance.png",
+    "name" : "C1_canyon1_to_west",
+    "backgroundPath" : "../src/media/images/canyon1_to_west.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "",
+    "music" : "../src/media/sounds/inclusion.mp3",
     "atmo" : "../src/media/sounds/astronaut_suit.mp3",
     "elements" : { 
         "chapter": {
             "type": "text",
-            "text": "C4_title",
+            "text": "C1_title",
             "x": 1175,
             "y": 650,
             "vertical" : true,
@@ -25,7 +25,7 @@
           },
         "goal": {
             "type": "text",
-            "text": "C4_goal",
+            "text": "C1_goal",
             "x": 1215,
             "y": 650,
             "vertical" : true,
@@ -38,33 +38,16 @@
             "border": false,
             "filter": null
           },
-        "C4_end_of_building1" : {
+        "batteryConnection" : {
             "type": "activeArea",
-            "text": "lbl_waste_processor_halfway",
-            "x": 761,
-            "y": 301,
-            "width": 96,
-            "height": 58,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
+            "text": "lbl_biodome",
+            "x": 650,
+            "y": 120,
+            "width": 80,
+            "height": 130,
             "filter": "appointable",
             "actionType": "setContent",
-            "action": "C4_end_of_building1"
-        },
-        "C4_startingbase_enter" : {
-            "type": "activeArea",
-            "text": "lbl_startingbase_enter",
-            "x": 995,
-            "y": 295,
-            "width": 96,
-            "height": 160,
-            "color": "white",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter": "appointable",
-            "actionType": "setContent",
-            "action": "C4_startingbase_enter"
+            "action": "C1_canyon1_to_west2"
         },
         "turn": {
             "type": "button",
@@ -79,7 +62,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C4_craterbase_from_enterance",
+            "action": "C1_canyon1_to_east",
             "filter": "appointable"
           }
     }

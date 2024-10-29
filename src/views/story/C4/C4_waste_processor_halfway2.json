@@ -50,7 +50,7 @@
             "fontSize": 50,
             "filter": "appointable",
             "actionType": "setContent",
-            "action": "C4_startingbase_enter"
+            "action": "C4_end_of_building2"
         },
         "turn": {
             "type": "button",

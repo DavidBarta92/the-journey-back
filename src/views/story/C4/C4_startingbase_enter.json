@@ -66,7 +66,7 @@
             "actionType": "setContent",
             "action": "C4_craterbase_from_enterance"
         },
-        "C4_waste_processor_halfway" : {
+        "C4_end_of_building1" : {
             "type": "activeArea",
             "text": null,
             "x": 100,
@@ -78,7 +78,7 @@
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "C4_waste_processor_halfway"
+            "action": "C4_end_of_building1"
         },
         "turn": {
             "type": "button",
