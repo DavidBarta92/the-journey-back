@@ -40,7 +40,7 @@
     "timer" : {
       "time": 13000,
       "actionType": "setContent",
-        "action": "",
+        "action": "end_black",
         "allowed" : true
     }
     }
