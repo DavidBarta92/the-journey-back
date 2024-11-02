@@ -1,6 +1,6 @@
 {
   "name" : "C4_roundroom",
-  "backgroundPath" : "../src/media/images/roundroom.png",
+  "backgroundPath" : "../src/media/images/roundroom_red.png",
   "spritesPath" : "",
   "itemsPath" : "",
   "dialogue" : "",

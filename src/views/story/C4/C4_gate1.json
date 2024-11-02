@@ -1,6 +1,6 @@
 {
     "name" : "C4_gate1",
-    "backgroundPath" : "../src/media/images/gate1.png",
+    "backgroundPath" : "../src/media/images/gate1_red.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

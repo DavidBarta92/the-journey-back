@@ -1,6 +1,6 @@
 {
     "name" : "C4_room",
-    "backgroundPath" : "../src/media/images/room.png",
+    "backgroundPath" : "../src/media/images/room_red.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

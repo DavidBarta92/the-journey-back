@@ -1,6 +1,6 @@
 {
     "name" : "C4_S7_op2_op1",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/c4s7_op_op.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

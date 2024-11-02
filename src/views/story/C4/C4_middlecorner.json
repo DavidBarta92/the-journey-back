@@ -1,6 +1,6 @@
 {
     "name" : "C4_middlecorner",
-    "backgroundPath" : "../src/media/images/middlecorner.png",
+    "backgroundPath" : "../src/media/images/middlecorner_red.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -38,17 +38,6 @@
             "border": false,
             "filter": null
           },
-        "computer" : {
-            "type": "activeArea",
-            "text": "lbl_computer",
-            "x": 705,
-            "y": 150,
-            "width": 180,
-            "height": 100,
-            "filter" : "appointable",
-            "actionType": "setContent",
-            "action": "C4_computer"
-        },
         "forward" : {
             "type": "activeArea",
             "text": "lbl_hall",
