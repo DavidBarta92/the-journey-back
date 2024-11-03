@@ -4,7 +4,7 @@
     "backgroundPath" : "../src/media/images/driver-background.png",
     "textPath" : "../src/media/images/driver-text.png",
     "spritesPath" : "../src/media/images/spritesheet.high.png",
-    "hud" : "../src/media/images/drive.png",
+    "hud" : "../src/media/images/c5.png",
     "itemsPath" : "",
     "dialogue" : "david",
     "filter" : "",
