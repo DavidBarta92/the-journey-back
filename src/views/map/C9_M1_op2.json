@@ -5,7 +5,7 @@
     "backgroundPath" : "../src/media/images/strmp.png",
     "textPath" : "../src/media/images/driver-text.png",
     "spritesPath" : "../src/media/images/spritesheet.high.png",
-    "hud" : "../src/media/images/mpHUD.png",
+    "hud" : "../src/media/images/C9_mpHUD1.png",
     "itemsPath" : "",
     "dialogue" : "david",
     "targetPoints" : {
@@ -18,7 +18,7 @@
             "width": 70,
             "height": 20,
             "textBoxEnd": 251,
-            "color": "DarkSalmon",
+            "color": "#dc3a15",
             "font": "Inconsolata"
         },
         "b" : {
@@ -30,7 +30,7 @@
             "width": 70,
             "height": 20,
             "textBoxEnd": 251,
-            "color": "DarkSalmon",
+            "color": "#dc3a15",
             "font": "Inconsolata"
         }
     },
@@ -38,6 +38,36 @@
     "filter" : "",
     "music" : "",
     "elements" : {
+        "chapter": {
+            "type": "text",
+            "text": "C9_title",
+            "x": 1175,
+            "y": 650,
+            "vertical" : true,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "white",
+            "font": "Akira",
+            "fontSize": 70,
+            "border": false,
+            "filter": null
+          },
+        "goal": {
+            "type": "text",
+            "text": "C9_goal",
+            "x": 1215,
+            "y": 650,
+            "vertical" : true,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 25,
+            "border": false,
+            "filter": null
+          },
         "text1": {
             "type": "text",
             "text": "dia_C9_M1_op2_1",
@@ -47,7 +77,7 @@
             "height": 20,
             "rotate": 0,
             "textBoxEnd": 1100,
-            "color": "black",
+            "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
             "border": false,
@@ -62,7 +92,7 @@
             "height": 20,
             "rotate": 0,
             "textBoxEnd": 1100,
-            "color": "black",
+            "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
             "border": false,

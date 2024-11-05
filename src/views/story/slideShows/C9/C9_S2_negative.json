@@ -1,6 +1,6 @@
 {
     "name" : "C9_S2_negative",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/C9_S2_negative.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

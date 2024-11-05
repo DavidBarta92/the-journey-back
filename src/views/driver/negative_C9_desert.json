@@ -14,7 +14,7 @@
         "length": 8,
         "curvy" : 0.9,
         "mountainy" : 0.8,
-        "zoneSize" : 100
+        "zoneSize" : 345
     },
     "elements" : {
         "dialogue" : {

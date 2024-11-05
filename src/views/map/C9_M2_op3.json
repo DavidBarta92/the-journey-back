@@ -18,7 +18,7 @@
             "width": 70,
             "height": 20,
             "textBoxEnd": 251,
-            "color": "DarkSalmon",
+            "color": "#dc3a15",
             "font": "Inconsolata"
         },
         "b" : {
@@ -30,7 +30,7 @@
             "width": 70,
             "height": 20,
             "textBoxEnd": 251,
-            "color": "DarkSalmon",
+            "color": "#dc3a15",
             "font": "Inconsolata"
         }
     },
