@@ -240,6 +240,7 @@ export const Driver = (function(){
                     nextSegment.curve - baseOffset - lastDelta * endScaling, 
                     counter < numberOfSegmentPerColor, currentSegmentIndex === 2 || currentSegmentIndex === (roadParam.length-render.depthOfField));
             }
+            console.log(currentSegment);
             if(currentSegment.sprite){
                 spriteBuffer.push({
                     y: render.height / 2 + startProjectedHeight, 
@@ -326,9 +327,9 @@ export const Driver = (function(){
         
         var holoSprite;
 
-        while(holoSprite = holoSpriteBuffer.pop()) {
-            Draw.sprite(holoSprite);
-        }
+        // while(holoSprite = holoSpriteBuffer.pop()) {
+        //     Draw.sprite(holoSprite);
+        // }
     }    
 
     const setActionByAbsoluteIndex = function(){
