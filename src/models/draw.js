@@ -297,6 +297,17 @@ var Draw = (function(){
         context.strokeStyle = "#dc3a15";
         context.rect(30, 635, 750, 0);
         context.stroke();
+
+        var triangleX = (720 * absoluteIndex / (roadParam.length - render.depthOfField)) + 30;
+        var triangleY = 635;
+    
+        context.beginPath();
+        context.moveTo(triangleX, triangleY);
+        context.lineTo(triangleX - 10, triangleY + 15);
+        context.lineTo(triangleX + 10, triangleY + 15);
+        context.closePath();
+        context.fillStyle = "#dc3a15";
+        context.fill();
     }
 
     const renderSlideHUD = function(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render){
