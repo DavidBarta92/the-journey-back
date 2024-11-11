@@ -1,12 +1,42 @@
 {
     "name":"C8_radioConnection",
-    "backgroundPath":"../src/media/images/car_computer_sym.b64",
+    "backgroundPath":"../src/media/images/car_computer_sym.png",
     "spritesPath":null,
     "dialogue":null,
     "filter":"",
     "music" : "",
     "atmo" : "../src/media/sounds/car_atmo.mp3",
     "elements":{
+      "chapter": {
+        "type": "text",
+        "text": "C8_title",
+        "x": 1175,
+        "y": 650,
+        "vertical" : true,
+        "width": 70,
+        "height": 20,
+        "rotate": 2,
+        "color": "white",
+        "font": "Akira",
+        "fontSize": 70,
+        "border": false,
+        "filter": null
+    },
+    "goal": {
+        "type": "text",
+        "text": "C8_goal",
+        "x": 1215,
+        "y": 650,
+        "vertical" : true,
+        "width": 70,
+        "height": 20,
+        "rotate": 2,
+        "color": "white",
+        "font": "Rounded",
+        "fontSize": 25,
+        "border": false,
+        "filter": null
+    },
        "1":{
          "type": "activeArea",
          "text": "",

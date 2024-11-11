@@ -1,0 +1,44 @@
+{
+    "name" : "C8_saved_data_S4",
+    "backgroundPath" : "../src/media/images/computer.png",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "../src/media/sounds/inclusion.mp3",
+    "atmo" : "../src/media/sounds/mars_base_atmo.mp3",
+    "elements" : { 
+        "journal_6": {
+            "type": "text",
+            "text": "journal_6",
+            "x": 160,
+            "y": 230,
+            "textBoxEnd": 750,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Larabie",
+            "fontSize": 16,
+            "border": false,
+            "filter": null
+        },
+        "back": {
+            "type": "button",
+            "text": "btn_back",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C8_saved_data",
+            "sound" : "../src/media/sounds/comp1.mp3",
+            "filter": "appointable"
+          }
+    }
+}

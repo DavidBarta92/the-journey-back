@@ -1,6 +1,6 @@
 {
     "name" : "C7_2_attic",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/attic.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -41,10 +41,10 @@
         "computer" : {
             "type": "activeArea",
             "text": "lbl_computer",
-            "x": 880,
-            "y": 270,
+            "x": 411,
+            "y": 295,
             "width": 160,
-            "height": 200,
+            "height": 130,
             "color": "white",
             "font": "Arial",
             "fontSize": 50,

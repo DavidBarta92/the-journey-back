@@ -1,0 +1,73 @@
+{
+    "name" : "C1_saved_data_S1",
+    "backgroundPath" : "../src/media/images/computer.png",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "../src/media/sounds/inclusion.mp3",
+    "atmo" : "../src/media/sounds/mars_base_atmo.mp3",
+    "elements" : { 
+        "title": {
+            "type": "text",
+            "text": "journal_title",
+            "x": 160,
+            "y": 170,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "white",
+            "font": "Larabie",
+            "fontSize": 30,
+            "border": false,
+            "filter": null
+        },
+        "journal_1": {
+            "type": "text",
+            "text": "journal_1",
+            "x": 160,
+            "y": 230,
+            "textBoxEnd": 750,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Larabie",
+            "fontSize": 16,
+            "border": false,
+            "filter": null
+        },
+        "journal_2": {
+            "type": "text",
+            "text": "journal_2",
+            "x": 160,
+            "y": 364,
+            "textBoxEnd": 750,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Larabie",
+            "fontSize": 16,
+            "border": false,
+            "filter": null
+        },
+        "back": {
+            "type": "button",
+            "text": "btn_back",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C1_saved_data",
+            "sound" : "../src/media/sounds/comp1.mp3",
+            "filter": "appointable"
+          }
+    }
+}

@@ -1,6 +1,6 @@
 {
     "name" : "C7_bedroom",
-    "backgroundPath" : "../src/media/images/bedroom.b64",
+    "backgroundPath" : "../src/media/images/bedroom.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

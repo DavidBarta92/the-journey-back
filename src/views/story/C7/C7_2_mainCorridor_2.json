@@ -1,6 +1,6 @@
 {
     "name" : "C7_2_mainCorridor_2",
-    "backgroundPath" : "../src/media/images/mainCorridor_2.b64",
+    "backgroundPath" : "../src/media/images/mainCorridor_2.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -68,7 +68,7 @@
         },
         "ladder" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_attic",
             "x": 310,
             "y": 270,
             "width": 100,
@@ -76,7 +76,7 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C7_2_attic"
         },

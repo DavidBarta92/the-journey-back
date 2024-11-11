@@ -1,6 +1,6 @@
 {
     "name" : "C7_2_workshop",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/workshop.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
