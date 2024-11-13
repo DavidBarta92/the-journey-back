@@ -5,8 +5,8 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/inclusion.mp3",
-    "atmo" : "../src/media/sounds/mars_base_atmo.mp3",
+    "music" : "",
+    "atmo" : "../src/media/sounds/car_atmo.mp3",
     "elements" : { 
         "title": {
             "type": "text",
