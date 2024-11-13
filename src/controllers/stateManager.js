@@ -14,6 +14,7 @@ var stateManager = (function () {
     chapter: 0,
     scene: 0,
     language: 'eng', // 'hun', 'eng'
+    transitionSound: null,
     items: {
       one: 'one',
       two: null,
@@ -229,6 +230,11 @@ var stateManager = (function () {
       state.init = false
       dataController.saveState(state)
       D.log(['The state is not init anymore.'])
+    },
+    setTransitionSound: (soundPath) => {
+      state = loadState()
+      state.transitionSound = soundPath
+      dataController.saveState(state)
     }
   }
 })()

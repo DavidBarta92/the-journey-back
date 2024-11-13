@@ -17,6 +17,9 @@ const Sound = (function(){
     var music = new Audio();
     music.type = "music";
 
+    var transitionSound= new Audio();
+    transitionSound.type = "transitionSound";
+    
     let filter;
 
     const audioContext = new AudioContext();
@@ -33,6 +36,14 @@ const Sound = (function(){
         fx.play().catch(error => {
             console.error('Hiba történt a hang lejátszása közben:', error);
             isPlaying = false;
+        });
+    }
+
+    const playTransitionSound = function(path) {
+        transitionSound.src = path;
+        transitionSound.volume = stateManager.loadState().volume;
+        transitionSound.play().catch(error => {
+            console.error('Hiba történt a hang lejátszása közben:' + path, error);
         });
     }
 
@@ -116,6 +127,9 @@ const Sound = (function(){
         },
         music: function(path){
             playMusic(path);
+        },
+        transitonSound: function(path){
+            playTransitionSound(path);
         },
 
     }
