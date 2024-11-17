@@ -46,6 +46,7 @@
             "width": 280,
             "height": 280,
             "filter" : "appointable",
+            "sound" : "../src/media/sounds/airlock2.mp3",
             "actionType": "setContent",
             "action": "C1_startingbase_exit"
         },

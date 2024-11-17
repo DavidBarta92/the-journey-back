@@ -1,7 +1,7 @@
 {
     "name": "startScreen",
     "backgroundPath": null,
-    "middlegroundPath": "../src/media/images/black.b64",
+    "middlegroundPath": "../src/media/images/menu.png",
     "spritesPath": null,
     "dialogue": null,
     "filter" : "",
@@ -11,8 +11,8 @@
       "start": {
         "type": "button",
         "text": "btn_start",
-        "x": 600,
-        "y": 600,
+        "x": 200,
+        "y": 400,
         "width": 70,
         "height": 20,
         "rotate": 0,

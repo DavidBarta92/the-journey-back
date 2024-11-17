@@ -9,7 +9,7 @@ var stateManager = (function () {
     status: {
       content: 'startScreen',
       view: 'menu',
-      atmoPath: '../src/media/sounds/astronaut_suit.mp3'
+      atmoPath: ''
     },
     chapter: 0,
     scene: 0,

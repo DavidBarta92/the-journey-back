@@ -46,6 +46,7 @@
             "width": 200,
             "height": 370,
             "filter" : "appointable",
+            "sound" : "../src/media/sounds/airlock.mp3",
             "actionType": "setContent",
             "action": "C2_gate2"
         },

@@ -408,7 +408,7 @@ const hitArea = function(element){
                 if(element[1].action === 'start'){
                     if (stateManager.loadState().init){
                         stateManager.setView('story');
-                        stateManager.setContent('C1_intro1');
+                        stateManager.setContent('firstSettings');
                         stateManager.setInitFalse();
                         stateManager.resetLevelChapterScene();
                         stateManager.resetItems();

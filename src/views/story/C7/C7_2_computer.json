@@ -106,7 +106,7 @@
           "fontSize": 24,
           "border": false,
           "actionType": "setContent",
-          "action": "C7_2_middlecorner",
+          "action": "C7_2_attic",
           "filter": "appointable"
         }
   }

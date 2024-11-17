@@ -49,6 +49,7 @@
             "font": "Arial",
             "fontSize": 50,
             "filter": "appointable",
+            "sound" : "../src/media/sounds/airlock2.mp3",
             "actionType": "setContent",
             "action": "C4_startingbase_exit"
         },
