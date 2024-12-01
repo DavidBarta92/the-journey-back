@@ -1,6 +1,6 @@
 {
     "name" : "C1_intro4",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/intro4.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "C1_S1",

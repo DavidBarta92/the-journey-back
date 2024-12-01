@@ -1,6 +1,6 @@
 {
     "name" : "C8_S1D",
-    "backgroundPath" : "../src/media/images/C8_S1b.png",
+    "backgroundPath" : "../src/media/images/C8_S1D.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -11,8 +11,8 @@
         "dial1": {
             "type": "text",
             "text": "dia_C8_S1D_1",
-            "x": 219,
-            "y": 470,
+            "x": 110,
+            "y": 550,
             "textBoxEnd": 1170,
             "width": 70,
             "height": 20,
@@ -26,9 +26,9 @@
           "dial2": {
             "type": "text",
             "text": "dia_C8_S1D_2",
-            "x": 219,
+            "x": 110,
             "y": 612,
-            "textBoxEnd": 1170,
+            "textBoxEnd": 900,
             "width": 70,
             "height": 20,
             "rotate": 0,

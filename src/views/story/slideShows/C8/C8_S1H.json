@@ -1,6 +1,6 @@
 {
     "name" : "C8_S1H",
-    "backgroundPath" : "../src/media/images/C8_S1b.png",
+    "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -11,9 +11,9 @@
         "dial1": {
             "type": "text",
             "text": "dia_C8_S1H_1",
-            "x": 219,
+            "x": 921,
             "y": 470,
-            "textBoxEnd": 1170,
+            "textBoxEnd": 850,
             "width": 70,
             "height": 20,
             "rotate": 0,
