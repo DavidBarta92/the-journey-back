@@ -80,20 +80,28 @@ const Sound = (function(){
         continuousPlay(path, music);
     }            
 
-    const continuousPlay = function(path, audioElement){
-        var pathFileName = path.replace(/^.*[\\\/]/, '');
-        var srcFileName = audioElement.src.slice(-pathFileName.length);
-        if(srcFileName !== pathFileName){
-            while(audioElement.volume > 0){
-                audioElement.volume = (audioElement.volume -= 0.1).toFixed(1);
-                Timer.wait(41);
+    const continuousPlay = async function (path, audioElement) {
+        console.log('path: ' + path + ' path replace: ' + path.replace(/^.*[\\\/]/, ''));
+        const pathFileName = path.replace(/^.*[\\\/]/, '');
+        const srcFileName = audioElement.src.slice(-pathFileName.length);
+    
+        if (srcFileName !== pathFileName) {
+            while (audioElement.volume > 0) {
+                audioElement.volume = Math.max((audioElement.volume - 0.1).toFixed(1), 0);
+                await new Promise(resolve => setTimeout(resolve, 41)); 
             }
-
+    
             audioElement.src = path;
             audioElement.volume = stateManager.loadState().volume;
-            audioElement.play(); 
+            try {
+                await audioElement.play();
+                console.log("Audio started playing successfully.");
+            } catch (error) {
+                console.error("Failed to play audio:", error);
+            }
         }
-    }
+    };
+    
 
     const lowPassFilter = function(audioElement, lowPass = 2000){
         if(!source) {

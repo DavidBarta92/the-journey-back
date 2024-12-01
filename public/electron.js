@@ -35,6 +35,7 @@ function createWindow() {
     autoHideMenuBar: true,
     fullscreen: true,
     resizable: true,
+    webSecurity: false
   };
   // Create the browser window.
   mainWindow = new BrowserWindow(windowParams);
