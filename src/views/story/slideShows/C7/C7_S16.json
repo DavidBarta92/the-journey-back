@@ -9,21 +9,7 @@
     "atmo" : "",
     "escAllowed" : false,
     "elements" : {
-        "text": {
-            "type": "text",
-            "text": "dia_C7_S16",
-            "x": 106,
-            "y": 547,
-            "width": 70,
-            "height": 20,
-            "rotate": 0,
-            "textBoxEnd": 350,
-            "color": "white",
-            "font": "Inconsolata",
-            "fontSize": 20,
-            "border": false,
-            "filter": null
-          }
+        
     },
     "timer" : {
         "time": 10000,

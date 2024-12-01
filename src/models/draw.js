@@ -327,10 +327,10 @@ var Draw = (function(){
         
         currentTimeString = ""+min+":"+sec+":"+mili;
 
-        drawString(currentTimeString, {x: 30, y: 500});
+        drawString(currentTimeString, {x: 1230, y: 345});
 
         var speed = Math.round((player.speed / player.maxSpeed * 200) / 6 );
-        drawString(""+speed+"mph", {x: 30, y: 488});
+        drawString(""+speed+"mph", {x: 1230, y: 420});
     }
 
     const drawRect = function(rotationAngle) {

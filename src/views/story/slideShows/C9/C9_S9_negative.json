@@ -16,8 +16,8 @@
     },
     "timer" : {
         "time": 10000,
-        "actionType": "setToMap",
-        "action": "C9_M1_op2",
+        "actionType": "setContent",
+        "action": "C9_S10_negative",
         "allowed" : true
     }
     }

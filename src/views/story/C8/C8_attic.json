@@ -64,7 +64,7 @@
             "fontSize": 50,
             "filter": "appointable",
             "actionType": "setContent",
-            "action": "C8_S1"
+            "action": "C8_S1A"
         },
         "back": {
             "type": "button",

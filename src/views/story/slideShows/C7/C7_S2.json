@@ -53,21 +53,6 @@
             "fontSize": 20,
             "border": false,
             "filter": null
-          },
-        "text4": {
-            "type": "text",
-            "text": "dia_C7_S2_4",
-            "x": 970,
-            "y": 490,
-            "width": 70,
-            "height": 20,
-            "rotate": 0,
-            "textBoxEnd": 250,
-            "color": "white",
-            "font": "Inconsolata",
-            "fontSize": 20,
-            "border": false,
-            "filter": null
           }
     },
     "timer" : {

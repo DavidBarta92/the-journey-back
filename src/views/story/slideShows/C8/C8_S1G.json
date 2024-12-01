@@ -1,0 +1,33 @@
+{
+    "name" : "C8_S1G",
+    "backgroundPath" : "../src/media/images/C8_S1b.png",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "../src/media/sounds/car_atmo.mp3",
+    "elements" : {
+        "dial1": {
+            "type": "text",
+            "text": "dia_C8_S1G_1",
+            "x": 219,
+            "y": 470,
+            "textBoxEnd": 1170,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          }
+    },
+    "timer" : {
+        "time": 10000,
+        "actionType": "setContent",
+        "action": "C8_S1H",
+        "allowed" : true
+    }
+    }

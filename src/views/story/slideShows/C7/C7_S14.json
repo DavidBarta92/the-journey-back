@@ -9,16 +9,52 @@
     "atmo" : "",
     "escAllowed" : false,
     "elements" : {
-        "empty_object": {
-            "type": "empty_object",
+       "text1": {
+            "type": "text",
+            "text": "dia_C7_S14_1",
+            "x": 30,
+            "y": 80,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "textBoxEnd": 500,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
             "border": false,
             "filter": null
-          }
-    },
-    "timer" : {
-        "time": 10000,
-        "actionType": "setContent",
-        "action": "C7_S15",
-        "allowed" : true
+          },
+        "text2": {
+            "type": "text",
+            "text": "dia_C7_S14_2",
+            "x": 30,
+            "y": 200,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "textBoxEnd": 500,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          },
+          "btn_next": {
+            "type": "button",
+            "text": "btn_next",
+            "fx": "",
+            "x": 60,
+            "y": 600,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 20,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C7_S15",
+            "filter": "appointable"
+          }  
     }
     }

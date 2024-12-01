@@ -9,16 +9,52 @@
     "atmo" : "",
     "escAllowed" : false,
     "elements" : {
-        "empty_object": {
-            "type": "empty_object",
+        "text1": {
+            "type": "text",
+            "text": "dia_C7_S11_1",
+            "x": 30,
+            "y": 90,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "textBoxEnd": 400,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
             "border": false,
             "filter": null
+          },
+        "text2": {
+            "type": "text",
+            "text": "dia_C7_S11_2",
+            "x": 460,
+            "y": 90,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "textBoxEnd": 400,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          },
+          "btn_next": {
+            "type": "button",
+            "text": "btn_next",
+            "fx": "",
+            "x": 1000,
+            "y": 90,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 20,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C7_S12",
+            "filter": "appointable"
           }
-    },
-    "timer" : {
-        "time": 10000,
-        "actionType": "setContent",
-        "action": "C7_S12",
-        "allowed" : true
     }
     }
