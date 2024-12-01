@@ -1,0 +1,59 @@
+{
+  "name": "firstSettings",
+  "backgroundPath": "../src/media/images/menu.png",
+  "middlegroundPath": "",
+  "spritesPath": "",
+  "dialogue": "",
+  "filter" : "",
+  "music" : "",
+  "atmo" : "",
+  "elements": {
+    "eng": {
+      "type": "button",
+      "text": "btn_eng",
+      "x": 200,
+      "y": 320,
+      "width": 70,
+      "height": 20,
+      "rotate": 0,
+      "color": "white",
+      "font": "Rounded",
+      "fontSize": 20,
+      "border": false,
+      "actionType": "setLanguage",
+      "action": "eng",
+      "filter": "appointable"
+    },
+    "hun": {
+      "type": "button",
+      "text": "btn_hun",
+      "x": 340,
+      "y": 320,
+      "width": 70,
+      "height": 20,
+      "color": "white",
+      "font": "Arial",
+      "fontSize": 20,
+      "rotate": 0,
+      "border": false,
+      "actionType": "setLanguage",
+      "action": "hun",
+      "filter": "appointable"
+    },
+    "start": {
+      "type": "button",
+      "text": "btn_start",
+      "x": 200,
+      "y": 400,
+      "width": 70,
+      "height": 20,
+      "color": "white",
+      "font": "Rounded",
+      "fontSize": 20,
+      "border": false,
+      "actionType": "startGame",
+      "action": "new",
+      "filter": "appointable"
+    }
+  }
+}

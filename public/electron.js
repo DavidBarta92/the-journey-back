@@ -33,8 +33,9 @@ function createWindow() {
     camera_height: 150,
     webPreferences: { nodeIntegration: true, contextIsolation: false },
     autoHideMenuBar: true,
-    fullscreen: false,
-    resizable: false,
+    fullscreen: true,
+    resizable: true,
+    webSecurity: false
   };
   // Create the browser window.
   mainWindow = new BrowserWindow(windowParams);

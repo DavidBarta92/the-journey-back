@@ -1,6 +1,6 @@
 {
   "name": "C2_batteryConnection29num",
-  "backgroundPath": "../src/media/images/battery.b64",
+  "backgroundPath": "../src/media/images/battery.png",
   "spritesPath": null,
   "dialogue": null,
   "filter" : "",

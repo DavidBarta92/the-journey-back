@@ -1,0 +1,80 @@
+{
+    "name" : "C1_end_of_building2",
+    "backgroundPath" : "../src/media/images/end_of_building2.png",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "../src/media/sounds/inclusion.mp3",
+    "atmo" : "../src/media/sounds/astronaut_suit.mp3",
+    "elements" : { 
+        "chapter": {
+            "type": "text",
+            "text": "C1_title",
+            "x": 1175,
+            "y": 650,
+            "vertical" : true,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "black",
+            "font": "Akira",
+            "fontSize": 70,
+            "border": false,
+            "filter": null
+          },
+        "goal": {
+            "type": "text",
+            "text": "C1_goal",
+            "x": 1215,
+            "y": 650,
+            "vertical" : true,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "black",
+            "font": "Rounded",
+            "fontSize": 25,
+            "border": false,
+            "filter": null
+          },
+        "entarance" : {
+            "type": "activeArea",
+            "text": "lbl_startingbase_enter",
+            "x": 504,
+            "y": 162,
+            "width": 200,
+            "height": 400,
+            "filter": "appointable",
+            "actionType": "setContent",
+            "action": "C1_startingbase_enter"
+        },
+        "biodome" : {
+            "type": "activeArea",
+            "text": "lbl_biodome",
+            "x": 997,
+            "y": 233,
+            "width": 150,
+            "height": 150,
+            "filter": "appointable",
+            "actionType": "setContent",
+            "action": "C1_canyon2_to_west"
+        },
+        "turn": {
+            "type": "button",
+            "text": "btn_turn",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C1_end_of_building1",
+            "filter": "appointable"
+          }
+    }
+}

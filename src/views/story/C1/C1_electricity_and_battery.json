@@ -1,6 +1,6 @@
 {
     "name" : "C1_electricity_and_battery",
-    "backgroundPath" : "../src/media/images/electricity_and_battery.b64",
+    "backgroundPath" : "../src/media/images/electricity_and_battery.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

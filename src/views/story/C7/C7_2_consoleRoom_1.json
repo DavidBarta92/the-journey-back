@@ -1,6 +1,6 @@
 {
     "name" : "C7_2_consoleRoom_1",
-    "backgroundPath" : "../src/media/images/consoleRoom_1.b64",
+    "backgroundPath" : "../src/media/images/consoleRoom_1.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

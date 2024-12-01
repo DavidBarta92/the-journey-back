@@ -1,6 +1,6 @@
 {
     "name" : "C4_startingbase_enter",
-    "backgroundPath" : "../src/media/images/startingbase_enter.b64",
+    "backgroundPath" : "../src/media/images/startingbase_enter.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -49,6 +49,7 @@
             "font": "Arial",
             "fontSize": 50,
             "filter": "appointable",
+            "sound" : "../src/media/sounds/airlock.mp3",
             "actionType": "setContent",
             "action": "C4_gate2"
         },
@@ -66,7 +67,7 @@
             "actionType": "setContent",
             "action": "C4_craterbase_from_enterance"
         },
-        "C4_waste_processor_halfway" : {
+        "C4_end_of_building1" : {
             "type": "activeArea",
             "text": null,
             "x": 100,
@@ -78,7 +79,7 @@
             "fontSize": 50,
             "filter" : null,
             "actionType": "setContent",
-            "action": "C4_waste_processor_halfway"
+            "action": "C4_end_of_building1"
         },
         "turn": {
             "type": "button",

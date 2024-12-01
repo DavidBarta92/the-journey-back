@@ -12,7 +12,7 @@
             "type": "text",
             "text": "dia_C4_S12_1",
             "x": 850,
-            "y": 200,
+            "y": 290,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -28,6 +28,7 @@
             "text": "dia_C4_S12_2",
             "x": 850,
             "y": 350,
+            "textBoxEnd": 350,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -41,10 +42,11 @@
             "type": "text",
             "text": "dia_C4_S12_3",
             "x": 850,
-            "y": 400,
+            "y": 410,
             "width": 70,
             "height": 20,
             "rotate": 0,
+            "textBoxEnd": 350,
             "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
@@ -53,7 +55,7 @@
           }
     },
     "timer" : {
-        "time": 9000,
+        "time": 13000,
         "actionType": "setContent",
         "action": "C4_hall2",
         "allowed" : true

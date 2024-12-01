@@ -1,0 +1,48 @@
+{
+    "name" : "C10_S5_mid",
+    "backgroundPath" : "",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "",
+    "elements" : {
+        "dial1": {
+            "type": "text",
+            "text": "dia_C10_S5_mid_1",
+            "x": 219,
+            "y": 470,
+            "textBoxEnd": 1170,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          },
+          "dial2": {
+            "type": "text",
+            "text": "dia_C10_S5_mid_2",
+            "x": 219,
+            "y": 612,
+            "textBoxEnd": 870,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "border": false,
+            "filter": null
+          }
+    },
+    "timer" : {
+        "time": 10000,
+        "actionType": "setContent",
+        "action": "C11_S1",
+        "allowed" : true
+    }
+    }

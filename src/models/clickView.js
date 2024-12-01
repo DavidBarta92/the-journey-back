@@ -54,6 +54,8 @@ var spritesheet = new Image();
 var background = new Image();
 var middleground = new Image();
 
+var transitionSound;
+
 var music;
 
 var atmo;
@@ -306,6 +308,11 @@ const hitArea = function(element){
     if(!!element){
         if(element[1].allowed === true){
             if (element[1].hasOwnProperty('fx')) Sound.fx(element[1].fx);
+            if (element[1].hasOwnProperty('sound')) {
+                stateManager.setTransitionSound(element[1].sound);
+            } else {
+                stateManager.setTransitionSound(null);
+            }
             D.log('element',element);
             if (element[1].actionType === "setToDrive") {
                 stateManager.setView('driver');
@@ -401,7 +408,7 @@ const hitArea = function(element){
                 if(element[1].action === 'start'){
                     if (stateManager.loadState().init){
                         stateManager.setView('story');
-                        stateManager.setContent('C1_intro1');
+                        stateManager.setContent('firstSettings');
                         stateManager.setInitFalse();
                         stateManager.resetLevelChapterScene();
                         stateManager.resetItems();
@@ -462,6 +469,7 @@ const triggering = function(){
 
 //managing base sounds as music and atmo
 const baseSound = function(type){
+    Sound.transitonSound(transitionSound);
     if(type === 'story'){
         Sound.atmo(contentContainer.atmo);
         Sound.music(contentContainer.music);
@@ -613,6 +621,7 @@ export const Story = (function(){
         spritesheet = dataController.loadImage(contentContainer.spritesPath);
         dialogueFile = dataController.loadDialogue(contentContainer.dialogue);
         newSpeechIndex = '1';
+        transitionSound = state.transitionSound;
         allowElements(contentContainer.elements, state);
         collectInteractives(contentContainer.elements);
         languageFile = dataController.loadLanguageFile(state);

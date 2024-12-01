@@ -1,6 +1,6 @@
 {
     "name" : "C4_waste_processor_halfway2",
-    "backgroundPath" : "../src/media/images/waste_processor_halfway2.b64",
+    "backgroundPath" : "../src/media/images/waste_processor_halfway2.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -50,7 +50,7 @@
             "fontSize": 50,
             "filter": "appointable",
             "actionType": "setContent",
-            "action": "C4_startingbase_enter"
+            "action": "C4_end_of_building2"
         },
         "turn": {
             "type": "button",

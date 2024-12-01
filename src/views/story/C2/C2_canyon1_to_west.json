@@ -1,0 +1,69 @@
+{
+    "name" : "C2_canyon1_to_west",
+    "backgroundPath" : "../src/media/images/canyon1_to_west.png",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "../src/media/sounds/i_am_you_am.mp3",
+    "atmo" : "../src/media/sounds/astronaut_suit.mp3",
+    "elements" : { 
+        "chapter": {
+            "type": "text",
+            "text": "C2_title",
+            "x": 1175,
+            "y": 650,
+            "vertical" : true,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "black",
+            "font": "Akira",
+            "fontSize": 70,
+            "border": false,
+            "filter": null
+          },
+        "goal": {
+            "type": "text",
+            "text": "C2_goal",
+            "x": 1215,
+            "y": 650,
+            "vertical" : true,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "black",
+            "font": "Rounded",
+            "fontSize": 25,
+            "border": false,
+            "filter": null
+          },
+        "batteryConnection" : {
+            "type": "activeArea",
+            "text": "lbl_biodome",
+            "x": 650,
+            "y": 120,
+            "width": 80,
+            "height": 130,
+            "filter": "appointable",
+            "actionType": "setContent",
+            "action": "C2_canyon1_to_west2"
+        },
+        "turn": {
+            "type": "button",
+            "text": "btn_turn",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C2_canyon1_to_east",
+            "filter": "appointable"
+          }
+    }
+}

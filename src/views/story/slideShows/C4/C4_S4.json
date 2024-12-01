@@ -1,6 +1,6 @@
 {
     "name" : "C4_S4",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/c4s4.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -10,7 +10,22 @@
     "elements" : {
         "text1": {
             "type": "text",
-            "text": "dia_C4_2S4",
+            "text": "dia_C4_2S4_1",
+            "x": 350,
+            "y": 500,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Inconsolata",
+            "fontSize": 20,
+            "textBoxEnd": 660,
+            "border": false,
+            "filter": null
+          },
+          "text2": {
+            "type": "text",
+            "text": "dia_C4_2S4_2",
             "x": 350,
             "y": 612,
             "width": 70,
@@ -25,7 +40,7 @@
           }
     },
     "timer" : {
-        "time": 10000,
+        "time": 20000,
         "actionType": "setContent",
         "action": "C4_S5",
         "allowed" : true

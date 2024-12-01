@@ -1,0 +1,73 @@
+{
+    "name" : "C8_comp_guide3",
+    "backgroundPath" : "../src/media/images/computer.png",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "../src/media/sounds/car_atmo.mp3",
+    "elements" : { 
+        "title": {
+            "type": "text",
+            "text": "technical_guide3_title",
+            "x": 160,
+            "y": 170,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "white",
+            "font": "Larabie",
+            "fontSize": 24,
+            "border": false,
+            "filter": null
+        },
+          "technical_guide3_text1": {
+            "type": "text",
+            "text": "technical_guide3_text1",
+            "x": 160,
+            "y": 230,
+            "textBoxEnd": 750,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Larabie",
+            "fontSize": 16,
+            "border": false,
+            "filter": null
+        },
+        "technical_guide3_text2": {
+            "type": "text",
+            "text": "technical_guide3_text2",
+            "x": 160,
+            "y": 400,
+            "textBoxEnd": 750,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Larabie",
+            "fontSize": 16,
+            "border": false,
+            "filter": null
+        },
+        "back": {
+            "type": "button",
+            "text": "btn_back",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C8_specification",
+            "sound" : "../src/media/sounds/comp1.mp3",
+            "filter": "appointable"
+          }
+    }
+}

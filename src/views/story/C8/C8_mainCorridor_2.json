@@ -1,6 +1,6 @@
 {
     "name" : "C8_mainCorridor_2",
-    "backgroundPath" : "../src/media/images/mainCorridor_2.b64",
+    "backgroundPath" : "../src/media/images/mainCorridor_2.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -8,6 +8,36 @@
     "music" : "",
     "atmo" : "../src/media/sounds/car_atmo.mp3",
     "elements" : { 
+        "chapter": {
+            "type": "text",
+            "text": "C8_title",
+            "x": 1175,
+            "y": 650,
+            "vertical" : true,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "white",
+            "font": "Akira",
+            "fontSize": 70,
+            "border": false,
+            "filter": null
+        },
+        "goal": {
+            "type": "text",
+            "text": "C8_goal",
+            "x": 1215,
+            "y": 650,
+            "vertical" : true,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 25,
+            "border": false,
+            "filter": null
+        },
         "forward" : {
             "type": "activeArea",
             "text": null,
@@ -38,7 +68,7 @@
         },
         "ladder" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_attic",
             "x": 310,
             "y": 270,
             "width": 100,
@@ -46,7 +76,7 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter": "appointable",
             "actionType": "setContent",
             "action": "C8_attic"
         },

@@ -3,11 +3,11 @@ import RenderManager from "../controllers/renderManager.js";
 import stateManager from "../controllers/stateManager.js";
 import { player } from "./player.js";
 import inputController from "../controllers/inputController.js";
-import {tree, rock, cross, background } from "./sprites.js";
 import Filter from "../views/filter.js";
 import dataController from "../controllers/dataController.js";
 import Timer from "./timer.js";
 import Draw from "./draw.js";
+import Sound from "./sound.js";
 
 var backgroundImage = new Image();
 var textImage = new Image();
@@ -15,6 +15,7 @@ var spritesheet = new Image();
 var hud = new Image();
 var currentDialogueImage = new Image();
 var contentContainer;
+var noiseVolume = 0;
 
 export const Slide = (function(){
     var pause = false;
@@ -127,7 +128,7 @@ export const Slide = (function(){
         } else {
           player.speed -= player.deceleration;
         }
-      
+        soundPlaying();
         player.speed = Math.max(0, player.speed); // Cannot go in reverse
         player.speed = Math.min(player.speed, player.maxSpeed); // Maximum speed
       
@@ -138,6 +139,21 @@ export const Slide = (function(){
         if (keys[37] && player.speed > 0) {
           player.posx -= 2*player.speed;
         }
+    }
+
+    function roundNumber(num, decimals) {
+        let factor = Math.pow(10, decimals);
+        return Math.round(num * factor) / factor;
+    }
+
+    const soundPlaying = function() {
+        noiseVolume = roundNumber(player.speed, 0) > 0.001 ? roundNumber(player.speed, 3) * 2 / 10 : 0;
+        Sound.noise('../src/media/sounds/rover_noise.mp3', roundNumber(noiseVolume, 3));
+
+        if (Math.abs(player.delta) > 130 && player.speed > 3) {
+            Sound.fx('../src/media/sounds/alarm.mp3');
+            player.speed -= 0.2;
+          }
     }
 
     const setState = function(){

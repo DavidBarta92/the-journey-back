@@ -1,6 +1,6 @@
 {
     "name" : "C8_S3_op2_op1_op2_op1",
-    "backgroundPath" : "../src/media/images/teo_window.png",
+    "backgroundPath" : "../src/media/images/C8_S3_op_op_op_op.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -12,14 +12,14 @@
         "type": "text",
         "text": "dia_C8_S3_op2_op1_op2_op1",
         "x": 219,
-        "y": 430,
+        "y": 470,
         "textBoxEnd": 1170,
         "width": 70,
         "height": 20,
         "rotate": 0,
         "color": "white",
         "font": "Inconsolata",
-        "fontSize": 20,
+        "fontSize": 17,
         "border": false,
         "filter": null
       },
@@ -34,7 +34,7 @@
         "rotate": 0,
         "color": "white",
         "font": "Inconsolata",
-        "fontSize": 20,
+        "fontSize": 17,
         "border": false,
         "filter": null
       }

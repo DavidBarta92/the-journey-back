@@ -17,7 +17,7 @@
             "height": 20,
             "rotate": 0,
             "textBoxEnd": 251,
-            "color": "DarkSalmon",
+            "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
             "border": false,
@@ -25,7 +25,7 @@
           }
     },
     "timer" : {
-        "time": 10000,
+        "time": 15000,
         "actionType": "setContent",
         "action": "C1_S2",
         "allowed" : true

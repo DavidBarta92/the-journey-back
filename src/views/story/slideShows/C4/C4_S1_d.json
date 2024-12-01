@@ -1,0 +1,23 @@
+{
+    "name" : "C4_S1_d",
+    "backgroundPath" : "../src/media/images/c4s2_d.png",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "../src/media/sounds/i_am_you_am.mp3",
+    "atmo" : "../src/media/sounds/poweroff.mp3",
+    "elements" : {
+        "empty_object": {
+            "type": "empty_object",
+            "border": false,
+            "filter": null
+          }
+    },
+    "timer" : {
+        "time": 2000,
+        "actionType": "setContent",
+        "action": "C4_S1_e",
+        "allowed" : true
+    }
+    }

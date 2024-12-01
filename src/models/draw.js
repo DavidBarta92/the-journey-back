@@ -91,7 +91,7 @@ var Draw = (function(){
         context.lineTo(x2, y2);
     };
 
-    const drawDottedPathToActiveArea = function (dotted = true, element, startPoint = {x: 15, y: 630}) {
+    const drawDottedPathToActiveArea = function (dotted = true, element, startPoint = {x: 21, y: 629}) {
 
     let endPoint = {"x": element[1].x, "y": element[1].y};
 
@@ -110,6 +110,12 @@ var Draw = (function(){
         context.setLineDash([10, 0])
         gradient.addColorStop(0, 'rgba(220,58,21,1)'); // alul
         gradient.addColorStop(1, 'rgba(220,58,21,1)'); // felül #dc3a15
+
+        context.beginPath();
+        context.arc(startPoint.x, startPoint.y, 5, 0, Math.PI * 2);
+        context.strokeStyle = "#dc3a15";
+        context.lineWidth = 6;
+        context.stroke();
     } else {
         context.setLineDash([10, 10])
         gradient.addColorStop(0, 'rgba(0,0,0,0.02)'); // alul
@@ -291,6 +297,17 @@ var Draw = (function(){
         context.strokeStyle = "#dc3a15";
         context.rect(30, 635, 750, 0);
         context.stroke();
+
+        var triangleX = (720 * absoluteIndex / (roadParam.length - render.depthOfField)) + 30;
+        var triangleY = 635;
+    
+        context.beginPath();
+        context.moveTo(triangleX, triangleY);
+        context.lineTo(triangleX - 10, triangleY + 15);
+        context.lineTo(triangleX + 10, triangleY + 15);
+        context.closePath();
+        context.fillStyle = "#dc3a15";
+        context.fill();
     }
 
     const renderSlideHUD = function(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render){
@@ -310,10 +327,10 @@ var Draw = (function(){
         
         currentTimeString = ""+min+":"+sec+":"+mili;
 
-        drawString(currentTimeString, {x: 30, y: 500});
+        drawString(currentTimeString, {x: 1230, y: 345});
 
         var speed = Math.round((player.speed / player.maxSpeed * 200) / 6 );
-        drawString(""+speed+"mph", {x: 30, y: 488});
+        drawString(""+speed+"mph", {x: 1230, y: 420});
     }
 
     const drawRect = function(rotationAngle) {

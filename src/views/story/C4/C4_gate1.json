@@ -1,6 +1,6 @@
 {
     "name" : "C4_gate1",
-    "backgroundPath" : "../src/media/images/gate1.b64",
+    "backgroundPath" : "../src/media/images/gate1_red.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -49,13 +49,14 @@
             "font": "Arial",
             "fontSize": 50,
             "filter": "appointable",
+            "sound" : "../src/media/sounds/airlock2.mp3",
             "actionType": "setContent",
             "action": "C4_startingbase_exit"
         },
         "map": {
             "type": "button",
             "text": "btn_map",
-            "x": 30,
+            "x": 65,
             "y": 650,
             "width": 70,
             "height": 20,

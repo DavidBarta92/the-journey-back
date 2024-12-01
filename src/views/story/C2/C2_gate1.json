@@ -1,6 +1,6 @@
 {
     "name" : "C2_gate1",
-    "backgroundPath" : "../src/media/images/gate1.b64",
+    "backgroundPath" : "../src/media/images/gate1.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -46,13 +46,14 @@
             "width": 280,
             "height": 280,
             "filter" : "appointable",
+            "sound" : "../src/media/sounds/airlock2.mp3",
             "actionType": "setContent",
             "action": "C2_startingbase_exit"
         },
         "map": {
             "type": "button",
             "text": "btn_map",
-            "x": 30,
+            "x": 65,
             "y": 650,
             "width": 70,
             "height": 20,

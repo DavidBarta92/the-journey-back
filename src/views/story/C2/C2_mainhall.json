@@ -1,6 +1,6 @@
 {
   "name" : "C2_mainhall",
-  "backgroundPath" : "../src/media/images/mainhall.b64",
+  "backgroundPath" : "../src/media/images/mainhall.png",
   "spritesPath" : "",
   "itemsPath" : "",
   "dialogue" : "",
@@ -52,7 +52,7 @@
       "map": {
           "type": "button",
           "text": "btn_map",
-          "x": 30,
+          "x": 65,
           "y": 650,
           "width": 70,
           "height": 20,

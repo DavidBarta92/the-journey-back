@@ -11,6 +11,9 @@ var inputController = (function () {
     click: false
   }
 
+  let widthPercentage
+  let heightPercentage
+
   const init = function () {
     //register key handeling:
     window.onkeydown = function (event) {
@@ -41,13 +44,12 @@ var inputController = (function () {
    * @return {boolean} True if the cursor is on the element, false otherwise.
    */
   const cursorOnElement = function (element) {
-    var canvasOffset = gameCanvas.canvasOffset()
-    var offsetX = canvasOffset.left
-    var offsetY = canvasOffset.top
+    var renderParams = gameCanvas.getParams();
+    widthPercentage = (renderParams.width/window.innerWidth);
+    heightPercentage = (renderParams.height/window.innerHeight);
 
-    var mouseX = parseInt(cursor.x - offsetX)
-    var mouseY = parseInt(cursor.y - offsetY)
-
+    var mouseX = parseInt(cursor.x*widthPercentage)
+    var mouseY = parseInt(cursor.y*heightPercentage)
     var elementX, elementY, elementWidth, elementHeight
 
     if (element.type === 'button' || element.type === 'text') {

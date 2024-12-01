@@ -32,7 +32,7 @@
             "height": 20,
             "rotate": 0,
             "textBoxEnd": 250,
-            "color": "DarkSalmon",
+            "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
             "border": false,

@@ -1,6 +1,6 @@
 {
     "name" : "C1_startingbase_enter",
-    "backgroundPath" : "../src/media/images/startingbase_enter.b64",
+    "backgroundPath" : "../src/media/images/startingbase_enter.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -46,6 +46,7 @@
             "width": 200,
             "height": 370,
             "filter" : "appointable",
+            "sound" : "../src/media/sounds/airlock.mp3",
             "actionType": "setContent",
             "action": "C1_gate2"
         },
@@ -60,7 +61,7 @@
             "actionType": "setContent",
             "action": "C1_craterbase_from_enterance"
         },
-        "C1_waste_processor_halfway" : {
+        "C1_end_of_building1" : {
             "type": "activeArea",
             "text": "lbl_waste_processor_halfway",
             "x": 100,
@@ -69,7 +70,7 @@
             "height": 150,
             "filter" : "appointable",
             "actionType": "setContent",
-            "action": "C1_waste_processor_halfway"
+            "action": "C1_end_of_building1"
         },
         "turn": {
             "type": "button",

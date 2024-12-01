@@ -1,6 +1,6 @@
 {
     "name" : "C3_S1",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/C3_S1.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -11,7 +11,7 @@
         "aiza": {
             "type": "text",
             "text": "dia_C3_S1",
-            "x": 170,
+            "x": 50,
             "y": 140,
             "width": 70,
             "height": 20,
@@ -20,13 +20,13 @@
             "font": "Inconsolata",
             "fontSize": 20,
             "border": false,
-            "textBoxEnd": 350,
+            "textBoxEnd": 320,
             "filter": null
           },
           "teo": {
             "type": "text",
             "text": "dia_C3_S2",
-            "x": 170,
+            "x": 50,
             "y": 450,
             "width": 70,
             "height": 20,
@@ -35,7 +35,7 @@
             "font": "Inconsolata",
             "fontSize": 20,
             "border": false,
-            "textBoxEnd": 350,
+            "textBoxEnd": 320,
             "filter": null
           }
     },

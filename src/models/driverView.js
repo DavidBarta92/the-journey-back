@@ -3,7 +3,7 @@ import RenderManager from "../controllers/renderManager";
 import stateManager from "../controllers/stateManager";
 import { player } from "./player.js";
 import inputController from "../controllers/inputController.js";
-import {tree, rock, cross, background } from "./sprites.js";
+import {rock_1, rock_2, rock_3, rock_4, rock_5, rock_6, rock_7, cross, background } from "./sprites.js";
 import Filter from "../views/filter";
 import Anim from "../views/anim";
 import dataController from "../controllers/dataController";
@@ -326,9 +326,9 @@ export const Driver = (function(){
         
         var holoSprite;
 
-        while(holoSprite = holoSpriteBuffer.pop()) {
-            Draw.sprite(holoSprite);
-        }
+        // while(holoSprite = holoSpriteBuffer.pop()) {
+        //     Draw.sprite(holoSprite);
+        // }
     }    
 
     const setActionByAbsoluteIndex = function(){
@@ -374,10 +374,10 @@ export const Driver = (function(){
     const drawElements = function(elements) {
         document.fonts.ready.then(function () {
             Object.entries(elements).forEach(element => {
-                if (element[1].type === 'rock') {
+                if (element[1].type === 'rock_2') {
                     
                 }
-                if (element[1].type === 'tree') {
+                if (element[1].type === 'rock_1') {
                     
                 }
                 if (element[1].type === 'button' || element[1].type === 'text'){
@@ -514,12 +514,41 @@ export const Driver = (function(){
             }
 
             for(var i=0; i < roadParam.zoneSize; i++){
-                // add a tree
                 if(i % roadParam.zoneSize / 4 === 0){
-                    var sprite = {type: rock, pos: -0.55};
+                    var sprite = {type: rock_4, pos: -0.55};
                 } else {
-                    if(r() < 0.05) {
-                        var spriteType = tree;//([tree,rock])[Math.floor(r()*1.9)];
+                    if(r() < 0.1) {
+                        var spriteType = rock_1;
+                        var sprite = {type: spriteType, pos: 0.6 + 4*r()};
+                        if(r() < 0.5){
+                            sprite.pos = -sprite.pos;
+                        }
+                    } else if(r() < 0.14) {
+                        var spriteType = rock_3;
+                        var sprite = {type: spriteType, pos: 0.6 + 4*r()};
+                        if(r() < 0.5){
+                            sprite.pos = -sprite.pos;
+                        }
+                    } else if(r() < 0.5) {
+                        var spriteType = rock_2;
+                        var sprite = {type: spriteType, pos: 0.6 + 4*r()};
+                        if(r() < 0.5){
+                            sprite.pos = -sprite.pos;
+                        }
+                    } else if(r() > 0.85) {
+                        var spriteType = rock_5;
+                        var sprite = {type: spriteType, pos: 0.6 + 4*r()};
+                        if(r() < 0.5){
+                            sprite.pos = -sprite.pos;
+                        }
+                    } else if(r() > 0.7) {
+                        var spriteType = rock_6;
+                        var sprite = {type: spriteType, pos: 0.6 + 4*r()};
+                        if(r() < 0.5){
+                            sprite.pos = -sprite.pos;
+                        }
+                    } else if(r() > 0.5) {
+                        var spriteType = rock_7;
                         var sprite = {type: spriteType, pos: 0.6 + 4*r()};
                         if(r() < 0.5){
                             sprite.pos = -sprite.pos;

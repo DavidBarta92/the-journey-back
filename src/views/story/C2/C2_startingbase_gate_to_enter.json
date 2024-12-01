@@ -1,6 +1,6 @@
 {
     "name" : "C2_startingbase_gate_to_enter",
-    "backgroundPath" : "../src/media/images/startingbase_gate_to_enter.b64",
+    "backgroundPath" : "../src/media/images/startingbase_gate_to_enter.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

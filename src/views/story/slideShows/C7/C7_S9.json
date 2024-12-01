@@ -28,7 +28,7 @@
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C7_S15",
+        "action": "C7_S10",
         "allowed" : true
     }
     }

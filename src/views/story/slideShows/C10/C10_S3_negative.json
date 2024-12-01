@@ -1,18 +1,19 @@
 {
-    "name" : "C2_S6",
+    "name" : "C10_S3_negative",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/i_am_you_am.mp3",
-    "atmo" : "../src/media/sounds/mars_base_atmo.mp3",
+    "music" : "",
+    "atmo" : "",
     "elements" : {
-        "teo": {
+        "dial1": {
             "type": "text",
-            "text": "dia_C2_S4",
-            "x": 450,
-            "y": 600,
+            "text": "dia_C10_S3_negative_1",
+            "x": 219,
+            "y": 470,
+            "textBoxEnd": 870,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -26,7 +27,7 @@
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C2_S7",
+        "action": "C10_S4_negative",
         "allowed" : true
     }
     }

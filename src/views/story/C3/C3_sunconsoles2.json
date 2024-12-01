@@ -1,6 +1,6 @@
 {
     "name" : "C3_sunconsoles2",
-    "backgroundPath" : "../src/media/images/sunconsoles2.b64",
+    "backgroundPath" : "../src/media/images/sunconsoles2.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

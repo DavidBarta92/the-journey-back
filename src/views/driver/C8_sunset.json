@@ -69,10 +69,10 @@
             "y": null,
             "w": null,
             "h": null,
-            "sourceX" : 345,
-            "sourceY" : 9,
-            "sourceW" : 11,
-            "sourceH" : 14
+            "sourceX" : 343,
+            "sourceY" : 33,
+            "sourceW" : 45,
+            "sourceH" : 23
         },
         "tree" : {
             "type": "sprite",
@@ -80,10 +80,10 @@
             "y": null,
             "w": null,
             "h": null,
-            "sourceX" : 321,
-            "sourceY" : 9,
-            "sourceW" : 23,
-            "sourceH" : 50
+            "sourceX" : 343,
+            "sourceY" : 33,
+            "sourceW" : 45,
+            "sourceH" : 23
         },
         "speedCounter" : {
             "type": "activeArea",

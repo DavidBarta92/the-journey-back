@@ -1,6 +1,6 @@
 {
     "name" : "C4_S5",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/c4s5.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -11,7 +11,7 @@
         "text1": {
             "type": "text",
             "text": "dia_C4_2S5",
-            "x": 200,
+            "x": 270,
             "y": 100,
             "width": 70,
             "height": 20,
@@ -25,8 +25,8 @@
           "text2": {
             "type": "text",
             "text": "dia_C4_2S6",
-            "x": 900,
-            "y": 670,
+            "x": 670,
+            "y": 600,
             "width": 70,
             "height": 20,
             "rotate": 0,

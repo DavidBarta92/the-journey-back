@@ -1,6 +1,6 @@
 {
     "name" : "C7_cockpit",
-    "backgroundPath" : "../src/media/images/cockpit.b64",
+    "backgroundPath" : "../src/media/images/cockpit.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

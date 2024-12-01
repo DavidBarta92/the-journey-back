@@ -1,6 +1,6 @@
 {
     "name" : "C1_intro2",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/intro2.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "C1_S1",
@@ -10,29 +10,14 @@
     "elements" : {
         "1": {
             "type": "text",
-            "text": "dia_C1_intro2-1",
+            "text": "dia_C1_intro",
             "x": 40,
-            "y": 460,
+            "y": 550,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "textBoxEnd": 1100,
-            "color": "DarkSalmon",
-            "font": "Inconsolata",
-            "fontSize": 20,
-            "border": false,
-            "filter": null
-          },
-          "2": {
-            "type": "text",
-            "text": "dia_C1_intro2-2",
-            "x": 40,
-            "y": 570,
-            "width": 70,
-            "height": 20,
-            "rotate": 0,
-            "textBoxEnd": 1100,
-            "color": "DarkSalmon",
+            "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
             "border": false,
@@ -40,9 +25,9 @@
           }
     },
     "timer" : {
-        "time": 70000,
+        "time": 60000,
         "actionType": "setContent",
-        "action": "C1_S1",
+        "action": "C1_intro3",
         "allowed" : true
     }
 }

@@ -1,0 +1,44 @@
+{
+    "name": "endScreen",
+    "backgroundPath": null,
+    "middlegroundPath": "../src/media/images/black.b64",
+    "spritesPath": null,
+    "dialogue": null,
+    "filter" : "",
+    "music" : "",
+    "atmo" : "",
+    "elements": {
+      "start": {
+        "type": "button",
+        "text": "btn_start",
+        "x": 500,
+        "y": 600,
+        "width": 70,
+        "height": 20,
+        "rotate": 0,
+        "color": "#e65939",
+        "font": "Rounded",
+        "fontSize": 20,
+        "border": false,
+        "actionType": "setContent",
+        "action": "C1_intro1",
+        "filter": "appointable"
+      },
+      "main_exit": {
+        "type": "button",
+        "text": "btn_exit",
+        "fx": "../src/media/sounds/click.ogg",
+        "x": 700,
+        "y": 600,
+        "color": "white",
+        "font": "Rounded",
+        "fontSize": 20,
+        "rotate": 0,
+        "border": false,
+        "actionType": "exitGame",
+        "action": "",
+        "filter": "appointable"
+      }
+    }
+  }
+  

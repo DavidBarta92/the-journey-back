@@ -1,6 +1,6 @@
 {
     "name" : "C2_S1",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/C2_S1.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -11,8 +11,8 @@
         "aiza": {
             "type": "text",
             "text": "dia_C2_S1",
-            "x": 170,
-            "y": 90,
+            "x": 365,
+            "y": 70,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -20,12 +20,12 @@
             "font": "Inconsolata",
             "fontSize": 20,
             "border": false,
-            "textBoxEnd": 350,
+            "textBoxEnd": 500,
             "filter": null
           }
     },
     "timer" : {
-        "time": 10000,
+        "time": 7000,
         "actionType": "setContent",
         "action": "C2_S2",
         "allowed" : true

@@ -1,6 +1,6 @@
 {
     "name" : "C7_2_store",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/store.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

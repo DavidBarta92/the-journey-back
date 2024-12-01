@@ -1,6 +1,6 @@
 {
     "name" : "C7_2_window",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/window.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

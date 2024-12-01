@@ -1,6 +1,6 @@
 {
     "name" : "C3_electricity",
-    "backgroundPath" : "../src/media/images/electricity.b64",
+    "backgroundPath" : "../src/media/images/electricity.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

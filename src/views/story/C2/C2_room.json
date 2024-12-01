@@ -1,6 +1,6 @@
 {
     "name" : "C2_room",
-    "backgroundPath" : "../src/media/images/room.b64",
+    "backgroundPath" : "../src/media/images/room.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -41,7 +41,7 @@
         "map": {
             "type": "button",
             "text": "btn_map",
-            "x": 30,
+            "x": 65,
             "y": 650,
             "width": 70,
             "height": 20,

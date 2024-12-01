@@ -1,18 +1,19 @@
 {
-    "name" : "C2_S7",
-    "backgroundPath" : "",
+    "name" : "C8_S1J",
+    "backgroundPath" : "../src/media/images/C8_S1b.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/i_am_you_am.mp3",
-    "atmo" : "../src/media/sounds/mars_base_atmo.mp3",
+    "music" : "",
+    "atmo" : "../src/media/sounds/car_atmo.mp3",
     "elements" : {
-        "aiza": {
+        "dial1": {
             "type": "text",
-            "text": "dia_C2_S7_1",
-            "x": 670,
-            "y": 190,
+            "text": "dia_C8_S1J_1",
+            "x": 219,
+            "y": 470,
+            "textBoxEnd": 1170,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -20,14 +21,14 @@
             "font": "Inconsolata",
             "fontSize": 20,
             "border": false,
-            "textBoxEnd": 350,
             "filter": null
           },
-        "teo": {
+          "dial2": {
             "type": "text",
-            "text": "dia_C2_S7_2",
-            "x": 670,
-            "y": 330,
+            "text": "dia_C8_S1J_2",
+            "x": 219,
+            "y": 612,
+            "textBoxEnd": 1170,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -35,14 +36,13 @@
             "font": "Inconsolata",
             "fontSize": 20,
             "border": false,
-            "textBoxEnd": 350,
             "filter": null
           }
     },
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C2_hall2",
+        "action": "C8_S2",
         "allowed" : true
     }
     }
