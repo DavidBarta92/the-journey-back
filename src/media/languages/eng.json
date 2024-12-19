@@ -71,17 +71,17 @@
     
     "trivia_C_1_title": "The Basis of Interstellar Travel: Mental Stabilizers",
     "trivia_C_1_text": "For humanity, space travel has become routine, but the several-month journey between Earth and Mars poses a massive psychological burden for astronauts. The vast emptiness, the silent glow of the stars, and the endless silence have a daunting effect on astronauts' minds. Recent developments have introduced special 'mental stabilizers' that alleviate the mental pressure. These neurochemical-based devices prevent the mind from wandering, which can be caused by the oppressive emptiness of space.",
-    "trivia_C_2_title" : "",
-    "trivia_C_2_text" : "",
-    "trivia_C_3_title" : "",
-    "trivia_C_3_text" : "",
-
-    "trivia_D_1_title" : "",
-    "trivia_D_1_text" : "",
-    "trivia_D_2_title" : "",
-    "trivia_D_2_text" : "",
-    "trivia_D_3_title" : "",
-    "trivia_D_3_text" : "",
+    "trivia_C_2_title": "Reduced Gravity and Muscle Loss",
+    "trivia_C_2_text": "The gravity on Mars is only 38% of Earth's, which can lead to significant muscle and bone loss for Martian settlers over time. The reduced gravity places less strain on muscles and bones, causing progressive bone density loss (osteoporosis) and muscle weakness. To counteract this, settlers must engage in daily gravitational training and resistance exercises using specialized equipment that simulates artificial gravity.",
+    "trivia_C_3_title": "Radiation-Induced Genetic Damage",
+    "trivia_C_3_text": "Mars's thin atmosphere and lack of a magnetic field provide no protection against cosmic radiation and solar wind, unlike Earth. Prolonged radiation exposure increases the risk of cancer and damages DNA, leading to potential genetic mutations. Researchers are continuously improving radiation-shielded habitat modules and clothing, but radiation exposure remains one of the greatest health challenges for Mars colonization.",
+    
+    "trivia_D_1_title": "How Does a Martian Plant Research Farm Work?",
+    "trivia_D_1_text": "Martian plant research farms are closed, self-sustaining systems designed to develop and cultivate plants necessary for Mars colonization. The greenhouse modules use hydroponic and aeroponic systems to minimize water usage while providing optimal nutrient delivery. These farms are managed by artificial intelligence, which continuously monitors and adjusts the internal environment, such as temperature, light levels, humidity, and carbon dioxide concentration. The research farms can analyze the phenotypes and genotypes of plants to identify species most adaptable to Martian conditions.",
+    "trivia_D_2_title": "Air Circulation and Life Support on a Martian Base",
+    "trivia_D_2_text": "The air circulation systems of Martian research farms and associated habitats operate on a closed-loop principle known as 'bioactive air filtration.' This system combines the natural photosynthesis of plants, which converts carbon dioxide into oxygen, with artificial filters and chemical catalysts that remove harmful substances from the air. A central air pump regulates air exchange between farm and habitat modules. Water and air recycling are tightly integrated into the system: moisture released through plant transpiration is captured by a condensation unit and reused in the hydroponic system, while the carbon dioxide exhaled by inhabitants is utilized for photosynthesis in the farm. Redundant systems ensure that no single failure endangers the ecosystem's functionality.",
+    "trivia_D_3_title": "Failure of a Martian Farm",
+    "trivia_D_3_text": "A Martian farm is an extremely sensitive system where small faults can lead to catastrophic consequences. One of the most vulnerable aspects is gas circulation and management. The closed atmosphere of the farm is optimized for controlling oxygen and carbon dioxide concentrations, but if the CO2 removal system fails, dangerous gas imbalances can quickly develop. Explosions can be triggered in the system through several mechanisms: gas accumulation, nutrient solution failures, or energy system malfunctions.",
 
     "C1_title": "C1_BASE",
     "C1_goal": "FIND_TEO",

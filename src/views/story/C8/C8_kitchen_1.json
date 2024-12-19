@@ -81,6 +81,20 @@
             "actionType": "setContent",
             "action": "C8_kitchen_2",
             "filter": "appointable"
-        }
+        },
+        "trivia":{
+          "type": "trivia",
+          "text": "FailureofaMartianFarm",
+          "x": 831,
+          "y": 400,
+          "width": 50,
+          "height": 50,
+          "color": "white",
+          "font": "Arial",
+          "fontSize": 50,
+          "actionType":"setToMenu",
+          "action":"trivia_D_3",
+          "filter" : "appointable"
+      }
     }
 }

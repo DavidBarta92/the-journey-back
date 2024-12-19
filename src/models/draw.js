@@ -66,9 +66,9 @@ var Draw = (function(){
     };
 
     const trivia = function (element) {
-        drawString('currentTimeString', { x: x-15, y: y }, true);
-        const { x, y, width, height } = element[1];
+        const { x, y, width, height, text } = element[1];
         context.beginPath();
+        drawString(text, { x: x-15, y: y }, true);
     
         if (element[1].clicked === true) {
             context.beginPath();

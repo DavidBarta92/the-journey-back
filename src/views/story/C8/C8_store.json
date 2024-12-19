@@ -67,6 +67,20 @@
             "actionType": "setContent",
             "action": "C8_cockpit",
             "filter": "appointable"
-        }
+        },
+        "trivia":{
+          "type": "trivia",
+          "text": "GeneticDamage",
+          "x": 731,
+          "y": 100,
+          "width": 50,
+          "height": 50,
+          "color": "white",
+          "font": "Arial",
+          "fontSize": 50,
+          "actionType":"setToMenu",
+          "action":"trivia_C_3",
+          "filter" : "appointable"
+      }
     }
 }

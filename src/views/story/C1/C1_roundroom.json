@@ -85,6 +85,20 @@
         "actionType": "setContent",
         "action": "C1_mainhall",
         "filter": "appointable"
+    },
+    "trivia":{
+      "type": "trivia",
+      "text": "DisappearingDays",
+      "x": 831,
+      "y": 400,
+      "width": 50,
+      "height": 50,
+      "color": "white",
+      "font": "Arial",
+      "fontSize": 50,
+      "actionType":"setToMenu",
+      "action":"trivia_A_1",
+      "filter" : "appointable"
     }
     }
 }
