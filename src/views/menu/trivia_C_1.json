@@ -1,7 +1,7 @@
 {
     "name": "trivia_C_1",
     "backgroundPath": null,
-    "middlegroundPath": "",
+    "middlegroundPath": "../src/media/images/C_1.png",
     "spritesPath": null,
     "dialogue": null,
     "filter" : "",

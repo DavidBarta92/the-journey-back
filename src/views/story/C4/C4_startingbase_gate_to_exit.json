@@ -1,6 +1,6 @@
 {
     "name" : "C4_startingbase_gate_to_exit",
-    "backgroundPath" : "../src/media/images/startingbase_gate_to_exit.png",
+    "backgroundPath" : "../src/media/images/startingbase_gate_to_exit.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -69,8 +69,8 @@
           "trivia":{
             "type": "trivia",
             "text": "Circulation",
-            "x": 231,
-            "y": 300,
+            "x": 831,
+            "y": 200,
             "width": 50,
             "height": 50,
             "color": "white",

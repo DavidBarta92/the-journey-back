@@ -65,6 +65,18 @@ var Draw = (function(){
         }
     };
 
+    const drawItems = function (element) {
+        let posX = element[1].x; 
+        Object.entries(state.items).forEach(([key, value]) => {
+            key = element[1].text; 
+            element[1].color = value ? "black" : "white"; 
+            posX += 30; 
+            element[1].x = posX; 
+            writeText(element[1]); 
+            console.log(element); 
+        });
+    };
+
     const trivia = function (element) {
         const { x, y, width, height, text } = element[1];
         context.beginPath();
@@ -699,6 +711,10 @@ var Draw = (function(){
 
         miniElements: function(elementPositions){
             return drawMiniElements(elementPositions);
+        },
+
+        items: function(element){
+            return drawItems(element);
         },
 
         }

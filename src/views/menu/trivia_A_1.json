@@ -1,7 +1,7 @@
 {
     "name": "trivia_A_1",
     "backgroundPath": null,
-    "middlegroundPath": "",
+    "middlegroundPath": "../src/media/images/A_1.png",
     "spritesPath": null,
     "dialogue": null,
     "filter" : "",
@@ -55,6 +55,36 @@
         "fontSize": 16,
         "border": false,
         "filter": null
+    },
+    "item_name": {
+        "type": "text",
+        "text": "trivia_A_1_title",
+        "x": 160,
+        "y": 170,
+        "width": 70,
+        "height": 20,
+        "rotate": 2,
+        "color": "white",
+        "font": "Akira",
+        "fontSize": 25,
+        "border": false,
+        "filter": null,
+        "textBoxEnd": 800
+    },
+    "items": {
+        "type": "text",
+        "text": "items",
+        "x": 160,
+        "y": 170,
+        "width": 70,
+        "height": 20,
+        "rotate": 2,
+        "color": "white",
+        "font": "Akira",
+        "fontSize": 25,
+        "border": false,
+        "filter": null,
+        "textBoxEnd": 800
     }
     }
   }

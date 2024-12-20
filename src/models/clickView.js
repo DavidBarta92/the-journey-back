@@ -222,6 +222,9 @@ const drawElements = function(elements) {
             if (element[1].type === 'trivia'){
                 Draw.trivia(element);
             }
+            if (element[1].type === 'items'){
+                Draw.items(element);
+            }
             if(element[1].hasOwnProperty('appoint') && element[1].appoint === true){
                     // context.strokeStyle = "#498564";
                     // context.lineWidth = 2;
@@ -335,6 +338,7 @@ const hitArea = function(element){
                 video.pause();
                 cancelAnimationFrame(animationId);
                 interactives = {};
+                stateManager.addItem(element[1].action);
                 stateManager.setStatus();
                 stateManager.setAtmoPath(contentContainer.atmo);
                 stateManager.setView('menu');
