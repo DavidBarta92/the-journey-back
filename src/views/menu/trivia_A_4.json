@@ -35,7 +35,7 @@
         "height": 20,
         "rotate": 2,
         "color": "white",
-        "font": "Akira",
+        "font": "Peace",
         "fontSize": 25,
         "border": false,
         "filter": null,
@@ -55,7 +55,28 @@
         "fontSize": 16,
         "border": false,
         "filter": null
-    }
+    },
+    "item_name": {
+      "type": "text",
+      "text": "A4",
+      "x": 160,
+      "y": 500,
+      "width": 70,
+      "height": 20,
+      "rotate": 2,
+      "color": "#dc3a15",
+      "font": "Akira",
+      "fontSize": 34,
+      "border": false,
+      "filter": null,
+      "textBoxEnd": 800
+  },
+  "items": {
+      "type": "items",
+      "text": "items",
+      "x": 250,
+      "y": 500
+  }
     }
   }
   

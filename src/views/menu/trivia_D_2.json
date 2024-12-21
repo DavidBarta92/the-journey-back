@@ -75,16 +75,7 @@
         "type": "items",
         "text": "items",
         "x": 250,
-        "y": 500,
-        "width": 70,
-        "height": 20,
-        "rotate": 2,
-        "color": "white",
-        "font": "Akira",
-        "fontSize": 20,
-        "border": false,
-        "filter": null,
-        "textBoxEnd": 800
+        "y": 500
     }
     }
   }

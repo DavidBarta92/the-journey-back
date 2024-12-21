@@ -65,17 +65,43 @@ var Draw = (function(){
         }
     };
 
-    const drawItems = function (element) {
-        let posX = element[1].x; 
-        Object.entries(state.items).forEach(([key, value]) => {
-            key = element[1].text; 
-            element[1].color = value ? "black" : "white"; 
-            posX += 30; 
-            element[1].x = posX; 
-            writeText(element[1]); 
-            console.log(element); 
-        });
+    const drawItems = function (pos) {
+        const spritesheet = new Image();
+        spritesheet.src = "../src/media/images/spritesheet.high.png"; // Spritesheet forrása
+    
+        const spriteWidth = 8;  // Egy sprite szélessége
+        const spriteHeight = 8; // Egy sprite magassága
+        const spacing = 30;     // Távolság az egyes karakterek között
+    
+        spritesheet.onload = function () {
+            let curX = pos.x; // Kezdő X pozíció
+            const spritesLength = Object.keys(state.items).length;
+            for (let i = 0; i < spritesLength; i++) {
+                if (getNthElement(state.items, i)) {
+                    context.drawImage(
+                        spritesheet,
+                        i * spriteWidth, // X koordináta a spritesheet-en (minden karakter 8 pixel széles)
+                        0,               // Y koordináta a spritesheet-en (feltételezve, hogy az első sorban vannak)
+                        spriteWidth, spriteHeight, // Vágási méret (8x8)
+                        curX, pos.y,               // Rajzolási pozíció (X, Y)
+                        spriteWidth, spriteHeight  // Rajzolási méret (8x8)
+                    );
+                    curX += spriteWidth + spacing; // Mozgatás jobbra
+                } else {
+                    console.log(`Skipping sprite at index ${i} (state.items[${i}] is false)`);
+                }
+            }
+        };
     };
+    
+    const getNthElement = function(obj, n) {
+        const keys = Object.keys(obj);
+        if (n >= 0 && n < keys.length) {
+            const key = keys[n];
+            return obj[key]; 
+        }
+        return null;
+    }
 
     const trivia = function (element) {
         const { x, y, width, height, text } = element[1];
@@ -714,7 +740,7 @@ var Draw = (function(){
         },
 
         items: function(element){
-            return drawItems(element);
+            return drawItems({ x: element[1].x, y: element[1].y });
         },
 
         }
