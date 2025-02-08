@@ -69,6 +69,20 @@
             "actionType": "setContent",
             "action": "C3_hall2",
             "filter": "appointable"
+        },
+        "trivia":{
+          "type": "trivia",
+          "text": "Cathedral",
+          "x": 731,
+          "y": 200,
+          "width": 50,
+          "height": 50,
+          "color": "white",
+          "font": "Arial",
+          "fontSize": 50,
+          "actionType":"setToMenu",
+          "action":"trivia_A_3",
+          "filter" : "appointable"
         }
     }
 }

@@ -91,6 +91,20 @@
             "actionType": "setContent",
             "action": "C2_corridor2",
             "filter": "appointable"
+        },
+        "trivia":{
+          "type": "trivia",
+          "text": "InterstellarTravel",
+          "x": 331,
+          "y": 400,
+          "width": 50,
+          "height": 50,
+          "color": "white",
+          "font": "Arial",
+          "fontSize": 50,
+          "actionType":"setToMenu",
+          "action":"trivia_C_1",
+          "filter" : "appointable"
         }
     }
 }

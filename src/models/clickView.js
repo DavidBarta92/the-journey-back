@@ -219,6 +219,15 @@ const drawElements = function(elements) {
             if (element[1].type === 'activeArea'){
                 Draw.activeArea(element);
             }
+            if (element[1].type === 'trivia'){
+                Draw.trivia(element);
+            }
+            if (element[1].type === 'items'){
+                Draw.items(element);
+            }
+            if (element[1].type === 'chapter'){
+                Draw.chapter(element);
+            }
             if(element[1].hasOwnProperty('appoint') && element[1].appoint === true){
                     // context.strokeStyle = "#498564";
                     // context.lineWidth = 2;
@@ -255,7 +264,8 @@ const collectInteractives = function(elements){
         if (
             (element[1].hasOwnProperty('type') && element[1].type === 'button') ||
             (element[1].type === 'item') ||
-            (element[1].type === 'activeArea')
+            (element[1].type === 'activeArea') ||
+            (element[1].type === 'trivia')
         ) {
             interactives[element[0]] = element[1];
         }
@@ -323,6 +333,22 @@ const hitArea = function(element){
                 RenderManager.render();
                 return;
             }
+            if (element[1].actionType === "setToMenu") {
+                var dataURL = gameCanvas.getDataURL();
+                var bluredDataURL = Filter.imgElementBlur(dataURL);
+                dataController.saveScreenImage(bluredDataURL);
+                pause = true;
+                video.pause();
+                cancelAnimationFrame(animationId);
+                interactives = {};
+                stateManager.addItem(element[1].action);
+                stateManager.setStatus();
+                stateManager.setAtmoPath(contentContainer.atmo);
+                stateManager.setView('menu');
+                stateManager.setContent(element[1].action);
+                RenderManager.render();
+                return;
+            }
             if (element[1].actionType === "setToSlide") {
                 stateManager.setView('slide');
                 stateManager.setContent(element[1].action);
@@ -351,6 +377,7 @@ const hitArea = function(element){
                 return;
             }
             if (element[1].actionType === "setContent") {
+                console.log('setContent');
                 stateManager.setContent(element[1].action);
                 gameCanvas.clear();
                 counterTimer = null;
@@ -393,15 +420,6 @@ const hitArea = function(element){
                 gameCanvas.clear();
                 cancelAnimationFrame(animationId);
                 RenderManager.render();
-                return;
-            }
-            if (element[1].actionType === "dialogueOption") {
-                if (!dialogueOptionClicked) {
-                    newSpeechIndex = newSpeechIndex + "-" + element[1].action;
-                    contentContainer.elements.dialogue.processed = false;
-                    deleteDialogueElements();
-                    dialogueOptionClicked = true;
-                }
                 return;
             }
             if (element[1].actionType === "startGame") {

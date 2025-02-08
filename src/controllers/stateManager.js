@@ -16,11 +16,20 @@ var stateManager = (function () {
     language: 'eng', // 'hun', 'eng'
     transitionSound: null,
     items: {
-      one: 'one',
-      two: null,
-      three: null,
-      four: null,
-      five: null
+      a1  : false,
+      a2  : false,
+      a3  : false,
+      a4  : false,
+      b1  : false,
+      b2  : false,
+      b3  : false,
+      b4  : false,
+      c1  : false,
+      c2  : false,
+      c3  : false,
+      d1  : false,
+      d2  : false,
+      d3  : false,
     },
     volume: 1,
     init: true,
@@ -102,11 +111,11 @@ var stateManager = (function () {
         state.scene
       ])
     },
-    setChapter: num => {
-      state = loadState()
-      state.chapter = num
-      dataController.saveState(state)
-      D.log([state.chapter])
+    setChapter: chapter => {
+      state = loadState();
+      state.chapter = dataController.getChapterData(chapter);
+      dataController.saveState(state);
+      D.log([state.chapter]);
     },
     newScene: () => {
       state = loadState()
@@ -178,26 +187,53 @@ var stateManager = (function () {
       state.status.atmoPath = atmoPath
       dataController.saveState(state)
     },
-    addItem: (item, place) => {
+    addItem: (item) => {
       state = loadState()
-      switch (place) {
-        case 'one':
-          state.items.one = item
+      switch (item) {
+        case 'trivia_A_1':
+          state.items.a1 = true
           break
-        case 'two':
-          state.items.two = item
+        case 'trivia_A_2':
+          state.items.a2 = true
           break
-        case 'three':
-          state.items.three = item
+        case 'trivia_A_3':
+          state.items.a3 = true
           break
-        case 'four':
-          state.items.four = item
+        case 'trivia_A_4':
+          state.items.a4 = true
           break
-        case 'five':
-          state.items.five = item
+        case 'trivia_B_1':
+          state.items.b1 = true
+          break
+        case 'trivia_B_2':
+          state.items.b2 = true
+          break
+        case 'trivia_B_3':
+          state.items.b3 = true
+          break
+        case 'trivia_B_4':
+          state.items.b4 = true
+          break
+        case 'trivia_C_1':
+          state.items.c1 = true
+          break
+        case 'trivia_C_2':
+          state.items.c2 = true
+          break
+        case 'trivia_C_3':
+          state.items.c3 = true
+          break
+        case 'trivia_D_1':
+          state.items.d1 = true
+          break
+        case 'trivia_D_2':
+          state.items.d2 = true
+          break
+        case 'trivia_D_3':
+          state.items.d3 = true
           break
         default:
-          console.error('Unexpected place:', place)
+          console.error('Unexpected place:', item)
           break
       }
       dataController.saveState(state)
@@ -211,7 +247,22 @@ var stateManager = (function () {
     },
     resetItems: () => {
       state = loadState()
-      state.items = []
+      state.items = {
+        a1  : false,
+        a2  : false,
+        a3  : false,
+        a4  : false,
+        b1  : false,
+        b2  : false,
+        b3  : false,
+        b4  : false,
+        c1  : false,
+        c2  : false,
+        c3  : false,
+        d1  : false,
+        d2  : false,
+        d3  : false,
+      }
       D.log(['State itmes are removed.'])
       dataController.saveState(state)
     },

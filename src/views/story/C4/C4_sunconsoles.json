@@ -53,6 +53,20 @@
             "actionType": "setContent",
             "action": "C4_sunconsoles2",
             "filter": "appointable"
+          },
+          "trivia":{
+            "type": "trivia",
+            "text": "MartianReligion",
+            "x": 131,
+            "y": 300,
+            "width": 50,
+            "height": 50,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "actionType":"setToMenu",
+            "action":"trivia_A_4",
+            "filter" : "appointable"
           }
     }
 }

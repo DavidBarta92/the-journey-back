@@ -64,6 +64,20 @@
             "actionType": "setContent",
             "action": "C3_canyon1_to_east2",
             "filter": "appointable"
+          },
+          "trivia":{
+            "type": "trivia",
+            "text": "PhotosynthesisProblem",
+            "x": 131,
+            "y": 300,
+            "width": 50,
+            "height": 50,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "actionType":"setToMenu",
+            "action":"trivia_B_2",
+            "filter" : "appointable"
           }
     }
 }

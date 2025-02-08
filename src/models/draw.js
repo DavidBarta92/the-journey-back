@@ -65,6 +65,115 @@ var Draw = (function(){
         }
     };
 
+    const drawItems = function (pos) {
+        const spritesheet = new Image();
+        spritesheet.src = "../src/media/images/spritesheet.high.png"; // Spritesheet forrása
+    
+        const spriteWidth = 16;  // Egy sprite szélessége
+        const spriteHeight = 16; // Egy sprite magassága
+        const spacing = 20;     // Távolság az egyes karakterek között
+    
+        spritesheet.onload = function () {
+            let curX = pos.x; // Kezdő X pozíció
+            const spritesLength = Object.keys(state.items).length;
+            for (let i = 0; i < spritesLength; i++) {
+                if (getNthElement(state.items, i)) {
+                    context.drawImage(
+                        spritesheet,
+                        i * spriteWidth, // X koordináta a spritesheet-en (minden karakter 8 pixel széles)
+                        0,               // Y koordináta a spritesheet-en (feltételezve, hogy az első sorban vannak)
+                        spriteWidth, spriteHeight, // Vágási méret (8x8)
+                        curX, pos.y,               // Rajzolási pozíció (X, Y)
+                        spriteWidth, spriteHeight  // Rajzolási méret (8x8)
+                    );
+                    curX += spriteWidth + spacing; // Mozgatás jobbra
+                } else {
+                    console.log(`Skipping sprite at index ${i} (state.items[${i}] is false)`);
+                }
+            }
+        };
+    };
+    
+    const getNthElement = function(obj, n) {
+        const keys = Object.keys(obj);
+        if (n >= 0 && n < keys.length) {
+            const key = keys[n];
+            return obj[key]; 
+        }
+        return null;
+    }
+
+    const trivia = function (element) {
+        const { x, y, width, height, text } = element[1];
+        context.beginPath();
+        drawString(text, { x: x-15, y: y }, true);
+    
+        if (element[1].clicked === true) {
+            context.beginPath();
+            context.fillStyle = "#dbe0bc";
+            context.fillRect(x, y, width, height);
+            context.closePath();
+        } else if (element[1].allowed === true) {
+            context.lineWidth = 2;
+            context.strokeStyle = "#dc3a15";
+            drawCrosses(x, y, width, height);
+        } else {
+            context.strokeStyle = "red";
+            context.lineWidth = 2;
+            context.rect(x, y, width, height);
+            drawDiagonalLines(x, y, width, height);
+        }
+    
+        context.stroke();
+        context.closePath();
+    
+        if (element[1].hasOwnProperty('filter') && element[1].filter === "appointable") {
+            if (element[1].hasOwnProperty('appoint') && element[1].appoint === true && element[1].hasOwnProperty('text')) {
+                // Teli négyzet
+                context.beginPath();
+                context.fillStyle = "#dc3a15";
+                context.fillRect(x, y, width, height);
+                context.closePath();
+            } else {
+                // Ferde vonalak és kisebb négyzet vágott vonalakkal
+                context.save(); // Állapot mentése
+    
+                const padding = 4; // Néhány pixellel kisebb lesz a négyzet
+                const smallX = x + padding;
+                const smallY = y + padding;
+                const smallWidth = width - 2 * padding;
+                const smallHeight = height - 2 * padding;
+    
+                // Kisebb négyzet körvonal rajzolása
+                context.beginPath();
+                context.rect(smallX, smallY, smallWidth, smallHeight);
+                context.stroke();
+    
+                // Clipping region beállítása a kisebb négyzetre
+                context.clip();
+    
+                // 45 fokos párhuzamos vonalak rajzolása
+                const lineSpacing = 5; // A vonalak közötti távolság
+                context.beginPath();
+    
+                for (let i = -smallWidth; i < smallWidth + smallHeight; i += lineSpacing) {
+                    context.moveTo(smallX + i, smallY);
+                    context.lineTo(smallX + i + smallHeight, smallY + smallHeight);
+                }
+    
+                context.strokeStyle = "#dc3a15";
+                context.lineWidth = 1;
+                context.stroke();
+                context.closePath();
+    
+                context.restore(); // Állapot visszaállítása
+            }
+        }
+
+    };
+    
+    
+
     const drawCross = function (x, y) {
         drawLine(x - 7, y, x + 7, y);
         drawLine(x, y - 7, x, y + 7);
@@ -106,6 +215,7 @@ var Draw = (function(){
     };
 
     const gradient = context.createLinearGradient(startPoint.x, startPoint.y, endPoint.x, endPoint.y);
+
     if (!dotted) {
         context.setLineDash([10, 0])
         gradient.addColorStop(0, 'rgba(220,58,21,1)'); // alul
@@ -214,26 +324,50 @@ var Draw = (function(){
     };
     
 
-        const drawString = function(string, pos) {
-            string = string.toUpperCase();
-            var cur = pos.x;
-            for(var i=0; i < string.length; i++) {
-                spritesheet.src = "../src/media/images/spritesheet.high.png";
-                context.drawImage(spritesheet, (string.charCodeAt(i) - 32) * 8, 0, 8, 8, cur, pos.y, 8, 8);
-                cur += 8;
+    const drawString = function(string, pos, vertical = false) {
+        string = string.toUpperCase(); // Minden esetben nagybetűsítjük a szöveget
+        var spritesheet = new Image();
+        spritesheet.src = "../src/media/images/spritesheet.high.png";
+        
+        if (vertical) {
+            var curY = pos.y; // Kezdő függőleges pozíció
+            for (var i = 0; i < string.length; i++) {
+                context.drawImage(
+                    spritesheet,
+                    (string.charCodeAt(i) - 32) * 8, // X koordináta a spritesheet-en
+                    0,                              // Y koordináta a spritesheet-en
+                    8, 8,                           // Vágási méret (8x8)
+                    pos.x, curY,                    // Rajzolási pozíció (X, Y)
+                    8, 8                            // Rajzolási méret (8x8)
+                );
+                curY += 8; // Következő karakterhez lejjebb lépünk
+            }
+        } else {
+            var curX = pos.x; // Kezdő vízszintes pozíció
+            for (var i = 0; i < string.length; i++) {
+                context.drawImage(
+                    spritesheet,
+                    (string.charCodeAt(i) - 32) * 8, // X koordináta a spritesheet-en
+                    0,                              // Y koordináta a spritesheet-en
+                    8, 8,                           // Vágási méret (8x8)
+                    curX, pos.y,                    // Rajzolási pozíció (X, Y)
+                    8, 8                            // Rajzolási méret (8x8)
+                );
+                curX += 8; // Következő karakterhez jobbra lépünk
             }
         }
+    };
 
-        const drawBackground = function(positionX, positionY, image, w = 1, h = 1) {
-            var positionXmod = positionX / 20 % (image.width);
-            var positionYmod = positionY / 20 % (image.height);
-            drawPrimImage(image, positionXmod + 700, positionYmod, w, h);
-        }
+    const drawBackground = function(positionX, positionY, image, w = 1, h = 1) {
+        var positionXmod = positionX / 20 % (image.width);
+        var positionYmod = positionY / 20 % (image.height);
+        drawPrimImage(image, positionXmod + 700, positionYmod, w, h);
+    }
 
-        // Drawing primitive
-        const drawPrimImage = function(image, x, y, scaleW, scaleH){
-            context.drawImage(image, x, y, image.width, image.height, 0, 0, scaleW*image.width, scaleH*image.height);
-        };
+    // Drawing primitive
+    const drawPrimImage = function(image, x, y, scaleW, scaleH){
+        context.drawImage(image, x, y, image.width, image.height, 0, 0, scaleW*image.width, scaleH*image.height);
+    };
 
     // --------------------------
     // --     Draw the hud     --
@@ -487,6 +621,10 @@ var Draw = (function(){
             return activeArea(element);
         },
 
+        trivia: function(element){
+            return trivia(element);
+        },
+
         writeText: function(element, textBoxX = window.innerWidth, color = element.color){
             loadLanguage();
             if(element[1].hasOwnProperty('clicked') 
@@ -543,16 +681,6 @@ var Draw = (function(){
                 writeText(element[1], textBoxX, color);
                 return;
             }
-            //only buttons have border
-            if(element[1].hasOwnProperty('border') && element[1].border){
-                var width = context.measureText(element[1].text).width + 2 * (element[1].fontSize / 10);
-                var buttonTopLeftX = element[1].x - element[1].fontSize / 10;
-                var buttonTopLeftY = element[1].y - element[1].fontSize + element[1].fontSize / 10;
-    
-                context.strokeStyle = element[1].color;
-                context.rect(buttonTopLeftX, buttonTopLeftY, width, element[1].fontSize);
-                context.stroke();
-            }
         },
 
         renderHUD: function(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render){
@@ -601,6 +729,14 @@ var Draw = (function(){
             return drawMiniElements(elementPositions);
         },
 
+        items: function(element){
+            return drawItems({ x: element[1].x, y: element[1].y });
+        },
+        
+        chapter: function(element){
+            element[1].text = state.chapter.goal;
+            writeText(element[1], (element[1].x + element[1].textBoxEnd));
+        }
         }
     }
 ());

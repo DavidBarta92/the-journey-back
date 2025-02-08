@@ -53,6 +53,20 @@
             "actionType": "setContent",
             "action": "C1_biodome2",
             "filter": "appointable"
+          },
+          "trivia":{
+            "type": "trivia",
+            "text": "MartianPlants",
+            "x": 531,
+            "y": 165,
+            "width": 50,
+            "height": 50,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "actionType":"setToMenu",
+            "action":"trivia_B_1",
+            "filter" : "appointable"
           }
     }
 }

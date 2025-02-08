@@ -1,0 +1,82 @@
+{
+    "name": "trivia_B_3",
+    "backgroundPath": null,
+    "middlegroundPath": "../src/media/images/B_3.png",
+    "spritesPath": null,
+    "dialogue": null,
+    "filter" : "",
+    "music" : "../src/media/sounds/menu.wav",
+    "atmo" : "",
+    "elements": {
+      "continue": {
+        "type": "button",
+        "text": "btn_continue",
+        "fx": "../src/media/sounds/click.ogg",
+        "x": 190,
+        "y": 130,
+        "width": 70,
+        "height": 20,
+        "rotate": 0,
+        "color": "white",
+        "font": "Rounded",
+        "fontSize": 20,
+        "border": false,
+        "actionType": "startGame",
+        "action": "continue",
+        "filter": "appointable",
+        "clickNoise" : true
+      },
+      "title": {
+        "type": "text",
+        "text": "trivia_B_3_title",
+        "x": 160,
+        "y": 170,
+        "width": 70,
+        "height": 20,
+        "rotate": 2,
+        "color": "white",
+        "font": "Peace",
+        "fontSize": 25,
+        "border": false,
+        "filter": null,
+        "textBoxEnd": 800
+    },
+      "subTitle": {
+        "type": "text",
+        "text": "trivia_B_3_text",
+        "x": 160,
+        "y": 230,
+        "textBoxEnd": 800,
+        "width": 70,
+        "height": 20,
+        "rotate": 0,
+        "color": "white",
+        "font": "Larabie",
+        "fontSize": 16,
+        "border": false,
+        "filter": null
+    },
+    "item_name": {
+      "type": "text",
+      "text": "B3",
+      "x": 160,
+      "y": 500,
+      "width": 70,
+      "height": 20,
+      "rotate": 2,
+      "color": "#dc3a15",
+      "font": "Akira",
+      "fontSize": 34,
+      "border": false,
+      "filter": null,
+      "textBoxEnd": 800
+  },
+  "items": {
+      "type": "items",
+      "text": "items",
+      "x": 250,
+      "y": 500
+  }
+    }
+  }
+  

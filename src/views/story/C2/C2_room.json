@@ -69,6 +69,20 @@
             "actionType": "setContent",
             "action": "C2_hall2",
             "filter": "appointable"
+        },
+        "trivia":{
+          "type": "trivia",
+          "text": "MartianPlantResearchFarm",
+          "x": 331,
+          "y": 400,
+          "width": 50,
+          "height": 50,
+          "color": "white",
+          "font": "Arial",
+          "fontSize": 50,
+          "actionType":"setToMenu",
+          "action":"trivia_D_1",
+          "filter" : "appointable"
         }
     }
 }

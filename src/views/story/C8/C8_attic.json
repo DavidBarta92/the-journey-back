@@ -81,6 +81,20 @@
             "actionType": "setContent",
             "action": "C8_mainCorridor_1",
             "filter": "appointable"
-        }
+        },
+        "trivia":{
+          "type": "trivia",
+          "text": "Cynaracardunculusvarareophila",
+          "x": 831,
+          "y": 200,
+          "width": 50,
+          "height": 50,
+          "color": "white",
+          "font": "Arial",
+          "fontSize": 50,
+          "actionType":"setToMenu",
+          "action":"trivia_B_4",
+          "filter" : "appointable"
+      }
     }
 }

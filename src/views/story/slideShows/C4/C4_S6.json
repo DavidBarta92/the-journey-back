@@ -36,12 +36,22 @@
             "textBoxEnd": 400,
             "border": false,
             "filter": null
+          },
+          "next": {
+            "type": "button",
+            "text": "btn_next",
+            "x": 720,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C4_S7",
+            "filter": "appointable"
           }
-    },
-    "timer" : {
-        "time": 50000,
-        "actionType": "setContent",
-        "action": "C4_S7",
-        "allowed" : true
     }
     }

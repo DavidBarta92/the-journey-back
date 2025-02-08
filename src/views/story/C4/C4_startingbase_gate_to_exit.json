@@ -1,6 +1,6 @@
 {
     "name" : "C4_startingbase_gate_to_exit",
-    "backgroundPath" : "../src/media/images/startingbase_gate_to_exit.png",
+    "backgroundPath" : "../src/media/images/startingbase_gate_to_exit.b64",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -65,6 +65,20 @@
             "filter" : null,
             "actionType": "setContent",
             "action": "C4_startingbase_enterance_to_enter"
-        }
+        },
+          "trivia":{
+            "type": "trivia",
+            "text": "Circulation",
+            "x": 831,
+            "y": 200,
+            "width": 50,
+            "height": 50,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "actionType":"setToMenu",
+            "action":"trivia_D_2",
+            "filter" : "appointable"
+          }
     }
 }

@@ -15,11 +15,30 @@ var RenderManager = (function(){
     }, true);
 
     var state = stateManager.loadState();
+    var currentChapter = null;
+    
+    function getCSubstring() {
+      if (typeof state.content === "string" && state.content.startsWith("C")) {
+          const startIndex = 1; 
+          const endIndex = state.content.indexOf("_"); 
+  
+          if (endIndex > startIndex) {
+              return state.content.substring(startIndex, endIndex); 
+          } else {
+              console.warn("No '_' character found after 'C'.");
+              return null;
+          }
+      } else {
+          console.warn("state.console is not a string or does not start with 'C'.");
+          return null;
+      }
+  }
 
   return {
       render: function(){
         state = stateManager.loadState();
-
+        currentChapter = getCSubstring(state.content);
+        if (currentChapter !== null) stateManager.setChapter(currentChapter);
         switch(state.view){
           case 'menu':
             Menu.render(state);
