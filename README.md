@@ -1,5 +1,55 @@
-## The Journey Back
+# The Journey Back: A Point-and-Click Visual Novel
 
-I was always interested about game making and I did some mini games and prototypes before. For some reason I missed to create a "whole" project, I've only complesed my mini games, but I really wanted to make an interactive art which has begining and end, something witch by I can communicate with others and tell something.  In 2022 I wrote two game design document. I think both of these would be worth to be created but the first one is much more complicated than I could deal whit that at this point.
+## Overview
+This is a simple, JavaScript-based point-and-click adventure game running in an Electron app. The story follows a young girl traveling to Mars to bring her long-lost grandfather home. As they journey back to Earth, the two characters bond, revealing their personalities and histories through conversations.
 
-This one was my second idea, a simple point and click visual novel. The challenge is that I decided not to use a game engine for it. I write the "engine" using javascript and actually the whole game is an electron-react project. It's a good opportunity to exercise coding.
+---
+
+## File Structure
+
+src/        
+├── controllers/ # Handles input, data saving, state management, and rendering.    
+├── fonts/ # Contains font files for the app.    
+├── media/ # Holds images, language files, audio, and video (except language files, media files are ignored by Git).    
+├── models/ # Core logic for user and sprite objects, methods for views, rendering, and sound playback.    
+├── tests/ # Unit tests for the app.    
+├── view/ # Scene-specific JSON files defining backgrounds, sounds, and UI elements.   
+
+---
+
+## App Flow
+
+1. **`Electron.js`**  
+   - Entry point for the app.
+   - Sets up the main Electron window and loads the app.
+   - Configures the browser window parameters such as size and UI settings.
+
+2. **`App.js`**  
+   - Main React component that initializes the application.
+   - Loads the `Game` component inside a basic layout.
+
+3. **`Game.js`**  
+   - Orchestrates the game's initial setup:
+     - Starts the timer.
+     - Sets the initial view (`menu`).
+     - Sets the starting content (`startScreen`).
+     - Calls `RenderManager` to begin rendering the app.
+
+4. **`RenderManager.js`**  
+   - Manages rendering based on the current state of the game.
+   - Calls the view.js file-s to render the proper scenes
+
+---
+
+## Installation and Setup
+
+1. **Build the Application**
+```bash
+   npm run build
+```
+
+2. **Start the Application**
+```bash
+   npm start
+```
+
