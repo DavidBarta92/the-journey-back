@@ -225,6 +225,9 @@ const drawElements = function(elements) {
             if (element[1].type === 'items'){
                 Draw.items(element);
             }
+            if (element[1].type === 'chapter'){
+                Draw.chapter(element);
+            }
             if(element[1].hasOwnProperty('appoint') && element[1].appoint === true){
                     // context.strokeStyle = "#498564";
                     // context.lineWidth = 2;
@@ -417,15 +420,6 @@ const hitArea = function(element){
                 gameCanvas.clear();
                 cancelAnimationFrame(animationId);
                 RenderManager.render();
-                return;
-            }
-            if (element[1].actionType === "dialogueOption") {
-                if (!dialogueOptionClicked) {
-                    newSpeechIndex = newSpeechIndex + "-" + element[1].action;
-                    contentContainer.elements.dialogue.processed = false;
-                    deleteDialogueElements();
-                    dialogueOptionClicked = true;
-                }
                 return;
             }
             if (element[1].actionType === "startGame") {

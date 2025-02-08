@@ -111,11 +111,11 @@ var stateManager = (function () {
         state.scene
       ])
     },
-    setChapter: num => {
-      state = loadState()
-      state.chapter = num
-      dataController.saveState(state)
-      D.log([state.chapter])
+    setChapter: chapter => {
+      state = loadState();
+      state.chapter = dataController.getChapterData(chapter);
+      dataController.saveState(state);
+      D.log([state.chapter]);
     },
     newScene: () => {
       state = loadState()

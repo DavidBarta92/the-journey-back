@@ -69,9 +69,9 @@ var Draw = (function(){
         const spritesheet = new Image();
         spritesheet.src = "../src/media/images/spritesheet.high.png"; // Spritesheet forrása
     
-        const spriteWidth = 8;  // Egy sprite szélessége
-        const spriteHeight = 8; // Egy sprite magassága
-        const spacing = 30;     // Távolság az egyes karakterek között
+        const spriteWidth = 16;  // Egy sprite szélessége
+        const spriteHeight = 16; // Egy sprite magassága
+        const spacing = 20;     // Távolság az egyes karakterek között
     
         spritesheet.onload = function () {
             let curX = pos.x; // Kezdő X pozíció
@@ -681,16 +681,6 @@ var Draw = (function(){
                 writeText(element[1], textBoxX, color);
                 return;
             }
-            //only buttons have border
-            if(element[1].hasOwnProperty('border') && element[1].border){
-                var width = context.measureText(element[1].text).width + 2 * (element[1].fontSize / 10);
-                var buttonTopLeftX = element[1].x - element[1].fontSize / 10;
-                var buttonTopLeftY = element[1].y - element[1].fontSize + element[1].fontSize / 10;
-    
-                context.strokeStyle = element[1].color;
-                context.rect(buttonTopLeftX, buttonTopLeftY, width, element[1].fontSize);
-                context.stroke();
-            }
         },
 
         renderHUD: function(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render){
@@ -742,7 +732,11 @@ var Draw = (function(){
         items: function(element){
             return drawItems({ x: element[1].x, y: element[1].y });
         },
-
+        
+        chapter: function(element){
+            element[1].text = state.chapter.goal;
+            writeText(element[1], (element[1].x + element[1].textBoxEnd));
+        }
         }
     }
 ());

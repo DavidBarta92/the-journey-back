@@ -1,7 +1,7 @@
 {
   "name": "newGame",
   "backgroundPath": "",
-  "middlegroundPath": "../src/media/images/black.b64",
+  "middlegroundPath": "../src/media/images/menu.png",
   "spritesPath": "",
   "dialogue": "",
   "filter" : "",
@@ -29,7 +29,7 @@
       "y": 150,
       "width": 70,
       "height": 20,
-      "color": "white",
+      "color": "black",
       "font": "Arial",
       "fontSize": 20,
       "filter": null
@@ -41,7 +41,7 @@
       "y": 170,
       "width": 70,
       "height": 20,
-      "color": "white",
+      "color": "black",
       "font": "Arial",
       "fontSize": 12,
       "filter": null

@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { start } from 'repl';
 const path = require("path");
 const { ipcRenderer } = require('electron');
 
@@ -39,6 +40,35 @@ var dataController = (function () {
 
     // If no file is found with the specified parameter
     return null;
+  }
+
+  function loadImage(imagePath){
+    var image = new Image();
+    var base64img;
+    if (!imagePath) imagePath = '../src/media/images/black.b64';
+    const extension = path.extname(imagePath);
+    try {
+      if (extension === '.b64') {
+        base64img = fs.readFileSync(path.resolve(__dirname, imagePath), 'utf8')
+        image.src = base64img.slice(0);
+      } else if (extension === '.png' || extension === '.jpg') {
+        const objectURL = imagePath;
+        image.src = objectURL;
+      } else {
+        throw new Error(`Unsupported image format: ${extension}`);
+      }
+    } catch (error) {
+      const dirName = localStorage.getItem('dirName')
+      if (extension === '.b64') {
+        console.warn('__dirname is not working!')
+        base64img = fs.readFileSync(path.resolve(dirName, imagePath), 'utf8')
+        image.src = base64img.slice(0)
+      } else if (extension === '.png' || extension === '.jpg') {
+        const objectURL = imagePath;
+        image.src = objectURL;
+      }
+    }
+    return image
   }
 
   /**
@@ -89,6 +119,42 @@ var dataController = (function () {
     eng: require('../media/languages/eng.json')
   };
 
+  let chapters = {
+    1:{start: 'C1_S1',
+      goal: 'C1_goal_text'
+    },
+    2:{start: 'C2_S1',
+      goal: 'C2_goal_text'
+    },
+    3:{start: 'C3_S1',
+      goal: 'C3_goal_text'
+    },
+    4:{start: 'C4_S1',
+      goal: 'C4_goal_text'
+    },
+    5:{start: 'C5_S1',
+      goal: 'C5_goal_text'
+    },
+    6:{start: 'C6_S1',
+      goal: 'C6_goal_text'
+    },
+    7:{start: 'C7_S1',
+      goal: 'C7_goal_text'
+    },
+    8:{start: 'C8_S1A',
+      goal: 'C8_goal_text'
+    },
+    9:{start: 'C9_S1_positive',
+      goal: 'C9_goal_text'
+    },
+    10:{start: 'C10_S1_mid',
+      goal: 'C10_goal_text'
+    },
+    11:{start: 'C11_S1',
+      goal: 'C11_goal_text'
+    },
+  };
+
   return {
     /**
      * Saves the state (chapter number) into browser storage.
@@ -130,32 +196,11 @@ var dataController = (function () {
      * @return {Image} The loaded Image object.
      */
     loadImage: function (imagePath) {
-      var image = new Image();
-      var base64img;
-      if (!imagePath) imagePath = '../src/media/images/black.b64';
-      const extension = path.extname(imagePath);
       try {
-        if (extension === '.b64') {
-          base64img = fs.readFileSync(path.resolve(__dirname, imagePath), 'utf8')
-          image.src = base64img.slice(0);
-        } else if (extension === '.png' || extension === '.jpg') {
-          const objectURL = imagePath;
-          image.src = objectURL;
-        } else {
-          throw new Error(`Unsupported image format: ${extension}`);
-        }
+        return loadImage(imagePath);
       } catch (error) {
-        const dirName = localStorage.getItem('dirName')
-        if (extension === '.b64') {
-          console.warn('__dirname is not working!')
-          base64img = fs.readFileSync(path.resolve(dirName, imagePath), 'utf8')
-          image.src = base64img.slice(0)
-        } else if (extension === '.png' || extension === '.jpg') {
-          const objectURL = imagePath;
-          image.src = objectURL;
-        }
+        return loadImage('../src/media/images/black.b64');
       }
-      return image
     },
 
     /**
@@ -198,7 +243,19 @@ var dataController = (function () {
         image = this.loadImage(null);
       }
       return image;
-    }
+    },
+     /**
+     * Gets the current chapter data.
+     * 
+     */
+     getChapterData: function (number) {
+        if (chapters.hasOwnProperty(number)) {
+          return chapters[number];
+        } else {
+          console.warn(`Chapter ${number} does not exist.`);
+          return null;
+      }
+     }
   };
 })();
 
