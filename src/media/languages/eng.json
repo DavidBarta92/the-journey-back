@@ -3,7 +3,7 @@
     "pth_C4_S7_QR" : "../src/media/images/kosztolanyi_eng.png",
     "txt_trivia_list" : "List of trivias",
     "btn_yes": "  Yes",
-    "btn_no": "  No",
+    "btn_no": "  No",s
     "txt_beta": "v0.9.3",
     "btn_start": "  START",
     "btn_newGame": "  New Game",

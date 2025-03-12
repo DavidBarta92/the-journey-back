@@ -355,7 +355,6 @@ var Draw = (function(){
         
         context.closePath();
     };
-    
     const drawString = function(string, pos, vertical = false) {
         string = string.toUpperCase(); // Minden esetben nagybetűsítjük a szöveget
         var spritesheet = new Image();
