@@ -16,6 +16,9 @@ var render = gameCanvas.getParams();
 
 var context = gameCanvas.getContext();
 
+const infoImage = new Image();
+infoImage.src = "../src/media/images/infobox_mouse.png";
+
 gameCanvas.resize();
 
 const video = document.getElementById('video');
@@ -206,6 +209,15 @@ const drawElements = function(elements) {
             if (element[1].type === 'video'){
                 context.drawImage(video, element[1].x, element[1].y, video.videoWidth, video.videoHeight);
                 if(video.ended === false) animationDone = false;
+            }
+            if (element[1].type === 'infoImage' && Object.keys(interactives).length > 0){
+                context.drawImage(infoImage, 550, 654);
+            }
+            if (element[1].type === 'image'){
+                Draw.drawImageElement(element);
+            }
+            if (element[1].type === 'langImage'){
+                Draw.drawImageElement(element);
             }
             if (element[1].type === 'button' || element[1].type === 'text'){
                 Draw.writeText(element, (element[1].x + element[1].textBoxEnd));
@@ -640,6 +652,7 @@ export const Story = (function(){
         dialogueFile = dataController.loadDialogue(contentContainer.dialogue);
         newSpeechIndex = '1';
         transitionSound = state.transitionSound;
+        contentContainer.elements["infoBox"] = {type: "infoImage"};
         allowElements(contentContainer.elements, state);
         collectInteractives(contentContainer.elements);
         languageFile = dataController.loadLanguageFile(state);

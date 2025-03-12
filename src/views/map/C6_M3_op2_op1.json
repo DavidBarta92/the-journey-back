@@ -1,8 +1,9 @@
 {
     "name" : "C6_M3_op2_op1",
     "cursor" : "fasle",
-    "blur" : false,
-    "backgroundPath" : "../src/media/images/mp.png",
+    "blur" : true,
+    "backgroundPath" : "../src/media/images/blurmp.png",
+    "backgroundPath2" : "../src/media/images/mp.png",
     "textPath" : "../src/media/images/driver-text.png",
     "spritesPath" : "../src/media/images/spritesheet.high.png",
     "hud" : "../src/media/images/mpHUD.png",
@@ -11,7 +12,7 @@
     "targetPoints" : {
         "a" : {
             "x": 7000,
-            "y": -2000,
+            "y": 30000,
             "actionType": "setContent",
             "action": "C6_M4_op2",
             "text": "",

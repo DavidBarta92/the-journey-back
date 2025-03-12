@@ -1,6 +1,6 @@
 {
     "name" : "C6_S5_op1_op2_op2_op2",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/info.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -83,8 +83,8 @@
         "next": {
             "type": "button",
             "text": "btn_go",
-            "x": 346,
-            "y": 650,
+            "x": 160,
+            "y": 550,
             "width": 70,
             "height": 20,
             "rotate": 0,

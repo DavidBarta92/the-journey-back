@@ -1,6 +1,6 @@
 {
     "name" : "C5_S7",
-    "backgroundPath" : "../src/media/images/C6_S2_bg.b64",
+    "backgroundPath" : "../src/media/images/c5s7.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -12,14 +12,14 @@
             "type": "text",
             "text": "dia_C5_S7",
             "x": 135,
-            "y": 85,
+            "y": 30,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
             "font": "Larabie",
             "textBoxEnd": 1000,
-            "fontSize": 20,
+            "fontSize": 18,
             "border": false,
             "filter": null
           }

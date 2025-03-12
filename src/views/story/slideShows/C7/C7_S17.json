@@ -28,7 +28,7 @@
             "type": "text",
             "text": "dia_C7_S17_2",
             "x": 30,
-            "y": 305,
+            "y": 285,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -56,7 +56,7 @@
           }
     },
     "timer" : {
-        "time": 22000,
+        "time": 59000,
         "actionType": "setContent",
         "action": "C7_S18",
         "allowed" : true

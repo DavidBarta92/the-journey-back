@@ -1,6 +1,6 @@
 {
     "name" : "C6_S6",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/info.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

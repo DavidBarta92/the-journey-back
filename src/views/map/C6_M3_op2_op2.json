@@ -11,7 +11,7 @@
     "targetPoints" : {
         "a" : {
             "x": 7000,
-            "y": -2000,
+            "y": 30000,
             "actionType": "setContent",
             "action": "C6_M4_op2",
             "text": "",

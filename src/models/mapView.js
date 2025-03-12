@@ -8,7 +8,10 @@ import Timer from "./timer.js";
 import Draw from "./draw.js";
 import Filter from "../views/filter";
 
+const infoImage = new Image();
+infoImage.src = "../src/media/images/infobox_keyboard.png";
 var backgroundImage = new Image();
+var bluredBackgroundImage = new Image();
 var textImage = new Image();
 var spritesheet = new Image();
 var hud = new Image();
@@ -84,6 +87,7 @@ export const Map = (function(){
         targetPoints = Object.values(contentContainer.targetPoints);
         spritesheet.src = contentContainer.spritesPath;
         backgroundImage.src = contentContainer.backgroundPath;
+        bluredBackgroundImage.src = contentContainer.backgroundPath2;
         textImage.src = contentContainer.textPath;
         hud.src = contentContainer.hud;
 
@@ -101,35 +105,44 @@ export const Map = (function(){
         Draw.drawMapBackground(+((player.posx)*3.5), +((player.posy)*3.5),backgroundImage);
 
         if (contentContainer.blur === true) {
-            // const radius = 200;
-            // const centerX = canvas.width / 2;
-            // const centerY = canvas.height / 2;
+            const radius = 200;
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
             
-            // const offscreenCanvas = document.createElement('canvas');
-            // const offscreenCtx = offscreenCanvas.getContext('2d');
-            // offscreenCanvas.width = canvas.width;
-            // offscreenCanvas.height = canvas.height;
+            const offscreenCanvas = document.createElement('canvas');
+            const offscreenCtx = offscreenCanvas.getContext('2d');
+            offscreenCanvas.width = canvas.width;
+            offscreenCanvas.height = canvas.height;
+            
+            //nem biztos hogy kell
+            // const bgImage = new Image();
+            // bgImage.src = "../src/media/images/mp.png";
+            // var positionXmod = (+((player.posx)*3.5)) / 20 % (bgImage.width);
+            // var positionYmod = (+((player.posy)*3.5)) / 20 % (bgImage.height);
+            // offscreenCtx.drawImage(bgImage,positionXmod + 700, positionYmod,0, 0, 1*bgImage.width, 1*bgImage.height);
+
+            offscreenCtx.drawImage(canvas, 0, 0);
     
-            // offscreenCtx.drawImage(canvas, 0, 0);
-    
-            // offscreenCtx.globalCompositeOperation = 'destination-in';
-            // offscreenCtx.beginPath();
-            // offscreenCtx.arc(centerX, centerY, radius, 0, Math.PI * 2);
-            // offscreenCtx.closePath();
-            // offscreenCtx.fill();
+            offscreenCtx.globalCompositeOperation = 'destination-in';
+            offscreenCtx.beginPath();
+            offscreenCtx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+            offscreenCtx.closePath();
+            offscreenCtx.fill();
 
             // var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
             // var bluredimageData = Filter.imageDataBlur(imageData);
             // context.putImageData(bluredimageData, 0, 0);
 
-            // context.save();
-            // context.beginPath();
-            // context.arc(centerX, centerY, radius, 0, Math.PI * 2);
-            // context.closePath();
-            // context.clip();
-                    
-            // context.drawImage(offscreenCanvas, 0, 0);
-            // context.restore();
+            context.save();
+            context.beginPath();
+            context.arc(centerX, centerY, radius, 0, Math.PI * 2);
+            context.closePath();
+            context.clip();
+            Draw.drawMapBackground(+((player.posx)*3.5), +((player.posy)*3.5),bluredBackgroundImage);
+      
+            //context.drawImage(offscreenCanvas, 0, 0);
+            context.restore();
+
         }
 
         let targetPointsRecalculated = [];
@@ -137,8 +150,8 @@ export const Map = (function(){
         for (let i = 0; i < targetPoints.length; i++) {
             let point = targetPoints[i];
             let recalculatedPoint = {
-                x: ((point.x) * 3.5) / 20 % backgroundImage.width,
-                y: ((point.y) * 3.5) / 20 % backgroundImage.height,
+                x: ((point.x) * 3.5) / 50 % backgroundImage.width,
+                y: ((point.y) * 3.5) / 50 % backgroundImage.height,
                 action: point.action,
                 actionType: point.actionType,
                 color: point.color,
@@ -280,7 +293,7 @@ export const Map = (function(){
                 }
             });
         });
-
+        context.drawImage(infoImage, 850, 654);
     }
 
     const exit = function() {

@@ -41,6 +41,13 @@
           "actionType": "setContent",
           "action": "C4_S7_op2",
           "filter": "appointable"
+        },
+        "qr": {
+          "type": "image",
+          "multiLanguage": true,
+          "path": "pth_C4_S7_QR",
+          "x": 1000,
+          "y": 556
         }
   }
   }
