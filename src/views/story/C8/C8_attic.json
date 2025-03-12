@@ -40,7 +40,7 @@
         },
         "computer" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_computer",
             "x": 411,
             "y": 295,
             "width": 160,
@@ -54,9 +54,9 @@
         },
         "window" : {
             "type": "activeArea",
-            "text": null,
-            "x": 200,
-            "y": 120,
+            "text": "lbl_watch_the_storm",
+            "x": 700,
+            "y": 270,
             "width": 160,
             "height": 200,
             "color": "#e65939",
@@ -85,8 +85,8 @@
         "trivia":{
           "type": "trivia",
           "text": "Cynaracardunculusvarareophila",
-          "x": 831,
-          "y": 200,
+          "x": 275,
+          "y": 110,
           "width": 50,
           "height": 50,
           "color": "white",

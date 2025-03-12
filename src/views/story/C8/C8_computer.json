@@ -106,7 +106,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C8_middlecorner",
+            "action": "C8_attic",
             "filter": "appointable"
           }
     }

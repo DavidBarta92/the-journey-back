@@ -40,15 +40,15 @@
           },
         "store" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_store",
             "x": 25,
             "y": 245,
             "width": 160,
             "height": 280,
-            "color": "white",
+            "color": "#e65939",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter" : "appointable",
             "actionType": "setContent",
             "action": "C7_2_store"
         },

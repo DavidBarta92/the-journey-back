@@ -48,7 +48,7 @@
             "color": "#e65939",
             "font": "Arial",
             "fontSize": 50,
-            "filter" : null,
+            "filter" : "appointable",
             "actionType": "setContent",
             "action": "C8_consoleRoom_1"
         },

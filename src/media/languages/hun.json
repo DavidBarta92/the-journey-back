@@ -4,7 +4,7 @@
     "txt_trivia_list" : "Trivia lista",
     "btn_yes" : "  Igen",
     "btn_no" : "  Nem",
-    "txt_beta" : "v0.9.3",
+    "txt_beta" : "v0.9.4",
     "btn_start" : "  KEZDÉS",
     "btn_newGame" : "  Új játék",
     "btn_continue" : "  Folytatás",
@@ -859,6 +859,8 @@
     "lbl_roundroom" : "    csillagvizsgalo",
     "lbl_mainhall" : "    orvosi szoba",
     "lbl_way_to_base" : "    vissza a bazisra",
-    "map_isnside_title" : "alaprajz"
+    "map_isnside_title" : "alaprajz",
+    "lbl_watch_the_storm" : "    nezd a vihart",
+    "lbl_store" : "    tarolo"
 
 }

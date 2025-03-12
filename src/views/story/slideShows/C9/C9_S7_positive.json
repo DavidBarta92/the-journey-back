@@ -1,6 +1,6 @@
 {
     "name" : "C9_S7_positive",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/c9_S7a.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -8,93 +8,16 @@
     "music" : "",
     "atmo" : "",
     "elements" : {
-"dia_C9_S10_1": {
-            "type": "text",
-            "text": "dia_C9_S7_1",
-            "x": 160,
-            "y": 160,
-            "width": 70,
-            "height": 20,
-            "rotate": 2,
-            "color": "white",
-            "font": "Larabie",
-            "fontSize": 30,
-            "border": false,
-            "filter": null
-        },
-          "route": {
-            "type": "text",
-            "text": "route",
-            "x": 160,
-            "y": 200,
-            "width": 70,
-            "height": 20,
-            "rotate": 2,
-            "color": "white",
-            "font": "Larabie",
-            "fontSize": 20,
-            "border": false,
-            "filter": null
-        },
-          "dia_C9_S10_2": {
-            "type": "text",
-            "text": "dia_C9_S7_2",
-            "x": 160,
-            "y": 230,
-            "textBoxEnd": 750,
-            "width": 70,
-            "height": 20,
-            "rotate": 0,
-            "color": "white",
-            "font": "Larabie",
-            "fontSize": 16,
-            "border": false,
-            "filter": null
-        },
-          "weather": {
-            "type": "text",
-            "text": "weather",
-            "x": 160,
-            "y": 340,
-            "width": 70,
-            "height": 20,
-            "rotate": 2,
-            "color": "white",
-            "font": "Larabie",
-            "fontSize": 20,
-            "border": false,
-            "filter": null
-        },
-          "dia_C9_S10_3": {
-            "type": "text",
-            "text": "dia_C9_S7_3",
-            "x": 160,
-            "y": 370,
-            "textBoxEnd": 750,
-            "width": 70,
-            "height": 20,
-            "rotate": 0,
-            "color": "white",
-            "font": "Larabie",
-            "fontSize": 16,
-            "border": false,
-            "filter": null
-        },
-        "next": {
-            "type": "button",
-            "text": "btn_go",
-            "x": 346,
-            "y": 650,
-            "width": 70,
-            "height": 20,
-            "rotate": 0,
-            "color": "white",
-            "font": "Rounded",
-            "fontSize": 24,
-            "border": false,
-            "actionType": "setToDrive",
-            "action": "positive_C9_desert",
-            "filter": "appointable"
-          }
+      "empty_object": {
+        "type": "empty_object",
+        "border": false,
+        "filter": null
+      }
+    },
+    "timer" : {
+        "time": 10000,
+        "actionType": "setContent",
+        "action": "C9_S8_positive",
+        "allowed" : true
     }
     }

@@ -3,8 +3,8 @@
     "pth_C4_S7_QR" : "../src/media/images/kosztolanyi_eng.png",
     "txt_trivia_list" : "List of trivias",
     "btn_yes": "  Yes",
-    "btn_no": "  No",s
-    "txt_beta": "v0.9.3",
+    "btn_no": "  No",
+    "txt_beta": "v0.9.4",
     "btn_start": "  START",
     "btn_newGame": "  New Game",
     "btn_continue": "  Continue",
@@ -855,6 +855,7 @@
     "lbl_turn_off": "   power off",
     "lbl_roundroom": "   observatory",
     "lbl_mainhall": "   medical room",
-    "map_isnside_title": "floor plan"
-
+    "map_isnside_title": "floor plan",
+    "lbl_watch_the_storm" : "    watch the storm",
+    "lbl_store" : "    store"
 }

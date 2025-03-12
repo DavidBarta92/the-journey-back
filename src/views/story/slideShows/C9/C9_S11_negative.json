@@ -1,5 +1,5 @@
 {
-    "name" : "C9_S10_positive",
+    "name" : "C9_S11_negative",
     "backgroundPath" : "../src/media/images/c9_S10.png",
     "spritesPath" : "",
     "itemsPath" : "",
@@ -17,7 +17,7 @@
   "timer" : {
       "time": 10000,
       "actionType": "setContent",
-      "action": "C9_S11_positive",
+      "action": "C9_S12_negative",
       "allowed" : true
   }
-}
+    }

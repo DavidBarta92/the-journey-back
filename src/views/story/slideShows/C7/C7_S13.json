@@ -1,6 +1,6 @@
 {
     "name" : "C7_S13",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/C7_S13_bg.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

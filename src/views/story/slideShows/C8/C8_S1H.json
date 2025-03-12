@@ -1,6 +1,6 @@
 {
     "name" : "C8_S1H",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/C8_S1H.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
