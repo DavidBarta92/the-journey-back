@@ -81,14 +81,22 @@ var Draw = (function(){
                     context.drawImage(
                         spritesheet,
                         i * spriteWidth, // X koordináta a spritesheet-en (minden karakter 8 pixel széles)
-                        0,               // Y koordináta a spritesheet-en (feltételezve, hogy az első sorban vannak)
+                        16,               // Y koordináta a spritesheet-en (feltételezve, hogy az első sorban vannak)
                         spriteWidth, spriteHeight, // Vágási méret (8x8)
                         curX, pos.y,               // Rajzolási pozíció (X, Y)
                         spriteWidth, spriteHeight  // Rajzolási méret (8x8)
                     );
                     curX += spriteWidth + spacing; // Mozgatás jobbra
                 } else {
-                    console.log(`Skipping sprite at index ${i} (state.items[${i}] is false)`);
+                    context.drawImage(
+                        spritesheet,
+                        0, 
+                        32,             
+                        spriteWidth, spriteHeight, 
+                        curX, pos.y,               
+                        spriteWidth, spriteHeight  
+                    );
+                    curX += spriteWidth + spacing;
                 }
             }
         };
@@ -322,8 +330,32 @@ var Draw = (function(){
     
         context.closePath();
     };
-    
 
+    const writeChapterList = function ( 
+        element,
+        actualChapterText
+    ) {
+        const { x, y } = element;
+        
+        const wordsArray = ["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", "C11"];
+        
+        context.beginPath();
+        let currentX = x;
+        let currentY = y-30;
+        
+        for (const word of wordsArray) {
+            let isHighlighted = actualChapterText.includes(word);
+            context.font = (isHighlighted ? "28px" : "12px") + " Akira";
+            context.fillStyle = isHighlighted ? "white" : "black";
+            
+            context.fillText(word, currentX, currentY);
+            currentX += context.measureText(word).width+10;
+            context.shadowBlur = 0;
+        }
+        
+        context.closePath();
+    };
+    
     const drawString = function(string, pos, vertical = false) {
         string = string.toUpperCase(); // Minden esetben nagybetűsítjük a szöveget
         var spritesheet = new Image();
@@ -359,8 +391,8 @@ var Draw = (function(){
     };
 
     const drawBackground = function(positionX, positionY, image, w = 1, h = 1) {
-        var positionXmod = positionX / 20 % (image.width);
-        var positionYmod = positionY / 20 % (image.height);
+        var positionXmod = positionX / 50 % (image.width);
+        var positionYmod = positionY / 50 % (image.height);
         drawPrimImage(image, positionXmod + 700, positionYmod, w, h);
     }
 
@@ -461,10 +493,10 @@ var Draw = (function(){
         
         currentTimeString = ""+min+":"+sec+":"+mili;
 
-        drawString(currentTimeString, {x: 1230, y: 345});
+        drawString(currentTimeString, {x: 286, y: 624});
 
         var speed = Math.round((player.speed / player.maxSpeed * 200) / 6 );
-        drawString(""+speed+"mph", {x: 1230, y: 420});
+        drawString(""+speed+"mph", {x: 286, y: 654});
     }
 
     const drawRect = function(rotationAngle) {
@@ -693,7 +725,6 @@ var Draw = (function(){
             return renderSlideHUD(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render);
         },
 
-
         renderMapHUD: function(hud, circle, dot, targetPoints, angle, carTriangle){
             return renderMapHUD(hud, circle, dot, targetPoints, angle, carTriangle);
         },
@@ -713,12 +744,24 @@ var Draw = (function(){
         },
 
         drawSlideText: function(positionX, textImage){
-            var positionY = 8; 
+            var positionY = 8;
             return drawBackground(positionX, positionY, textImage, 2.2, 2.2);
         },
 
         sprite: function(sprite){
             return drawSprite(sprite);
+        },
+
+        drawImageElement: function(element){
+            const image = new Image();
+            if(element[1].multiLanguage){
+                var path = languageFile[element[1].path];
+                if(path == null) return null;
+                image.src = path;
+            } else {
+                image.src = element[1].path;
+            }
+            return context.drawImage(image, element[1].x, element[1].y );
         },
 
         carTop: function(rotationAngle){
@@ -735,6 +778,7 @@ var Draw = (function(){
         
         chapter: function(element){
             element[1].text = state.chapter.goal;
+            writeChapterList(element[1],state.chapter.goal);
             writeText(element[1], (element[1].x + element[1].textBoxEnd));
         }
         }

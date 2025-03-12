@@ -1,6 +1,6 @@
 {
     "name" : "C5_S11",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/info.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -40,8 +40,8 @@
         "next": {
             "type": "button",
             "text": "btn_next",
-            "x": 346,
-            "y": 650,
+            "x": 160,
+            "y": 550,
             "width": 70,
             "height": 20,
             "rotate": 0,

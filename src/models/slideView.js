@@ -9,6 +9,8 @@ import Timer from "./timer.js";
 import Draw from "./draw.js";
 import Sound from "./sound.js";
 
+const infoImage = new Image();
+infoImage.src = "../src/media/images/infobox_keyboard.png";
 var backgroundImage = new Image();
 var textImage = new Image();
 var spritesheet = new Image();
@@ -16,6 +18,7 @@ var hud = new Image();
 var currentDialogueImage = new Image();
 var contentContainer;
 var noiseVolume = 0;
+var languageFile;
 
 export const Slide = (function(){
     var pause = false;
@@ -87,7 +90,7 @@ export const Slide = (function(){
         contentContainer = dataController.loadContent(state);
         spritesheet.src = contentContainer.spritesPath;
         backgroundImage.src = contentContainer.backgroundPath;
-        textImage.src = contentContainer.textPath;
+        textImage.src = getImageByLanguage(contentContainer.textPath);
         hud.src = contentContainer.hud;
 
         if(contentContainer.hasOwnProperty('cursor') && !contentContainer.cursor) document.body.style.cursor = 'none';
@@ -110,12 +113,12 @@ export const Slide = (function(){
         var ctxFromD = Filter.dither(ctxForDither, ditherParams);
         context.putImageData(ctxFromD, 0, 0);
 
-        Draw.drawSlideText(+((player.posx)*10),textImage);
-
+        Draw.drawSlideText(+((player.posx)*3),textImage);
         setActionByAbsoluteIndex();
  
         Draw.renderSlideHUD(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render);
-        // drawElements(contentContainer.elements);
+        drawElements(contentContainer.elements);
+        context.drawImage(infoImage, 100, 620);
     }
 
     ///////////////////////////////////////////////////////////////////////
@@ -157,15 +160,13 @@ export const Slide = (function(){
     }
 
     const setState = function(){
-        player.posx = 0;
-        if (contentContainer.end.actionType === "setToClickView") {
+        player.posx = 11;
             stateManager.setView('story');
-            stateManager.setContent(contentContainer.end.action);
+            stateManager.setContent("C6_S1");
             gameCanvas.clear();
             clearInterval(gameInterval);
             RenderManager.render();
             return;
-        }
     }
 
     //draw all visible elements on the view
@@ -179,22 +180,7 @@ export const Slide = (function(){
                     
                 }
                 if (element[1].type === 'button' || element[1].type === 'text'){
-                    //if (element[1].hasOwnProperty('buttonKey')) drawPessKey(element[1].buttonKey);
-
                     Draw.writeText(element, (element[1].x + element[1].textBoxEnd));
-                    
-                    //only buttons have border
-                    if(element[1].hasOwnProperty('border') && element[1].border){
-                        var width = context.measureText(element[1].text).width + 2 * (element[1].fontSize / 10);
-                        var buttonTopLeftX = element[1].x - element[1].fontSize / 10;
-                        var buttonTopLeftY = element[1].y - element[1].fontSize + element[1].fontSize / 10;
-                        context.beginPath();
-                        //context.arc(buttonTopLeftX,buttonTopLeftY,element[1].fontSize/2,180,Math.PI, false);
-                        context.strokeStyle = element[1].color;
-                        context.lineWidth = 2;
-                        context.rect(buttonTopLeftX, buttonTopLeftY, width, element[1].fontSize);
-                        context.stroke();
-                    }
                 }
             });
         });
@@ -202,16 +188,16 @@ export const Slide = (function(){
     }
 
     const setActionByAbsoluteIndex = function(){
-        if(player.posx < -4000){
+        if(player.posx < -4000 || player.posx > 0){
             setState();
         }
     }
 
-    const exit = function() {
-        clearInterval(gameInterval);
-        stateManager.setView('menu');
-        stateManager.setContent('main');
-        RenderManager.render();
+    const getImageByLanguage = function(textPath) {
+        state = dataController.loadState();
+        languageFile = dataController.loadLanguageFile(state);
+        const path = languageFile[textPath];
+        return path;
     }
     
     return {
@@ -223,9 +209,6 @@ export const Slide = (function(){
             } else {
                 gameInterval = setInterval(renderGameFrame, 1);
             }
-        },
-        exit: function(){
-            exit();
         },
         updateCarState: function(){
             player.updateCarState(lastDelta);

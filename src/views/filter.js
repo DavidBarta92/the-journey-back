@@ -7,9 +7,8 @@ var Filter = (function () {
   var r = Math.random
 
   var dropPos = []
-
   const canvas = gameCanvas.getCanvas();
-
+  const blurredImageData = new ImageData(canvas.width,canvas.height);
   var render = gameCanvas.getParams()
   const offscreenContext = gameCanvas.getOffscreenContext()
 
@@ -169,7 +168,6 @@ var Filter = (function () {
     const width = imageData.width;
     const height = imageData.height;
 
-    const blurredImageData = new ImageData(width, height);
     blurredImageData.data.set(imageData.data);
 
     return StackBlur.imageDataRGBA(imageData,0,0, width, height, 5);

@@ -48,6 +48,9 @@ export const Driver = (function(){
         }
     }
 
+    const infoImage = new Image();
+    infoImage.src = "../src/media/images/infobox_keyboard.png";
+
     var state = state;
     var canvas;
     var context;
@@ -379,6 +382,13 @@ export const Driver = (function(){
                 }
                 if (element[1].type === 'rock_1') {
                     
+                }
+
+                if (element[1].type === 'infoImage'){
+                    context.drawImage(infoImage, 850, 654);
+                }
+                if (element[1].type === 'image'){
+                    Draw.drawImageElement(element);
                 }
                 if (element[1].type === 'button' || element[1].type === 'text'){
                     //if (element[1].hasOwnProperty('buttonKey')) drawPessKey(element[1].buttonKey);

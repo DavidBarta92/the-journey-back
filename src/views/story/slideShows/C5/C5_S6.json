@@ -1,6 +1,6 @@
 {
     "name" : "C5_S6",
-    "backgroundPath" : "../src/media/images/C6_S1_bg.b64",
+    "backgroundPath" : "../src/media/images/c5s6.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -34,7 +34,7 @@
             "color": "white",
             "font": "Inconsolata",
             "textBoxEnd": 200,
-            "fontSize": 20,
+            "fontSize": 18,
             "border": false,
             "filter": null
           }
