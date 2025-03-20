@@ -6,7 +6,7 @@
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "",
-    "atmo" : "../src/media/sounds/car_atmo.mp3",
+    "atmo" : "../src/media/sounds/car_atmo2.mp3",
     "elements" : {
         "dial1": {
             "type": "text",
@@ -28,6 +28,7 @@
         "time": 10000,
         "actionType": "setContent",
         "action": "C8_S1B",
+        "sound" : "../src/media/sounds/thunder.mp3",
         "allowed" : true
     }
     }

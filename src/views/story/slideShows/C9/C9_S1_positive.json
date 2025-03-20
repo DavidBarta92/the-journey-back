@@ -5,14 +5,39 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "",
-    "atmo" : "",
+    "music" : "../src/media/sounds/ross_harmonium.mp3",
+    "atmo" : "../src/media/sounds/sandstorm2.mp3",
     "elements" : {
-        "empty_object": {
-            "type": "empty_object",
+        "chapter": {
+            "type": "text",
+            "text": "C9_title",
+            "x": 1175,
+            "y": 650,
+            "vertical" : true,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "black",
+            "font": "Akira",
+            "fontSize": 70,
             "border": false,
             "filter": null
-          }
+        },
+        "goal": {
+            "type": "text",
+            "text": "C9_goal",
+            "x": 1215,
+            "y": 650,
+            "vertical" : true,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "black",
+            "font": "Rounded",
+            "fontSize": 25,
+            "border": false,
+            "filter": null
+        }
     },
     "timer" : {
         "time": 10000,
