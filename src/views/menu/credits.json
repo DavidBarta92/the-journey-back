@@ -1,7 +1,7 @@
 {
   "name": "credits",
   "backgroundPath": "",
-  "middlegroundPath": "../src/media/images/creditsbg.b64",
+  "middlegroundPath": "../src/media/images/main_menu.png",
   "spritesPath": "",
   "dialogue": "",
   "filter" : "",
