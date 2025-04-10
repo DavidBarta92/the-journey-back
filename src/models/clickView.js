@@ -208,6 +208,9 @@ const drawElements = function(elements) {
             };
             if (element[1].type === 'video'){
                 context.drawImage(video, element[1].x, element[1].y, video.videoWidth, video.videoHeight);
+                var ctxForDither = context.getImageData(0, 0, render.width, render.height);
+                var ctxFromD = Filter.dither(ctxForDither);
+                context.putImageData(ctxFromD, 0, 0);
                 if(video.ended === false) animationDone = false;
             }
             if (element[1].type === 'infoImage' && Object.keys(interactives).length > 0){

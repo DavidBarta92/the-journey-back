@@ -1,5 +1,5 @@
 {
-    "name" : "C10_S3_mid",
+    "name" : "C10_S2_mid_op1",
     "backgroundPath" : "",
     "spritesPath" : "",
     "itemsPath" : "",
@@ -8,16 +8,16 @@
     "music" : "",
     "atmo" : "",
     "elements" : {
-        "empty_object": {
-            "type": "empty_object",
-            "border": false,
-            "filter": null
-          }
+      "empty_object": {
+        "type": "empty_object",
+        "border": false,
+        "filter": null
+      }
     },
     "timer" : {
         "time": 7000,
         "actionType": "setContent",
-        "action": "C11_S1_negative",
+        "action": "C11_S1",
         "allowed" : true
     }
     }

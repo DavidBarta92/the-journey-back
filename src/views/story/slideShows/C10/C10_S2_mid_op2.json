@@ -1,6 +1,6 @@
 {
-    "name" : "C10_S5_negative",
-    "backgroundPath" : "",
+    "name" : "C10_S2_mid_op2",
+    "backgroundPath" : "../src/media/images/c10_S2_negative.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -10,14 +10,14 @@
     "elements" : {
         "dial1": {
             "type": "text",
-            "text": "dia_C10_S5_negative_1",
-            "x": 219,
+            "text": "dia_C10_S5_mid_op2_1",
+            "x": 330,
             "y": 470,
             "textBoxEnd": 870,
             "width": 70,
             "height": 20,
             "rotate": 0,
-            "color": "white",
+            "color": "#dc3a15",
             "font": "Inconsolata",
             "fontSize": 20,
             "border": false,
@@ -25,14 +25,14 @@
           },
           "dial2": {
             "type": "text",
-            "text": "dia_C10_S5_negative_2",
-            "x": 219,
-            "y": 612,
+            "text": "dia_C10_S5_mid_op2_2",
+            "x": 330,
+            "y": 550,
             "textBoxEnd": 870,
             "width": 70,
             "height": 20,
             "rotate": 0,
-            "color": "white",
+            "color": "#dc3a15",
             "font": "Inconsolata",
             "fontSize": 20,
             "border": false,
@@ -42,7 +42,7 @@
     "timer" : {
         "time": 10000,
         "actionType": "setContent",
-        "action": "C11_S1",
+        "action": "C10_S3_mid",
         "allowed" : true
     }
     }

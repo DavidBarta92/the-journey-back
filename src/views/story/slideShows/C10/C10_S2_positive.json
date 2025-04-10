@@ -8,21 +8,11 @@
     "music" : "",
     "atmo" : "",
     "elements" : {
-        "dial3": {
-            "type": "text",
-            "text": "dia_C10_S2_positive_1",
-            "x": 219,
-            "y": 612,
-            "textBoxEnd": 870,
-            "width": 70,
-            "height": 20,
-            "rotate": 0,
-            "color": "white",
-            "font": "Inconsolata",
-            "fontSize": 20,
+        "empty_object": {
+            "type": "empty_object",
             "border": false,
             "filter": null
-          }
+        }
     },
     "timer" : {
         "time": 10000,
@@ -30,4 +20,4 @@
         "action": "C11_S1",
         "allowed" : true
     }
-    }
+}

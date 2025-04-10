@@ -1,0 +1,46 @@
+{
+  "name":"C11_S30_negative",
+  "backgroundPath" : "../src/media/images/C11_credits_1_bg.png",
+  "spritesPath":"",
+  "itemsPath":"",
+  "dialogue":"",
+  "filter":"fadeOn",
+  "music":"../src/media/sounds/ending2.mp3",
+  "atmo":"",
+  "elements":{
+     "dial1":{
+        "type":"text",
+        "text":"dia_credits_1_1",
+        "x":200,
+        "y":300,
+        "width":70,
+        "height":20,
+        "rotate":0,
+        "color":"white",
+        "font":"Inconsolata",
+        "fontSize":20,
+        "border":false,
+        "filter":null
+     },
+     "dial2":{
+        "type":"text",
+        "text":"dia_credits_1_2",
+        "x":200,
+        "y":400,
+        "width":70,
+        "height":20,
+        "rotate":0,
+        "color":"white",
+        "font":"Inconsolata",
+        "fontSize":20,
+        "border":false,
+        "filter":null
+     }
+  },
+  "timer":{
+     "time":13000,
+     "actionType":"setContent",
+     "action":"credits_2_negative",
+     "allowed":true
+  }
+}

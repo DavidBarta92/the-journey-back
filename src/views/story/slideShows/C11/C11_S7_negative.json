@@ -1,0 +1,28 @@
+{
+    "name" : "C11_S7_negative",
+    "backgroundPath" : "",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "../src/media/sounds/ending2.mp3",
+    "atmo" : "",
+    "elements" : {
+        "video": {
+            "type": "video",
+            "x": 0,
+            "y": 0,
+            "path" : "../src/media/videos/c11_negative.mp4",
+            "width": 70,
+            "height": 20,
+            "border": false,
+            "filter": null
+        }
+    },
+    "timer" : {
+        "time": 109900,
+        "actionType": "setContent",
+        "action": "C11_S30_negative",
+        "allowed" : true
+    }
+    }
