@@ -405,6 +405,6 @@
     },
     "end" : {
         "actionType": "setToClickView",
-        "action": "C9_S8_positive"
+        "action": "C9_C_S1_positive"
     }
     }

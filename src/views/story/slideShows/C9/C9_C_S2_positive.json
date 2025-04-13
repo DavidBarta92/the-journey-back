@@ -1,0 +1,33 @@
+{
+  "name" : "C9_C_S2_positive",
+  "backgroundPath" : "../src/media/images/C9_C_S2.png",
+  "spritesPath" : "",
+  "itemsPath" : "",
+  "dialogue" : "",
+  "filter" : "fadeOn",
+  "music" : "",
+  "atmo" : "",
+  "elements" : {
+      "dial1": {
+          "type": "text",
+          "text": "positive_C9_S8_2",
+          "x": 320,
+          "y": 553,
+          "textBoxEnd": 870,
+          "width": 70,
+          "height": 20,
+          "rotate": 0,
+          "color": "white",
+          "font": "Inconsolata",
+          "fontSize": 20,
+          "border": false,
+          "filter": null
+        }
+  },
+  "timer" : {
+      "time": 10000,
+      "actionType": "setContent",
+      "action": "C9_C_S3_positive",
+      "allowed" : true
+  }
+  }

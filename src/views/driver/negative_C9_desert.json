@@ -423,6 +423,6 @@
     },
     "end" : {
         "actionType": "setToClickView",
-        "action": "C9_S8_negative"
+        "action": "C9_C_S1_negative"
     }
     }
