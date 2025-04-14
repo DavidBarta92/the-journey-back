@@ -500,6 +500,10 @@
     "dia_C7_S18_1": "Teó: You’ve been to the Moon, right? Isn’t it the same there? I heard there are territorial battles over mining, just like in Antarctica. We carry the same mentality with us wherever we go. Why do we think things will end differently elsewhere?",
     "dia_C7_S19_1": "Aiza: Well, Grandpa... If you’re looking for people to blame, maybe you should start with your own responsibility. I really want to help, but that’ll only work if you face some things. I don’t want to hurt you, and I don’t want you to hurt yourself either. But you need to see that not everyone around you is evil, and it’s not that they always leave you behind. As long as you hide in this safe mourning, you’re actually abandoning everyone else. I had to come here, after years of not hearing from you. It’s okay... really, it is. But please, now it’s time to come back to us, step out of this swamp.",
 
+    "C8_radar2" : "AI: DANGER! A storm is approaching from the east. Evasion chance: 70% Current wind speed: 19 mph Temperature: 272 Kelvin",
+    "C8_radar3" : "AI: DANGER! A storm is approaching from the east. Evasion chance: 20% Current wind speed: 31 mph Temperature: 278 Kelvin",
+    "C8_radar4" : "AI: DANGER! A storm is approaching from the east. Evasion chance: 1% Current wind speed: 58 mph Temperature: 265 Kelvin",
+   
     "C8_title" : "C8_ROVER",
     "C8_goal" : "WAIT_FOR_THE_STORM_TO_END",
 
@@ -886,5 +890,8 @@
     "lbl_mainhall": "   medical room",
     "map_isnside_title": "floor plan",
     "lbl_watch_the_storm" : "    watch the storm",
-    "lbl_store" : "    store"
+    "lbl_store" : "    store",
+
+    "start_symbol1": "Where you see this symbol, you can only move forward using the arrows. In these places, you cannot exit to the menu.",
+    "start_symbol2": "In places where this symbol is visible, you can proceed by clicking with the mouse. You need to click on the locations marked with red squares or the buttons marked in red. To open the menu, press the Esc key."
 }

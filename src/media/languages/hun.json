@@ -500,6 +500,10 @@
     "dia_C7_S18_1": "Teó: Voltál a holdon igaz? Nem ugyan az megy ott is? Azt hallottam területi harcok dúlnak a bányászatért, akár csak az Anktartiszon. Ugyanazt a mentalitást visszük magunkal, bárhova is megyünk. Miért gondoljuk, hogy máshol majd más vége lesz?",
     "dia_C7_S19_1": "Aiza: Hát nagypapa... Ha már felelősöket keresel, lehet a salyát felelősségeddel kellene kezdeni. Igazán szeretnék segíteni, de csak úgy fog menni, ha szembenézel bizonyos dolgokkal. Nem bántani akarlak és azt sem akarom hogy te magadat bántsd. De látnod kell, hogy nem lehet mindenki gonosz körülötted, nem arról van szó, hogy téged hagynak mindig cserben. Amíg ebbe a biztonságos gyászba menekülsz, valójában te hagysz magára mindenkit. Ide is nekem kellett eljönnöm, miután évekig nem is hallottunk rólad. Nem baj... tényleg nem az. De kérlek most már tényleg térj vissza közénk, lépj ki ebből a mocsárból.",
 
+    "C8_radar2" : "AI: VESZÉLY! Keleti irányból vihar közelít. Elkerülési esély: 70% Aktuális szél sebesség: 19 mph Hőmérsékelt: 272 Kelvin",
+    "C8_radar3" : "AI: VESZÉLY! Keleti irányból vihar közelít. Elkerülési esély: 20% Aktuális szél sebesség: 31 mph Hőmérsékelt: 278 Kelvin",
+    "C8_radar4" : "AI: VESZÉLY! Keleti irányból vihar közelít. Elkerülési esély: 1% Aktuális szél sebesség: 58 mph Hőmérsékelt: 265 Kelvin",
+
     "C8_title" : "C8_ROVER",
     "C8_goal" : "VÁRD_KI_A_VIHAR_VÉGÉT",
 
@@ -886,6 +890,8 @@
     "lbl_way_to_base" : "    vissza a bazisra",
     "map_isnside_title" : "alaprajz",
     "lbl_watch_the_storm" : "    nezd a vihart",
-    "lbl_store" : "    tarolo"
+    "lbl_store" : "    tarolo",
 
+    "start_symbol1": "Ahol ezt a jelülést látod, ott csak a nyilak segítségével tudsz előrehaladni. Ezeken a helyeken nem tudsz kilépni a menübe.",
+    "start_symbol2": "Azokon a helyeken, ahol ez a jelölés látható, az egérrel kattintve tudsz továbbhaladni. A vörös négyzetekkel megjelölt helyekre kell kattintanod vagy a vörös színnel jelzett gombokra. A menü megnyitásához az Esc billentyűt kell megnyomni."
 }

@@ -49,17 +49,6 @@
             "actionType": "setContent",
             "action": "C8_cockpit"
         },
-        "bedroom" : {
-            "type": "activeArea",
-            "text": "lbl_bedroom",
-            "x": 1100,
-            "y": 230,
-            "width": 150,
-            "height": 300,
-            "filter": "appointable",
-            "actionType": "setContent",
-            "action": "C8_bedroom"
-        },
         "window" : {
             "type": "activeArea",
             "text": "lbl_window",
