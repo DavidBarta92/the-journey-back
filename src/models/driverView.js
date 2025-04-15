@@ -368,6 +368,7 @@ export const Driver = (function(){
             gameCanvas.clear();
             interactives = {};
             clearInterval(gameInterval);
+            player.setInit();
             RenderManager.render();
             return;
         }

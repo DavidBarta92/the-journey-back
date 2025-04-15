@@ -258,6 +258,7 @@ export const Map = (function(){
             stateManager.setContent(point.action);
             gameCanvas.clear();
             clearInterval(gameInterval);
+            player.setInit();
             RenderManager.render();
             return;
         }
