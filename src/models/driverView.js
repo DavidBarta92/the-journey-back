@@ -123,7 +123,7 @@ export const Driver = (function(){
         const delta = player.updateCarState(baseOffset);
         handleSpeedAndPosition(keys, delta);
 
-        Draw.drawBackground(+((player.posx)*0.6),backgroundImage);
+        Draw.drawBackground(+((player.posx)*1.0),backgroundImage);
         
         renderRoad();
  
@@ -368,6 +368,7 @@ export const Driver = (function(){
             gameCanvas.clear();
             interactives = {};
             clearInterval(gameInterval);
+            player.setInit();
             RenderManager.render();
             return;
         }

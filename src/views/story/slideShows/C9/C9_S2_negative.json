@@ -1,12 +1,12 @@
 {
     "name" : "C9_S2_negative",
-    "backgroundPath" : "../src/media/images/C9_S2_negative.png",
+    "backgroundPath" : "../src/media/images/c9_S2.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "",
-    "atmo" : "",
+    "music" : "../src/media/sounds/ross_harmonium.mp3",
+    "atmo" : "../src/media/sounds/sandstorm2.mp3",
     "elements" : {
         "empty_object": {
             "type": "empty_object",

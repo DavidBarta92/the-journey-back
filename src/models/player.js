@@ -19,6 +19,19 @@ export const player = {
         }
       
         return player.delta;
+    },
+
+    setInit: function() {
+      player.position = 10;
+      player.speed = 0;
+      player.acceleration = 0.05;
+      player.deceleration = 0.3;
+      player.breaking = 0.6;
+      player.turning = 8.0;
+      player.posx = 0;
+      player.posy = 0;
+      player.maxSpeed = 5;
+      player.delta = 0;
     }
 
 };

@@ -1,6 +1,6 @@
 {
     "name" : "C1_S3",
-    "backgroundPath" : "../src/media/images/C1_S3_bg.b64",
+    "backgroundPath" : "../src/media/images/C1_S3_bg.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",

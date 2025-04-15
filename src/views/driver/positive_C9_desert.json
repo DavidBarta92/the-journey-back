@@ -14,7 +14,7 @@
         "length": 8,
         "curvy" : 0.9,
         "mountainy" : 0.8,
-        "zoneSize" : 440
+        "zoneSize" : 200
     },
     "elements" : {
         "dialogue" : {
@@ -62,7 +62,7 @@
                         },
                         "image":""
                     },
-                    "1050" : {
+                    "240" : {
                         "text": {
                             "type": "text",
                             "text": "positive_dia_C9_driver1",
@@ -80,7 +80,7 @@
                         },
                         "image":"../src/media/images/de_serious.png"
                     },
-                    "1110" : {
+                    "350" : {
                         "text": {
                             "type": "text",
                             "text": "positive_dia_C9_driver2",
@@ -98,25 +98,7 @@
                         },
                         "image":"../src/media/images/dd_serious.png"
                     },
-                    "1180" : {
-                        "text": {
-                            "type": "text",
-                            "text": "",
-                            "x": 959,
-                            "y": 250,
-                            "width": 70,
-                            "height": 20,
-                            "rotate": 0,
-                            "textBoxEnd": 300,
-                            "color": "white",
-                            "font": "Inconsolata",
-                            "fontSize": 18,
-                            "border": false,
-                            "filter": null
-                        },
-                        "image":""
-                    },
-                    "1280" : {
+                    "420" : {
                         "text": {
                             "type": "text",
                             "text": "positive_dia_C9_driver3",
@@ -134,25 +116,7 @@
                         },
                         "image":"../src/media/images/de_serious.png"
                     },
-                    "1410" : {
-                        "text": {
-                            "type": "text",
-                            "text": "",
-                            "x": 959,
-                            "y": 250,
-                            "width": 70,
-                            "height": 20,
-                            "rotate": 0,
-                            "textBoxEnd": 300,
-                            "color": "white",
-                            "font": "Inconsolata",
-                            "fontSize": 18,
-                            "border": false,
-                            "filter": null
-                        },
-                        "image":""
-                    },
-                    "1510" : {
+                    "490" : {
                         "text": {
                             "type": "text",
                             "text": "positive_dia_C9_driver4",
@@ -170,7 +134,25 @@
                         },
                         "image":"../src/media/images/dd_serious.png"
                     },
-                    "1700" : {
+                    "520" : {
+                        "text": {
+                            "type": "text",
+                            "text": "",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "620" : {
                         "text": {
                             "type": "text",
                             "text": "positive_dia_C9_driver5",
@@ -188,7 +170,25 @@
                         },
                         "image":"../src/media/images/de_serious.png"
                     },
-                    "1950" : {
+                    "640" : {
+                        "text": {
+                            "type": "text",
+                            "text": "",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":""
+                    },
+                    "700" : {
                         "text": {
                             "type": "text",
                             "text": "positive_dia_C9_driver6",
@@ -206,25 +206,7 @@
                         },
                         "image":"../src/media/images/dd_serious.png"
                     },
-                    "1995" : {
-                        "text": {
-                            "type": "text",
-                            "text": "",
-                            "x": 959,
-                            "y": 250,
-                            "width": 70,
-                            "height": 20,
-                            "rotate": 0,
-                            "textBoxEnd": 300,
-                            "color": "white",
-                            "font": "Inconsolata",
-                            "fontSize": 18,
-                            "border": false,
-                            "filter": null
-                        },
-                        "image":""
-                    },
-                    "2050" : {
+                    "830" : {
                         "text": {
                             "type": "text",
                             "text": "positive_dia_C9_driver7",
@@ -242,7 +224,7 @@
                         },
                         "image":"../src/media/images/de_serious.png"
                     },
-                    "2170" : {
+                    "900" : {
                         "text": {
                             "type": "text",
                             "text": "",
@@ -260,7 +242,7 @@
                         },
                         "image":""
                     },
-                    "2260" : {
+                    "950" : {
                         "text": {
                             "type": "text",
                             "text": "positive_dia_C9_driver8",
@@ -276,9 +258,9 @@
                             "border": false,
                             "filter": null
                         },
-                        "image":"../src/media/images/de_serious.png"
+                        "image":"../src/media/images/dd_serious.png"
                     },
-                    "2320" : {
+                    "990" : {
                         "text": {
                             "type": "text",
                             "text": "positive_dia_C9_driver9",
@@ -296,7 +278,7 @@
                         },
                         "image":"../src/media/images/de_serious.png"
                     },
-                    "2420" : {
+                    "1070" : {
                         "text": {
                             "type": "text",
                             "text": "positive_dia_C9_driver10",
@@ -312,27 +294,9 @@
                             "border": false,
                             "filter": null
                         },
-                        "image":"../src/media/images/de_serious.png"
+                        "image":"../src/media/images/dd_serious.png"
                     },
-                    "2500" : {
-                        "text": {
-                            "type": "text",
-                            "text": "",
-                            "x": 959,
-                            "y": 250,
-                            "width": 70,
-                            "height": 20,
-                            "rotate": 0,
-                            "textBoxEnd": 300,
-                            "color": "white",
-                            "font": "Inconsolata",
-                            "fontSize": 18,
-                            "border": false,
-                            "filter": null
-                        },
-                        "image":""
-                    },
-                    "2570" : {
+                    "1200" : {
                         "text": {
                             "type": "text",
                             "text": "positive_dia_C9_driver11",
@@ -348,12 +312,30 @@
                             "border": false,
                             "filter": null
                         },
-                        "image":""
+                        "image":"../src/media/images/dd_serious.png"
                     },
-                    "2610" : {
+                    "1310" : {
                         "text": {
                             "type": "text",
                             "text": "positive_dia_C9_driver12",
+                            "x": 959,
+                            "y": 250,
+                            "width": 70,
+                            "height": 20,
+                            "rotate": 0,
+                            "textBoxEnd": 300,
+                            "color": "white",
+                            "font": "Inconsolata",
+                            "fontSize": 18,
+                            "border": false,
+                            "filter": null
+                        },
+                        "image":"../src/media/images/de_serious.png"
+                    },
+                    "1350" : {
+                        "text": {
+                            "type": "text",
+                            "text": "",
                             "x": 959,
                             "y": 250,
                             "width": 70,
@@ -423,6 +405,6 @@
     },
     "end" : {
         "actionType": "setToClickView",
-        "action": "C9_S8_positive"
+        "action": "C9_C_S1_positive"
     }
     }

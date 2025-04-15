@@ -1,18 +1,18 @@
 {
     "name" : "C8_S1F",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/C8_S1F.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "",
-    "atmo" : "../src/media/sounds/car_atmo.mp3",
+    "music" : "../src/media/sounds/sandstorm1.mp3",
+    "atmo" : "",
     "elements" : {
         "dial1": {
             "type": "text",
             "text": "dia_C8_S1F_1",
             "x": 219,
-            "y": 470,
+            "y": 670,
             "textBoxEnd": 1170,
             "width": 70,
             "height": 20,

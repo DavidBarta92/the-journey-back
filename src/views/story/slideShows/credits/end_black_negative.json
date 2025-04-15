@@ -1,0 +1,23 @@
+{
+    "name" : "end_black_negative",
+    "backgroundPath" : "../src/media/images/black.b64",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "../src/media/sounds/ending2.mp3",
+    "atmo" : "",
+    "elements" : {
+      "empty_object": {
+            "type": "empty_object",
+            "border": false,
+            "filter": null
+          }
+    },
+    "timer" : {
+      "time": 4000,
+      "actionType": "setContent",
+        "action": "endScreen",
+        "allowed" : true
+    }
+    }

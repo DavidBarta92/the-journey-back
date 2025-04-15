@@ -5,7 +5,7 @@
     "backgroundPath" : "../src/media/images/strmp.png",
     "textPath" : "../src/media/images/driver-text.png",
     "spritesPath" : "../src/media/images/spritesheet.high.png",
-    "hud" : "../src/media/images/mpHUD.png",
+    "hud" : "../src/media/images/C9_mpHUD3_negative.png",
     "itemsPath" : "",
     "dialogue" : "david",
     "targetPoints" : {

@@ -5,7 +5,7 @@
     "dialogue":null,
     "filter":"",
     "music" : "",
-    "atmo" : "../src/media/sounds/car_atmo.mp3",
+    "atmo" : "../src/media/sounds/car_atmo2.mp3",
     "elements":{
       "chapter": {
         "type": "text",

@@ -1,6 +1,6 @@
 {
     "name" : "C4_S11",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/c4s11.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
