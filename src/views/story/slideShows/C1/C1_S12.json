@@ -6,7 +6,7 @@
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "../src/media/sounds/inclusion.mp3",
-    "atmo" : "",
+    "atmo" : "../src/media/sounds/radio.wav",
     "elements" : {
         "Thomas": {
             "type": "text",

@@ -64,6 +64,7 @@
             "color": "white",
             "font": "Arial",
             "fontSize": 50,
+            "sound" : "../src/media/sounds/trivia.wav",
             "actionType":"setToMenu",
             "action":"trivia_A_4",
             "filter" : "appointable"

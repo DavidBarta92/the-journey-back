@@ -5,7 +5,7 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "",
+    "music" : "../src/media/sounds/sunset_intro.mp3",
     "atmo" : "",
     "escAllowed" : false,
     "elements" : {

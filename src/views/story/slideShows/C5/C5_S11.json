@@ -6,7 +6,7 @@
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "../src/media/sounds/vents_magnetiques.mp3",
-    "atmo" : "",
+    "atmo" : "../src/media/sounds/car_atmo.mp3",
     "elements" : {
         "dia_C5_S11_1": {
             "type": "text",

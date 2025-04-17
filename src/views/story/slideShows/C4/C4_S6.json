@@ -33,15 +33,15 @@
             "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
-            "textBoxEnd": 400,
+            "textBoxEnd": 360,
             "border": false,
             "filter": null
           },
           "next": {
             "type": "button",
             "text": "btn_next",
-            "x": 720,
-            "y": 650,
+            "x": 1120,
+            "y": 250,
             "width": 70,
             "height": 20,
             "rotate": 0,

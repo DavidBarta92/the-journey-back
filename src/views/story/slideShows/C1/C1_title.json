@@ -6,12 +6,12 @@
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "../src/media/sounds/inclusion.mp3",
-    "atmo" : "",
+    "atmo" : "../src/media/sounds/radio.wav",
     "elements" : {
         "title": {
             "type": "text",
             "text": "The Journey Back",
-            "x": 400,
+            "x": 360,
             "y": 300,
             "width": 70,
             "height": 20,

@@ -5,8 +5,8 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "",
-    "atmo" : "",
+    "music" : "../src/media/sounds/sunset_intro.mp3",
+    "atmo" : "../src/media/sounds/sunset_intro_2.mp3",
     "escAllowed" : false,
     "elements" : {
         "text": {
@@ -53,12 +53,29 @@
             "fontSize": 20,
             "border": false,
             "filter": null
-          }
+          },
+          "btn_next": {
+            "type": "button",
+            "text": "btn_next",
+            "fx": "",
+            "x": 60,
+            "y": 600,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 20,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C7_S18",
+            "filter": "appointable"
+          }  
     },
     "timer" : {
         "time": 59000,
         "actionType": "setContent",
         "action": "C7_S18",
-        "allowed" : true
+        "allowed" : false
     }
     }

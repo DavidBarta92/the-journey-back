@@ -49,6 +49,7 @@
             "font": "Arial",
             "fontSize": 50,
             "filter": "appointable",
+            "sound" : "../src/media/sounds/computer_on.mp3",
             "actionType": "setContent",
             "action": "C8_computer"
         },

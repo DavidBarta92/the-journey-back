@@ -15,8 +15,9 @@
           }
     },
     "timer" : {
-        "time": 1000,
+        "time": 2000,
         "actionType": "setContent",
+        "sound" : "../src/media/sounds/click.wav",
         "action": "C4_S1_d",
         "allowed" : true
     }

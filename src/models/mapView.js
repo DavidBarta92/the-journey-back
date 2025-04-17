@@ -274,6 +274,9 @@ export const Map = (function(){
     const drawElements = function(elements) {
         document.fonts.ready.then(function () {
             Object.entries(elements).forEach(element => {
+                if (element[1].type === 'image'){
+                    Draw.drawImageElement(element);
+                }
                 if (element[1].type === 'button' || element[1].type === 'text'){
                     //if (element[1].hasOwnProperty('buttonKey')) drawPessKey(element[1].buttonKey);
 

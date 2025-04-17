@@ -46,6 +46,7 @@
             "width": 180,
             "height": 100,
             "filter" : "appointable",
+            "sound" : "../src/media/sounds/computer_on.mp3",
             "actionType": "setContent",
             "action": "C2_computer"
         },
