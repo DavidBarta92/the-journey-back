@@ -1,6 +1,7 @@
 {
     "C5_imagePath" : "../src/media/images/driver-text-hun.png",
     "pth_C4_S7_QR" : "../src/media/images/kosztolanyi_hun.png",
+    "pth_C6_M4_QR" : "../src/media/images/ja_hun.png",
     "txt_trivia_list" : "Trivia lista",
     "btn_yes" : "  Igen",
     "btn_no" : "  Nem",

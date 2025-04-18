@@ -5,7 +5,7 @@
     "backgroundPath" : "../src/media/images/mp.png",
     "textPath" : "../src/media/images/driver-text.png",
     "spritesPath" : "../src/media/images/spritesheet.high.png",
-    "hud" : "../src/media/images/mpHUD.png",
+    "hud" : "../src/media/images/mpHUD_C6_M4.png",
     "itemsPath" : "",
     "dialogue" : "david",
     "targetPoints" : {
@@ -35,10 +35,10 @@
             "width": 70,
             "height": 20,
             "rotate": 0,
-            "textBoxEnd": 400,
-            "color": "black",
+            "textBoxEnd": 300,
+            "color": "white",
             "font": "Inconsolata",
-            "fontSize": 20,
+            "fontSize": 17,
             "border": false,
             "filter": null
           },
@@ -50,19 +50,19 @@
             "width": 70,
             "height": 20,
             "rotate": 0,
-            "textBoxEnd": 400,
-            "color": "black",
+            "textBoxEnd": 300,
+            "color": "white",
             "font": "Inconsolata",
-            "fontSize": 20,
+            "fontSize": 17,
             "border": false,
             "filter": null
         },        
         "qr": {
             "type": "image",
             "multiLanguage": true,
-            "path": "pth_C4_S7_QR",
-            "x": 850,
-            "y": 556
+            "path": "pth_C6_M4_QR",
+            "x": 1110,
+            "y": 270
         }
     },
     "end" : {
