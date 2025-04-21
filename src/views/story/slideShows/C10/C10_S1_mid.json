@@ -6,7 +6,7 @@
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "",
-    "atmo" : "",
+    "atmo" : "../src/media/sounds/car_atmo.mp3",
     "elements" : {
           "text1": {
             "type": "text",

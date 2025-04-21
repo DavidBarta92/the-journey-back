@@ -6,7 +6,7 @@
     "itemsPath" : "",
     "dialogue" : "david",
     "filter" : "",
-    "music" : "",
+    "music" : "../src/media/sounds/closer.mp3",
     "atmo" : "../src/media/sounds/car_atmo.mp3",
     "roadParam" : {
         "maxHeight" : 900,

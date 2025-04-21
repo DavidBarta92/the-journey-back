@@ -11,9 +11,9 @@
       "dial1": {
         "type": "text",
         "text": "dia_C8_S3_op2_op1_op1_op1",
-        "x": 219,
-        "y": 470,
-        "textBoxEnd": 1170,
+        "x": 180,
+        "y": 650,
+        "textBoxEnd": 1000,
         "width": 70,
         "height": 20,
         "rotate": 0,
