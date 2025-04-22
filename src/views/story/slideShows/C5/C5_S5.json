@@ -6,7 +6,7 @@
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "../src/media/sounds/vents_magnetiques.mp3",
-    "atmo" : "../src/media/sounds/mars_base_atmo2.mp3",
+    "atmo" : "../src/media/sounds/radio.wav",
     "elements" : {
         "dial1": {
             "type": "text",

@@ -11,7 +11,7 @@
         "text1": {
             "type": "text",
             "text": "dia_C4_S10_1",
-            "x": 435,
+            "x": 900,
             "y": 100,
             "width": 70,
             "height": 20,
@@ -19,22 +19,22 @@
             "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
-            "textBoxEnd":400,
+            "textBoxEnd":350,
             "border": false,
             "filter": null
           },
           "text2": {
             "type": "text",
             "text": "dia_C4_S10_2",
-            "x": 435,
-            "y": 600,
+            "x": 900,
+            "y": 300,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
             "font": "Inconsolata",
             "fontSize": 20,
-            "textBoxEnd":400,
+            "textBoxEnd":350,
             "border": false,
             "filter": null
           }

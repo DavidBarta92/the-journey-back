@@ -5,8 +5,8 @@
   "itemsPath" : "",
   "dialogue" : "",
   "filter" : "fadeOn",
-  "music" : "",
-  "atmo" : "",
+  "music" : "../src/media/sounds/closer.mp3",
+  "atmo" : "../src/media/sounds/car_atmo.mp3",
   "elements" : {
       "dial1": {
           "type": "text",

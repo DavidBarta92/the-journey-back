@@ -17,6 +17,7 @@
     "timer" : {
         "time": 2000,
         "actionType": "setContent",
+        "sound" : "../src/media/sounds/click.wav",
         "action": "C4_S1_e",
         "allowed" : true
     }

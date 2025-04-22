@@ -15,7 +15,7 @@
           }
     },
     "timer" : {
-        "time": 1000,
+        "time": 2000,
         "actionType": "setContent",
         "action": "C4_S2",
         "allowed" : true

@@ -5,7 +5,7 @@
     "backgroundPath" : "../src/media/images/mp.png",
     "textPath" : "../src/media/images/driver-text.png",
     "spritesPath" : "../src/media/images/spritesheet.high.png",
-    "hud" : "../src/media/images/mpHUD.png",
+    "hud" : "../src/media/images/mpHUD_C6_M4.png",
     "itemsPath" : "",
     "dialogue" : "david",
     "targetPoints" : {
@@ -24,7 +24,7 @@
     },
     "carVisible" : true,
     "filter" : "",
-    "music" : "../src/media/sounds/oltre_terra.mp3",
+    "music" : "../src/media/sounds/endless_voyage.mp3",
     "atmo" : "../src/media/sounds/wind.mp3",
     "elements" : {
         "text1": {
@@ -35,10 +35,10 @@
             "width": 70,
             "height": 20,
             "rotate": 0,
-            "textBoxEnd": 400,
+            "textBoxEnd": 300,
             "color": "black",
             "font": "Inconsolata",
-            "fontSize": 20,
+            "fontSize": 17,
             "border": false,
             "filter": null
           },
@@ -50,13 +50,20 @@
             "width": 70,
             "height": 20,
             "rotate": 0,
-            "textBoxEnd": 400,
+            "textBoxEnd": 300,
             "color": "black",
             "font": "Inconsolata",
-            "fontSize": 20,
+            "fontSize": 17,
             "border": false,
             "filter": null
-        }
+        },
+        "qr": {
+            "type": "image",
+            "multiLanguage": true,
+            "path": "pth_C6_M4_QR",
+            "x": 1110,
+            "y": 270
+          }
     },
     "end" : {
         "actionType": "setToClickView",

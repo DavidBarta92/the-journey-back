@@ -6,7 +6,7 @@
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "../src/media/sounds/inclusion.mp3",
-    "atmo" : "",
+    "atmo" : "../src/media/sounds/radio.wav",
     "elements" : {
         "Thomas1": {
             "type": "text",
@@ -42,7 +42,7 @@
             "type": "text",
             "text": "dia_C1_S13_1-1-1",
             "x": 612,
-            "y": 480,
+            "y": 450,
             "width": 70,
             "height": 20,
             "rotate": 0,

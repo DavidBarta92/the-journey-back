@@ -5,8 +5,8 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/ross_harmonium.mp3",
-    "atmo" : "../src/media/sounds/sandstorm2.mp3",
+    "music" : "../src/media/sounds/closer.mp3",
+    "atmo" : "../src/media/sounds/car_atmo.mp3",
     "elements" : {
       "dia_C9_S10_1": {
             "type": "text",

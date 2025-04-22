@@ -14,7 +14,7 @@
         "length": 8,
         "curvy" : 0.9,
         "mountainy" : 0.8,
-        "zoneSize" : 250
+        "zoneSize" : 170
     },
     "elements" : {
         "dialogue" : {
@@ -55,14 +55,14 @@
                             "rotate": 0,
                             "textBoxEnd": 300,
                             "color": "white",
-                            "font": "Inconsolata",
+                            "font": "Larabie",
                             "fontSize": 18,
                             "border": false,
                             "filter": null
                         },
                         "image":"../src/media/images/radar1.png"
                     },
-                    "600" : {
+                    "500" : {
                         "text": {
                             "type": "text",
                             "text": "C8_radar2",
@@ -73,14 +73,14 @@
                             "rotate": 0,
                             "textBoxEnd": 300,
                             "color": "#dc3a15",
-                            "font": "Inconsolata",
+                            "font": "Larabie",
                             "fontSize": 18,
                             "border": false,
                             "filter": null
                         },
                         "image":"../src/media/images/radar2.png"
                     },
-                    "1200" : {
+                    "800" : {
                         "text": {
                             "type": "text",
                             "text": "C8_radar3",
@@ -91,14 +91,14 @@
                             "rotate": 0,
                             "textBoxEnd": 300,
                             "color": "#dc3a15",
-                            "font": "Inconsolata",
+                            "font": "Larabie",
                             "fontSize": 18,
                             "border": false,
                             "filter": null
                         },
                         "image":"../src/media/images/radar3.png"
                     },
-                    "1800" : {
+                    "1100" : {
                         "text": {
                             "type": "text",
                             "text": "C8_radar4",
@@ -109,7 +109,7 @@
                             "rotate": 0,
                             "textBoxEnd": 300,
                             "color": "#dc3a15",
-                            "font": "Inconsolata",
+                            "font": "Larabie",
                             "fontSize": 18,
                             "border": false,
                             "filter": null
@@ -171,6 +171,6 @@
     },
     "end" : {
         "actionType": "setToClickView",
-        "action": "C8_mainCorridor_1"
+        "action": "C8_cockpit"
     }
     }

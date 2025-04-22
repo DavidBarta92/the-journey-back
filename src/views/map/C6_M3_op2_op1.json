@@ -25,7 +25,7 @@
     },
     "carVisible" : true,
     "filter" : "",
-    "music" : "../src/media/sounds/oltre_terra.mp3",
+    "music" : "../src/media/sounds/endless_voyage.mp3",
     "atmo" : "../src/media/sounds/wind.mp3",
     "elements" : {
         "text1": {

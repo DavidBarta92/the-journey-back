@@ -5,8 +5,8 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "",
-    "atmo" : "",
+    "music" : "../src/media/sounds/sunset.mp3",
+    "atmo" : "../src/media/sounds/sunset_intro_2.mp3",
     "escAllowed" : false,
     "elements" : {
         "text": {
@@ -26,7 +26,7 @@
           }
     },
     "timer" : {
-        "time": 50000,
+        "time": 48500,
         "actionType": "setToDrive",
         "action": "C8_sunset",
         "allowed" : true

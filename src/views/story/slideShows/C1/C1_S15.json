@@ -6,13 +6,13 @@
     "dialogue" : "",
     "filter" : "fadeOn",
     "music" : "../src/media/sounds/inclusion.mp3",
-    "atmo" : "",
+    "atmo" : "../src/media/sounds/radio.wav",
     "elements" : {
         "Aiza": {
             "type": "text",
             "text": "dia_C1_S15_1",
-            "x": 97,
-            "y": 79,
+            "x": 400,
+            "y": 550,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -25,8 +25,8 @@
         "Thomas": {
             "type": "text",
             "text": "dia_C1_S15_1-1",
-            "x": 93,
-            "y": 210,
+            "x": 400,
+            "y": 600,
             "width": 70,
             "height": 20,
             "rotate": 0,

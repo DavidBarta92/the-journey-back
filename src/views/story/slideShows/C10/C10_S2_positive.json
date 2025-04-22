@@ -1,6 +1,6 @@
 {
     "name" : "C10_S2_positive",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/C10_S2_positive.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
