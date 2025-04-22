@@ -5,7 +5,7 @@
   "itemsPath" : "",
   "dialogue" : "",
   "filter" : "fadeOn",
-  "music" : "",
+  "music" : "../src/media/sounds/eastbound_sometime.mp3",
   "atmo" : "../src/media/sounds/car_atmo.mp3",
   "elements" : {
         "text1": {
