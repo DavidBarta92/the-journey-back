@@ -40,7 +40,7 @@
           },
           "C7_2_drawer" : {
             "type": "activeArea",
-            "text": null,
+            "text": "lbl_take",
             "x": 713,
             "y": 154,
             "width": 84,

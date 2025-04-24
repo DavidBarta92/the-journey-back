@@ -5,7 +5,7 @@
     "txt_trivia_list" : "List of trivias",
     "btn_yes": "  Yes",
     "btn_no": "  No",
-    "txt_beta": "v0.9.5",
+    "txt_beta": "v0.9.6",
     "btn_start": "  START",
     "btn_newGame": "  New Game",
     "btn_continue": "  Continue",
@@ -892,7 +892,10 @@
     "map_isnside_title": "floor plan",
     "lbl_watch_the_storm" : "    watch the storm",
     "lbl_store" : "    store",
+    "lbl_take" : "    take it",
 
-    "start_symbol1": "Where you see this symbol, you can only move forward using the arrows. In these places, you cannot exit to the menu.",
+    "map_help" : "On the map, you can click on the marked locations to navigate to the location you like",
+    "res_setting" : "The game can be run at full screen. You can switch to full screen mode by pressing F11.",
+    "start_symbol1": "Where you see this symbol, you can only move forward using the arrows. In some places you'll need all four arrow keys, in others just press the left arrow key. In these places, you cannot exit to the menu.",
     "start_symbol2": "In places where this symbol is visible, you can proceed by clicking with the mouse. You need to click on the locations marked with red squares or the buttons marked in red. To open the menu, press the Esc key."
 }
