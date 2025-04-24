@@ -5,7 +5,7 @@
     "txt_trivia_list" : "Trivia lista",
     "btn_yes" : "  Igen",
     "btn_no" : "  Nem",
-    "txt_beta" : "v0.9.5",
+    "txt_beta" : "v0.9.6",
     "btn_start" : "  KEZDÉS",
     "btn_newGame" : "  Új játék",
     "btn_continue" : "  Folytatás",
@@ -892,7 +892,10 @@
     "map_isnside_title" : "alaprajz",
     "lbl_watch_the_storm" : "    nezd a vihart",
     "lbl_store" : "    tarolo",
+    "lbl_take" : "    vedd el",
 
-    "start_symbol1": "Ahol ezt a jelülést látod, ott csak a nyilak segítségével tudsz előrehaladni. Ezeken a helyeken nem tudsz kilépni a menübe.",
-    "start_symbol2": "Azokon a helyeken, ahol ez a jelölés látható, az egérrel kattintve tudsz továbbhaladni. A vörös négyzetekkel megjelölt helyekre kell kattintanod vagy a vörös színnel jelzett gombokra. A menü megnyitásához az Esc billentyűt kell megnyomni."
+    "map_help" : "A térképen a megjelölt helyiségekre kattintva tudsz átnavigálni a neked tetsző helyszínre.",
+    "res_setting" : "A játék teljes képernyőn is futtatható. Az F11 megnyomásával válthatsz át teljes képernyős módra.",
+    "start_symbol1": "Ahol ezt a jelölést látod, ott csak a nyilak segítségével tudsz előrehaladni. Egyes helyeken mind a négy nyíl gombra szükséged lesz, más helyeken viszont elég csak a balra nyilat nyomni. Ezeken a helyeken nem tudsz kilépni a menübe.",
+    "start_symbol2": "Azokon a helyeken, ahol ez a jelölés látható, az egérrel kattintva tudsz továbbhaladni. A vörös négyzetekkel megjelölt helyekre kell kattintanod vagy a vörös színnel jelzett gombokra. A menü megnyitásához az Esc billentyűt kell megnyomni."
 }

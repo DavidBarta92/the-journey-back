@@ -8,6 +8,19 @@
   "music" : "",
   "atmo" : "",
   "elements": {
+    "res_setting": {
+      "type": "text",
+      "text": "res_setting",
+      "x": 250,
+      "y": 80,
+      "width": 70,
+      "height": 20,
+      "textBoxEnd": 250,
+      "color": "white",
+      "font": "Arial",
+      "fontSize": 12,
+      "filter": null
+    },
     "start_symbol1": {
       "type": "text",
       "text": "start_symbol1",
@@ -32,6 +45,19 @@
       "color": "white",
       "font": "Arial",
       "fontSize": 12,
+      "filter": null
+    },
+    "lang": {
+      "type": "text",
+      "text": "txt_language",
+      "x": 110,
+      "y": 380,
+      "width": 70,
+      "height": 20,
+      "textBoxEnd": 250,
+      "color": "white",
+      "font": "Arial",
+      "fontSize": 17,
       "filter": null
     },
     "eng": {
