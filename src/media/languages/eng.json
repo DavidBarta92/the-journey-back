@@ -99,7 +99,7 @@
     "C2_goal_text": "Switch the energy diversion to charge the Mars rover. To switch it, you need to enter a four-digit code on the exterior of the base, on the side closer to the solar panels. You can find the code in the central computer, among the log files around the 5500th SOL.",
     "C3_goal_text": "The charging process can be accelerated if you shut down the base’s life support system. You’ll find the sphere shaped unit that controls this system outside the main building.",
     "C4_goal_text": "You must wait until the base’s energy system fully charges the rover for departure. In the meantime, you have some time to be together.",
-    "C5_goal_text": "Gather information about the route and how to control the rover.",
+    "C5_goal_text": "Gather information about the route and how to control the rover. Get going! (You can move forward by pressing the left arrow.)",
     "C6_goal_text": "Breaking the ice is tough, but give it a try! Try to get Teo to talk—discuss things that interest him!",
     "C7_goal_text": "When did Teo change like this? Or has he always been this way? Bring him some water to help him feel better and ask him about these things.",
     "C8_goal_text": "Wait out the storm—you can’t move forward in this weather. This is a good opportunity to talk for a while.",
@@ -278,6 +278,7 @@
     
     "C5_title": "C5_START",
     "C5_goal": "GET_OUT_OF_THE_GAEL_CRATER",
+    "C5_info" : "You can move forward by pressing the left arrow.",
     "dia_C5_S1_1" : "Aiza: We’re ready. Can you hear us?",
     "dia_C5_S1_2" : "The Cathedral: We hear you, AGX1-0203. Have you shut down the life support system? Is the rover ready for departure?",
     "dia_C5_S2_1" : "Aiza: Everything is ready; we can leave at any time.",

@@ -95,7 +95,7 @@
     "C2_goal_text" : "Kapcsold át az energiatermelést, hogy feltölts a marsjáró rover-t. Az átkapcsoláshoz be kell ütnöd egy négyjegyű kódot a bázis kinti részén, a napelemekhez közelebb eső oldalon. A kódot a központi számítógépben találod, a naplófájlok között az ötezer ötszázadik SOL környékén.",
     "C3_goal_text" : "Felgyorsítható a feltöltési folyamat, ha lekapcsolod a bázis létfenntartó rendszerét. A főépületen kívül találod a gömb alakú egységet, ahol kikapcsolható ez a redszer.",
     "C4_goal_text" : "Meg kell várni amig a bázis energiatermelő rendszere feltölti a rover-t az induláshoz. Addig van időtök, hogy együtt legyetek kicsit.",
-    "C5_goal_text" : "Szerezd be az információkat az útvonalról és a rover irányításához.",
+    "C5_goal_text" : "Szerezd be az információkat az útvonalról és a rover irányításához. Induljatok el! (A balra nyíl lenyomásával tudsz előre haladni.)",
     "C6_goal_text" : "Nehezen törik meg a jég de azért próbálkozz! Próbáld meg szórabírni Teót, beszélgessetek azokról a dolgokról amik érdeklik!",
     "C7_goal_text" : "Mikor változott meg így Teó? Vagy már régen is ilyen volt? Vigyél neki vizet, hogy jobban legyen és kérdezd meg ezekről a dolgokról.",
     "C8_goal_text" : "Várjátok ki a vihar végét, ilyen időben nem tudtok továbbmenni. Ez egy jó alkalom, hogy beszélgessetek kicsit.",
@@ -278,6 +278,7 @@
     
     "C5_title": "C5_START",
     "C5_goal" : "JUSS_KI_A_GAEL-KRÁTERBŐL",
+    "C5_info" : "A balra nyíl lenyomásával tudsz előrehaladni.",
     "dia_C5_S1_1" : "Aiza: Készen állunk. Hallanak minket?",
     "dia_C5_S1_2" : "A katedrális: Halljuk önöket AGX1-0203. Leállították a fentartó rendszert? A rover készen áll az indulásra?",
     "dia_C5_S2_1" : "Aiza: Minden készen áll, akár most is indulhatunk.",
