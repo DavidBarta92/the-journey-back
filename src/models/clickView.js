@@ -78,7 +78,12 @@ const drawBackground = function(){
         context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
         context.drawImage(middleground,  0, 0, middleground.width, middleground.height, 0, 0, render.width, render.height);
     } else {
-        context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
+        try {
+            context.drawImage(background,  0, 0, background.width, background.height, 0, 0, render.width, render.height);
+        } catch (error) {
+         console.error(error);
+        }
+        
     }
     // var ctxForDither = context.getImageData(0, 0, render.width, render.height);
     // var ctxFromD = Filter.dither(ctxForDither);
