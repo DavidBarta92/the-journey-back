@@ -76,7 +76,7 @@
      "font": "Arial",
      "fontSize": 50,
      "actionType":"setContent",
-     "action":"C2_batteryConnectionWrongnum",
+     "action":"C2_batteryConnection299num",
      "filter" : ""
    },
    "3":{
@@ -90,7 +90,7 @@
      "font": "Arial",
      "fontSize": 50,
      "actionType":"setContent",
-     "action":"C2_batteryConnectionWrongnum",
+     "action":"C2_batteryConnection299num",
      "filter" : ""
    },
    "4":{
@@ -104,7 +104,7 @@
      "font": "Arial",
      "fontSize": 50,
      "actionType":"setContent",
-     "action":"C2_batteryConnectionWrongnum",
+     "action":"C2_batteryConnection299num",
      "filter" : ""
    },
    "5":{
@@ -118,7 +118,7 @@
      "font": "Arial",
      "fontSize": 50,
      "actionType":"setContent",
-     "action":"C2_batteryConnectionWrongnum",
+     "action":"C2_batteryConnection299num",
      "filter" : ""
    },
    "6":{
@@ -132,7 +132,7 @@
      "font": "Arial",
      "fontSize": 50,
      "actionType":"setContent",
-     "action":"C2_batteryConnectionWrongnum",
+     "action":"C2_batteryConnection299num",
      "filter" : ""
    },
    "7":{
@@ -146,7 +146,7 @@
      "font": "Arial",
      "fontSize": 50,
      "actionType":"setContent",
-     "action":"C2_batteryConnectionWrongnum",
+     "action":"C2_batteryConnection299num",
      "filter" : ""
    },
    "8":{
@@ -160,7 +160,7 @@
      "font": "Arial",
      "fontSize": 50,
      "actionType":"setContent",
-     "action":"C2_batteryConnectionWrongnum",
+     "action":"C2_batteryConnection299num",
      "filter" : ""
    },
    "9":{
@@ -174,7 +174,7 @@
      "font": "Arial",
      "fontSize": 50,
      "actionType":"setContent",
-     "action":"C2_batteryConnectionWrongnum",
+     "action":"C2_batteryConnection299num",
      "filter" : ""
   },
   "0":{
@@ -188,7 +188,7 @@
      "font": "Arial",
      "fontSize": 50,
      "actionType":"setContent",
-     "action":"C2_batteryConnectionWrongnum",
+     "action":"C2_batteryConnection299num",
      "filter" : ""
   },
   "back": {
