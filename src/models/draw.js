@@ -496,6 +496,36 @@ var Draw = (function(){
 
         var speed = Math.round((player.speed / player.maxSpeed * 200) / 6 );
         drawString(""+speed+"mph", {x: 286, y: 654});
+
+        context.beginPath();
+        context.lineWidth = "2";
+        context.strokeStyle = "#dc3a15";
+        context.rect(100, 570, 30, 30); // 620 - 50
+        context.stroke();
+        
+        context.beginPath();
+        context.lineWidth = "2";
+        context.strokeStyle = "#dc3a15";
+        context.rect(820, 570, 30, 30); // 620 - 50
+        context.stroke();
+        
+        context.beginPath();
+        context.lineWidth = "3";
+        context.strokeStyle = "#dc3a15";
+        context.rect(100, 585, 750, 0); // 635 - 50
+        context.stroke();
+        
+        var triangleX = 100 + (-player.posx / 3000) * 750;
+        var triangleY = 585; // 635 - 50
+        
+        context.beginPath();
+        context.moveTo(triangleX, triangleY);
+        context.lineTo(triangleX - 10, triangleY + 15);
+        context.lineTo(triangleX + 10, triangleY + 15);
+        context.closePath();
+        context.fillStyle = "#dc3a15";
+        context.fill();
+        
     }
 
     const drawRect = function(rotationAngle) {

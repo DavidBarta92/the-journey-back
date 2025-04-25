@@ -113,7 +113,7 @@ export const Slide = (function(){
         var ctxFromD = Filter.dither(ctxForDither, ditherParams);
         context.putImageData(ctxFromD, 0, 0);
 
-        Draw.drawSlideText(+((player.posx)*3),textImage);
+        Draw.drawSlideText(+((player.posx)*11),textImage);
         setActionByAbsoluteIndex();
  
         Draw.renderSlideHUD(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render);
@@ -173,12 +173,6 @@ export const Slide = (function(){
     const drawElements = function(elements) {
         document.fonts.ready.then(function () {
             Object.entries(elements).forEach(element => {
-                if (element[1].type === 'rock') {
-                    
-                }
-                if (element[1].type === 'tree') {
-                    
-                }
                 if (element[1].type === 'button' || element[1].type === 'text'){
                     Draw.writeText(element, (element[1].x + element[1].textBoxEnd));
                 }
@@ -188,7 +182,7 @@ export const Slide = (function(){
     }
 
     const setActionByAbsoluteIndex = function(){
-        if(player.posx < -4000 || player.posx > 0){
+        if(player.posx < -3000 || player.posx > 0){
             setState();
         }
     }
