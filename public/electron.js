@@ -27,6 +27,7 @@ function createWindow() {
   const windowParams = {
     width: 1280,
     height: 720,
+    icon: path.join(__dirname, "../public/favicon.ico"),
     useContentSize: true,
     depthOfField: 150,
     camera_distance: 30,
