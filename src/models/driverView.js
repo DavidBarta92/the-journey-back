@@ -70,7 +70,7 @@ export const Driver = (function(){
     var render;
     var driverViewIndexParams;
 
-    var gameInterval;
+    var animationFrameId;
     var absoluteIndex = 0;
     var baseOffset = 0;
     var currentDialogueText;
@@ -115,8 +115,9 @@ export const Driver = (function(){
 
     //renders one frame
     const renderGameFrame = function(){
+        if (!isRunning) return;
         // Wait for 41 ms to maintain 24 fps
-        Timer.wait(41);
+        //Timer.wait(41);
         keys = inputController.getKeys();
 
         gameCanvas.clear();
@@ -131,6 +132,7 @@ export const Driver = (function(){
         drawElements(contentContainer.elements);
         Anim.crt();
         requestNewFrame = true;
+        animationFrameId = requestAnimationFrame(renderGameFrame);
     }
 
     ///////////////////////////////////////////////////////////////////////
@@ -187,6 +189,8 @@ export const Driver = (function(){
           player.posx += player.turning;
         }
       }
+
+    var isRunning = false;
 
     // --------------------------
     // --   Render the road    --
@@ -362,12 +366,13 @@ export const Driver = (function(){
 
     const setState = function(){
         if (contentContainer.end.actionType === "setToClickView") {
+            isRunning = false;
             Sound.noiseStop();
             stateManager.setView('story');
             stateManager.setContent(contentContainer.end.action);
             gameCanvas.clear();
             interactives = {};
-            clearInterval(gameInterval);
+            cancelAnimationFrame(animationFrameId);
             player.setInit();
             RenderManager.render();
             return;
@@ -426,7 +431,7 @@ export const Driver = (function(){
     }
 
     const exit = function() {
-        clearInterval(gameInterval);
+        cancelAnimationFrame(animationFrameId);
         stateManager.setView('menu');
         stateManager.setContent('main');
         RenderManager.render();
@@ -598,13 +603,9 @@ export const Driver = (function(){
             init(state);
             //Sound.atmo(contentContainer.atmo);
             //Sound.music(contentContainer.music);
-            if (!pause){
-                gameInterval = setInterval(renderGameFrame, 1);
-                generateRoad();
-            } else {
-                generateRoad();
-                gameInterval = setInterval(renderGameFrame, 1);
-            }
+            isRunning = true;
+            generateRoad();
+            animationFrameId = requestAnimationFrame(renderGameFrame);
         },
         exit: function(){
             exit();

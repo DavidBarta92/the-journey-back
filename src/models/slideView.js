@@ -57,23 +57,20 @@ export const Slide = (function(){
     var keys = [];
     var render;
 
-    var gameInterval;
     var absoluteIndex = 0;
     var baseOffset = 0;
     var currentDialogueText;
     var roadParam;
+    var animationFrameId; 
 
     // -----------------------------
     // -- closure scoped function --
     // -----------------------------
 
-    //initialize the game
     const init = function(state){
-        // configure canvas
         canvas = gameCanvas.getCanvas();
         context = gameCanvas.getContext();
 
-        
         canvas.height = canvas.height;
         canvas.width = canvas.width;
 
@@ -96,30 +93,33 @@ export const Slide = (function(){
         if(contentContainer.hasOwnProperty('cursor') && !contentContainer.cursor) document.body.style.cursor = 'none';
     };
 
-    //renders one frame
-    const renderGameFrame = function(){
-        // Wait for 41 ms to maintain 24 fps
-        Timer.wait(41);
-        keys = inputController.getKeys();
+    var isRunning = false; 
 
+    const renderGameFrame = function(){
+        if (!isRunning) return; 
+    
+        keys = inputController.getKeys();
+    
         gameCanvas.clear();
         const delta = player.updateCarState(baseOffset);
         handleSpeedAndPosition(keys, delta);
-
-        Draw.drawBackground(+((player.posx)*3.5),backgroundImage);
-
-        //dithetring
+    
+        Draw.drawBackground(+((player.posx)*3.5), backgroundImage);
+    
         var ctxForDither = context.getImageData(0, 0, canvas.width, render.height);
         var ctxFromD = Filter.dither(ctxForDither, ditherParams);
         context.putImageData(ctxFromD, 0, 0);
-
-        Draw.drawSlideText(+((player.posx)*11),textImage);
+    
+        Draw.drawSlideText(+((player.posx)*11), textImage);
         setActionByAbsoluteIndex();
- 
+    
         Draw.renderSlideHUD(hud, contentContainer, startTime, player, absoluteIndex, currentDialogueImage, currentDialogueText, roadParam, render);
         drawElements(contentContainer.elements);
         context.drawImage(infoImage, 100, 620);
+    
+        animationFrameId = requestAnimationFrame(renderGameFrame);
     }
+    
 
     ///////////////////////////////////////////////////////////////////////
       
@@ -132,8 +132,8 @@ export const Slide = (function(){
           player.speed -= player.deceleration;
         }
         soundPlaying();
-        player.speed = Math.max(0, player.speed); // Cannot go in reverse
-        player.speed = Math.min(player.speed, player.maxSpeed); // Maximum speed
+        player.speed = Math.max(0, player.speed);
+        player.speed = Math.min(player.speed, player.maxSpeed);
       
         carMoving(keys, delta);
     }
@@ -161,15 +161,16 @@ export const Slide = (function(){
 
     const setState = function(){
         player.posx = 11;
-            stateManager.setView('story');
-            stateManager.setContent("C6_S1");
-            gameCanvas.clear();
-            clearInterval(gameInterval);
-            RenderManager.render();
-            return;
+        stateManager.setView('story');
+        stateManager.setContent("C6_S1");
+        gameCanvas.clear();
+        isRunning = false; 
+        cancelAnimationFrame(animationFrameId);
+        RenderManager.render();
+        return;
     }
+    
 
-    //draw all visible elements on the view
     const drawElements = function(elements) {
         document.fonts.ready.then(function () {
             Object.entries(elements).forEach(element => {
@@ -178,7 +179,6 @@ export const Slide = (function(){
                 }
             });
         });
-
     }
 
     const setActionByAbsoluteIndex = function(){
@@ -198,12 +198,9 @@ export const Slide = (function(){
         start: function(state){
             var state = state;
             init(state);
-            if (!pause){
-                gameInterval = setInterval(renderGameFrame, 1);
-            } else {
-                gameInterval = setInterval(renderGameFrame, 1);
-            }
-        },
+            isRunning = true;
+            animationFrameId = requestAnimationFrame(renderGameFrame);
+        },        
         updateCarState: function(){
             player.updateCarState(lastDelta);
         }
