@@ -1,0 +1,57 @@
+{
+    "name" : "C7_diary_S13",
+    "backgroundPath" : "../src/media/images/computer.png",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "",
+    "atmo" : "../src/media/sounds/car_atmo.mp3",
+    "elements" : { 
+        "title": {
+            "type": "text",
+            "text": "note_13_title",
+            "x": 160,
+            "y": 170,
+            "width": 70,
+            "height": 20,
+            "rotate": 2,
+            "color": "white",
+            "font": "Akira",
+            "fontSize": 50,
+            "border": false,
+            "filter": null
+        },
+          "subTitle": {
+            "type": "text",
+            "text": "note_13",
+            "x": 160,
+            "y": 230,
+            "textBoxEnd": 750,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Larabie",
+            "fontSize": 16,
+            "border": false,
+            "filter": null
+        },
+        "back": {
+            "type": "button",
+            "text": "btn_back",
+            "x": 346,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C7_diary",
+            "filter": "appointable"
+          }
+    }
+}

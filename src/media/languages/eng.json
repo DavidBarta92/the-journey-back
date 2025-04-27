@@ -775,7 +775,7 @@
     "dia_credits_5_2" : "",
     
 
-    "saved_data" : "./saved data/",
+    "saved_data" : "  ./saved data/",
     "journal_title" : "The Mysterious Disappearance on Mars",
     "journal_1" : "On Monday, one of the most recognized figures in the scientific community, Dr. Teo Bolyai, announced that he was permanently severing his ties with the organization overseeing the research on Mars. Dr. Bolyai, a professor at the Plant Biology Institute, had previously led the Mars Research Project, focusing on the behavior of plants, but little concrete information about this research has leaked to the public.",
     "journal_2" : "As the events unfolded, the mystery deepened even further when it was revealed that the research findings were completely classified, and there was no indication of when the Mars base would share these findings with the public.",
@@ -858,6 +858,17 @@
     "sc_3_title" : "",
     "sc_4_title" : "",
     "comp_data" : "  ./statisctics/",
+    "data_title" : "Statisctics",
+    "data_subtitle1" : "General Plant Statistics",
+    "data_text1" : "Number of deceased plants: 12 units during the last cycle | Fastest growing species: Cynara cardunculus var. areophila (average 9.2 sols)",
+    "data_subtitle2" : "Environmental Conditions",
+    "data_text2" : "Average atmospheric CO₂ level: 78.4% | Average temperature: 22.5°C | Humidity level: 64% | Soil moisture: 48%",
+    "data_subtitle3" : "Genetic Mutations",
+    "data_text3" : "Percentage of plants with mutations: 8.3% | Most common mutation: Accelerated photosynthesis (+12% growth rate)",
+    "data_subtitle4" : "Operational Statistics",
+    "data_text4" : "Automated irrigation cycles per day: 5 | Light cycle duration: 16 hours active light, 8 hours rest | Energy consumption per growing sector: 240 kWh/sol",
+    "data_subtitle5" : "Special Projects",
+    "data_text5" : "Number of experimental hybrid species: 4 | Cultivar development success rate: 72% | Biological incidents over the last 100 sols: 1 (fungal infection)",
 
     "lbl_cockpit": "   cockpit",
     "lbl_bedroom": "   bedroom",
