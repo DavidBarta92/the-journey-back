@@ -5,7 +5,7 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/inclusion.mp3",
+    "music" : "../src/media/sounds/i_am_you_am.mp3",
     "atmo" : "../src/media/sounds/mars_base_atmo.mp3",
     "elements" : { 
         "S1": {
@@ -21,7 +21,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C1_diary_S1",
+            "action": "C1_sc_S1",
             "sound" : "../src/media/sounds/comp2.mp3",
             "filter": "appointable"
         },
@@ -38,7 +38,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C1_diary_S2",
+            "action": "C1_sc_S2",
             "sound" : "../src/media/sounds/comp1.mp3",
             "filter": "appointable"
         },
@@ -55,7 +55,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C1_diary_S3",
+            "action": "C1_sc_S3",
             "sound" : "../src/media/sounds/comp4.mp3",
             "filter": "appointable"
         },
@@ -72,7 +72,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C1_diary_S4",
+            "action": "C1_sc_S4",
             "sound" : "../src/media/sounds/comp1.mp3",
             "filter": "appointable"
         },
