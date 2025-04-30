@@ -69,6 +69,22 @@
             "actionType": "setContent",
             "action": "C2_hall2",
             "filter": "appointable"
+        },
+        "back": {
+            "type": "button",
+            "text": "btn_back",
+            "x": 800,
+            "y": 650,
+            "width": 70,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 24,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C2_middlecorner",
+            "filter": "appointable"
         }
     }
 }

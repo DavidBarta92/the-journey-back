@@ -1,6 +1,6 @@
 {
     "name" : "C8_shelter",
-    "backgroundPath" : "",
+    "backgroundPath" : "../src/media/images/picture.png",
     "spritesPath" : "",
     "itemsPath" : "",
     "dialogue" : "",
@@ -37,20 +37,6 @@
             "fontSize": 25,
             "border": false,
             "filter": null
-        },
-        "shelter" : {
-            "type": "activeArea",
-            "text": null,
-            "x": 100,
-            "y": 270,
-            "width": 100,
-            "height": 180,
-            "color": "#e65939",
-            "font": "Arial",
-            "fontSize": 50,
-            "filter" : null,
-            "actionType": "setContent",
-            "action": "C8_image"
         },
         "back": {
             "type": "button",
