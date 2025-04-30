@@ -78,7 +78,7 @@
         },
         "sc": {
             "type": "button",
-            "text": "sc",
+            "text": "sc_images",
             "x": 160,
             "y": 350,
             "width": 70,

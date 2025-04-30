@@ -159,27 +159,29 @@ var stateManager = (function () {
     },
     setStatus: () => {
       state = loadState()
-      var oldStateView = state.status.view
-      state.status.view = state.view
-      var oldStateContent = state.status.content
-      state.status.content = state.content
-      dataController.saveState(state)
-      gameCanvas.clear()
-      if (oldStateView !== state.status.view) {
-        D.log([
-          'The old status view: ',
-          oldStateView,
-          ' has changed to: ',
-          state.status.view
-        ])
-      }
-      if (oldStateContent !== state.status.content) {
-        D.log([
-          'The old status content: ',
-          oldStateContent,
-          ' has changed to: ',
-          state.status.content
-        ])
+      if(state.view === "story"){
+        var oldStateView = state.status.view
+        state.status.view = state.view
+        var oldStateContent = state.status.content
+        state.status.content = state.content
+        dataController.saveState(state)
+        gameCanvas.clear()
+        if (oldStateView !== state.status.view) {
+          D.log([
+            'The old status view: ',
+            oldStateView,
+            ' has changed to: ',
+            state.status.view
+          ])
+        }
+        if (oldStateContent !== state.status.content) {
+          D.log([
+            'The old status content: ',
+            oldStateContent,
+            ' has changed to: ',
+            state.status.content
+          ])
+        }
       }
     },
     setAtmoPath: (atmoPath) => {

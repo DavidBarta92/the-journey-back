@@ -42,7 +42,7 @@
     "timer" : {
         "time": 27000,
         "actionType": "setContent",
-        "action": "C3_sunconsoles",
+        "action": "C3_battery",
         "allowed" : true
     }
     }

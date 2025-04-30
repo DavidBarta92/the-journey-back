@@ -21,7 +21,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C7_diary_S1",
+            "action": "C7_sc_S1",
             "sound" : "../src/media/sounds/comp2.mp3",
             "filter": "appointable"
         },
@@ -38,7 +38,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C7_diary_S2",
+            "action": "C7_sc_S2",
             "sound" : "../src/media/sounds/comp1.mp3",
             "filter": "appointable"
         },
@@ -55,7 +55,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C7_diary_S3",
+            "action": "C7_sc_S3",
             "sound" : "../src/media/sounds/comp4.mp3",
             "filter": "appointable"
         },
@@ -72,7 +72,7 @@
             "fontSize": 24,
             "border": false,
             "actionType": "setContent",
-            "action": "C7_diary_S4",
+            "action": "C7_sc_S4",
             "sound" : "../src/media/sounds/comp1.mp3",
             "filter": "appointable"
         },
