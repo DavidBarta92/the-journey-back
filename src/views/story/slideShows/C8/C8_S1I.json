@@ -22,12 +22,29 @@
             "fontSize": 20,
             "border": false,
             "filter": null
+          },
+          "next": {
+            "type": "button",
+            "text": "btn_next",
+            "fx": "",
+            "x": 130,
+            "y": 690,
+            "width": 200,
+            "height": 20,
+            "rotate": 0,
+            "color": "white",
+            "font": "Rounded",
+            "fontSize": 20,
+            "border": false,
+            "actionType": "setContent",
+            "action": "C8_S1J",
+            "filter": "appointable"
           }
     },
     "timer" : {
         "time": 35000,
         "actionType": "setContent",
         "action": "C8_S1J",
-        "allowed" : true
+        "allowed" : false
     }
     }

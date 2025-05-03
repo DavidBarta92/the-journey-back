@@ -83,7 +83,6 @@ const drawBackground = function(){
         } catch (error) {
          console.error(error);
         }
-        
     }
     // var ctxForDither = context.getImageData(0, 0, render.width, render.height);
     // var ctxFromD = Filter.dither(ctxForDither);
@@ -677,7 +676,6 @@ export const Story = (function(){
             gameCanvas.clear();
             drawBackground();
             drawElements(contentContainer.elements);
-            //if (contentContainer.miniElements) 
             Filter.showMiniElements(contentContainer);
             console.log("new frame");
         } else {
@@ -685,7 +683,6 @@ export const Story = (function(){
             gameCanvas.clear();
             drawBackground();
             drawElements(contentContainer.elements);
-            //if (contentContainer.miniElements) 
             Filter.showMiniElements(contentContainer);
             console.log("new frame");
         }
@@ -710,5 +707,3 @@ export const Story = (function(){
     
 }
 ());
-
-// multicégek gyarmatosították a valóságot

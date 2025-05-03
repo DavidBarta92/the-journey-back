@@ -41,7 +41,7 @@
         "store" : {
             "type": "activeArea",
             "text": "lbl_store",
-            "x": 25,
+            "x": 100,
             "y": 245,
             "width": 160,
             "height": 280,

@@ -38,21 +38,26 @@
             "border": false,
             "filter": null
           },
-        "back": {
-            "type": "button",
-            "text": "btn_back",
-            "x": 346,
-            "y": 650,
+        "aiza": {
+            "type": "text",
+            "text": "water_please",
+            "x": 365,
+            "y": 470,
             "width": 70,
             "height": 20,
             "rotate": 0,
             "color": "white",
-            "font": "Rounded",
-            "fontSize": 24,
+            "font": "Inconsolata",
+            "fontSize": 20,
             "border": false,
-            "actionType": "setContent",
-            "action": "C7_consoleRoom_2",
-            "filter": "appointable"
+            "textBoxEnd": 500,
+            "filter": null
           }
+    },
+    "timer" : {
+        "time": 3000,
+        "actionType": "setContent",
+        "action": "C7_consoleRoom_2",
+        "allowed" : true
     }
 }
