@@ -117,7 +117,7 @@ export const Driver = (function(){
     const renderGameFrame = function(){
         if (!isRunning) return;
         // Wait for 41 ms to maintain 24 fps
-        //Timer.wait(41);
+        Timer.wait(41);
         keys = inputController.getKeys();
 
         gameCanvas.clear();
