@@ -10,7 +10,7 @@
     "elements" : {
     },
     "timer" : {
-        "time": 10000,
+        "time": 6000,
         "actionType": "setContent",
         "action": "C1_intro2",
         "allowed" : true

@@ -25,7 +25,7 @@
           }
     },
     "timer" : {
-        "time": 60000,
+        "time": 46000,
         "actionType": "setContent",
         "action": "C1_intro3",
         "allowed" : true

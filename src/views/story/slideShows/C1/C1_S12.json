@@ -38,7 +38,7 @@
           }
     },
     "timer" : {
-        "time": 10000,
+        "time": 12000,
         "actionType": "setContent",
         "action": "C1_S13",
         "allowed" : true
