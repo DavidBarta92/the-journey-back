@@ -915,6 +915,8 @@
     "lbl_store" : "    store",
     "lbl_take" : "    take it",
     "lbl_photo" : "    photo",
+    "lbl_dream1" : "    him",
+    "lbl_dream2" : "    water",
 
     "map_help" : "On the map, you can click on the marked locations to navigate to the location you like",
     "res_setting" : "The game can be run at full screen. You can switch to full screen mode by pressing F11.",

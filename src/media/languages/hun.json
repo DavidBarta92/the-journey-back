@@ -920,6 +920,8 @@
     "lbl_store" : "    tarolo",
     "lbl_take" : "    vedd el",
     "lbl_photo" : "    foto",
+    "lbl_dream1" : "    valaki",
+    "lbl_dream2" : "    inni",
 
     "map_help" : "A térképen a megjelölt helyiségekre kattintva tudsz átnavigálni a neked tetsző helyszínre.",
     "res_setting" : "A játék teljes képernyőn is futtatható. Az F11 megnyomásával válthatsz át teljes képernyős módra.",

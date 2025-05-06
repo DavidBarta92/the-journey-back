@@ -5,8 +5,8 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/sandstorm1.mp3",
-    "atmo" : "",
+    "music" : "../src/media/sounds/ross_harmonium.mp3",
+    "atmo" : "../src/media/sounds/sandstorm1.mp3",
     "elements" : {
         "dial1": {
             "type": "text",

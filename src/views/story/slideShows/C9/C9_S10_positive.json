@@ -5,7 +5,7 @@
     "itemsPath" : "",
     "dialogue" : "",
     "filter" : "fadeOn",
-    "music" : "../src/media/sounds/ross_harmonium.mp3",
+    "music" : "../src/media/sounds/dream.wav",
     "atmo" : "../src/media/sounds/sandstorm2.mp3",
     "elements" : {
       "empty_object": {
@@ -17,7 +17,7 @@
   "timer" : {
       "time": 10000,
       "actionType": "setContent",
-      "action": "C9_S11_positive",
+      "action": "C9_S12_positive",
       "allowed" : true
   }
 }
