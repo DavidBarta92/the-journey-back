@@ -15,7 +15,7 @@
     "btn_back" : "  VISSZA",
     "btn_eng" : "  ENG",
     "btn_hun" : "  HUN",
-    "txt_sound" : "Hang",
+    "txt_sound" : "Hang:",
     "btn_on" : "  BE",
     "btn_off" : "  KI",
     "btn_turn" : "  ↶ FORDULÁS",
@@ -781,11 +781,12 @@
     "dia_credits_2_2" : "Teó - Barta Dávid",
     "dia_credits_3_1" : "Külön köszönet",
     "dia_credits_3_2" : "a fotókért Augusztinyi Fruzsinak",
-    "dia_credits_3_3" : "a tesztelésért és lektorálásért Hamar Katinak",
+    "dia_credits_3_3" : "a tesztelésért Hamar Katinak",
     "dia_credits_4_1" : "Felhasznált zenék:",
     "dia_credits_4_2" : "",
     "dia_credits_5_1" : "Képek és inspiráció:",
     "dia_credits_5_2" : "Arthur Siegel, Hazem Talaat, Augustus Knapp, nerojer",
+    "credits_thanks" : "Külön köszönet Augusztinyi Fruzsinak és Hamar Katinak",
     
 
     "saved_data" : "  ./mentett adatok/",
