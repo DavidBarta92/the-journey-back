@@ -1,6 +1,7 @@
 {
     "C5_imagePath" : "../src/media/images/driver-text-eng.png",
     "pth_C4_S7_QR" : "../src/media/images/kosztolanyi_eng.png",
+    "pth_C5_S4_QR" : "../src/media/images/bl_hun.png",
     "pth_C6_M4_QR" : "../src/media/images/ja_eng.png",
     "txt_trivia_list" : "List of trivias",
     "btn_yes": "  Yes",
