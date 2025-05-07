@@ -11,6 +11,8 @@ import Timer from "./timer";
 import Draw from "./draw";
 import Sound from "./sound.js";
 
+const infoImage = new Image();
+infoImage.src = "../src/media/images/infobox_keyboard.png";
 var dialogueOptionClicked;
 var backgroundImage = new Image();
 var spritesheet = new Image();
@@ -117,7 +119,7 @@ export const Driver = (function(){
     const renderGameFrame = function(){
         if (!isRunning) return;
         // Wait for 41 ms to maintain 24 fps
-        Timer.wait(41);
+        Timer.wait(82);
         keys = inputController.getKeys();
 
         gameCanvas.clear();
@@ -133,6 +135,7 @@ export const Driver = (function(){
         Anim.crt();
         requestNewFrame = true;
         animationFrameId = requestAnimationFrame(renderGameFrame);
+        context.drawImage(infoImage, 1000, 620);
     }
 
     ///////////////////////////////////////////////////////////////////////
