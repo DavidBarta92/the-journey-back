@@ -1,0 +1,27 @@
+{
+    "name" : "C9_S14_positive",
+    "backgroundPath" : "../src/media/images/c9_S13.png",
+    "spritesPath" : "",
+    "itemsPath" : "",
+    "dialogue" : "",
+    "filter" : "fadeOn",
+    "music" : "../src/media/sounds/closer.mp3",
+    "atmo" : "../src/media/sounds/car_atmo.mp3",
+    "elements" : {
+      "computer" : {
+            "type": "activeArea",
+            "text": "lbl_computer",
+            "x": 411,
+            "y": 295,
+            "width": 160,
+            "height": 130,
+            "color": "white",
+            "font": "Arial",
+            "fontSize": 50,
+            "filter": "appointable",
+            "sound" : "../src/media/sounds/computer_on.mp3",
+            "actionType": "setContent",
+            "action": "C9_S15_positive"
+        }
+    }
+}

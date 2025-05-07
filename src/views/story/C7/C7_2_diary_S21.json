@@ -33,7 +33,7 @@
             "rotate": 0,
             "color": "white",
             "font": "Larabie",
-            "fontSize": 16,
+            "fontSize": 14,
             "border": false,
             "filter": null
         },

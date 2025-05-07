@@ -12,7 +12,7 @@
             "type": "text",
             "text": "dia_C5_S4",
             "x": 78,
-            "y": 180,
+            "y": 240,
             "width": 70,
             "height": 20,
             "rotate": 0,
@@ -22,7 +22,14 @@
             "fontSize": 20,
             "border": false,
             "filter": null
-          }
+          },
+          "qr": {
+          "type": "image",
+          "multiLanguage": true,
+          "path": "pth_C5_S4_QR",
+          "x": 50,
+          "y": 40
+        }
     },
     "timer" : {
         "time": 17000,
