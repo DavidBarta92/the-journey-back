@@ -31,10 +31,6 @@ var languageFile;
 
 var requestNewFrame;
 
-let menuInterval;
-let storyInterval;
-let clickInterval;
-let animInterval;
 let animationDone = true;
 
 //it is an auxiliary variable to manage the bug coused by setInterval calling 
