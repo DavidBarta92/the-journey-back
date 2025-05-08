@@ -11,9 +11,9 @@
         "text4": {
           "type": "text",
           "text": "positive_C9_S8_12",
-          "x": 210,
+          "x": 160,
           "y": 615,
-          "textBoxEnd": 850,
+          "textBoxEnd": 1000,
           "width": 70,
           "height": 20,
           "rotate": 0,
