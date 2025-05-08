@@ -23,6 +23,13 @@
             "border": false,
             "filter": null
         },
+        "p": {
+            "type": "image",
+            "multiLanguage": false,
+            "path": "../src/media/images/p.png",
+            "x": 550,
+            "y": 100
+          },
         "back": {
             "type": "button",
             "text": "btn_back",
