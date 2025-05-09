@@ -316,7 +316,7 @@
     "dia_C5_S12_2" : "A kiindulópontunk a Gale-kráter belseje, ahol a terep viszonylag sima és akadálymentes. A kráter belső részében kevés nagyobb szikla található, így a rover számára könnyen járható. A talaj kemény és stabil, ami lehetővé teszi a folyamatos haladást nagyobb fennakadások nélkül.",
     "dia_C5_S12_3" : "A kráter belseje védett a marsi viharoktól, így ezen a szakaszon kevésbé kell számítani szélsőséges időjárási viszonyokra. A látási viszonyok általában jók, ami segíti a navigációt és az előrehaladást.",
     
-    "dia_C6_S1_1" : "Azia: Azért van valami szép ebben a tájban.",
+    "dia_C6_S1_1" : "Azia: Hallak, igen. Csak nagyon elgondolkodtam... Azért van valami szép ebben a tájban.",
     "dia_C6_S1_2" : "Teó: Sosem fogom elfelejteni, mikor az első naplementét láttam a Marson.",
     "btn_C6_S2_q1":"  ▶  Inkább a kutatásodról mesélj.",
     "btn_C6_S2_q2":"  ▶  Meséld el, kérlek.",
@@ -436,7 +436,7 @@
     "dia_C6_M1_op1_op2_op1_op1_3" : "Aiza: A kérdés, hogy a belső határainkat, hogyan húzzuk meg. Hogy mit kezdünk azokkal a részekkel, amiket belül elzártunk magunkban.",
     "dia_C6_M1_op1_op2_op1_op2_1" : "Aiza: Ma ugyan így félünk?",
     "dia_C6_M1_op1_op2_op1_op2_2" : "Teó: Az emberi természet része, hogy félünk attól, amit nem értünk teljesen, és hogy próbálunk óvatosak lenni, mielőtt átlépnénk az ismeretlen határát. De ez a félelem nem feltétlenül rossz. Segít bennünket, hogy megfontoltabbak legyünk.",
-    "dia_C6_M1_op1_op2_op1_op2_3" : "Aiza: Igen, bár ez a félelem, sokszor megköti a kezünk. Mivel pont az ismeretlenről van szó, nem tudjuk, hogy mennyire is kéne óvatosnak lennünk. Főleg ha magunkról van szó és mondjuk a belső tájunkon barangolva ütközünk valami fölfedezettlenbe.",
+    "dia_C6_M1_op1_op2_op1_op2_3" : "Aiza: Igen, bár ez a félelem, sokszor megköti a kezünk. Mivel pont az ismeretlenről van szó, nem tudjuk, hogy mennyire is kéne óvatosnak lennünk. Főleg ha magunkról van szó.",
     "dia_C6_M1_op1_op2_op2_op1_1" : "Aiza: Mit gondolsz a szembenézésről?",
     "dia_C6_M1_op1_op2_op2_op1_2" : "Teó: Hát, hogy itt lenne az ideje de nem teszünk semmit. Az, hogy most már nincsenek sárkányok, nem jelenti azt, hogy nincs mitől félnünk. Te pontosan tudod, a Földről jöttél. Mi megy ott? Felégetjük a helyet ahol élünk, egyértelműek a jelek mégsem tesz senki semmit mert ilyen természetünk. Csak az aktuális pillanat számít, egyébként földbe dugjuk a fejünk és úgy teszünk mint ha a jövő nem létezne.",
     "dia_C6_M1_op1_op2_op2_op2_1" : "Aiza: Valóban rideg lett a világ vagy csak te érzed annak?",

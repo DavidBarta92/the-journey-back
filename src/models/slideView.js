@@ -163,6 +163,7 @@ export const Slide = (function(){
         player.posx = 11;
         stateManager.setView('story');
         stateManager.setContent("C6_S1");
+        Sound.noiseStop();
         gameCanvas.clear();
         isRunning = false; 
         cancelAnimationFrame(animationFrameId);

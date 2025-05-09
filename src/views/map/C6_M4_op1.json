@@ -10,8 +10,8 @@
     "dialogue" : "david",
     "targetPoints" : {
         "a" : {
-            "x": 3000,
-            "y": -6000,
+            "x": 13000,
+            "y": 16000,
             "actionType": "setToClickView",
             "action": "C6_S6",
             "text": "",
