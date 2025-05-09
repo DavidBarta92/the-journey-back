@@ -10,7 +10,7 @@
     "dialogue" : "david",
     "targetPoints" : {
         "a" : {
-            "x": 600,
+            "x": 1000,
             "y": 5000,
             "actionType": "setContent",
             "action": "C6_M3_op1_op1",

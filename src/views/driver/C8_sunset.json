@@ -1,7 +1,7 @@
 {
     "name" : "C8_sunset",
     "cursor" : "false",
-    "backgroundPath" : "../src/media/images/driver-background.png",
+    "backgroundPath" : "../src/media/images/driver-background-sunset.png",
     "spritesPath" : "../src/media/images/spritesheet.high.png",
     "itemsPath" : "",
     "dialogue" : "david",

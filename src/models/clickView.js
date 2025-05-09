@@ -31,10 +31,6 @@ var languageFile;
 
 var requestNewFrame;
 
-let menuInterval;
-let storyInterval;
-let clickInterval;
-let animInterval;
 let animationDone = true;
 
 //it is an auxiliary variable to manage the bug coused by setInterval calling 
@@ -650,7 +646,6 @@ export const Story = (function(){
     const init = function(state){
         counterTimer = null;
         context.globalAlpha = 0
-        // we need to empty this object when a new view is loaded
         interactives = {};
         contentContainer = dataController.loadContent(state);
         background = dataController.loadImage(contentContainer.backgroundPath);
@@ -689,7 +684,8 @@ export const Story = (function(){
     }
 
     const trackAnimation = function(){
-        if(triggering()) renderStoryFrame();
+        //if(triggering()) 
+            renderStoryFrame();
     }
     
     return {
